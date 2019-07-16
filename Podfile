@@ -6,5 +6,5 @@ target 'Amoogye' do
   use_frameworks!
 
   # Pods for Amoogye
-
+  pod 'SwiftLint'
 end
