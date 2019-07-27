@@ -140,6 +140,9 @@
                                         <rect key="frame" x="335" y="10" width="30" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="i"/>
+                                        <connections>
+                                            <segue destination="BfP-aX-sbf" kind="presentation" id="KpC-qc-eBg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -175,13 +178,22 @@
                                     <constraint firstItem="PCP-zs-2e6" firstAttribute="leading" secondItem="ZIr-uD-RuZ" secondAttribute="leading" constant="20" id="wXB-31-SSN"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqL-Zy-eR9">
+                                <rect key="frame" x="316" y="40" width="39" height="30"/>
+                                <state key="normal" title="Down"/>
+                                <connections>
+                                    <action selector="expandLogButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OrP-w4-JY5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="tqL-Zy-eR9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="2Z1-9J-FFG"/>
                             <constraint firstItem="ZIr-uD-RuZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="KeF-eI-bmk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZIr-uD-RuZ" secondAttribute="trailing" id="PB6-Vw-sMO"/>
                             <constraint firstItem="ZIr-uD-RuZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gAm-87-wYK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZIr-uD-RuZ" secondAttribute="bottom" id="wYV-1W-4nt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tqL-Zy-eR9" secondAttribute="trailing" constant="20" id="woy-2r-Ytr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -190,6 +202,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1119" y="-569"/>
+        </scene>
+        <!--Calculator Measuring Tip View Controller-->
+        <scene sceneID="aL5-fN-KoX">
+            <objects>
+                <viewController id="BfP-aX-sbf" customClass="CalculatorMeasuringTipViewController" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xql-dd-Umg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKb-5i-RRI">
+                                <rect key="frame" x="325" y="45.5" width="30" height="30"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="closeButtonClick:" destination="BfP-aX-sbf" eventType="touchUpInside" id="PqO-Ic-n2R"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계량하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVL-tn-oGf">
+                                <rect key="frame" x="158" y="50" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ydl-gb-cNe" firstAttribute="trailing" secondItem="aKb-5i-RRI" secondAttribute="trailing" constant="20" id="9Yy-E6-XmZ"/>
+                            <constraint firstItem="OVL-tn-oGf" firstAttribute="top" secondItem="ydl-gb-cNe" secondAttribute="top" constant="30" id="OcL-43-1lI"/>
+                            <constraint firstItem="aKb-5i-RRI" firstAttribute="centerY" secondItem="OVL-tn-oGf" secondAttribute="centerY" id="RBZ-zY-B6n"/>
+                            <constraint firstItem="OVL-tn-oGf" firstAttribute="centerX" secondItem="xql-dd-Umg" secondAttribute="centerX" id="T2N-7Z-mgv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ydl-gb-cNe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ThI-Ud-LQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1770" y="-570"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="g3J-bz-CWS">
