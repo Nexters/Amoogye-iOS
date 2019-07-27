@@ -144,6 +144,12 @@
                                             <segue destination="BfP-aX-sbf" kind="presentation" id="KpC-qc-eBg"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 종이컵" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sv4-pV-ukX">
+                                        <rect key="frame" x="257" y="191" width="98" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -164,7 +170,9 @@
                                     <constraint firstItem="y3X-0o-DIx" firstAttribute="top" secondItem="eug-BS-Yui" secondAttribute="bottom" constant="25" id="N9D-Iv-udz"/>
                                     <constraint firstItem="ZDY-wd-F2C" firstAttribute="centerY" secondItem="n9G-fR-VQb" secondAttribute="centerY" id="Pee-Fl-S7P"/>
                                     <constraint firstItem="y7s-fy-U0B" firstAttribute="leading" secondItem="Tyj-aV-4jF" secondAttribute="trailing" constant="10" id="SK8-So-O82"/>
+                                    <constraint firstItem="Sv4-pV-ukX" firstAttribute="trailing" secondItem="PCP-zs-2e6" secondAttribute="trailing" id="hUa-QA-uKv"/>
                                     <constraint firstItem="3Ci-h6-uqM" firstAttribute="centerY" secondItem="4Q4-pY-cu4" secondAttribute="centerY" id="ioU-sQ-2tr"/>
+                                    <constraint firstItem="Sv4-pV-ukX" firstAttribute="centerY" secondItem="y3X-0o-DIx" secondAttribute="centerY" id="jTb-3Y-8dw"/>
                                     <constraint firstItem="w9c-YK-2iN" firstAttribute="top" secondItem="Tyj-aV-4jF" secondAttribute="bottom" constant="20" id="jdH-Mt-qhF"/>
                                     <constraint firstItem="Tyj-aV-4jF" firstAttribute="leading" secondItem="PCP-zs-2e6" secondAttribute="leading" id="maf-bD-kqM"/>
                                     <constraint firstItem="y7s-fy-U0B" firstAttribute="centerY" secondItem="Tyj-aV-4jF" secondAttribute="centerY" id="nmR-W1-0lL"/>
