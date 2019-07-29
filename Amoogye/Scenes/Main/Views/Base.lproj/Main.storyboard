@@ -536,8 +536,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="종이컵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7L-YV-tNQ">
-                                <rect key="frame" x="40" y="280" width="75.5" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="햇반통" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7L-YV-tNQ">
+                                <rect key="frame" x="40" y="280" width="76" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -592,6 +592,10 @@
                         <viewLayoutGuide key="safeArea" id="VpS-0E-jXN"/>
                     </view>
                     <navigationItem key="navigationItem" id="zfV-el-UOM"/>
+                    <connections>
+                        <outlet property="toolLabel" destination="w7L-YV-tNQ" id="xh3-Ow-7sh"/>
+                        <outlet property="toolPicker" destination="v1g-Tc-uZf" id="ERA-CS-5gv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Egu-rf-GxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -696,51 +700,78 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="WDS-XO-3dy">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="53"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNE-nv-tTV">
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNE-nv-tTV">
                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="53"/>
                                                 <state key="normal" title="7"/>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="azH-by-VVE" eventType="touchUpInside" id="w64-G0-HNI"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkU-KP-RjK">
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkU-KP-RjK">
                                                 <rect key="frame" x="120" y="0.0" width="55" height="53"/>
                                                 <state key="normal" title="8"/>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="azH-by-VVE" eventType="touchUpInside" id="rPB-hM-HBN"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slA-da-FKx">
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slA-da-FKx">
                                                 <rect key="frame" x="240" y="0.0" width="55" height="53"/>
                                                 <state key="normal" title="9"/>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="azH-by-VVE" eventType="touchUpInside" id="RAy-Fm-SUc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="pzS-us-EHy">
                                         <rect key="frame" x="0.0" y="61" width="295" height="52.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bx5-rp-dwd">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bx5-rp-dwd">
                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="52.5"/>
                                                 <state key="normal" title="4"/>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="azH-by-VVE" eventType="touchUpInside" id="Gh6-2w-xOT"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqh-gk-1mc">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqh-gk-1mc">
                                                 <rect key="frame" x="120" y="0.0" width="55" height="52.5"/>
                                                 <state key="normal" title="5"/>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="azH-by-VVE" eventType="touchUpInside" id="zgU-Ey-XNW"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBH-h7-eJ3">
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBH-h7-eJ3">
                                                 <rect key="frame" x="240" y="0.0" width="55" height="52.5"/>
                                                 <state key="normal" title="6"/>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="azH-by-VVE" eventType="touchUpInside" id="17C-4w-kCo"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="2s7-04-TnM">
                                         <rect key="frame" x="0.0" y="121.5" width="295" height="53"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJT-XS-jYx">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJT-XS-jYx">
                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="53"/>
                                                 <state key="normal" title="1"/>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="azH-by-VVE" eventType="touchUpInside" id="THf-gR-NNR"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnj-I7-eWS">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnj-I7-eWS">
                                                 <rect key="frame" x="120" y="0.0" width="55" height="53"/>
                                                 <state key="normal" title="2"/>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="azH-by-VVE" eventType="touchUpInside" id="yNM-R6-0M8"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVN-RB-yfT">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVN-RB-yfT">
                                                 <rect key="frame" x="240" y="0.0" width="55" height="53"/>
                                                 <state key="normal" title="3"/>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="azH-by-VVE" eventType="touchUpInside" id="i40-8r-5Im"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -750,6 +781,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZI-23-RgV">
                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="52.5"/>
                                                 <state key="normal" title="0"/>
+                                                <connections>
+                                                    <action selector="numberClick:" destination="azH-by-VVE" eventType="touchUpInside" id="3m4-97-pXt"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZq-7q-aQ0">
                                                 <rect key="frame" x="120" y="0.0" width="55" height="52.5"/>
@@ -758,6 +792,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgg-GY-ZnY">
                                                 <rect key="frame" x="240" y="0.0" width="55" height="52.5"/>
                                                 <state key="normal" title="&lt;-"/>
+                                                <connections>
+                                                    <action selector="deleteNumber:" destination="azH-by-VVE" eventType="touchUpInside" id="HeY-6o-hge"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -800,6 +837,9 @@
                         <viewLayoutGuide key="safeArea" id="myI-Mz-2aS"/>
                     </view>
                     <navigationItem key="navigationItem" id="fof-5T-mpF"/>
+                    <connections>
+                        <outlet property="countLabel" destination="1DS-FA-wUV" id="4tI-Ki-QkZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vO-AZ-LyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,6 +10,8 @@ import UIKit
 
 class GetCountForNewToolViewController: UIViewController {
 
+    @IBOutlet weak var countLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,4 +24,28 @@ class GetCountForNewToolViewController: UIViewController {
         navigationController?.dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func numberClick(_ sender: UIButton) {
+        guard let countText = countLabel.text else {
+            return
+        }
+
+        if countText == "0" {
+            countLabel.text = String(sender.tag)
+        } else {
+            countLabel.text = countText + String(sender.tag)
+        }
+    }
+
+    @IBAction func deleteNumber (_ sender: UIButton) {
+        guard let countText = countLabel.text else {
+            return
+        }
+
+        if countText.count > 1 {
+            let end = countText.index(before: countText.endIndex)
+            countLabel.text = String(countText[..<end])
+        } else {
+            countLabel.text = "0"
+        }
+    }
 }
