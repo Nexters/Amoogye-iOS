@@ -23,10 +23,10 @@ extension MeasuringToolViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MeasuringToolTableViewCell", for: indexPath) as! MeasuringToolTableViewCell
-        
+
         cell.toolNameLabel.text = "단위"
         cell.toolSubnameLabel.text = "부단위"
         return cell
