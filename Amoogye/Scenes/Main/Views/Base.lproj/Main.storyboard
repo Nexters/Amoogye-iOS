@@ -189,9 +189,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqL-Zy-eR9">
                                 <rect key="frame" x="316" y="40" width="39" height="30"/>
                                 <state key="normal" title="Down"/>
-                                <connections>
-                                    <action selector="expandLogButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OrP-w4-JY5"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -253,6 +250,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eBc-HB-6wz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2On-mX-8BZ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
