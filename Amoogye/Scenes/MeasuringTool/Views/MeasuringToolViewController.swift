@@ -10,20 +10,29 @@ import UIKit
 
 class MeasuringToolViewController: UIViewController {
 
+    @IBOutlet weak var toolTableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        toolTableView.dataSource = self
+        toolTableView.delegate = self
     }
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension MeasuringToolViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MeasuringToolTableViewCell", for: indexPath) as! MeasuringToolTableViewCell
+        
+        cell.toolNameLabel.text = "단위"
+        cell.toolSubnameLabel.text = "부단위"
+        return cell
+    }
+}
+
+extension MeasuringToolViewController: UITableViewDelegate {
 
 }

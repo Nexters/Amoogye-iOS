@@ -304,10 +304,102 @@
                     <view key="view" contentMode="scaleToFill" id="nbn-gA-eN0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlR-dh-BeX">
+                                <rect key="frame" x="30" y="40" width="56" height="30"/>
+                                <state key="normal" title="일반 계량"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFL-H9-Qvp">
+                                <rect key="frame" x="111" y="40" width="56" height="30"/>
+                                <state key="normal" title="생활 계량"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8EE-qN-OPy">
+                                <rect key="frame" x="0.0" y="90" width="375" height="528"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fXR-HH-7hx">
+                                        <rect key="frame" x="15" y="15" width="345" height="463"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MeasuringToolTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MeasuringToolTableViewCell" id="T1A-tn-eST" customClass="MeasuringToolTableViewCell" customModule="Amoogye" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="345" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T1A-tn-eST" id="djf-zW-kqm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D72-ml-Ukh">
+                                                            <rect key="frame" x="20" y="10.5" width="46.5" height="23"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smn-TO-ZFH">
+                                                            <rect key="frame" x="76.5" y="13.5" width="35.5" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ep3-Ez-KuK">
+                                                            <rect key="frame" x="286" y="6.5" width="51" height="31"/>
+                                                        </switch>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="D72-ml-Ukh" firstAttribute="leading" secondItem="djf-zW-kqm" secondAttribute="leadingMargin" constant="5" id="3d8-sZ-9dc"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Ep3-Ez-KuK" secondAttribute="trailing" constant="10" id="7wW-09-8Sc"/>
+                                                        <constraint firstItem="smn-TO-ZFH" firstAttribute="leading" secondItem="D72-ml-Ukh" secondAttribute="trailing" constant="10" id="bCr-ec-owh"/>
+                                                        <constraint firstItem="Ep3-Ez-KuK" firstAttribute="centerY" secondItem="djf-zW-kqm" secondAttribute="centerY" id="geV-aX-8sP"/>
+                                                        <constraint firstItem="smn-TO-ZFH" firstAttribute="centerY" secondItem="djf-zW-kqm" secondAttribute="centerY" id="ppK-qj-dWM"/>
+                                                        <constraint firstItem="D72-ml-Ukh" firstAttribute="centerY" secondItem="djf-zW-kqm" secondAttribute="centerY" id="yCz-6A-6rM"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="toolNameLabel" destination="D72-ml-Ukh" id="St4-BB-3j6"/>
+                                                    <outlet property="toolSubnameLabel" destination="smn-TO-ZFH" id="ITy-Hm-sfK"/>
+                                                    <outlet property="toolSwitch" destination="Ep3-Ez-KuK" id="QSD-Me-FF9"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3t-gm-Kyr">
+                                        <rect key="frame" x="0.0" y="478" width="375" height="50"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="MPD-ng-sV5"/>
+                                        </constraints>
+                                        <state key="normal" title="계량도구 추가">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fXR-HH-7hx" secondAttribute="trailing" constant="15" id="GPP-wl-h5O"/>
+                                    <constraint firstAttribute="bottom" secondItem="B3t-gm-Kyr" secondAttribute="bottom" id="c2L-ca-gFk"/>
+                                    <constraint firstItem="fXR-HH-7hx" firstAttribute="top" secondItem="8EE-qN-OPy" secondAttribute="top" constant="15" id="f0G-Kq-QoZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="B3t-gm-Kyr" secondAttribute="trailing" id="ifp-PC-opY"/>
+                                    <constraint firstItem="B3t-gm-Kyr" firstAttribute="leading" secondItem="8EE-qN-OPy" secondAttribute="leading" id="ku7-pr-7ue"/>
+                                    <constraint firstItem="B3t-gm-Kyr" firstAttribute="top" secondItem="fXR-HH-7hx" secondAttribute="bottom" id="wxy-TK-GnX"/>
+                                    <constraint firstItem="fXR-HH-7hx" firstAttribute="leading" secondItem="8EE-qN-OPy" secondAttribute="leading" constant="15" id="xnS-Un-r7W"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hlR-dh-BeX" firstAttribute="leading" secondItem="WT1-ys-dBv" secondAttribute="leading" constant="30" id="F99-XK-QR0"/>
+                            <constraint firstItem="8EE-qN-OPy" firstAttribute="leading" secondItem="WT1-ys-dBv" secondAttribute="leading" id="FSl-lP-j8Z"/>
+                            <constraint firstItem="WT1-ys-dBv" firstAttribute="bottom" secondItem="8EE-qN-OPy" secondAttribute="bottom" id="J0J-Qw-cq2"/>
+                            <constraint firstItem="WT1-ys-dBv" firstAttribute="trailing" secondItem="8EE-qN-OPy" secondAttribute="trailing" id="Qvt-8w-cJ5"/>
+                            <constraint firstItem="hlR-dh-BeX" firstAttribute="top" secondItem="WT1-ys-dBv" secondAttribute="top" constant="20" id="WZG-mC-NnD"/>
+                            <constraint firstItem="RFL-H9-Qvp" firstAttribute="centerY" secondItem="hlR-dh-BeX" secondAttribute="centerY" id="Zh7-GL-hGp"/>
+                            <constraint firstItem="8EE-qN-OPy" firstAttribute="top" secondItem="hlR-dh-BeX" secondAttribute="bottom" constant="20" id="eZH-Eh-mj3"/>
+                            <constraint firstItem="RFL-H9-Qvp" firstAttribute="leading" secondItem="hlR-dh-BeX" secondAttribute="trailing" constant="25" id="wzs-xK-UzJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WT1-ys-dBv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="계량도구" id="cyB-34-Tdl"/>
+                    <connections>
+                        <outlet property="toolTableView" destination="fXR-HH-7hx" id="huG-Iz-61w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWM-Op-NEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
