@@ -288,10 +288,25 @@
                     <view key="view" contentMode="scaleToFill" id="94w-we-puv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RWJ-2w-F1J">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mA2-hW-Ml0" firstAttribute="bottom" secondItem="RWJ-2w-F1J" secondAttribute="bottom" id="Ew2-rH-F8d"/>
+                            <constraint firstItem="RWJ-2w-F1J" firstAttribute="top" secondItem="mA2-hW-Ml0" secondAttribute="top" id="aoB-VI-o4r"/>
+                            <constraint firstItem="mA2-hW-Ml0" firstAttribute="trailing" secondItem="RWJ-2w-F1J" secondAttribute="trailing" id="ipx-f6-tce"/>
+                            <constraint firstItem="RWJ-2w-F1J" firstAttribute="leading" secondItem="mA2-hW-Ml0" secondAttribute="leading" id="wRw-Oj-ckt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mA2-hW-Ml0"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="설정" id="1R5-Gc-Q07"/>
+                    <connections>
+                        <outlet property="settingTableView" destination="RWJ-2w-F1J" id="jWh-mb-pDZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pP7-ep-72C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -353,9 +368,8 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="toolNameLabel" destination="D72-ml-Ukh" id="St4-BB-3j6"/>
-                                                    <outlet property="toolSubnameLabel" destination="smn-TO-ZFH" id="ITy-Hm-sfK"/>
-                                                    <outlet property="toolSwitch" destination="Ep3-Ez-KuK" id="QSD-Me-FF9"/>
+                                                    <outlet property="toolNameLabel" destination="D72-ml-Ukh" id="9Vt-J1-ZGU"/>
+                                                    <outlet property="toolSubnameLabel" destination="smn-TO-ZFH" id="8cr-wZ-ps5"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

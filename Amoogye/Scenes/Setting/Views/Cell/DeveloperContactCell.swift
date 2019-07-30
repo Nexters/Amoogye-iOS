@@ -1,5 +1,5 @@
 //
-//  MeasuringToolTableViewCell.swift
+//  DeveloperContactCell.swift
 //  Amoogye
 //
 //  Created by 임수현 on 30/07/2019.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MeasuringToolTableViewCell: UITableViewCell {
+class DeveloperContactCell: UITableViewCell {
 
-    @IBOutlet weak var toolNameLabel: UILabel!
-    @IBOutlet weak var toolSubnameLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

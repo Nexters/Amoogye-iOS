@@ -11,11 +11,17 @@
 		3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */; };
 		3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550BD22E9C1B10003C584 /* SettingViewController.swift */; };
 		3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550C322EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift */; };
-		3A8550CC22EF34D70003C584 /* MeasuringToolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550CB22EF34D70003C584 /* MeasuringToolTableViewCell.swift */; };
-		3A8550D022EF3DCF0003C584 /* SetNameForNewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550CF22EF3DCF0003C584 /* SetNameForNewToolViewController.swift */; };
-		3A8550D222EF422A0003C584 /* SetToolForNewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550D122EF422A0003C584 /* SetToolForNewToolViewController.swift */; };
-		3A8550D422EF45D30003C584 /* GetCountForNewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550D322EF45D30003C584 /* GetCountForNewToolViewController.swift */; };
-		3A8550D622EF47830003C584 /* CompleteNewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550D522EF47830003C584 /* CompleteNewToolViewController.swift */; };
+		3A8550DA22F007650003C584 /* OnOffCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550D822F007640003C584 /* OnOffCell.swift */; };
+		3A8550DB22F007650003C584 /* OnOffCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8550D922F007640003C584 /* OnOffCell.xib */; };
+		3A8550DE22F009450003C584 /* DeveloperContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550DC22F009450003C584 /* DeveloperContactCell.swift */; };
+		3A8550DF22F009450003C584 /* DeveloperContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8550DD22F009450003C584 /* DeveloperContactCell.xib */; };
+		3A8550E522F00AF30003C584 /* SetToolForNewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550E022F00AF30003C584 /* SetToolForNewToolViewController.swift */; };
+		3A8550E722F00AF30003C584 /* CompleteNewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550E222F00AF30003C584 /* CompleteNewToolViewController.swift */; };
+		3A8550E822F00AF30003C584 /* SetNameForNewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550E322F00AF30003C584 /* SetNameForNewToolViewController.swift */; };
+		3A8550E922F00AF30003C584 /* GetCountForNewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550E422F00AF30003C584 /* GetCountForNewToolViewController.swift */; };
+		3A8550F122F00CFF0003C584 /* MeasuringToolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550F022F00CFF0003C584 /* MeasuringToolTableViewCell.swift */; };
+		3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550F222F013B00003C584 /* SettingTitleCell.swift */; };
+		3A8550F522F013B00003C584 /* SettingTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8550F322F013B00003C584 /* SettingTitleCell.xib */; };
 		3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE65522D9AE2B00F61E46 /* AppDelegate.swift */; };
 		3ABCE65822D9AE2B00F61E46 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE65722D9AE2B00F61E46 /* CalculatorViewController.swift */; };
 		3ABCE65B22D9AE2B00F61E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE65922D9AE2B00F61E46 /* Main.storyboard */; };
@@ -42,11 +48,17 @@
 		3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolViewController.swift; sourceTree = "<group>"; };
 		3A8550BD22E9C1B10003C584 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3A8550C322EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorMeasuringTipViewController.swift; sourceTree = "<group>"; };
-		3A8550CB22EF34D70003C584 /* MeasuringToolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolTableViewCell.swift; sourceTree = "<group>"; };
-		3A8550CF22EF3DCF0003C584 /* SetNameForNewToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNameForNewToolViewController.swift; sourceTree = "<group>"; };
-		3A8550D122EF422A0003C584 /* SetToolForNewToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetToolForNewToolViewController.swift; sourceTree = "<group>"; };
-		3A8550D322EF45D30003C584 /* GetCountForNewToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCountForNewToolViewController.swift; sourceTree = "<group>"; };
-		3A8550D522EF47830003C584 /* CompleteNewToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteNewToolViewController.swift; sourceTree = "<group>"; };
+		3A8550D822F007640003C584 /* OnOffCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnOffCell.swift; sourceTree = "<group>"; };
+		3A8550D922F007640003C584 /* OnOffCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnOffCell.xib; sourceTree = "<group>"; };
+		3A8550DC22F009450003C584 /* DeveloperContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperContactCell.swift; sourceTree = "<group>"; };
+		3A8550DD22F009450003C584 /* DeveloperContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeveloperContactCell.xib; sourceTree = "<group>"; };
+		3A8550E022F00AF30003C584 /* SetToolForNewToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetToolForNewToolViewController.swift; sourceTree = "<group>"; };
+		3A8550E222F00AF30003C584 /* CompleteNewToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteNewToolViewController.swift; sourceTree = "<group>"; };
+		3A8550E322F00AF30003C584 /* SetNameForNewToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNameForNewToolViewController.swift; sourceTree = "<group>"; };
+		3A8550E422F00AF30003C584 /* GetCountForNewToolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCountForNewToolViewController.swift; sourceTree = "<group>"; };
+		3A8550F022F00CFF0003C584 /* MeasuringToolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolTableViewCell.swift; sourceTree = "<group>"; };
+		3A8550F222F013B00003C584 /* SettingTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleCell.swift; sourceTree = "<group>"; };
+		3A8550F322F013B00003C584 /* SettingTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTitleCell.xib; sourceTree = "<group>"; };
 		3ABCE65222D9AE2B00F61E46 /* Amoogye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amoogye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABCE65522D9AE2B00F61E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ABCE65722D9AE2B00F61E46 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
@@ -82,10 +94,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A8550C622EF322F0003C584 /* Cells */ = {
+		3A8550D722F007400003C584 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				3A8550CB22EF34D70003C584 /* MeasuringToolTableViewCell.swift */,
+				3A8550D822F007640003C584 /* OnOffCell.swift */,
+				3A8550D922F007640003C584 /* OnOffCell.xib */,
+				3A8550DC22F009450003C584 /* DeveloperContactCell.swift */,
+				3A8550DD22F009450003C584 /* DeveloperContactCell.xib */,
+				3A8550F222F013B00003C584 /* SettingTitleCell.swift */,
+				3A8550F322F013B00003C584 /* SettingTitleCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3A8550EF22F00BB70003C584 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3A8550F022F00CFF0003C584 /* MeasuringToolTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -249,12 +274,12 @@
 		A3C5E81322EB9BCD0098F520 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A8550C622EF322F0003C584 /* Cells */,
+				3A8550EF22F00BB70003C584 /* Cells */,
+				3A8550E222F00AF30003C584 /* CompleteNewToolViewController.swift */,
+				3A8550E422F00AF30003C584 /* GetCountForNewToolViewController.swift */,
+				3A8550E322F00AF30003C584 /* SetNameForNewToolViewController.swift */,
+				3A8550E022F00AF30003C584 /* SetToolForNewToolViewController.swift */,
 				3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */,
-				3A8550CF22EF3DCF0003C584 /* SetNameForNewToolViewController.swift */,
-				3A8550D122EF422A0003C584 /* SetToolForNewToolViewController.swift */,
-				3A8550D322EF45D30003C584 /* GetCountForNewToolViewController.swift */,
-				3A8550D522EF47830003C584 /* CompleteNewToolViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -262,6 +287,7 @@
 		A3C5E81622EB9BE20098F520 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A8550D722F007400003C584 /* Cell */,
 				3A8550BD22E9C1B10003C584 /* SettingViewController.swift */,
 			);
 			path = Views;
@@ -388,9 +414,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8550DB22F007650003C584 /* OnOffCell.xib in Resources */,
 				A3C5E80422EB96280098F520 /* MainTableCell.xib in Resources */,
 				A3C5E79522DE36530098F520 /* .swiftlint.yml in Resources */,
 				3ABCE66022D9AE2C00F61E46 /* LaunchScreen.storyboard in Resources */,
+				3A8550DF22F009450003C584 /* DeveloperContactCell.xib in Resources */,
+				3A8550F522F013B00003C584 /* SettingTitleCell.xib in Resources */,
 				3ABCE65D22D9AE2C00F61E46 /* Assets.xcassets in Resources */,
 				3ABCE65B22D9AE2B00F61E46 /* Main.storyboard in Resources */,
 			);
@@ -462,27 +491,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A8550D422EF45D30003C584 /* GetCountForNewToolViewController.swift in Sources */,
 				3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */,
+				3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */,
 				A3C5E81522EB9BDF0098F520 /* SettingViewModel.swift in Sources */,
+				3A8550F122F00CFF0003C584 /* MeasuringToolTableViewCell.swift in Sources */,
+				3A8550E722F00AF30003C584 /* CompleteNewToolViewController.swift in Sources */,
 				A3C5E80022EB95B30098F520 /* MainView.swift in Sources */,
 				A3C5E81222EB9BC60098F520 /* MeasuringToolViewModel.swift in Sources */,
-				3A8550D622EF47830003C584 /* CompleteNewToolViewController.swift in Sources */,
 				3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */,
-				3A8550D222EF422A0003C584 /* SetToolForNewToolViewController.swift in Sources */,
+				3A8550E522F00AF30003C584 /* SetToolForNewToolViewController.swift in Sources */,
 				A3C5E80222EB95E00098F520 /* MainTableCell.swift in Sources */,
 				3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */,
 				3ABCE65822D9AE2B00F61E46 /* CalculatorViewController.swift in Sources */,
 				3A8550BA22E9C16D0003C584 /* TimerViewController.swift in Sources */,
 				A3C5E80922EB99950098F520 /* UseCaseProvider.swift in Sources */,
-				3A8550D022EF3DCF0003C584 /* SetNameForNewToolViewController.swift in Sources */,
-				3A8550CC22EF34D70003C584 /* MeasuringToolTableViewCell.swift in Sources */,
 				A3C5E7FE22EB95970098F520 /* MainViewContoller.swift in Sources */,
+				3A8550DE22F009450003C584 /* DeveloperContactCell.swift in Sources */,
 				A3C5E81922EB9C010098F520 /* TimerViewModel.swift in Sources */,
 				A3C5E80B22EB99B00098F520 /* MeasuringTool.swift in Sources */,
 				3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */,
 				A3C5E81022EB9BB10098F520 /* CalculatorViewModel.swift in Sources */,
+				3A8550E922F00AF30003C584 /* GetCountForNewToolViewController.swift in Sources */,
+				3A8550E822F00AF30003C584 /* SetNameForNewToolViewController.swift in Sources */,
 				A3C5E80622EB98250098F520 /* MainViewModel.swift in Sources */,
+				3A8550DA22F007650003C584 /* OnOffCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
