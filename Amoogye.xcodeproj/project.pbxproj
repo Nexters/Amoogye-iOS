@@ -28,17 +28,6 @@
 		3ABCE65D22D9AE2C00F61E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE65C22D9AE2C00F61E46 /* Assets.xcassets */; };
 		3ABCE66022D9AE2C00F61E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE65E22D9AE2C00F61E46 /* LaunchScreen.storyboard */; };
 		A3C5E79522DE36530098F520 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A3C5E79422DE36530098F520 /* .swiftlint.yml */; };
-		A3C5E7FE22EB95970098F520 /* MainViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E7FD22EB95970098F520 /* MainViewContoller.swift */; };
-		A3C5E80022EB95B30098F520 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E7FF22EB95B30098F520 /* MainView.swift */; };
-		A3C5E80222EB95E00098F520 /* MainTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E80122EB95E00098F520 /* MainTableCell.swift */; };
-		A3C5E80422EB96280098F520 /* MainTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C5E80322EB96280098F520 /* MainTableCell.xib */; };
-		A3C5E80622EB98250098F520 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E80522EB98250098F520 /* MainViewModel.swift */; };
-		A3C5E80922EB99950098F520 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E80822EB99950098F520 /* UseCaseProvider.swift */; };
-		A3C5E80B22EB99B00098F520 /* MeasuringTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E80A22EB99B00098F520 /* MeasuringTool.swift */; };
-		A3C5E81022EB9BB10098F520 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E80F22EB9BB10098F520 /* CalculatorViewModel.swift */; };
-		A3C5E81222EB9BC60098F520 /* MeasuringToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E81122EB9BC60098F520 /* MeasuringToolViewModel.swift */; };
-		A3C5E81522EB9BDF0098F520 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E81422EB9BDF0098F520 /* SettingViewModel.swift */; };
-		A3C5E81922EB9C010098F520 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5E81822EB9C010098F520 /* TimerViewModel.swift */; };
 		BC10E39C39F4E1B94E1C1748 /* Pods_Amoogye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,17 +57,6 @@
 		3ABCE66122D9AE2C00F61E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D0791F43C10572A5D0191EE /* Pods-Amoogye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.release.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.release.xcconfig"; sourceTree = "<group>"; };
 		A3C5E79422DE36530098F520 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		A3C5E7FD22EB95970098F520 /* MainViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewContoller.swift; sourceTree = "<group>"; };
-		A3C5E7FF22EB95B30098F520 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		A3C5E80122EB95E00098F520 /* MainTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableCell.swift; sourceTree = "<group>"; };
-		A3C5E80322EB96280098F520 /* MainTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableCell.xib; sourceTree = "<group>"; };
-		A3C5E80522EB98250098F520 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		A3C5E80822EB99950098F520 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
-		A3C5E80A22EB99B00098F520 /* MeasuringTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringTool.swift; sourceTree = "<group>"; };
-		A3C5E80F22EB9BB10098F520 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
-		A3C5E81122EB9BC60098F520 /* MeasuringToolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolViewModel.swift; sourceTree = "<group>"; };
-		A3C5E81422EB9BDF0098F520 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
-		A3C5E81822EB9C010098F520 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		FF1B1192416A93293D91C594 /* Pods-Amoogye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.debug.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +72,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A8550D722F007400003C584 /* Cell */ = {
+		3A8550D722F007400003C584 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				3A8550D822F007640003C584 /* OnOffCell.swift */,
@@ -104,7 +82,7 @@
 				3A8550F222F013B00003C584 /* SettingTitleCell.swift */,
 				3A8550F322F013B00003C584 /* SettingTitleCell.xib */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		3A8550EF22F00BB70003C584 /* Cells */ = {
@@ -139,139 +117,43 @@
 			children = (
 				3ABCE65522D9AE2B00F61E46 /* AppDelegate.swift */,
 				3ABCE65C22D9AE2C00F61E46 /* Assets.xcassets */,
-				A3C5E81E22EE19B00098F520 /* Common */,
-				A3C5E7DC22EB26240098F520 /* Domain */,
 				3ABCE66122D9AE2C00F61E46 /* Info.plist */,
 				3ABCE65E22D9AE2C00F61E46 /* LaunchScreen.storyboard */,
-				A3C5E7FB22EB94D50098F520 /* RealmPlatform */,
-				A3C5E7F222EB92C80098F520 /* Scenes */,
+				3ABCE65922D9AE2B00F61E46 /* Main.storyboard */,
+				A3C5E81E22EE19B00098F520 /* Common */,
+				A3C7BABF22F300E30067D632 /* Calculator */,
+				A3C7BAC022F300F10067D632 /* Timer */,
+				A3C7BAC122F301010067D632 /* MeasuringTool */,
+				A3C7BAC222F301270067D632 /* Setting */,
 			);
 			path = Amoogye;
 			sourceTree = "<group>";
 		};
-		A3C5E7DC22EB26240098F520 /* Domain */ = {
+		A3C5E81E22EE19B00098F520 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A3C5E7F022EB908D0098F520 /* Entries */,
-				A3C5E7F122EB90930098F520 /* UseCases */,
 			);
-			path = Domain;
+			path = Common;
 			sourceTree = "<group>";
 		};
-		A3C5E7F022EB908D0098F520 /* Entries */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E80A22EB99B00098F520 /* MeasuringTool.swift */,
-			);
-			path = Entries;
-			sourceTree = "<group>";
-		};
-		A3C5E7F122EB90930098F520 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E80822EB99950098F520 /* UseCaseProvider.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		A3C5E7F222EB92C80098F520 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E7F422EB92DB0098F520 /* Calculator */,
-				A3C5E7F322EB92D40098F520 /* Main */,
-				A3C5E7F722EB92FC0098F520 /* MeasuringTool */,
-				A3C5E7F522EB92E80098F520 /* Setting */,
-				A3C5E7F622EB92F70098F520 /* Timer */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		A3C5E7F322EB92D40098F520 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E80722EB987F0098F520 /* Views */,
-				A3C5E80522EB98250098F520 /* MainViewModel.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		A3C5E7F422EB92DB0098F520 /* Calculator */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E80F22EB9BB10098F520 /* CalculatorViewModel.swift */,
-				A3C5E80E22EB9B920098F520 /* Views */,
-			);
-			path = Calculator;
-			sourceTree = "<group>";
-		};
-		A3C5E7F522EB92E80098F520 /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E81622EB9BE20098F520 /* Views */,
-				A3C5E81422EB9BDF0098F520 /* SettingViewModel.swift */,
-			);
-			path = Setting;
-			sourceTree = "<group>";
-		};
-		A3C5E7F622EB92F70098F520 /* Timer */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E81822EB9C010098F520 /* TimerViewModel.swift */,
-				A3C5E81722EB9BED0098F520 /* Views */,
-			);
-			path = Timer;
-			sourceTree = "<group>";
-		};
-		A3C5E7F722EB92FC0098F520 /* MeasuringTool */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E81322EB9BCD0098F520 /* Views */,
-				A3C5E81122EB9BC60098F520 /* MeasuringToolViewModel.swift */,
-			);
-			path = MeasuringTool;
-			sourceTree = "<group>";
-		};
-		A3C5E7FA22EB93F00098F520 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E80122EB95E00098F520 /* MainTableCell.swift */,
-				A3C5E80322EB96280098F520 /* MainTableCell.xib */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		A3C5E7FB22EB94D50098F520 /* RealmPlatform */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E81D22EE19960098F520 /* Utilities */,
-				A3C5E81C22EE198F0098F520 /* UseCases */,
-				A3C5E81B22EE19890098F520 /* Repository */,
-				A3C5E81A22EE19810098F520 /* Entities */,
-			);
-			path = RealmPlatform;
-			sourceTree = "<group>";
-		};
-		A3C5E80722EB987F0098F520 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A3C5E7FA22EB93F00098F520 /* Cells */,
-				3ABCE65922D9AE2B00F61E46 /* Main.storyboard */,
-				A3C5E7FF22EB95B30098F520 /* MainView.swift */,
-				A3C5E7FD22EB95970098F520 /* MainViewContoller.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		A3C5E80E22EB9B920098F520 /* Views */ = {
+		A3C7BABF22F300E30067D632 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
 				3A8550C322EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift */,
 				3ABCE65722D9AE2B00F61E46 /* CalculatorViewController.swift */,
 			);
-			path = Views;
+			path = Calculator;
 			sourceTree = "<group>";
 		};
-		A3C5E81322EB9BCD0098F520 /* Views */ = {
+		A3C7BAC022F300F10067D632 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				3A8550B922E9C16D0003C584 /* TimerViewController.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		A3C7BAC122F301010067D632 /* MeasuringTool */ = {
 			isa = PBXGroup;
 			children = (
 				3A8550EF22F00BB70003C584 /* Cells */,
@@ -281,59 +163,16 @@
 				3A8550E022F00AF30003C584 /* SetToolForNewToolViewController.swift */,
 				3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */,
 			);
-			path = Views;
+			path = MeasuringTool;
 			sourceTree = "<group>";
 		};
-		A3C5E81622EB9BE20098F520 /* Views */ = {
+		A3C7BAC222F301270067D632 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				3A8550D722F007400003C584 /* Cell */,
+				3A8550D722F007400003C584 /* Cells */,
 				3A8550BD22E9C1B10003C584 /* SettingViewController.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		A3C5E81722EB9BED0098F520 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3A8550B922E9C16D0003C584 /* TimerViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		A3C5E81A22EE19810098F520 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		A3C5E81B22EE19890098F520 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		A3C5E81C22EE198F0098F520 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		A3C5E81D22EE19960098F520 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		A3C5E81E22EE19B00098F520 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		AB0B4FB0A95D0551229D2DD4 /* Frameworks */ = {
@@ -415,7 +254,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8550DB22F007650003C584 /* OnOffCell.xib in Resources */,
-				A3C5E80422EB96280098F520 /* MainTableCell.xib in Resources */,
 				A3C5E79522DE36530098F520 /* .swiftlint.yml in Resources */,
 				3ABCE66022D9AE2C00F61E46 /* LaunchScreen.storyboard in Resources */,
 				3A8550DF22F009450003C584 /* DeveloperContactCell.xib in Resources */,
@@ -493,27 +331,17 @@
 			files = (
 				3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */,
 				3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */,
-				A3C5E81522EB9BDF0098F520 /* SettingViewModel.swift in Sources */,
 				3A8550F122F00CFF0003C584 /* MeasuringToolTableViewCell.swift in Sources */,
 				3A8550E722F00AF30003C584 /* CompleteNewToolViewController.swift in Sources */,
-				A3C5E80022EB95B30098F520 /* MainView.swift in Sources */,
-				A3C5E81222EB9BC60098F520 /* MeasuringToolViewModel.swift in Sources */,
 				3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */,
 				3A8550E522F00AF30003C584 /* SetToolForNewToolViewController.swift in Sources */,
-				A3C5E80222EB95E00098F520 /* MainTableCell.swift in Sources */,
 				3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */,
 				3ABCE65822D9AE2B00F61E46 /* CalculatorViewController.swift in Sources */,
 				3A8550BA22E9C16D0003C584 /* TimerViewController.swift in Sources */,
-				A3C5E80922EB99950098F520 /* UseCaseProvider.swift in Sources */,
-				A3C5E7FE22EB95970098F520 /* MainViewContoller.swift in Sources */,
 				3A8550DE22F009450003C584 /* DeveloperContactCell.swift in Sources */,
-				A3C5E81922EB9C010098F520 /* TimerViewModel.swift in Sources */,
-				A3C5E80B22EB99B00098F520 /* MeasuringTool.swift in Sources */,
 				3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */,
-				A3C5E81022EB9BB10098F520 /* CalculatorViewModel.swift in Sources */,
 				3A8550E922F00AF30003C584 /* GetCountForNewToolViewController.swift in Sources */,
 				3A8550E822F00AF30003C584 /* SetNameForNewToolViewController.swift in Sources */,
-				A3C5E80622EB98250098F520 /* MainViewModel.swift in Sources */,
 				3A8550DA22F007650003C584 /* OnOffCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
