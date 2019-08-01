@@ -28,6 +28,8 @@
 		3ABCE65D22D9AE2C00F61E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE65C22D9AE2C00F61E46 /* Assets.xcassets */; };
 		3ABCE66022D9AE2C00F61E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE65E22D9AE2C00F61E46 /* LaunchScreen.storyboard */; };
 		A3C5E79522DE36530098F520 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A3C5E79422DE36530098F520 /* .swiftlint.yml */; };
+		A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */; };
+		A3C7BACE22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */; };
 		BC10E39C39F4E1B94E1C1748 /* Pods_Amoogye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		3ABCE66122D9AE2C00F61E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D0791F43C10572A5D0191EE /* Pods-Amoogye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.release.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.release.xcconfig"; sourceTree = "<group>"; };
 		A3C5E79422DE36530098F520 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericKeyboardCollectionViewCell.swift; sourceTree = "<group>"; };
+		A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumericKeyboardCollectionViewCell.xib; sourceTree = "<group>"; };
 		FF1B1192416A93293D91C594 /* Pods-Amoogye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.debug.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +136,7 @@
 		A3C5E81E22EE19B00098F520 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A3C7BAC322F30B390067D632 /* NumericKeyboard */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -173,6 +178,23 @@
 				3A8550BD22E9C1B10003C584 /* SettingViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		A3C7BAC322F30B390067D632 /* NumericKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A3C7BAD622F363B30067D632 /* Cells */,
+			);
+			path = NumericKeyboard;
+			sourceTree = "<group>";
+		};
+		A3C7BAD622F363B30067D632 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */,
+				A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		AB0B4FB0A95D0551229D2DD4 /* Frameworks */ = {
@@ -258,6 +280,7 @@
 				3ABCE66022D9AE2C00F61E46 /* LaunchScreen.storyboard in Resources */,
 				3A8550DF22F009450003C584 /* DeveloperContactCell.xib in Resources */,
 				3A8550F522F013B00003C584 /* SettingTitleCell.xib in Resources */,
+				A3C7BACE22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib in Resources */,
 				3ABCE65D22D9AE2C00F61E46 /* Assets.xcassets in Resources */,
 				3ABCE65B22D9AE2B00F61E46 /* Main.storyboard in Resources */,
 			);
@@ -337,6 +360,7 @@
 				3A8550E522F00AF30003C584 /* SetToolForNewToolViewController.swift in Sources */,
 				3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */,
 				3ABCE65822D9AE2B00F61E46 /* CalculatorViewController.swift in Sources */,
+				A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */,
 				3A8550BA22E9C16D0003C584 /* TimerViewController.swift in Sources */,
 				3A8550DE22F009450003C584 /* DeveloperContactCell.swift in Sources */,
 				3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */,
