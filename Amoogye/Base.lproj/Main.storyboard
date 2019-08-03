@@ -42,8 +42,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="showNumericKeyboard:" destination="BYZ-38-t0r" eventType="touchDown" id="DkR-i7-5NU"/>
-                                            <action selector="showNumericKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cHX-aP-jho"/>
+                                            <action selector="numericClick:" destination="BYZ-38-t0r" eventType="touchDown" id="DkR-i7-5NU"/>
+                                            <action selector="numericClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cHX-aP-jho"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인분 기준" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7s-fy-U0B">
@@ -62,8 +62,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="showNumericKeyboard:" destination="BYZ-38-t0r" eventType="touchDown" id="i1Z-Ui-eRp"/>
-                                            <action selector="showNumericKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qaD-qA-APt"/>
+                                            <action selector="numericClick:" destination="BYZ-38-t0r" eventType="touchDown" id="i1Z-Ui-eRp"/>
+                                            <action selector="numericClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qaD-qA-APt"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-fR-VQb">
@@ -93,8 +93,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="showNumericKeyboard:" destination="BYZ-38-t0r" eventType="touchDown" id="fRa-1C-QiB"/>
-                                            <action selector="showNumericKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pq1-F1-ldQ"/>
+                                            <action selector="numericClick:" destination="BYZ-38-t0r" eventType="touchDown" id="fRa-1C-QiB"/>
+                                            <action selector="numericClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pq1-F1-ldQ"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인분 기준" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHZ-0S-EoV">
@@ -168,7 +168,7 @@
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="showMeterialPicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qQg-Pr-t8z"/>
+                                            <action selector="meterialClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qQg-Pr-t8z"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSa-aA-NHq">
@@ -222,16 +222,27 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqL-Zy-eR9">
-                                <rect key="frame" x="316" y="40" width="39" height="30"/>
-                                <state key="normal" title="Down"/>
+                                <rect key="frame" x="325" y="40" width="30" height="30"/>
+                                <state key="normal" title="취소"/>
+                                <connections>
+                                    <action selector="cancelButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vVb-Ns-eWx"/>
+                                </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DuM-6T-2pI">
+                                <rect key="frame" x="0.0" y="100" width="375" height="518"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tqL-Zy-eR9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="2Z1-9J-FFG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DuM-6T-2pI" secondAttribute="trailing" id="2ZT-gO-6nt"/>
+                            <constraint firstItem="DuM-6T-2pI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Fiz-0r-PU9"/>
                             <constraint firstItem="ZIr-uD-RuZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="KeF-eI-bmk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZIr-uD-RuZ" secondAttribute="trailing" id="PB6-Vw-sMO"/>
                             <constraint firstItem="ZIr-uD-RuZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gAm-87-wYK"/>
+                            <constraint firstItem="DuM-6T-2pI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="r71-xI-YDj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DuM-6T-2pI" secondAttribute="bottom" id="rTN-fR-Sit"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZIr-uD-RuZ" secondAttribute="bottom" id="wYV-1W-4nt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tqL-Zy-eR9" secondAttribute="trailing" constant="20" id="woy-2r-Ytr"/>
                         </constraints>
@@ -243,13 +254,14 @@
                         <outlet property="desPortionTextfield" destination="w9c-YK-2iN" id="xYO-Tf-j99"/>
                         <outlet property="meterialButton" destination="YXd-rj-hbE" id="ZwK-xf-Y3F"/>
                         <outlet property="meterialPickerView" destination="NlU-dA-fQy" id="Mch-Og-9iX"/>
+                        <outlet property="meterialSearchView" destination="DuM-6T-2pI" id="E1H-wO-clr"/>
                         <outlet property="numericKeyboardView" destination="PCP-zs-2e6" id="06E-7Y-5J3"/>
                         <outlet property="resPortionTextfield" destination="Tyj-aV-4jF" id="atL-OF-Lyu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5999999999999" y="-569.86506746626696"/>
+            <point key="canvasLocation" x="1117.5999999999999" y="-570.76461769115451"/>
         </scene>
         <!--Calculator Measuring Tip View Controller-->
         <scene sceneID="aL5-fN-KoX">

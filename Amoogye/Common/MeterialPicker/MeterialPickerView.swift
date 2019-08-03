@@ -10,7 +10,7 @@ import UIKit
 
 class MeterialPickerView: UIView {
 
-    weak var myView: MyView?
+    weak var myView: PickerView?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,11 +31,18 @@ class MeterialPickerView: UIView {
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
-        myView = view as? MyView
+        myView = view as? PickerView
     }
 }
 
-class MyView: UIView {
+protocol MeterialPickerDelegate: class {
+    func meterialSelected(row: Int, title: String)
+    func meterialSearchViewOpen()
+    func meterialSearchViewClose()
+}
+
+class PickerView: UIView {
+    weak var delegate: MeterialPickerDelegate?
     let meterialList = ["굴소스", "간장", "소금", "밀가루", "물", "베이킹파우더", "고추장"]
 
     @IBOutlet weak var defaultOrderButton: UIButton!
@@ -43,25 +50,32 @@ class MyView: UIView {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
 
-    weak var delegate: MeterialPickerDelegate?
-
+    // 초기화
     override func draw(_ rect: CGRect) {
         pickerView.dataSource = self
         pickerView.delegate = self
     }
 
+    // 기본 순
     @IBAction func defaultButtonClick(_ sender: Any) {
         defaultOrderButton.setTitleColor(UIColor.black, for: .normal)
         recentOrderButton.setTitleColor(UIColor.lightGray, for: .normal)
     }
 
+    // 최근 사용 순
     @IBAction func recentButtonClick(_ sender: Any) {
         defaultOrderButton.setTitleColor(UIColor.lightGray, for: .normal)
         recentOrderButton.setTitleColor(UIColor.black, for: .normal)
     }
+
+    // 재료 검색
+    @IBAction func searchButtonClick(_ sender: Any) {
+        print("show search view")
+        delegate?.meterialSearchViewOpen()
+    }
 }
 
-extension MyView: UIPickerViewDataSource {
+extension PickerView: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -71,7 +85,7 @@ extension MyView: UIPickerViewDataSource {
     }
 }
 
-extension MyView: UIPickerViewDelegate {
+extension PickerView: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return meterialList[row]
     }
@@ -79,8 +93,4 @@ extension MyView: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         delegate?.meterialSelected(row: row, title: meterialList[row])
     }
-}
-
-protocol MeterialPickerDelegate: class {
-    func meterialSelected(row: Int, title: String)
 }
