@@ -11,12 +11,22 @@ import UIKit
 class CalculatorViewController: UIViewController {
     var numericKeyboardButtonTitles = [String]()
 
+    @IBOutlet weak var resPortionTextfield: UITextField!
+    @IBOutlet weak var desPortionTextfield: UITextField!
+    @IBOutlet weak var amountTextfield: UITextField!
+    @IBOutlet weak var meterialButton: UIButton!
+
     @IBOutlet weak var numericKeyboardView: UICollectionView!
+    @IBOutlet weak var meterialPickerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboards()
+    }
 
-        setupNumericKeyboard()
+    private func hideKeyboards() {
+        numericKeyboardView.isHidden = true
+        meterialPickerView.isHidden = true
     }
 
     private func setupNumericKeyboard() {
@@ -27,6 +37,24 @@ class CalculatorViewController: UIViewController {
 
         self.numericKeyboardView.delegate = self
         self.numericKeyboardView.dataSource = self
+    }
+
+    private func setUpMeterialPicker() {
+        let view = MeterialPickerView(frame: meterialPickerView.bounds)
+        meterialPickerView.addSubview(view)
+        view.myView?.delegate = self
+    }
+
+    @IBAction func showNumericKeyboard(_ sender: Any) {
+        setupNumericKeyboard()
+        numericKeyboardView.isHidden = false
+        meterialPickerView.isHidden = true
+    }
+
+    @IBAction func showMeterialPicker(_ sender: Any) {
+        setUpMeterialPicker()
+        numericKeyboardView.isHidden = true
+        meterialPickerView.isHidden = false
     }
 }
 
@@ -92,4 +120,12 @@ extension CalculatorViewController {
         cell.keyboardButton.setTitle(buttonTitle, for: .normal)
         return cell
     }
+}
+
+extension CalculatorViewController: MeterialPickerDelegate {
+    func meterialSelected(row: Int, title: String) {
+        meterialButton.setTitle(title, for: .normal)
+        meterialButton.setTitleColor(UIColor.black, for: .normal)
+    }
+
 }
