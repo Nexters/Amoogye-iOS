@@ -338,6 +338,9 @@
                                 <state key="normal" title="시작">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startClick:" destination="M4K-Uv-eZF" eventType="touchUpInside" id="7CX-6N-5eU"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZ1-76-byA">
                                 <rect key="frame" x="30" y="284" width="70" height="30"/>
@@ -349,7 +352,30 @@
                                 <state key="normal" title="취소">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelClick:" destination="M4K-Uv-eZF" eventType="touchUpInside" id="cb7-3M-Otd"/>
+                                </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5kL-4m-E2f">
+                                <rect key="frame" x="0.0" y="344" width="375" height="274"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zsg-bt-A97">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sLG-dm-gIh">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -361,15 +387,19 @@
                             <constraint firstItem="nE4-Ww-xPU" firstAttribute="centerX" secondItem="va9-cU-6Mu" secondAttribute="centerX" id="AcL-T2-knm"/>
                             <constraint firstItem="u6q-6j-D2v" firstAttribute="centerY" secondItem="spD-SM-xJj" secondAttribute="centerY" id="Dum-X7-o55"/>
                             <constraint firstItem="LZ1-76-byA" firstAttribute="leading" secondItem="nE4-Ww-xPU" secondAttribute="leading" id="Gqa-wx-Id7"/>
+                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="bottom" secondItem="5kL-4m-E2f" secondAttribute="bottom" id="Jk4-OA-5r2"/>
                             <constraint firstItem="nE4-Ww-xPU" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" constant="30" id="Mpy-wP-7wM"/>
                             <constraint firstItem="nE4-Ww-xPU" firstAttribute="top" secondItem="rM4-7Y-Ox3" secondAttribute="bottom" constant="31" id="Ni9-Ac-QyG"/>
                             <constraint firstItem="k4m-Ct-niP" firstAttribute="trailing" secondItem="nE4-Ww-xPU" secondAttribute="trailing" id="QSz-PI-aen"/>
                             <constraint firstItem="rM4-7Y-Ox3" firstAttribute="leading" secondItem="sli-hJ-0Hh" secondAttribute="leading" id="RAV-SF-9Qr"/>
                             <constraint firstItem="U0o-Bz-pBp" firstAttribute="trailing" secondItem="nE4-Ww-xPU" secondAttribute="trailing" constant="30" id="Ri2-Nh-bcG"/>
                             <constraint firstItem="xF9-jJ-TNz" firstAttribute="leading" secondItem="rlY-9P-Cv4" secondAttribute="trailing" constant="16" id="Ruz-E4-DHT"/>
+                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="trailing" secondItem="5kL-4m-E2f" secondAttribute="trailing" id="SeZ-sw-5Wq"/>
                             <constraint firstItem="spD-SM-xJj" firstAttribute="centerY" secondItem="xF9-jJ-TNz" secondAttribute="centerY" id="T3H-D6-Shy"/>
+                            <constraint firstItem="5kL-4m-E2f" firstAttribute="top" secondItem="k4m-Ct-niP" secondAttribute="bottom" constant="30" id="W3D-xS-FnO"/>
                             <constraint firstItem="sli-hJ-0Hh" firstAttribute="top" secondItem="U0o-Bz-pBp" secondAttribute="top" constant="130" id="Zqo-vO-wgb"/>
                             <constraint firstItem="rM4-7Y-Ox3" firstAttribute="top" secondItem="sli-hJ-0Hh" secondAttribute="bottom" constant="18" id="aGt-JB-pbt"/>
+                            <constraint firstItem="5kL-4m-E2f" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" id="bLC-Uj-7fQ"/>
                             <constraint firstItem="k4m-Ct-niP" firstAttribute="top" secondItem="nE4-Ww-xPU" secondAttribute="bottom" constant="23" id="dpr-vU-0Pp"/>
                             <constraint firstItem="rlY-9P-Cv4" firstAttribute="leading" secondItem="sli-hJ-0Hh" secondAttribute="trailing" constant="8" id="gVL-EH-3vh"/>
                             <constraint firstItem="u6q-6j-D2v" firstAttribute="leading" secondItem="spD-SM-xJj" secondAttribute="trailing" constant="18" id="mn0-2K-Kzp"/>
@@ -380,6 +410,13 @@
                         <viewLayoutGuide key="safeArea" id="U0o-Bz-pBp"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="타이머" id="JLK-wp-aip"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="LZ1-76-byA" id="2vD-cC-pj1"/>
+                        <outlet property="hourTextfield" destination="sli-hJ-0Hh" id="ApH-hg-3d7"/>
+                        <outlet property="minTextfield" destination="xF9-jJ-TNz" id="QY7-ut-0hf"/>
+                        <outlet property="secTextfield" destination="u6q-6j-D2v" id="Opq-Px-eKk"/>
+                        <outlet property="startButton" destination="k4m-Ct-niP" id="mfY-fu-Q81"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dl-OY-RUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
