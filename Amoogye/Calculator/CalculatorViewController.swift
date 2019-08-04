@@ -11,12 +11,47 @@ import UIKit
 class CalculatorViewController: UIViewController {
     var numericKeyboardButtonTitles = [String]()
 
+    // 입력 버튼
+    @IBOutlet weak var srcPortionTextfield: UITextField!    // 변환 전 인분
+    @IBOutlet weak var desPortionTextfield: UITextField!    // 변환 후 인분
+    @IBOutlet weak var amountTextfield: UITextField!        // 양
+    @IBOutlet weak var meterialButton: UIButton!            // 재료
+
+    // 키보드
     @IBOutlet weak var numericKeyboardView: UICollectionView!
+    @IBOutlet weak var meterialPickerView: UIView!
+
+    // 재료 검색
+    @IBOutlet weak var meterialSearchView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 최초 실행 시 모든 키보드 가리기
+        hideKeyboards()
+    }
+
+    // 인분, 양
+    @IBAction func numericClick(_ sender: Any) {
         setupNumericKeyboard()
+        numericKeyboardView.isHidden = false
+        meterialPickerView.isHidden = true
+    }
+
+    // 재료
+    @IBAction func meterialClick(_ sender: Any) {
+        setUpMeterialPicker()
+        numericKeyboardView.isHidden = true
+        meterialPickerView.isHidden = false
+    }
+
+    @IBAction func cancelButtonClick(_ sender: Any) {
+        meterialSearchView.isHidden = true
+    }
+
+    private func hideKeyboards() {
+        numericKeyboardView.isHidden = true
+        meterialPickerView.isHidden = true
     }
 
     private func setupNumericKeyboard() {
@@ -27,6 +62,18 @@ class CalculatorViewController: UIViewController {
 
         self.numericKeyboardView.delegate = self
         self.numericKeyboardView.dataSource = self
+    }
+
+    private func setUpMeterialPicker() {
+        let view = MeterialPickerView(frame: meterialPickerView.bounds)
+        meterialPickerView.addSubview(view)
+        view.myView?.delegate = self
+    }
+
+    private func setupMeterialSearchView() {
+        let view = MeterialSearchView(frame: meterialSearchView.bounds)
+        meterialSearchView.addSubview(view)
+        view.myView?.delegate = self
     }
 }
 
@@ -91,5 +138,33 @@ extension CalculatorViewController {
 
         cell.keyboardButton.setTitle(buttonTitle, for: .normal)
         return cell
+    }
+}
+
+extension CalculatorViewController: MeterialPickerDelegate {
+    func meterialSelected(row: Int, title: String) {
+        meterialButton.setTitle(title, for: .normal)
+        meterialButton.setTitleColor(UIColor.black, for: .normal)
+    }
+
+    func meterialSearchViewOpen() {
+        meterialSearchView.isHidden = false
+        setupMeterialSearchView()
+    }
+
+    func meterialSearchViewClose() {
+        meterialSearchView.isHidden = true
+    }
+}
+
+extension CalculatorViewController: MeterialSearchDelegate {
+    func selectMeterial(name: String) {
+        hideKeyboards()
+        meterialButton.setTitle(name, for: .normal)
+         meterialButton.setTitleColor(UIColor.black, for: .normal)
+    }
+
+    func closeSearchView() {
+        meterialSearchViewClose()
     }
 }
