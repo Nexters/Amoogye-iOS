@@ -12,7 +12,7 @@ class CalculatorViewController: UIViewController {
     var numericKeyboardButtonTitles = [String]()
 
     // 입력 버튼
-    @IBOutlet weak var resPortionTextfield: UITextField!    // 변환 전 인분
+    @IBOutlet weak var srcPortionTextfield: UITextField!    // 변환 전 인분
     @IBOutlet weak var desPortionTextfield: UITextField!    // 변환 후 인분
     @IBOutlet weak var amountTextfield: UITextField!        // 양
     @IBOutlet weak var meterialButton: UIButton!            // 재료

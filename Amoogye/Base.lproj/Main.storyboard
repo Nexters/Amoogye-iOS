@@ -256,7 +256,7 @@
                         <outlet property="meterialPickerView" destination="NlU-dA-fQy" id="Mch-Og-9iX"/>
                         <outlet property="meterialSearchView" destination="DuM-6T-2pI" id="E1H-wO-clr"/>
                         <outlet property="numericKeyboardView" destination="PCP-zs-2e6" id="06E-7Y-5J3"/>
-                        <outlet property="resPortionTextfield" destination="Tyj-aV-4jF" id="atL-OF-Lyu"/>
+                        <outlet property="srcPortionTextfield" destination="Tyj-aV-4jF" id="atL-OF-Lyu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
