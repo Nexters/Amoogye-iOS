@@ -10,10 +10,28 @@ import UIKit
 
 class GetCountForNewToolViewController: UIViewController {
 
+    var toolNameInput: String?
+    var selectedCriteriaTool: MeasuringTool?
+
     @IBOutlet weak var countLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToComplete" {
+            // 다음 컨트롤러에 데이터 전달
+            let destination = segue.destination as! CompleteNewToolViewController
+            let inputCount = Float(countLabel.text!)
+
+            guard let criteriaTool = selectedCriteriaTool, let newToolName = toolNameInput, let measuringCount = inputCount else {
+                return
+            }
+
+            let measuringToolManager = MeasuringToolManager()
+            destination.newMeasuringTool = measuringToolManager.newMeasuringToolWith(criteriaTool, name: newToolName, measuringCount: measuringCount)
+        }
     }
 
     @IBAction func backButtonClick(_ sender: Any) {

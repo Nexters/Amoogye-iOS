@@ -10,7 +10,10 @@ import UIKit
 
 class SetToolForNewToolViewController: UIViewController {
 
+    var toolNameInput: String?
+
     let toolList = ["햇반통", "배라스푼", "종이컵", "소주잔", "밥숟갈"]
+    let paperCup = MeasuringTool(name: "종이컵", unit: .cup, quantity: 1.0)
 
     @IBOutlet weak var toolLabel: UILabel!
     @IBOutlet weak var toolPicker: UIPickerView!
@@ -19,6 +22,15 @@ class SetToolForNewToolViewController: UIViewController {
         super.viewDidLoad()
         toolPicker.dataSource = self
         toolPicker.delegate = self
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToGetCount" {
+            // 다음 컨트롤러에 데이터 전달
+            let destination = segue.destination as! GetCountForNewToolViewController
+            destination.toolNameInput = toolNameInput
+            destination.selectedCriteriaTool = paperCup
+        }
     }
 
     @IBAction func backButtonClick(_ sender: Any) {

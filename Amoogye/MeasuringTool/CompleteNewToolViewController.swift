@@ -9,6 +9,7 @@
 import UIKit
 
 class CompleteNewToolViewController: UIViewController {
+    var newMeasuringTool: MeasuringTool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,14 @@ class CompleteNewToolViewController: UIViewController {
     }
 
     @IBAction func okButtonClick(_ sender: Any) {
+        // TODO: Realm save
+        print("""
+            New Measuring Tool
+            Name: \(newMeasuringTool!.name)
+            Unit: \(newMeasuringTool!.unit)
+            Quantity: \(newMeasuringTool!.quantity)
+            Subname: \(newMeasuringTool!.subname)
+            """)
         navigationController?.dismiss(animated: true, completion: nil)
     }
 }

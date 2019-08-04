@@ -31,6 +31,7 @@
 		A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */; };
 		A3C7BACE22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */; };
 		A3C7BAEB22F560BD0067D632 /* MeasuringTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BAEA22F560BD0067D632 /* MeasuringTool.swift */; };
+		A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BAEF22F58AFF0067D632 /* MeasuringToolManager.swift */; };
 		BC10E39C39F4E1B94E1C1748 /* Pods_Amoogye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericKeyboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumericKeyboardCollectionViewCell.xib; sourceTree = "<group>"; };
 		A3C7BAEA22F560BD0067D632 /* MeasuringTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringTool.swift; sourceTree = "<group>"; };
+		A3C7BAEF22F58AFF0067D632 /* MeasuringToolManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolManager.swift; sourceTree = "<group>"; };
 		FF1B1192416A93293D91C594 /* Pods-Amoogye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.debug.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 			children = (
 				3A8550EF22F00BB70003C584 /* Cells */,
 				A3C7BAEA22F560BD0067D632 /* MeasuringTool.swift */,
+				A3C7BAEF22F58AFF0067D632 /* MeasuringToolManager.swift */,
 				3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */,
 				3A8550E322F00AF30003C584 /* SetNameForNewToolViewController.swift */,
 				3A8550E022F00AF30003C584 /* SetToolForNewToolViewController.swift */,
@@ -369,6 +372,7 @@
 				3A8550DE22F009450003C584 /* DeveloperContactCell.swift in Sources */,
 				3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */,
 				3A8550E922F00AF30003C584 /* GetCountForNewToolViewController.swift in Sources */,
+				A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */,
 				3A8550E822F00AF30003C584 /* SetNameForNewToolViewController.swift in Sources */,
 				3A8550DA22F007650003C584 /* OnOffCell.swift in Sources */,
 			);
