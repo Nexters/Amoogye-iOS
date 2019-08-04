@@ -10,10 +10,7 @@ import UIKit
 
 class TimerViewController: UIViewController {
 
-    var timer = Timer()
-    var isWorkingTiemer = false
-    var time = 0
-
+    var timerModel = TimerModel()
     let colorGreen = UIColor(displayP3Red: 109/255, green: 212/255, blue: 0, alpha: 1)
 
     @IBOutlet weak var startButton: UIButton!
@@ -28,7 +25,7 @@ class TimerViewController: UIViewController {
     }
 
     @IBAction func startClick(_ sender: Any) {
-        if isWorkingTiemer {
+        if timerModel.isWorkingTimer {
             pauseTimer()
         } else if getSecond() > 0 {
             startTimer()
@@ -96,10 +93,10 @@ extension TimerViewController {
 
     // MARK: - 타이머 작동 관련 함수
     func startTimer() {
-        isWorkingTiemer = true
+        timerModel.isWorkingTimer = true
 
-        time = getSecond()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerViewController.decreaseTime), userInfo: nil, repeats: true)
+        timerModel.time = getSecond()
+        timerModel.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerViewController.decreaseTime), userInfo: nil, repeats: true)
 
         showPauseButton()
         showCancelButton()
@@ -107,29 +104,29 @@ extension TimerViewController {
     }
 
     func pauseTimer() {
-        isWorkingTiemer = false
-        timer.invalidate()
+        timerModel.isWorkingTimer = false
+        timerModel.timer.invalidate()
 
         showStartButton()
     }
 
     func resetTimer() { // 시간 종료 시, 취소 시
-        isWorkingTiemer = false
-        timer.invalidate()
+        timerModel.isWorkingTimer = false
+        timerModel.timer.invalidate()
 
         showStartButton()
         hideCancelButton()
         setTextfieldsEnable(booltype: true)
         setTextfield(hour: 0, min: 0, sec: 0)
 
-        time = 0
+        timerModel.time = 0
     }
 
     // 1초에 한번씩 실행
     @objc func decreaseTime() {
-        if time > 1 {
-            time -= 1
-            setTextfield(hour: time/3600, min: (time%3600)/60, sec: (time%3600)%60)
+        if timerModel.time > 1 {
+            timerModel.time -= 1
+            setTextfield(hour: timerModel.time/3600, min: (timerModel.time%3600)/60, sec: (timerModel.time%3600)%60)
         } else {
             // 시간 종료 시
             resetTimer()
