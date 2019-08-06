@@ -328,7 +328,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sli-hJ-0Hh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sli-hJ-0Hh" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
                                 <rect key="frame" x="30" y="150" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Qkw-Eg-8cD"/>
@@ -337,6 +337,10 @@
                                 <color key="textColor" red="0.0" green="0.79939529890000005" blue="0.061608797200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="touchHourTextfield:" destination="M4K-Uv-eZF" eventType="touchUpInside" id="0ZG-Is-Dlm"/>
+                                    <action selector="touchHourTextfield:" destination="M4K-Uv-eZF" eventType="touchDown" id="tJH-cj-opz"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlY-9P-Cv4">
                                 <rect key="frame" x="78" y="159.5" width="30" height="21"/>
@@ -344,7 +348,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xF9-jJ-TNz">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xF9-jJ-TNz" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
                                 <rect key="frame" x="124" y="150" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AZu-JL-hOt"/>
@@ -353,6 +357,10 @@
                                 <color key="textColor" red="0.0" green="0.79939529890000005" blue="0.061608797200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="touchMinTextfield:" destination="M4K-Uv-eZF" eventType="touchUpInside" id="2tm-Xc-LRq"/>
+                                    <action selector="touchMinTextfield:" destination="M4K-Uv-eZF" eventType="touchDown" id="qTE-I3-7HS"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spD-SM-xJj">
                                 <rect key="frame" x="172" y="159.5" width="15" height="21"/>
@@ -360,7 +368,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u6q-6j-D2v">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u6q-6j-D2v" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
                                 <rect key="frame" x="205" y="150" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4Ab-bt-jUa"/>
@@ -369,6 +377,10 @@
                                 <color key="textColor" red="0.0" green="0.79939529890000005" blue="0.061608797200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="touchSecTextfield:" destination="M4K-Uv-eZF" eventType="touchDown" id="1hp-uY-Fde"/>
+                                    <action selector="touchSecTextfield:" destination="M4K-Uv-eZF" eventType="touchUpInside" id="S0N-Ys-NXq"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="초 뒤에 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEl-I0-uKp">
                                 <rect key="frame" x="253" y="159.5" width="53" height="21"/>

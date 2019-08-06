@@ -16,12 +16,27 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
 
-    @IBOutlet weak var hourTextfield: UITextField!
-    @IBOutlet weak var minTextfield: UITextField!
-    @IBOutlet weak var secTextfield: UITextField!
+    @IBOutlet weak var hourTextfield: CustomTextField!
+    @IBOutlet weak var minTextfield: CustomTextField!
+    @IBOutlet weak var secTextfield: CustomTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpTextfield()
+    }
+
+    func setUpTextfield() {
+        let textfieldManager = CustomTextfieldManager(hourTextfield, minTextfield, secTextfield)
+
+        hourTextfield.manager = textfieldManager
+        minTextfield.manager = textfieldManager
+        secTextfield.manager = textfieldManager
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        hourTextfield.focusOut()
+        minTextfield.focusOut()
+        secTextfield.focusOut()
     }
 
     @IBAction func startClick(_ sender: Any) {
@@ -36,6 +51,19 @@ class TimerViewController: UIViewController {
         // 취소 시
         resetTimer()
         hideCancelButton()
+    }
+
+    @IBAction func touchHourTextfield(_ sender: Any) {
+        minTextfield.focusOut()
+        secTextfield.focusOut()
+    }
+    @IBAction func touchMinTextfield(_ sender: Any) {
+        hourTextfield.focusOut()
+        secTextfield.focusOut()
+    }
+    @IBAction func touchSecTextfield(_ sender: Any) {
+        hourTextfield.focusOut()
+        minTextfield.focusOut()
     }
 }
 

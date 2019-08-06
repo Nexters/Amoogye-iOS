@@ -10,6 +10,7 @@ import UIKit
 
 class CustomTextField: UITextField {
     let color = ColorModel()
+    var manager: CustomTextfieldManager?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,11 +29,11 @@ class CustomTextField: UITextField {
         self.tintColor = UIColor.clear
         self.layer.cornerRadius = 6
         self.font = .systemFont(ofSize: 20)
-        
-        focusOutTextField()
+
+        self.focusOut()
     }
 
-    func focusOnTextField() {
+    func focusOn() {
         // selected background: #white
         // selected border: #orangeyRed
         // selected font: #orangeyRed
@@ -43,7 +44,7 @@ class CustomTextField: UITextField {
         self.text = ""
     }
 
-    func focusOutTextField() {
+    func focusOut() {
         // unselected background: #iceBlue
         // unselected border: NONE
         // unselected font: #darkBlueGrey
@@ -55,8 +56,9 @@ class CustomTextField: UITextField {
             self.text = "0"
         }
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        focusOnTextField()
+        self.focusOn()
+        self.manager?.focusOutAll(except: self)
     }
 }
