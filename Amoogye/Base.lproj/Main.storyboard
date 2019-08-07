@@ -542,6 +542,7 @@
                         <outlet property="cancelButton" destination="LZ1-76-byA" id="2vD-cC-pj1"/>
                         <outlet property="hourTextfield" destination="a1S-vz-g9R" id="Vw8-DY-De8"/>
                         <outlet property="minTextfield" destination="M3Y-Tv-wfs" id="B2P-ow-bPC"/>
+                        <outlet property="numericKeyboardView" destination="5kL-4m-E2f" id="1VZ-vt-h3K"/>
                         <outlet property="pauseButton" destination="k4m-Ct-niP" id="mfY-fu-Q81"/>
                         <outlet property="secLabel" destination="PEl-I0-uKp" id="lop-2d-pH7"/>
                         <outlet property="secTextfield" destination="o4e-8J-Tvs" id="3yq-VI-g6L"/>
