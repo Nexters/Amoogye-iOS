@@ -14,23 +14,36 @@ class TimerViewController: UIViewController {
     let colorGreen = UIColor(displayP3Red: 109/255, green: 212/255, blue: 0, alpha: 1)
 
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
 
+    @IBOutlet weak var settingView: UIView!
     @IBOutlet weak var hourTextfield: CustomTextField!
     @IBOutlet weak var minTextfield: CustomTextField!
     @IBOutlet weak var secTextfield: CustomTextField!
+    @IBOutlet weak var secLabel: UILabel!
+    @IBOutlet weak var alertLabel: UILabel!
+
+    @IBOutlet weak var timerView: UIView!
+    @IBOutlet weak var timerLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTextfield()
+        setButtonStyle(startButton, pauseButton, cancelButton)
     }
 
     func setUpTextfield() {
         let textfieldManager = CustomTextfieldManager(hourTextfield, minTextfield, secTextfield)
-
         hourTextfield.manager = textfieldManager
         minTextfield.manager = textfieldManager
         secTextfield.manager = textfieldManager
+    }
+
+    func setButtonStyle(_ buttons: UIButton...) {
+        for button in buttons {
+            button.layer.cornerRadius = 6
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -39,31 +52,31 @@ class TimerViewController: UIViewController {
         secTextfield.focusOut()
     }
 
-    @IBAction func startClick(_ sender: Any) {
+    @IBAction func clickStart(_ sender: Any) {
         if timerModel.isWorkingTimer {
-            pauseTimer()
+            checkFinishTimer()
         } else if getSecond() > 0 {
             startTimer()
+            showPauseButton()
+            setTimerTextfieldsEnable(booltype: false)
         }
     }
 
-    @IBAction func cancelClick(_ sender: Any) {
-        // 취소 시
-        resetTimer()
-        hideCancelButton()
+    @IBAction func clickPause(_ sender: Any) {
+        if timerModel.isWorkingTimer {
+            pauseTimer()
+            showRestartButton()
+        } else {
+            startTimer()
+            showPauseButton()
+        }
     }
 
-    @IBAction func touchHourTextfield(_ sender: Any) {
-        minTextfield.focusOut()
-        secTextfield.focusOut()
-    }
-    @IBAction func touchMinTextfield(_ sender: Any) {
-        hourTextfield.focusOut()
-        secTextfield.focusOut()
-    }
-    @IBAction func touchSecTextfield(_ sender: Any) {
-        hourTextfield.focusOut()
-        minTextfield.focusOut()
+    @IBAction func clickCancel(_ sender: Any) {
+        // 취소 시
+        cancelTimer()
+        showStartButton()
+        setTimerTextfieldsEnable(booltype: true)
     }
 }
 
@@ -74,34 +87,47 @@ extension TimerViewController {
 //
 //    }
 
-    func setTextfieldsEnable(booltype: Bool) {
+    func setTimerTextfieldsEnable(booltype: Bool) {
         hourTextfield.isEnabled = booltype
         minTextfield.isEnabled = booltype
         secTextfield.isEnabled = booltype
+        hourTextfield.focusOut()
+        minTextfield.focusOut()
+        secTextfield.focusOut()
     }
 
-    func setTextfield(hour: Int, min: Int, sec: Int) {
-        hourTextfield.text = String(hour)
-        minTextfield.text = String(min)
-        secTextfield.text = String(sec)
+    func setTimerLabelText(hour: Int, min: Int, sec: Int) {
+        timerLabel.text = String(format: "%02d : %02d : %02d", hour, min, sec)
     }
 
     func showStartButton() {
-        startButton.backgroundColor = colorGreen
-        startButton.setTitle("시작", for: .normal)
+        startButton.isHidden = false
+        cancelButton.isHidden = true
+        pauseButton.isHidden = true
     }
 
     func showPauseButton() {
-        startButton.backgroundColor = UIColor.red
-        startButton.setTitle("일시정지", for: .normal)
-    }
-
-    func showCancelButton() {
+        startButton.isHidden = true
         cancelButton.isHidden = false
+        pauseButton.isHidden = false
+        pauseButton.setTitle("일시정지", for: .normal)
     }
 
-    func hideCancelButton() {
-        cancelButton.isHidden = true
+    func showRestartButton() {
+        startButton.isHidden = true
+        cancelButton.isHidden = false
+        pauseButton.isHidden = false
+        pauseButton.setTitle("다시 시작", for: .normal)
+    }
+
+    func showSettingView() {
+        settingView.isHidden = false
+        timerView.isHidden = true
+    }
+
+    func showTimerView() {
+        settingView.isHidden = true
+        timerView.isHidden = false
     }
 
     // MARK: - 변환 관련 함수
@@ -127,8 +153,8 @@ extension TimerViewController {
         timerModel.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerViewController.decreaseTime), userInfo: nil, repeats: true)
 
         showPauseButton()
-        showCancelButton()
-        setTextfieldsEnable(booltype: false)
+        showTimerView()
+        setTimerLabelText(hour: timerModel.time/3600, min: (timerModel.time%3600)/60, sec: (timerModel.time%3600)%60)
     }
 
     func pauseTimer() {
@@ -138,34 +164,43 @@ extension TimerViewController {
         showStartButton()
     }
 
-    func resetTimer() { // 시간 종료 시, 취소 시
+    func cancelTimer() { // 취소 시
         timerModel.isWorkingTimer = false
         timerModel.timer.invalidate()
-
         showStartButton()
-        hideCancelButton()
-        setTextfieldsEnable(booltype: true)
-        setTextfield(hour: 0, min: 0, sec: 0)
+        showSettingView()
+    }
 
-        timerModel.time = 0
+    func finishTimer() { // 시간 종료 시
+        timerModel.timer.invalidate()
+        showStartButton()
+        showSettingView()
+        alertFinishTimer()
     }
 
     // 1초에 한번씩 실행
     @objc func decreaseTime() {
         if timerModel.time > 1 {
             timerModel.time -= 1
-            setTextfield(hour: timerModel.time/3600, min: (timerModel.time%3600)/60, sec: (timerModel.time%3600)%60)
+            setTimerLabelText(hour: timerModel.time/3600, min: (timerModel.time%3600)/60, sec: (timerModel.time%3600)%60)
         } else {
             // 시간 종료 시
-            resetTimer()
-            alertFinishTimer()
+            finishTimer()
         }
     }
 
     func alertFinishTimer() {
-        let alert = UIAlertController(title: "타이머 종료", message: "시간이 종료되었습니다.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true)
+        secLabel.text = "초가"
+        alertLabel.text = "끝났습니다!"
+        startButton.setTitle("종료", for: .normal)
+        setTimerTextfieldsEnable(booltype: false)
+    }
+
+    func checkFinishTimer() {
+        cancelTimer()
+        secLabel.text = "초 뒤에"
+        alertLabel.text = "알려드릴게요!"
+        startButton.setTitle("시작하기", for: .normal)
+        setTimerTextfieldsEnable(booltype: true)
     }
 }

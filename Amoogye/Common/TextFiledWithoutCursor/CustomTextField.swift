@@ -29,6 +29,7 @@ class CustomTextField: UITextField {
         self.tintColor = UIColor.clear
         self.layer.cornerRadius = 6
         self.font = .systemFont(ofSize: 20)
+        self.textAlignment = .center
 
         self.focusOut()
     }
