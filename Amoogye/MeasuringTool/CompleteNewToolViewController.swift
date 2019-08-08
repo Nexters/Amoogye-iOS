@@ -10,6 +10,7 @@ import UIKit
 
 class CompleteNewToolViewController: UIViewController {
     var newMeasuringTool: MeasuringTool?
+    var measuringToolManager = RMMeasuringToolManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +27,8 @@ class CompleteNewToolViewController: UIViewController {
     }
 
     @IBAction func okButtonClick(_ sender: Any) {
-        // TODO: Realm save
-        print("""
-            New Measuring Tool
-            Name: \(newMeasuringTool!.name)
-            Unit: \(newMeasuringTool!.unit)
-            Quantity: \(newMeasuringTool!.quantity)
-            Subname: \(newMeasuringTool!.subname)
-            """)
+        measuringToolManager.addMeasuringTool(object: newMeasuringTool!)
+
         navigationController?.dismiss(animated: true, completion: nil)
     }
 }

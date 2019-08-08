@@ -23,7 +23,7 @@ class GetCountForNewToolViewController: UIViewController {
         if segue.identifier == "segueToComplete" {
             // 다음 컨트롤러에 데이터 전달
             let destination = segue.destination as! CompleteNewToolViewController
-            let inputCount = Float(countLabel.text!)
+            let inputCount = Double(countLabel.text!)
 
             guard let criteriaTool = selectedCriteriaTool, let newToolName = toolNameInput, let measuringCount = inputCount else {
                 return
