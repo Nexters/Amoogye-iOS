@@ -586,7 +586,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="WYk-2y-lrX" kind="show" id="cz6-q3-A9b"/>
+                                            <segue destination="WYk-2y-lrX" kind="show" identifier="segueToSetName" id="cz6-q3-A9b"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -658,7 +658,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="S5s-zF-kF2" kind="push" id="tvf-Gh-kfg"/>
+                                    <segue destination="S5s-zF-kF2" kind="push" identifier="segueToSetTool" id="tvf-Gh-kfg"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B21-8O-c4K">
@@ -695,6 +695,9 @@
                         <viewLayoutGuide key="safeArea" id="aMO-Lg-hax"/>
                     </view>
                     <navigationItem key="navigationItem" id="ceT-7i-6BR"/>
+                    <connections>
+                        <outlet property="newToolNameLabel" destination="B21-8O-c4K" id="w8h-PI-rue"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sB-B7-YJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -743,7 +746,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="azH-by-VVE" kind="push" id="p9c-ze-B6P"/>
+                                    <segue destination="azH-by-VVE" kind="push" identifier="segueToGetCount" id="p9c-ze-B6P"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신 주변에 있는 도구를 골라주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAh-ow-zPi">
@@ -861,7 +864,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ROd-Tw-55d" kind="push" id="gCl-7S-tgd"/>
+                                    <segue destination="ROd-Tw-55d" kind="push" identifier="segueToComplete" id="gCl-7S-tgd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="종이컵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D20-JU-XLO">
