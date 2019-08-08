@@ -8,8 +8,11 @@
 
 import Foundation
 
-struct TimerModel {
+class TimerModel {
+    static let shared = TimerModel()
     var timer = Timer()
     var isWorkingTimer = false
     var time = 0
+
+    private init() {}
 }

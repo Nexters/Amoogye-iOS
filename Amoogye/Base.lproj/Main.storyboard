@@ -323,7 +323,7 @@
         <!--타이머-->
         <scene sceneID="xmh-3v-FIR">
             <objects>
-                <viewController id="M4K-Uv-eZF" customClass="TimerViewController" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="M4K-Uv-eZF" customClass="TimerSettingViewController" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="va9-cU-6Mu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -432,36 +432,6 @@
                                     <action selector="clickStart:" destination="M4K-Uv-eZF" eventType="touchUpInside" id="Va9-Uy-3Qu"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4m-Ct-niP">
-                                <rect key="frame" x="235" y="255" width="124" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.30980392156862746" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="3xd-Rm-arP"/>
-                                    <constraint firstAttribute="width" constant="124" id="pv7-NM-US5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <state key="normal" title="일시정지">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickPause:" destination="M4K-Uv-eZF" eventType="touchUpInside" id="7CX-6N-5eU"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZ1-76-byA">
-                                <rect key="frame" x="16" y="255" width="124" height="60"/>
-                                <color key="backgroundColor" red="0.73725490196078436" green="0.80392156862745101" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Nd2-pL-WUW"/>
-                                    <constraint firstAttribute="width" constant="124" id="skq-sS-Dgw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <state key="normal" title="취소">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickCancel:" destination="M4K-Uv-eZF" eventType="touchUpInside" id="cb7-3M-Otd"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nE4-Ww-xPU">
                                 <rect key="frame" x="0.0" y="331" width="375" height="4"/>
                                 <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -489,7 +459,68 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Doa-1y-FJP">
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GXW-1y-H7p" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" constant="16" id="3HK-zm-Xzf"/>
+                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="trailing" secondItem="GXW-1y-H7p" secondAttribute="trailing" constant="16" id="74X-C7-aZ3"/>
+                            <constraint firstItem="nE4-Ww-xPU" firstAttribute="centerX" secondItem="va9-cU-6Mu" secondAttribute="centerX" id="AcL-T2-knm"/>
+                            <constraint firstItem="nE4-Ww-xPU" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" id="Mpy-wP-7wM"/>
+                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="trailing" secondItem="nE4-Ww-xPU" secondAttribute="trailing" id="Ri2-Nh-bcG"/>
+                            <constraint firstItem="5kL-4m-E2f" firstAttribute="trailing" secondItem="U0o-Bz-pBp" secondAttribute="trailing" id="UJO-oU-GJe"/>
+                            <constraint firstItem="5kL-4m-E2f" firstAttribute="bottom" secondItem="U0o-Bz-pBp" secondAttribute="bottom" id="WCm-lm-eth"/>
+                            <constraint firstItem="CAP-FO-hey" firstAttribute="top" secondItem="9w2-h7-ZWM" secondAttribute="bottom" id="YAy-zp-tor"/>
+                            <constraint firstItem="9w2-h7-ZWM" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" constant="16" id="b6J-aQ-AWi"/>
+                            <constraint firstItem="9w2-h7-ZWM" firstAttribute="top" secondItem="U0o-Bz-pBp" secondAttribute="top" constant="48" id="csN-aM-F5H"/>
+                            <constraint firstItem="CAP-FO-hey" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" id="fqd-cc-aNd"/>
+                            <constraint firstItem="nE4-Ww-xPU" firstAttribute="top" secondItem="GXW-1y-H7p" secondAttribute="bottom" constant="16" id="khd-pc-SvB"/>
+                            <constraint firstItem="5kL-4m-E2f" firstAttribute="top" secondItem="nE4-Ww-xPU" secondAttribute="bottom" id="mtk-FW-imH"/>
+                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="trailing" secondItem="CAP-FO-hey" secondAttribute="trailing" id="q3J-gy-mOt"/>
+                            <constraint firstItem="5kL-4m-E2f" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" id="qRv-fP-rOy"/>
+                            <constraint firstItem="GXW-1y-H7p" firstAttribute="top" secondItem="CAP-FO-hey" secondAttribute="bottom" id="sXT-nm-ceE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U0o-Bz-pBp"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="타이머" id="JLK-wp-aip"/>
+                    <connections>
+                        <outlet property="alertLabel" destination="rM4-7Y-Ox3" id="pvm-oE-UYP"/>
+                        <outlet property="hourTextfield" destination="a1S-vz-g9R" id="Vw8-DY-De8"/>
+                        <outlet property="minTextfield" destination="M3Y-Tv-wfs" id="B2P-ow-bPC"/>
+                        <outlet property="numericKeyboardView" destination="5kL-4m-E2f" id="1VZ-vt-h3K"/>
+                        <outlet property="secLabel" destination="PEl-I0-uKp" id="lop-2d-pH7"/>
+                        <outlet property="secTextfield" destination="o4e-8J-Tvs" id="3yq-VI-g6L"/>
+                        <outlet property="settingView" destination="CAP-FO-hey" id="eSd-x5-0n0"/>
+                        <outlet property="startButton" destination="GXW-1y-H7p" id="pYq-Xh-GQS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6dl-OY-RUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117.5999999999999" y="79.610194902548727"/>
+        </scene>
+        <!--Timer Progress View Controller-->
+        <scene sceneID="UZs-Qy-sTk">
+            <objects>
+                <viewController storyboardIdentifier="TimerProgressViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="s4r-aE-aJV" customClass="TimerProgressViewController" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e82-so-dCS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4m-Ct-niP">
+                                <rect key="frame" x="235" y="255" width="124" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.30980392156862746" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3xd-Rm-arP"/>
+                                    <constraint firstAttribute="width" constant="124" id="pv7-NM-US5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="일시정지">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickPauseButton:" destination="s4r-aE-aJV" eventType="touchUpInside" id="3xC-nj-AXq"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Doa-1y-FJP">
                                 <rect key="frame" x="0.0" y="97" width="375" height="158"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00: 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLX-kv-Dg5">
@@ -502,59 +533,59 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="mLX-kv-Dg5" firstAttribute="top" secondItem="Doa-1y-FJP" secondAttribute="top" constant="54" id="IpW-zj-OkM"/>
+                                    <constraint firstAttribute="height" constant="158" id="Y42-NW-HZ4"/>
                                     <constraint firstAttribute="bottom" secondItem="mLX-kv-Dg5" secondAttribute="bottom" constant="64" id="ZWb-Ze-H8x"/>
                                     <constraint firstItem="mLX-kv-Dg5" firstAttribute="centerX" secondItem="Doa-1y-FJP" secondAttribute="centerX" id="ZyS-O4-11Z"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타이머" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCR-U4-kfX">
+                                <rect key="frame" x="16" y="68" width="63" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="0OV-Ic-cs4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZ1-76-byA">
+                                <rect key="frame" x="16" y="255" width="124" height="60"/>
+                                <color key="backgroundColor" red="0.73725490196078436" green="0.80392156862745101" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Nd2-pL-WUW"/>
+                                    <constraint firstAttribute="width" constant="124" id="skq-sS-Dgw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="취소">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickCancelButton:" destination="s4r-aE-aJV" eventType="touchUpInside" id="P5S-BG-xvj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GXW-1y-H7p" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" constant="16" id="3HK-zm-Xzf"/>
-                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="trailing" secondItem="GXW-1y-H7p" secondAttribute="trailing" constant="16" id="74X-C7-aZ3"/>
-                            <constraint firstItem="nE4-Ww-xPU" firstAttribute="centerX" secondItem="va9-cU-6Mu" secondAttribute="centerX" id="AcL-T2-knm"/>
-                            <constraint firstItem="Doa-1y-FJP" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" id="GI5-YD-ujT"/>
-                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="bottom" secondItem="5kL-4m-E2f" secondAttribute="bottom" id="Jk4-OA-5r2"/>
-                            <constraint firstItem="nE4-Ww-xPU" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" id="Mpy-wP-7wM"/>
-                            <constraint firstItem="nE4-Ww-xPU" firstAttribute="top" secondItem="LZ1-76-byA" secondAttribute="bottom" constant="16" id="N3K-0V-RYb"/>
-                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="trailing" secondItem="nE4-Ww-xPU" secondAttribute="trailing" id="Ri2-Nh-bcG"/>
-                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="trailing" secondItem="5kL-4m-E2f" secondAttribute="trailing" id="SeZ-sw-5Wq"/>
-                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="trailing" secondItem="Doa-1y-FJP" secondAttribute="trailing" id="V9V-fR-Z9x"/>
-                            <constraint firstItem="CAP-FO-hey" firstAttribute="top" secondItem="9w2-h7-ZWM" secondAttribute="bottom" id="YAy-zp-tor"/>
-                            <constraint firstItem="9w2-h7-ZWM" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" constant="16" id="b6J-aQ-AWi"/>
-                            <constraint firstItem="5kL-4m-E2f" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" id="bLC-Uj-7fQ"/>
-                            <constraint firstItem="9w2-h7-ZWM" firstAttribute="top" secondItem="U0o-Bz-pBp" secondAttribute="top" constant="48" id="csN-aM-F5H"/>
-                            <constraint firstItem="k4m-Ct-niP" firstAttribute="top" secondItem="LZ1-76-byA" secondAttribute="top" id="doj-gf-Uhn"/>
-                            <constraint firstItem="5kL-4m-E2f" firstAttribute="top" secondItem="nE4-Ww-xPU" secondAttribute="bottom" id="e3f-eP-dzp"/>
-                            <constraint firstItem="LZ1-76-byA" firstAttribute="leading" secondItem="GXW-1y-H7p" secondAttribute="leading" id="et9-yH-yie"/>
-                            <constraint firstItem="CAP-FO-hey" firstAttribute="leading" secondItem="U0o-Bz-pBp" secondAttribute="leading" id="fqd-cc-aNd"/>
-                            <constraint firstItem="LZ1-76-byA" firstAttribute="top" secondItem="GXW-1y-H7p" secondAttribute="top" id="hez-gw-rHM"/>
-                            <constraint firstItem="GXW-1y-H7p" firstAttribute="top" secondItem="Doa-1y-FJP" secondAttribute="bottom" id="neq-l1-Dmr"/>
-                            <constraint firstItem="U0o-Bz-pBp" firstAttribute="trailing" secondItem="CAP-FO-hey" secondAttribute="trailing" id="q3J-gy-mOt"/>
-                            <constraint firstItem="GXW-1y-H7p" firstAttribute="top" secondItem="CAP-FO-hey" secondAttribute="bottom" id="sXT-nm-ceE"/>
-                            <constraint firstItem="Doa-1y-FJP" firstAttribute="top" secondItem="9w2-h7-ZWM" secondAttribute="bottom" id="yLU-hM-sTS"/>
-                            <constraint firstItem="k4m-Ct-niP" firstAttribute="trailing" secondItem="GXW-1y-H7p" secondAttribute="trailing" id="zbg-Fx-PLu"/>
+                            <constraint firstItem="dCR-U4-kfX" firstAttribute="leading" secondItem="y1p-tv-iFY" secondAttribute="leading" constant="16" id="25P-9t-5Mz"/>
+                            <constraint firstItem="k4m-Ct-niP" firstAttribute="top" secondItem="Doa-1y-FJP" secondAttribute="bottom" id="98K-hN-3eu"/>
+                            <constraint firstItem="dCR-U4-kfX" firstAttribute="top" secondItem="y1p-tv-iFY" secondAttribute="top" constant="48" id="AtG-D4-UuF"/>
+                            <constraint firstItem="LZ1-76-byA" firstAttribute="top" secondItem="Doa-1y-FJP" secondAttribute="bottom" id="IA8-pa-bqI"/>
+                            <constraint firstItem="LZ1-76-byA" firstAttribute="leading" secondItem="y1p-tv-iFY" secondAttribute="leading" constant="16" id="MpU-GL-fKi"/>
+                            <constraint firstItem="y1p-tv-iFY" firstAttribute="trailing" secondItem="k4m-Ct-niP" secondAttribute="trailing" constant="16" id="Ref-aC-H9y"/>
+                            <constraint firstItem="Doa-1y-FJP" firstAttribute="top" secondItem="dCR-U4-kfX" secondAttribute="bottom" id="cy7-yG-dCO"/>
+                            <constraint firstItem="Doa-1y-FJP" firstAttribute="trailing" secondItem="y1p-tv-iFY" secondAttribute="trailing" id="oWD-sI-8zw"/>
+                            <constraint firstItem="Doa-1y-FJP" firstAttribute="leading" secondItem="y1p-tv-iFY" secondAttribute="leading" id="pef-bl-Jwy"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="U0o-Bz-pBp"/>
+                        <viewLayoutGuide key="safeArea" id="y1p-tv-iFY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="타이머" id="JLK-wp-aip"/>
                     <connections>
-                        <outlet property="alertLabel" destination="rM4-7Y-Ox3" id="pvm-oE-UYP"/>
-                        <outlet property="cancelButton" destination="LZ1-76-byA" id="2vD-cC-pj1"/>
-                        <outlet property="hourTextfield" destination="a1S-vz-g9R" id="Vw8-DY-De8"/>
-                        <outlet property="minTextfield" destination="M3Y-Tv-wfs" id="B2P-ow-bPC"/>
-                        <outlet property="numericKeyboardView" destination="5kL-4m-E2f" id="1VZ-vt-h3K"/>
-                        <outlet property="pauseButton" destination="k4m-Ct-niP" id="mfY-fu-Q81"/>
-                        <outlet property="secLabel" destination="PEl-I0-uKp" id="lop-2d-pH7"/>
-                        <outlet property="secTextfield" destination="o4e-8J-Tvs" id="3yq-VI-g6L"/>
-                        <outlet property="settingView" destination="CAP-FO-hey" id="eSd-x5-0n0"/>
-                        <outlet property="startButton" destination="GXW-1y-H7p" id="pYq-Xh-GQS"/>
-                        <outlet property="timerLabel" destination="mLX-kv-Dg5" id="ZWc-CH-4ck"/>
-                        <outlet property="timerView" destination="Doa-1y-FJP" id="Qkj-MP-ncW"/>
+                        <outlet property="cancelButton" destination="LZ1-76-byA" id="sa2-vJ-iJc"/>
+                        <outlet property="pauseButton" destination="k4m-Ct-niP" id="u9R-bm-ymc"/>
+                        <outlet property="timeLabel" destination="mLX-kv-Dg5" id="JQq-Vc-kt0"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6dl-OY-RUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1b9-QE-O8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5999999999999" y="79.610194902548727"/>
+            <point key="canvasLocation" x="1756" y="82"/>
         </scene>
         <!--설정-->
         <scene sceneID="lRh-EF-UlQ">
