@@ -25,7 +25,7 @@ enum MeasuringUnit: String {
 struct MeasuringTool {
     var name: String
     var unit: MeasuringUnit
-    var quantity: Float
+    var quantity: Double
 
     var subname: String {
         get {
@@ -39,7 +39,7 @@ struct MeasuringTool {
         self.quantity = 0.0
     }
 
-    init(name: String, unit: MeasuringUnit, quantity: Float) {
+    init(name: String, unit: MeasuringUnit, quantity: Double) {
         self.name = name
         self.unit = unit
         self.quantity = quantity

@@ -32,6 +32,8 @@
 		A3C7BACE22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */; };
 		A3C7BAEB22F560BD0067D632 /* MeasuringTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BAEA22F560BD0067D632 /* MeasuringTool.swift */; };
 		A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BAEF22F58AFF0067D632 /* MeasuringToolManager.swift */; };
+		A3C7BAF922F6DEE40067D632 /* RMMeausringTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BAF822F6DEE40067D632 /* RMMeausringTool.swift */; };
+		A3C7BAFB22F6EA170067D632 /* RMMeasuringToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BAFA22F6EA170067D632 /* RMMeasuringToolManager.swift */; };
 		BC10E39C39F4E1B94E1C1748 /* Pods_Amoogye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,8 @@
 		A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumericKeyboardCollectionViewCell.xib; sourceTree = "<group>"; };
 		A3C7BAEA22F560BD0067D632 /* MeasuringTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringTool.swift; sourceTree = "<group>"; };
 		A3C7BAEF22F58AFF0067D632 /* MeasuringToolManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolManager.swift; sourceTree = "<group>"; };
+		A3C7BAF822F6DEE40067D632 /* RMMeausringTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMMeausringTool.swift; sourceTree = "<group>"; };
+		A3C7BAFA22F6EA170067D632 /* RMMeasuringToolManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMMeasuringToolManager.swift; sourceTree = "<group>"; };
 		FF1B1192416A93293D91C594 /* Pods-Amoogye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.debug.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				A3C7BAC322F30B390067D632 /* NumericKeyboard */,
+				A3C7BAF722F6DED00067D632 /* Realm */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -201,6 +206,15 @@
 				A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A3C7BAF722F6DED00067D632 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A3C7BAF822F6DEE40067D632 /* RMMeausringTool.swift */,
+				A3C7BAFA22F6EA170067D632 /* RMMeasuringToolManager.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		AB0B4FB0A95D0551229D2DD4 /* Frameworks */ = {
@@ -365,6 +379,7 @@
 				3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */,
 				3A8550E522F00AF30003C584 /* SetToolForNewToolViewController.swift in Sources */,
 				3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */,
+				A3C7BAF922F6DEE40067D632 /* RMMeausringTool.swift in Sources */,
 				A3C7BAEB22F560BD0067D632 /* MeasuringTool.swift in Sources */,
 				3ABCE65822D9AE2B00F61E46 /* CalculatorViewController.swift in Sources */,
 				A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */,
@@ -375,6 +390,7 @@
 				A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */,
 				3A8550E822F00AF30003C584 /* SetNameForNewToolViewController.swift in Sources */,
 				3A8550DA22F007650003C584 /* OnOffCell.swift in Sources */,
+				A3C7BAFB22F6EA170067D632 /* RMMeasuringToolManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
