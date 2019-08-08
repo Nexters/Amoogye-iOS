@@ -22,6 +22,11 @@ class MeasuringToolViewController: UIViewController {
 
         measuringToolList = measuringToolManager.getMeausringToolList()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.measuringToolList = self.measuringToolManager.getMeausringToolList()
+        self.toolTableView.reloadData()
+    }
 }
 
 extension MeasuringToolViewController: UITableViewDataSource {
