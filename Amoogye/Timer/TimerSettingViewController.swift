@@ -56,8 +56,8 @@ class TimerSettingViewController: UIViewController {
 
         } else if getSecond() > 0 { // 시작 버튼 클릭
             timerModel.isWorkingTimer = true
-            timerModel.time = getSecond()
-            print("setting: \(timerModel.time)")
+            timerModel.leftTime = Double(getSecond())
+            timerModel.totalTime = Double(getSecond())
 
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "TimerProgressViewController") else { return }
             self.present(vc, animated: false, completion: nil)
