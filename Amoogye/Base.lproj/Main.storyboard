@@ -261,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5999999999999" y="-570.76461769115451"/>
+            <point key="canvasLocation" x="1118" y="-571"/>
         </scene>
         <!--Calculator Measuring Tip View Controller-->
         <scene sceneID="aL5-fN-KoX">
@@ -297,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ThI-Ud-LQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1770" y="-570"/>
+            <point key="canvasLocation" x="1778" y="-572"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="g3J-bz-CWS">
@@ -311,7 +311,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="5Wg-j1-nux"/>
-                        <segue destination="M4K-Uv-eZF" kind="relationship" relationship="viewControllers" id="WUR-g6-3zt"/>
+                        <segue destination="aSk-wW-rjx" kind="relationship" relationship="viewControllers" id="WUR-g6-3zt"/>
                         <segue destination="lTq-MC-Yla" kind="relationship" relationship="viewControllers" id="RDN-iQ-1tg"/>
                         <segue destination="jMo-es-Zm2" kind="relationship" relationship="viewControllers" id="F2P-G8-8bu"/>
                     </connections>
@@ -320,7 +320,7 @@
             </objects>
             <point key="canvasLocation" x="139" y="80"/>
         </scene>
-        <!--타이머-->
+        <!--Timer Setting View Controller-->
         <scene sceneID="xmh-3v-FIR">
             <objects>
                 <viewController id="M4K-Uv-eZF" customClass="TimerSettingViewController" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
@@ -481,7 +481,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U0o-Bz-pBp"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="타이머" id="JLK-wp-aip"/>
+                    <navigationItem key="navigationItem" id="Ofe-Pp-kGJ"/>
                     <connections>
                         <outlet property="alertLabel" destination="rM4-7Y-Ox3" id="pvm-oE-UYP"/>
                         <outlet property="hourTextfield" destination="a1S-vz-g9R" id="Vw8-DY-De8"/>
@@ -495,7 +495,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dl-OY-RUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5999999999999" y="79.610194902548727"/>
+            <point key="canvasLocation" x="1778" y="80"/>
         </scene>
         <!--Timer Progress View Controller-->
         <scene sceneID="UZs-Qy-sTk">
@@ -584,6 +584,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y1p-tv-iFY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="akW-Fe-ZoL"/>
                     <connections>
                         <outlet property="cancelButton" destination="LZ1-76-byA" id="sa2-vJ-iJc"/>
                         <outlet property="pauseButton" destination="k4m-Ct-niP" id="u9R-bm-ymc"/>
@@ -593,7 +594,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1b9-QE-O8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756" y="81.409295352323838"/>
+            <point key="canvasLocation" x="2425" y="80"/>
         </scene>
         <!--설정-->
         <scene sceneID="lRh-EF-UlQ">
@@ -734,7 +735,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWM-Op-NEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="723"/>
+            <point key="canvasLocation" x="1118" y="743"/>
         </scene>
         <!--Set Name For New Tool View Controller-->
         <scene sceneID="ae6-6H-1h8">
@@ -810,7 +811,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sB-B7-YJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2469.5999999999999" y="722.78860569715152"/>
+            <point key="canvasLocation" x="2425" y="743"/>
         </scene>
         <!--Set Tool For New Tool View Controller-->
         <scene sceneID="nub-IE-bgo">
@@ -927,7 +928,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Egu-rf-GxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3119" y="722"/>
+            <point key="canvasLocation" x="4056.8000000000002" y="721.88905547226398"/>
         </scene>
         <!--Get Count For New Tool View Controller-->
         <scene sceneID="fUt-pg-dm0">
@@ -1171,7 +1172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vO-AZ-LyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3759" y="723"/>
+            <point key="canvasLocation" x="4696.8000000000002" y="722.78860569715152"/>
         </scene>
         <!--Complete New Tool View Controller-->
         <scene sceneID="QRf-H8-8jp">
@@ -1254,7 +1255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v3Z-zw-I3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4412" y="721"/>
+            <point key="canvasLocation" x="5351.1999999999998" y="720.98950524737631"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Gb-Qp-VDY">
@@ -1271,7 +1272,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRw-DJ-fFO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832.8" y="725.48725637181417"/>
+            <point key="canvasLocation" x="1777" y="743"/>
+        </scene>
+        <!--타이머-->
+        <scene sceneID="tYJ-kB-gey">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="aSk-wW-rjx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="타이머" id="JLK-wp-aip"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fzG-LT-s8A">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="M4K-Uv-eZF" kind="relationship" relationship="rootViewController" id="exv-vg-5y5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ajs-6d-d87" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117.5999999999999" y="79.610194902548727"/>
         </scene>
     </scenes>
 </document>

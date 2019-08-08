@@ -60,7 +60,10 @@ class TimerSettingViewController: UIViewController {
             timerModel.totalTime = Double(getSecond())
 
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "TimerProgressViewController") else { return }
-            self.present(vc, animated: false, completion: nil)
+
+            self.navigationController?.pushViewController(vc, animated: false)
+//            self.present(vc, animated: false, completion: nil)
+//            self.performSegue(withIdentifier: "finishTimerSetting", sender: sender)
         }
     }
 }

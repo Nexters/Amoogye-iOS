@@ -33,7 +33,7 @@ class TimerProgressViewController: UIViewController {
     @IBAction func clickCancelButton(_ sender: Any) {
         timerModel.isWorkingTimer = false
         timerModel.timer.invalidate()
-        self.presentingViewController?.dismiss(animated: false, completion: nil)
+        self.navigationController?.popViewController(animated: false)
     }
 
     // 타이머 일시정지, 다시시작
@@ -55,7 +55,7 @@ class TimerProgressViewController: UIViewController {
             updateProgressView()
         } else { // 시간 종료 시
             timerModel.timer.invalidate()
-            self.presentingViewController?.dismiss(animated: false, completion: nil)
+            self.navigationController?.popViewController(animated: false)
         }
     }
 }
