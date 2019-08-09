@@ -37,6 +37,8 @@ extension MeasuringToolViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MeasuringToolTableViewCell", for: indexPath) as! MeasuringToolTableViewCell
 
+        cell.separatorInset = UIEdgeInsets.zero
+
         cell.toolNameLabel.text = measuringToolList?[indexPath.item].name
         cell.toolSubnameLabel.text = measuringToolList?[indexPath.item].subname
         return cell
