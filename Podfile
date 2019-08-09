@@ -8,6 +8,8 @@ target 'Amoogye' do
   # Pods for Amoogye
   pod 'SwiftLint'
   pod 'Swinject'
+  pod 'SwinjectStoryboard'
+  pod 'SwinjectAutoregistration'
   pod 'RealmSwift'
   pod 'SnapKit'
 end

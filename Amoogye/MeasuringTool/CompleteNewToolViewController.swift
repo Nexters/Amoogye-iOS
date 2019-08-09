@@ -10,7 +10,7 @@ import UIKit
 
 class CompleteNewToolViewController: UIViewController {
     var newMeasuringTool: MeasuringTool?
-    var measuringToolManager = RMMeasuringToolManager()
+    var measuringToolManager: RMMeasuringToolManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class CompleteNewToolViewController: UIViewController {
     }
 
     @IBAction func okButtonClick(_ sender: Any) {
-        measuringToolManager.addMeasuringTool(object: newMeasuringTool!)
+        measuringToolManager?.addMeasuringTool(object: newMeasuringTool!)
 
         navigationController?.dismiss(animated: true, completion: nil)
     }
