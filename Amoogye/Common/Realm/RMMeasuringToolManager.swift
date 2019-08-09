@@ -19,35 +19,15 @@ class RMMeasuringToolManager: MeasuringToolManager {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
-    private func inputData(input: MeasuringTool) -> RMMeasuringTool {
-        let realmData = RMMeasuringTool()
-
-        realmData.name = input.name
-        realmData.unit = input.unit
-        realmData.quantity = input.quantity
-
-        return realmData
-    }
-
-    private func outputData(realmData: RMMeasuringTool) -> MeasuringTool {
-        var output = MeasuringTool()
-
-        output.name = realmData.name
-        output.unit = realmData.unit
-        output.quantity = realmData.quantity
-
-        return output
-    }
-
     func addMeasuringTool(object: MeasuringTool) {
         try! realm?.write {
-            realm?.add(inputData(input: object))
+            realm?.add(inputFromData(input: object))
         }
     }
 
     func deleteMeasuringTool(object: MeasuringTool) {
         try! realm?.write {
-            realm?.delete(inputData(input: object))
+            realm?.delete(inputFromData(input: object))
         }
     }
 
@@ -56,10 +36,43 @@ class RMMeasuringToolManager: MeasuringToolManager {
 
         if let realmMeasuringToolList = realm?.objects(RMMeasuringTool.self) {
             for realmMeasuringTool in realmMeasuringToolList {
-                measuringToolList.append(outputData(realmData: realmMeasuringTool))
+                measuringToolList.append(outputFromRealm(realmData: realmMeasuringTool))
             }
         }
 
         return measuringToolList
+    }
+}
+
+extension RMMeasuringToolManager {
+    private func realmUnitFromInputUnit(inputUnit: MeasuringUnit) -> RMMeasuringUnit {
+        let realmUnit = RMMeasuringUnit(name: inputUnit.name, value: inputUnit.value)
+        realmUnit.type = inputUnit.type
+
+        return realmUnit
+    }
+
+    private func outputUnitFromRealmUnit(realmUnit: RMMeasuringUnit) -> MeasuringUnit {
+        return MeasuringUnit(name: realmUnit.name, value: realmUnit.value, type: realmUnit.type)
+    }
+}
+
+extension RMMeasuringToolManager {
+    private func inputFromData(input: MeasuringTool) -> RMMeasuringTool {
+        let realmData = RMMeasuringTool()
+
+        realmData.name = input.name
+        realmData.measuringUnit = realmUnitFromInputUnit(inputUnit: input.measuringUnit)
+        realmData.quantity = input.quantity
+
+        return realmData
+    }
+
+    private func outputFromRealm(realmData: RMMeasuringTool) -> MeasuringTool {
+        let name = realmData.name
+        let quantity = realmData.quantity
+        let measuringUnit = outputUnitFromRealmUnit(realmUnit: realmData.measuringUnit)
+
+        return MeasuringTool(name: name, quantity: quantity, measuringUnit: measuringUnit)
     }
 }

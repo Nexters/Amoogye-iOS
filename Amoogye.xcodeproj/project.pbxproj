@@ -38,6 +38,7 @@
 		3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAAB22F6DE1200F09850 /* TimerModel.swift */; };
 		A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */; };
 		A3B6898822FD7A8F002FB31D /* MeasuringUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6898722FD7A8F002FB31D /* MeasuringUnit.swift */; };
+		A3B6898A22FD9240002FB31D /* RMMeausringUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6898922FD9240002FB31D /* RMMeausringUnit.swift */; };
 		A3C5E79522DE36530098F520 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A3C5E79422DE36530098F520 /* .swiftlint.yml */; };
 		A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */; };
 		A3C7BACE22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */; };
@@ -84,6 +85,7 @@
 		5D0791F43C10572A5D0191EE /* Pods-Amoogye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.release.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.release.xcconfig"; sourceTree = "<group>"; };
 		A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		A3B6898722FD7A8F002FB31D /* MeasuringUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringUnit.swift; sourceTree = "<group>"; };
+		A3B6898922FD9240002FB31D /* RMMeausringUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMMeausringUnit.swift; sourceTree = "<group>"; };
 		A3C5E79422DE36530098F520 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericKeyboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumericKeyboardCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -197,8 +199,8 @@
 		A3B6898522FD78DB002FB31D /* MeasuringTool */ = {
 			isa = PBXGroup;
 			children = (
-				A3C7BAEA22F560BD0067D632 /* MeasuringTool.swift */,
 				A3B6898722FD7A8F002FB31D /* MeasuringUnit.swift */,
+				A3C7BAEA22F560BD0067D632 /* MeasuringTool.swift */,
 			);
 			path = MeasuringTool;
 			sourceTree = "<group>";
@@ -276,6 +278,7 @@
 		A3C7BAF722F6DED00067D632 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				A3B6898922FD9240002FB31D /* RMMeausringUnit.swift */,
 				A3C7BAF822F6DEE40067D632 /* RMMeausringTool.swift */,
 				A3C7BAFA22F6EA170067D632 /* RMMeasuringToolManager.swift */,
 			);
@@ -443,6 +446,7 @@
 				3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */,
 				3AE9AAA522F6D87A00F09850 /* SearchView.swift in Sources */,
 				3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */,
+				A3B6898A22FD9240002FB31D /* RMMeausringUnit.swift in Sources */,
 				3A8550F122F00CFF0003C584 /* MeasuringToolTableViewCell.swift in Sources */,
 				3A8550E722F00AF30003C584 /* CompleteNewToolViewController.swift in Sources */,
 				3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */,

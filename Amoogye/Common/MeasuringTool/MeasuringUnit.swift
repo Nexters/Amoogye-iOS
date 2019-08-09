@@ -8,45 +8,31 @@
 
 import Foundation
 
-// 계량 단위
-enum MeasuringUnit: String {
-    case cubicCentimeter = "cc"
-    case millilitre = "ml"
-    case litre = "L"
-    case milligram = "mg"
-    case gram = "g"
-    case kilogram = "kg"
-    case teaSpoon = "tsp"
-    case tableSpoon = "tbsp"
-    case cup = "cup"
-    case unknown = ""
-}
-
 enum MeasuringType: Int {
     case unknown = 0
     case volume
     case mass
 }
 
-struct FixedMeasuringUnit {
+struct MeasuringUnit {
     var name: String
     var value: Double
     var type: MeasuringType
 }
 
-extension FixedMeasuringUnit {
-    static func basicMeasuringUnitList() -> [FixedMeasuringUnit] {
-        var unitList = [FixedMeasuringUnit]()
+extension MeasuringUnit {
+    static func basicMeasuringUnitList() -> [MeasuringUnit] {
+        var unitList = [MeasuringUnit]()
 
-        unitList.append(FixedMeasuringUnit(name: "CC", value: 1, type: .volume))
-        unitList.append(FixedMeasuringUnit(name: "ml", value: 1, type: .volume))
-        unitList.append(FixedMeasuringUnit(name: "L", value: 1000, type: .volume))
-        unitList.append(FixedMeasuringUnit(name: "mg", value: 1, type: .mass))
-        unitList.append(FixedMeasuringUnit(name: "g", value: 100, type: .mass))
-        unitList.append(FixedMeasuringUnit(name: "kg", value: 100000, type: .mass))
-        unitList.append(FixedMeasuringUnit(name: "tsp", value: 5, type: .volume))
-        unitList.append(FixedMeasuringUnit(name: "tbsp", value: 15, type: .volume))
-        unitList.append(FixedMeasuringUnit(name: "cup", value: 240, type: .volume))
+        unitList.append(MeasuringUnit(name: "CC", value: 1, type: .volume))
+        unitList.append(MeasuringUnit(name: "ml", value: 1, type: .volume))
+        unitList.append(MeasuringUnit(name: "L", value: 1000, type: .volume))
+        unitList.append(MeasuringUnit(name: "mg", value: 1, type: .mass))
+        unitList.append(MeasuringUnit(name: "g", value: 100, type: .mass))
+        unitList.append(MeasuringUnit(name: "kg", value: 100000, type: .mass))
+        unitList.append(MeasuringUnit(name: "tsp", value: 5, type: .volume))
+        unitList.append(MeasuringUnit(name: "tbsp", value: 15, type: .volume))
+        unitList.append(MeasuringUnit(name: "cup", value: 240, type: .volume))
 
         return unitList
     }
