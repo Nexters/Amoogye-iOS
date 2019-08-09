@@ -37,6 +37,7 @@
 		3AE9AAA722F6D9AB00F09850 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAA622F6D9AB00F09850 /* PickerView.swift */; };
 		3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAAB22F6DE1200F09850 /* TimerModel.swift */; };
 		A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */; };
+		A3B6898822FD7A8F002FB31D /* MeasuringUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6898722FD7A8F002FB31D /* MeasuringUnit.swift */; };
 		A3C5E79522DE36530098F520 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A3C5E79422DE36530098F520 /* .swiftlint.yml */; };
 		A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */; };
 		A3C7BACE22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */; };
@@ -82,6 +83,7 @@
 		3AE9AAAB22F6DE1200F09850 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		5D0791F43C10572A5D0191EE /* Pods-Amoogye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.release.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.release.xcconfig"; sourceTree = "<group>"; };
 		A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
+		A3B6898722FD7A8F002FB31D /* MeasuringUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringUnit.swift; sourceTree = "<group>"; };
 		A3C5E79422DE36530098F520 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericKeyboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumericKeyboardCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -192,11 +194,21 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A3B6898522FD78DB002FB31D /* MeasuringTool */ = {
+			isa = PBXGroup;
+			children = (
+				A3C7BAEA22F560BD0067D632 /* MeasuringTool.swift */,
+				A3B6898722FD7A8F002FB31D /* MeasuringUnit.swift */,
+			);
+			path = MeasuringTool;
+			sourceTree = "<group>";
+		};
 		A3C5E81E22EE19B00098F520 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				3AE9AA8822F5650200F09850 /* MeterialSearchView */,
+				A3B6898522FD78DB002FB31D /* MeasuringTool */,
 				3AE9AA7C22F5223100F09850 /* MeterialPicker */,
+				3AE9AA8822F5650200F09850 /* MeterialSearchView */,
 				A3C7BAC322F30B390067D632 /* NumericKeyboard */,
 				A3C7BAF722F6DED00067D632 /* Realm */,
 			);
@@ -225,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				3A8550EF22F00BB70003C584 /* Cells */,
-				A3C7BAEA22F560BD0067D632 /* MeasuringTool.swift */,
 				A3C7BAEF22F58AFF0067D632 /* MeasuringToolManager.swift */,
 				3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */,
 				3A8550E322F00AF30003C584 /* SetNameForNewToolViewController.swift */,
@@ -451,6 +462,7 @@
 				A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */,
 				3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */,
 				A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */,
+				A3B6898822FD7A8F002FB31D /* MeasuringUnit.swift in Sources */,
 				3A8550E822F00AF30003C584 /* SetNameForNewToolViewController.swift in Sources */,
 				3AE9AA8322F529B700F09850 /* MeterialPickerView.swift in Sources */,
 				3A8550DA22F007650003C584 /* OnOffCell.swift in Sources */,
