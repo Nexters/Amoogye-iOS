@@ -13,7 +13,7 @@ class SetToolForNewToolViewController: UIViewController {
     var toolNameInput: String?
 
     let toolList = ["햇반통", "배라스푼", "종이컵", "소주잔", "밥숟갈"]
-    let paperCup = MeasuringTool(name: "종이컵", unit: .cup, quantity: 1.0)
+    let paperCup = MeasuringTool(name: "종이컵", quantity: 3.0, measuringUnit: MeasuringUnit(name: "컵", value: 1, type: .volume))
 
     @IBOutlet weak var toolLabel: UILabel!
     @IBOutlet weak var toolPicker: UIPickerView!

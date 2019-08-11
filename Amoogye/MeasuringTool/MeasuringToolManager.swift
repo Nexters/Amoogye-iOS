@@ -17,7 +17,7 @@ class MeasuringToolManager {
 
     // 새로운 계량도구 생성
     func newMeasuringToolWith(_ criteria: MeasuringTool, name toolName: String, measuringCount count: Double) -> MeasuringTool {
-        let quantity = criteria.quantity * count
-        return MeasuringTool(name: toolName, unit: criteria.unit, quantity: quantity)
+        let quantity = criteria.absoluteQuantity * count
+        return MeasuringTool(name: toolName, quantity: quantity, measuringUnit: criteria.measuringUnit)
     }
 }

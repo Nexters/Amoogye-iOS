@@ -12,14 +12,17 @@ import RealmSwift
 final class RMMeasuringTool: Object {
     @objc dynamic var name = ""
     @objc dynamic var quantity = 0.0
-
-    @objc private dynamic var unitRaw = ""
-    var unit: MeasuringUnit {
+    @objc private dynamic var _measuringUnit: RMMeasuringUnit?
+    var measuringUnit: RMMeasuringUnit {
         get {
-            return MeasuringUnit(rawValue: unitRaw)!
+            return _measuringUnit ?? RMMeasuringUnit(name: "", value: 0)
         }
         set {
-            unitRaw = newValue.rawValue
+            _measuringUnit = newValue
         }
+    }
+
+    override static func ignoredProperties() -> [String] {
+        return ["measuringUnit"]
     }
 }
