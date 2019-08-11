@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TimerSettingViewController: UIViewController {
 
@@ -28,6 +29,9 @@ class TimerSettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {_, _ in})
+        UNUserNotificationCenter.current().delegate = self
 
         setupNumericKeyboard()
         setUpTextfield()
@@ -56,6 +60,7 @@ class TimerSettingViewController: UIViewController {
 
         } else if getSecond() > 0 { // 시작 버튼 클릭
             timerModel.setTime(total: Double(getSecond()))
+            doneNotification()
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "TimerProgressViewController") else { return }
             self.navigationController?.pushViewController(vc, animated: false)
         }
@@ -111,6 +116,33 @@ extension TimerSettingViewController {
         startButton.setTitle("종료", for: .normal)
         setTimerTextfieldsEnable(booltype: false)
         numericKeyboardView.isHidden = true
+    }
+
+    func doneNotification() {
+        let hour = Int(timerModel.getTotalTime())/3600
+        let min = Int(timerModel.getTotalTime())%3600/60
+        let sec = Int(timerModel.getLeftTime())%3600%60
+
+        var timeString = ""
+        if hour != 0 {
+            timeString.append("\(hour)시간 ")
+        }
+        if min != 0 {
+            timeString.append("\(min)분 ")
+        }
+        if sec != 0 {
+            timeString.append("\(sec)초 ")
+        }
+
+        let content = UNMutableNotificationContent()
+        content.title = "타이머 종료"
+        content.body = "\(timeString)타이머가 종료되었습니다."
+        content.badge = 1
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(getSecond()), repeats: false)
+        let request = UNNotificationRequest(identifier: "timerdone", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 
     // MARK: - 변환 관련 함수
@@ -207,4 +239,19 @@ extension TimerSettingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1.0
     }
+}
+
+extension TimerSettingViewController: UNUserNotificationCenterDelegate {
+
+    // 앱이 켜져 있을 때도 알림 받기
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound, .badge])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        let settingsViewController = UIViewController()
+        settingsViewController.view.backgroundColor = .gray
+        self.present(settingsViewController, animated: true, completion: nil)
+    }
+
 }

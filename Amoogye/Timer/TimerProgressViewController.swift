@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TimerProgressViewController: UIViewController {
 
@@ -20,12 +21,17 @@ class TimerProgressViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupButtonStyle(cancelButton, pauseButton)
         setupProgressView()
-        setTimeLabelText(hour: Int( timerModel.getLeftTime())/3600,
+        setTimeLabelText(hour: Int(timerModel.getLeftTime())/3600,
                          min: Int(timerModel.getLeftTime())%3600/60,
                          sec: Int(timerModel.getLeftTime())%3600%60)
         startTimer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        <#code#>
     }
 
     // 타이머 취소
