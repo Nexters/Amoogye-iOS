@@ -9,7 +9,6 @@
 import UIKit
 
 class CustomTextField: UITextField {
-    let color = ColorModel()
     var manager: CustomTextfieldManager?
 
     override init(frame: CGRect) {
@@ -39,9 +38,9 @@ class CustomTextField: UITextField {
         // selected border: #orangeyRed
         // selected font: #orangeyRed
         self.backgroundColor = UIColor.white
-        self.layer.borderColor = color.orangeyRedColor.cgColor
+        self.layer.borderColor = UIColor.TextFieldColors.orangeyRed.cgColor
         self.layer.borderWidth = 1
-        self.textColor = color.orangeyRedColor
+        self.textColor = UIColor.TextFieldColors.orangeyRed
         self.text = ""
     }
 
@@ -49,10 +48,10 @@ class CustomTextField: UITextField {
         // unselected background: #iceBlue
         // unselected border: NONE
         // unselected font: #darkBlueGrey
-        self.backgroundColor = color.iceBlueColor
+        self.backgroundColor = UIColor.TextFieldColors.iceBlue
         self.layer.borderColor = UIColor.clear.cgColor
         self.borderStyle = .none
-        self.textColor = color.darkBlueGreyColor
+        self.textColor = UIColor.TextFieldColors.darkBlueGrey
         if self.text == "" {
             self.text = "0"
         }
