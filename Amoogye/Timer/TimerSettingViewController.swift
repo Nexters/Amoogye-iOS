@@ -35,7 +35,7 @@ class TimerSettingViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        if timerModel.isWorkingTimer { // 타이머가 종료된 상황
+        if timerModel.getIsWorking() { // 타이머가 종료된 상황
             showTimerFinish()
         } else { // 타이머가 시작하기 전, 또는 취소된 상황
             showTimerReady()
@@ -50,20 +50,14 @@ class TimerSettingViewController: UIViewController {
     @IBAction func clickStart(_ sender: Any) {
         focusOutAllTextfield()
 
-        if timerModel.isWorkingTimer {  // 종료 버튼 클릭
-            timerModel.isWorkingTimer = false
+        if timerModel.getIsWorking() {  // 종료 버튼 클릭
+            timerModel.resetTimer()
             showTimerReady()
 
         } else if getSecond() > 0 { // 시작 버튼 클릭
-            timerModel.isWorkingTimer = true
-            timerModel.leftTime = Double(getSecond())
-            timerModel.totalTime = Double(getSecond())
-
+            timerModel.setTime(total: Double(getSecond()))
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "TimerProgressViewController") else { return }
-
             self.navigationController?.pushViewController(vc, animated: false)
-//            self.present(vc, animated: false, completion: nil)
-//            self.performSegue(withIdentifier: "finishTimerSetting", sender: sender)
         }
     }
 }
@@ -101,6 +95,7 @@ extension TimerSettingViewController {
         secTextfield.focusOut()
     }
 
+    // 준비 상태
     func showTimerReady() {
         secLabel.text = "초 뒤에"
         alertLabel.text = "알려드릴게요!"
@@ -109,6 +104,7 @@ extension TimerSettingViewController {
         numericKeyboardView.isHidden = false
     }
 
+    // 시간 종료 상태
     func showTimerFinish() {
         secLabel.text = "초가"
         alertLabel.text = "끝났습니다!"

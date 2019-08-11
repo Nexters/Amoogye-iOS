@@ -11,7 +11,6 @@ import UIKit
 class TimerProgressViewController: UIViewController {
 
     var timerModel = TimerModel.shared
-    var timer = TimerModel.shared.leftTime
     let timeInterval = 0.01
 
     @IBOutlet weak var timeLabel: UILabel!
@@ -23,22 +22,21 @@ class TimerProgressViewController: UIViewController {
         super.viewDidLoad()
         setupButtonStyle(cancelButton, pauseButton)
         setupProgressView()
-        setTimeLabelText(hour: Int(timerModel.leftTime)/3600,
-                         min: Int(timerModel.leftTime)%3600/60,
-                         sec: Int(timerModel.leftTime)%3600%60)
+        setTimeLabelText(hour: Int( timerModel.getLeftTime())/3600,
+                         min: Int(timerModel.getLeftTime())%3600/60,
+                         sec: Int(timerModel.getLeftTime())%3600%60)
         startTimer()
     }
 
     // 타이머 취소
     @IBAction func clickCancelButton(_ sender: Any) {
-        timerModel.isWorkingTimer = false
-        timerModel.timer.invalidate()
+        timerModel.resetTimer()
         self.navigationController?.popViewController(animated: false)
     }
 
     // 타이머 일시정지, 다시시작
     @IBAction func clickPauseButton(_ sender: Any) {
-        if timerModel.isWorkingTimer { // 일시정지
+        if timerModel.getIsWorking() { // 일시정지
             pauseTimer()
         } else { // 다시시작
             startTimer()
@@ -46,15 +44,15 @@ class TimerProgressViewController: UIViewController {
     }
 
     @objc func decreaseTime() {
-        if timerModel.leftTime > timeInterval {
-            timerModel.leftTime -= timeInterval
-            setTimeLabelText(hour: Int( timerModel.leftTime)/3600,
-                              min: Int(timerModel.leftTime)%3600/60,
-                              sec: Int(timerModel.leftTime)%3600%60)
+        if timerModel.getLeftTime() > timeInterval {
+            timerModel.decreaseLeftTime(decrease: timeInterval)
+            setTimeLabelText(hour: Int( timerModel.getLeftTime())/3600,
+                              min: Int(timerModel.getLeftTime())%3600/60,
+                              sec: Int(timerModel.getLeftTime())%3600%60)
 
             updateProgressView()
         } else { // 시간 종료 시
-            timerModel.timer.invalidate()
+            timerModel.finishTimer()
             self.navigationController?.popViewController(animated: false)
         }
     }
@@ -82,20 +80,19 @@ extension TimerProgressViewController {
     // MARK: - 타이머 작동 함수
     private func startTimer() {
         pauseButton.setTitle("일시정지", for: .normal)
-        timerModel.isWorkingTimer = true
+        timerModel.startTimer(timeInterval: timeInterval)
         timerModel.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(TimerProgressViewController.decreaseTime), userInfo: nil, repeats: true)
     }
 
     private func pauseTimer() {
         pauseButton.setTitle("다시 시작", for: .normal)
-        timerModel.isWorkingTimer = false
-        timerModel.timer.invalidate()
+        timerModel.pauseTimer()
     }
 
     func updateProgressView() {
         if progressView.progress <= 1 {
-        progressView.progress += Float(timeInterval / timerModel.totalTime)
-        progressView.setProgress(progressView.progress, animated: true)
+            progressView.progress += Float(timeInterval / timerModel.getTotalTime())
+            progressView.setProgress(progressView.progress, animated: true)
         }
     }
 }
