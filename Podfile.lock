@@ -7,12 +7,18 @@ PODS:
   - SnapKit (5.0.0)
   - SwiftLint (0.34.0)
   - Swinject (2.6.2)
+  - SwinjectAutoregistration (2.6.0):
+    - Swinject (~> 2.6)
+  - SwinjectStoryboard (2.2.0):
+    - Swinject (~> 2.6)
 
 DEPENDENCIES:
   - RealmSwift
   - SnapKit
   - SwiftLint
   - Swinject
+  - SwinjectAutoregistration
+  - SwinjectStoryboard
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -21,6 +27,8 @@ SPEC REPOS:
     - SnapKit
     - SwiftLint
     - Swinject
+    - SwinjectAutoregistration
+    - SwinjectStoryboard
 
 SPEC CHECKSUMS:
   Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
@@ -28,7 +36,9 @@ SPEC CHECKSUMS:
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
   Swinject: cf7458774b1b00323080a9c67e47a1ee7f9d2af1
+  SwinjectAutoregistration: 93a908f7543c401b0c315305ac0ae501efdbce89
+  SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
 
-PODFILE CHECKSUM: 077f7f5ee001ff145eb556a102c1f7d319596eab
+PODFILE CHECKSUM: f3df3b948d50f132fc48a5a80ad4de02e9297189
 
 COCOAPODS: 1.7.4

@@ -40,6 +40,7 @@
 		3AE9AAB122F8611B00F09850 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB022F8611B00F09850 /* Colors.swift */; };
 		3AE9AAB322F98A4900F09850 /* CustomTextfieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */; };
 		3AE9AAB522FAC17900F09850 /* TimerProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */; };
+		A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */; };
 		A3C5E79522DE36530098F520 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A3C5E79422DE36530098F520 /* .swiftlint.yml */; };
 		A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */; };
 		A3C7BACE22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */; };
@@ -88,6 +89,7 @@
 		3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldManager.swift; sourceTree = "<group>"; };
 		3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProgressViewController.swift; sourceTree = "<group>"; };
 		5D0791F43C10572A5D0191EE /* Pods-Amoogye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.release.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.release.xcconfig"; sourceTree = "<group>"; };
+		A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		A3C5E79422DE36530098F520 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericKeyboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumericKeyboardCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				3ABCE66122D9AE2C00F61E46 /* Info.plist */,
 				3ABCE65E22D9AE2C00F61E46 /* LaunchScreen.storyboard */,
 				3ABCE65922D9AE2B00F61E46 /* Main.storyboard */,
+				A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */,
 				A3C5E81E22EE19B00098F520 /* Common */,
 				A3C7BABF22F300E30067D632 /* Calculator */,
 				A3C7BAC022F300F10067D632 /* Timer */,
@@ -470,6 +473,7 @@
 				3A8550E922F00AF30003C584 /* GetCountForNewToolViewController.swift in Sources */,
 				A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */,
 				3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */,
+				A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */,
 				3A8550E822F00AF30003C584 /* SetNameForNewToolViewController.swift in Sources */,
 				3AE9AA8322F529B700F09850 /* MeterialPickerView.swift in Sources */,
 				3AE9AAB322F98A4900F09850 /* CustomTextfieldManager.swift in Sources */,

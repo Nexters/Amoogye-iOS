@@ -12,6 +12,7 @@ class GetCountForNewToolViewController: UIViewController {
 
     var toolNameInput: String?
     var selectedCriteriaTool: MeasuringTool?
+    var measuringToolManager: RMMeasuringToolManager?
 
     @IBOutlet weak var countLabel: UILabel!
 
@@ -29,8 +30,7 @@ class GetCountForNewToolViewController: UIViewController {
                 return
             }
 
-            let measuringToolManager = MeasuringToolManager()
-            destination.newMeasuringTool = measuringToolManager.newMeasuringToolWith(criteriaTool, name: newToolName, measuringCount: measuringCount)
+            destination.newMeasuringTool = measuringToolManager?.newMeasuringToolWith(criteriaTool, name: newToolName, measuringCount: measuringCount)
         }
     }
 
