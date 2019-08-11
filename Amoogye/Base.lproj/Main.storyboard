@@ -724,10 +724,18 @@
                                     <segue destination="WYk-2y-lrX" kind="show" identifier="segueToSetName" id="cz6-q3-A9b"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icR-vV-mBr">
+                                <rect key="frame" x="329" y="121" width="30" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="편집">
+                                    <color key="titleColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6go-an-5eA" firstAttribute="top" secondItem="WT1-ys-dBv" secondAttribute="top" constant="48" id="B1h-gH-b4f"/>
+                            <constraint firstItem="icR-vV-mBr" firstAttribute="centerY" secondItem="hlR-dh-BeX" secondAttribute="centerY" id="ELa-kJ-AVV"/>
                             <constraint firstItem="hlR-dh-BeX" firstAttribute="leading" secondItem="WT1-ys-dBv" secondAttribute="leading" constant="16" id="F99-XK-QR0"/>
                             <constraint firstItem="8EE-qN-OPy" firstAttribute="leading" secondItem="WT1-ys-dBv" secondAttribute="leading" id="FSl-lP-j8Z"/>
                             <constraint firstItem="WT1-ys-dBv" firstAttribute="bottom" secondItem="8EE-qN-OPy" secondAttribute="bottom" id="J0J-Qw-cq2"/>
@@ -737,6 +745,7 @@
                             <constraint firstItem="RFL-H9-Qvp" firstAttribute="centerY" secondItem="hlR-dh-BeX" secondAttribute="centerY" id="Zh7-GL-hGp"/>
                             <constraint firstItem="WT1-ys-dBv" firstAttribute="trailing" secondItem="B3t-gm-Kyr" secondAttribute="trailing" constant="16" id="cXm-vY-LvS"/>
                             <constraint firstItem="8EE-qN-OPy" firstAttribute="top" secondItem="hlR-dh-BeX" secondAttribute="bottom" constant="9" id="eZH-Eh-mj3"/>
+                            <constraint firstItem="WT1-ys-dBv" firstAttribute="trailing" secondItem="icR-vV-mBr" secondAttribute="trailing" constant="16" id="ic7-fE-I22"/>
                             <constraint firstItem="6go-an-5eA" firstAttribute="leading" secondItem="WT1-ys-dBv" secondAttribute="leading" constant="16" id="wXu-9g-2hK"/>
                             <constraint firstItem="RFL-H9-Qvp" firstAttribute="leading" secondItem="hlR-dh-BeX" secondAttribute="trailing" constant="24" id="wzs-xK-UzJ"/>
                         </constraints>
@@ -749,7 +758,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWM-Op-NEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="1132" y="722.78860569715152"/>
         </scene>
         <!--Set Name For New Tool View Controller-->
@@ -943,13 +951,6 @@
                                 <color key="pageIndicatorTintColor" red="0.73725490199999999" green="0.80392156859999997" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.30980392159999998" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="햇반통" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7L-YV-tNQ">
-                                <rect key="frame" x="36" y="384" width="76" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부피 계산하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AM-an-a0X">
                                 <rect key="frame" x="16" y="324" width="130" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
@@ -960,6 +961,13 @@
                                 <rect key="frame" x="16" y="359" width="269.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="햇반통" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7L-YV-tNQ">
+                                <rect key="frame" x="168" y="304" width="76" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
