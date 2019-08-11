@@ -11,7 +11,7 @@ import UIKit
 class SettingViewController: UIViewController {
     var appSetting: ApplicationSetting?
 
-    let devEmailList = ["skjflgglf@gmail.com", "hihiboss@gmail.com"]
+    let devEmailList = ["junhui820@gmail.com", "k1miso012@gmail.com"]
 
     @IBOutlet weak var settingTableView: UITableView!
 
@@ -77,6 +77,7 @@ extension SettingViewController: UITableViewDataSource {
             cell.onoffSwitch.isOn = settingItem.userSetting()
             cell.onoffSwitch.tag = indexPath.row
             cell.onoffSwitch.addTarget(self, action: #selector(setScreenSettingState), for: .valueChanged)
+            cell.separatorInset = UIEdgeInsets.zero
 
             return cell
 
@@ -87,11 +88,15 @@ extension SettingViewController: UITableViewDataSource {
             cell.onoffSwitch.isOn = settingItem.userSetting()
             cell.onoffSwitch.tag = indexPath.row
             cell.onoffSwitch.addTarget(self, action: #selector(setAlarmSettingState), for: .valueChanged)
+            cell.separatorInset = UIEdgeInsets.zero
+
             return cell
 
         case 2: // 개발자 컨택
             let cell = tableView.dequeueReusableCell(withIdentifier: "DeveloperContactCell", for: indexPath) as! DeveloperContactCell
             cell.titleLabel.text = devEmailList[indexPath.row]
+            cell.separatorInset = UIEdgeInsets.zero
+
             return cell
 
         default:
