@@ -20,9 +20,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ew-zP-rEo">
-                        <rect key="frame" x="16" y="19.5" width="40" height="26"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="16" y="22.5" width="31.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIm-2g-2qC">
