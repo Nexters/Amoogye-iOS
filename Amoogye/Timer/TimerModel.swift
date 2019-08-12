@@ -9,34 +9,41 @@
 import Foundation
 
 class TimerModel {
+
+    enum TimerState {
+        case Ready, Start, Pause, Finish
+    }
+
     static let shared = TimerModel()
-    private var isWorking: Bool = false
+    private var state: TimerState = .Ready
     private var leftTime: Double = 0
     private var totalTime: Double = 0
+    private var deadLine: Date = Date()
     var timer: Timer = Timer()
 
     private init() {}
 
     func startTimer(timeInterval: Double) {
-        self.isWorking = true
+        self.state = .Start
     }
 
     func pauseTimer() {
-        self.isWorking = false
+        self.state = .Pause
         self.timer.invalidate()
     }
 
     func resetTimer() {
-        self.isWorking = false
+        self.state = .Ready
         self.timer.invalidate()
     }
 
     func finishTimer() {
+        self.state = .Finish
         self.timer.invalidate()
     }
 
-    func getIsWorking() -> Bool {
-        return self.isWorking
+    func getState() -> TimerState {
+        return self.state
     }
 
     func getLeftTime() -> Double {
@@ -47,9 +54,25 @@ class TimerModel {
         return self.totalTime
     }
 
-    func setTime(total: Double) {
+    func getDeadLine() -> Date {
+        return self.deadLine
+    }
+
+    func setTotalTime(total: Double) {
         self.leftTime = total
         self.totalTime = total
+    }
+
+    func setTimerState(state: TimerState) {
+        self.state = state
+    }
+
+    func setLeftTime(left: Double) {
+        self.leftTime = left
+    }
+
+    func setDeadLine(deadLine: Date) {
+        self.deadLine = deadLine
     }
 
     func decreaseLeftTime(decrease: Double) {

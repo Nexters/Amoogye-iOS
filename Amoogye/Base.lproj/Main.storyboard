@@ -302,7 +302,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="g3J-bz-CWS">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eBc-HB-6wz" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eBc-HB-6wz" customClass="TabBarController" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2On-mX-8BZ">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

@@ -12,6 +12,7 @@ import UserNotifications
 class TimerProgressViewController: UIViewController {
 
     var timerModel = TimerModel.shared
+    var trigger: UNNotificationTrigger?
     let timeInterval = 0.01
 
     @IBOutlet weak var timeLabel: UILabel!
@@ -22,16 +23,17 @@ class TimerProgressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 타이머 종료 notification
+        UNUserNotificationCenter.current().delegate = self
+        trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(timerModel.getTotalTime()), repeats: false)
+        doneNotification()
+
         setupButtonStyle(cancelButton, pauseButton)
         setupProgressView()
         setTimeLabelText(hour: Int(timerModel.getLeftTime())/3600,
                          min: Int(timerModel.getLeftTime())%3600/60,
                          sec: Int(timerModel.getLeftTime())%3600%60)
         startTimer()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        <#code#>
     }
 
     // 타이머 취소
@@ -42,7 +44,7 @@ class TimerProgressViewController: UIViewController {
 
     // 타이머 일시정지, 다시시작
     @IBAction func clickPauseButton(_ sender: Any) {
-        if timerModel.getIsWorking() { // 일시정지
+        if timerModel.getState() == .Start { // 일시정지
             pauseTimer()
         } else { // 다시시작
             startTimer()
@@ -83,6 +85,31 @@ extension TimerProgressViewController {
         progressView.progressViewStyle = .bar
     }
 
+    func doneNotification() {
+        let hour = Int(timerModel.getTotalTime())/3600
+        let min = Int(timerModel.getTotalTime())%3600/60
+        let sec = Int(timerModel.getLeftTime())%3600%60
+
+        var timeString = ""
+        if hour != 0 {
+            timeString.append("\(hour)시간 ")
+        }
+        if min != 0 {
+            timeString.append("\(min)분 ")
+        }
+        if sec != 0 {
+            timeString.append("\(sec)초 ")
+        }
+
+        let content = UNMutableNotificationContent()
+        content.title = "타이머 종료"
+        content.body = "\(timeString)타이머가 종료되었습니다."
+
+        let request = UNNotificationRequest(identifier: "timerdone", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+
     // MARK: - 타이머 작동 함수
     private func startTimer() {
         pauseButton.setTitle("일시정지", for: .normal)
@@ -97,8 +124,23 @@ extension TimerProgressViewController {
 
     func updateProgressView() {
         if progressView.progress <= 1 {
-            progressView.progress += Float(timeInterval / timerModel.getTotalTime())
+            progressView.progress = 1 - Float(timerModel.getLeftTime() / timerModel.getTotalTime())
             progressView.setProgress(progressView.progress, animated: true)
         }
     }
+}
+
+extension TimerProgressViewController: UNUserNotificationCenterDelegate {
+
+    // 앱이 켜져 있을 때도 알림 받기
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        let settingsViewController = UIViewController()
+        settingsViewController.view.backgroundColor = .gray
+        self.present(settingsViewController, animated: true, completion: nil)
+    }
+
 }
