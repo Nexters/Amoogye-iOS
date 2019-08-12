@@ -9,10 +9,9 @@
 import UIKit
 
 class SettingViewController: UIViewController {
+    var appSetting: ApplicationSetting?
 
-    let screenSettingList = ["꺼짐방지"]
-    let alarmSettingList = ["사운드", "진동"]
-    let devEmail = ["skjflgglf@gmail.com"]
+    let devEmailList = ["junhui820@gmail.com", "k1miso012@gmail.com"]
 
     @IBOutlet weak var settingTableView: UITableView!
 
@@ -33,6 +32,19 @@ class SettingViewController: UIViewController {
     }
 }
 
+extension SettingViewController {
+    @objc func setScreenSettingState(_ sender: UISwitch) {
+        let setting = appSetting!.screenSettingList[sender.tag]
+        UserDefaults.standard.set(sender.isOn, forKey: setting.rawValue)
+        UIApplication.shared.isIdleTimerDisabled = sender.isOn
+    }
+
+    @objc func setAlarmSettingState(_ sender: UISwitch) {
+        let setting = appSetting!.alarmSettingList[sender.tag]
+        UserDefaults.standard.set(sender.isOn, forKey: setting.rawValue)
+    }
+}
+
 extension SettingViewController: UITableViewDataSource {
 
     // number of sections
@@ -44,11 +56,11 @@ extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return screenSettingList.count
+            return appSetting!.screenSettingList.count
         case 1:
-            return alarmSettingList.count
+            return appSetting!.alarmSettingList.count
         case 2:
-            return devEmail.count
+            return devEmailList.count
         default:
             return 0
         }
@@ -60,17 +72,31 @@ extension SettingViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0: // 화면설정
             let cell = tableView.dequeueReusableCell(withIdentifier: "OnOffCell", for: indexPath) as! OnOffCell
-            cell.titleLabel.text = screenSettingList[indexPath.row]
+            let settingItem = appSetting!.screenSettingList[indexPath.row]
+            cell.titleLabel.text = settingItem.rawValue
+            cell.onoffSwitch.isOn = settingItem.userSetting()
+            cell.onoffSwitch.tag = indexPath.row
+            cell.onoffSwitch.addTarget(self, action: #selector(setScreenSettingState), for: .valueChanged)
+            cell.separatorInset = UIEdgeInsets.zero
+
             return cell
 
-        case 1: // 알림설정
+        case 1: // 알람설정
             let cell = tableView.dequeueReusableCell(withIdentifier: "OnOffCell", for: indexPath) as! OnOffCell
-            cell.titleLabel.text = alarmSettingList[indexPath.row]
+            let settingItem = appSetting!.alarmSettingList[indexPath.row]
+            cell.titleLabel.text = settingItem.rawValue
+            cell.onoffSwitch.isOn = settingItem.userSetting()
+            cell.onoffSwitch.tag = indexPath.row
+            cell.onoffSwitch.addTarget(self, action: #selector(setAlarmSettingState), for: .valueChanged)
+            cell.separatorInset = UIEdgeInsets.zero
+
             return cell
 
         case 2: // 개발자 컨택
             let cell = tableView.dequeueReusableCell(withIdentifier: "DeveloperContactCell", for: indexPath) as! DeveloperContactCell
-            cell.titleLabel.text = devEmail[indexPath.row]
+            cell.titleLabel.text = devEmailList[indexPath.row]
+            cell.separatorInset = UIEdgeInsets.zero
+
             return cell
 
         default:
@@ -88,7 +114,7 @@ extension SettingViewController: UITableViewDataSource {
             headerView.titleLabel.text = "화면설정"
 
         case 1:
-            headerView.titleLabel.text = "알림설정"
+            headerView.titleLabel.text = "알람설정"
 
         case 2:
             headerView.titleLabel.text = "개발자 컨택"
