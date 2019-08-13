@@ -12,6 +12,7 @@ class MeasuringToolTableViewCell: UITableViewCell {
 
     @IBOutlet weak var toolNameLabel: UILabel!
     @IBOutlet weak var toolSubnameLabel: UILabel!
+    @IBOutlet weak var onoffButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,4 +24,13 @@ class MeasuringToolTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func clickOnoffButton(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+
+        if sender.isSelected {
+            self.onoffButton.setImage(UIImage(named: "onButton"), for: .normal)
+        } else {
+            self.onoffButton.setImage(UIImage(named: "offButton"), for: .normal)
+        }
+    }
 }
