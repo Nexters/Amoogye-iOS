@@ -9,7 +9,8 @@
 import Foundation
 
 protocol NumericKeyboardDelegate: class {
-    func clickNumberButton(number: String)
-    func clickDeleteButton()
-    func clickDotButton()
+    func inputNumber(number newValue: String)
+    func deleteValue()
+    func inputDot()
+    func getLastInputValue() -> String
 }
