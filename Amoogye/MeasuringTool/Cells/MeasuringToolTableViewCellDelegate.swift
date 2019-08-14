@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol MeasuringToolTableViewCellDelegate: class {
+    func didOnoffButton(_ tag: Int, isOn: Bool)
+}

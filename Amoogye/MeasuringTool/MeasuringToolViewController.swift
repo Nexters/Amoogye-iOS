@@ -17,21 +17,24 @@ class MeasuringToolViewController: UIViewController {
     @IBOutlet weak var editMeasuringToolButton: UIButton!
     @IBOutlet weak var tabIndicatorView: UIView!
 
-    var measuringToolManager: RMMeasuringToolManager?
+    var measuringToolManager: RealmMeasuringToolManager?
     var measuringToolList: [MeasuringTool]?
+    var isBasicToolSelected = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         toolTableView.dataSource = self
         toolTableView.delegate = self
 
-        measuringToolList = measuringToolManager?.getMeausringToolList()
-
         setupMeasuringToolTabBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.measuringToolList = self.measuringToolManager?.getMeausringToolList()
+        if isBasicToolSelected {
+            self.measuringToolList = measuringToolManager?.getBasicMeasuringToolList()
+        } else {
+            self.measuringToolList = measuringToolManager?.getLivingMeasuringToolList()
+        }
         self.toolTableView.reloadData()
     }
 
@@ -42,7 +45,11 @@ class MeasuringToolViewController: UIViewController {
 
             changeIndicatorPosition(to: sender)
 
-            editMeasuringToolButton.isHidden = true
+            self.isBasicToolSelected = true
+            self.editMeasuringToolButton.isHidden = true
+
+            self.measuringToolList = measuringToolManager?.getBasicMeasuringToolList()
+            self.toolTableView.reloadData()
         }
     }
 
@@ -53,7 +60,11 @@ class MeasuringToolViewController: UIViewController {
 
             changeIndicatorPosition(to: sender)
 
-            editMeasuringToolButton.isHidden = false
+            self.isBasicToolSelected = false
+            self.editMeasuringToolButton.isHidden = false
+
+            self.measuringToolList = measuringToolManager?.getLivingMeasuringToolList()
+            self.toolTableView.reloadData()
         }
     }
 }
@@ -95,20 +106,36 @@ extension MeasuringToolViewController {
 
 extension MeasuringToolViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return measuringToolList?.count ?? 0
+        return self.measuringToolList?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MeasuringToolTableViewCell", for: indexPath) as! MeasuringToolTableViewCell
-
-        cell.separatorInset = UIEdgeInsets.zero
-
-        cell.toolNameLabel.text = measuringToolList?[indexPath.item].name
-        cell.toolSubnameLabel.text = measuringToolList?[indexPath.item].subname
+        setupCell(cell, index: indexPath.item)
         return cell
+    }
+
+    private func setupCell(_ cell: MeasuringToolTableViewCell, index: Int) {
+        let measuringTool = self.measuringToolList![index]
+        cell.delegate = self
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.toolNameLabel.text = measuringTool.name
+        cell.toolSubnameLabel.text = measuringTool.subname
+        cell.setButtonImage(measuringTool.isOn)
+        cell.onoffButton.isSelected = measuringTool.isOn
+        cell.onoffButton.tag = index
     }
 }
 
 extension MeasuringToolViewController: UITableViewDelegate {
 
+}
+
+extension MeasuringToolViewController: MeasuringToolTableViewCellDelegate {
+    func didOnoffButton(_ tag: Int, isOn: Bool) {
+        if var measuringTool = self.measuringToolList?[tag] {
+            measuringTool.isOn = isOn
+            self.measuringToolManager?.updateMeasuringTool(measuringTool)
+        }
+    }
 }

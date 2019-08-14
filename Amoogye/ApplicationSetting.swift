@@ -12,6 +12,7 @@ enum SettingType: String {
     case Screen = "꺼짐방지"
     case Sound = "사운드"
     case Vibrate = "진동"
+    case FirstExecution = "첫실행"
 
     func userSetting() -> Bool {
         if let settingValue = UserDefaults.standard.value(forKey: self.rawValue) {

@@ -56,6 +56,18 @@ class RealmMeasuringToolManager: MeasuringToolManager {
         return measuringToolList
     }
 
+    func getUsingOnMeasuringToolList() -> [MeasuringTool] {
+        var usingOnTooList = [MeasuringTool]()
+
+        for measuringTool in getMeasuringToolList() {
+            if measuringTool.isOn == true {
+                usingOnTooList.append(measuringTool)
+            }
+        }
+
+        return usingOnTooList
+    }
+
     func getBasicMeasuringToolList() -> [MeasuringTool] {
         var basicToolList = [MeasuringTool]()
 

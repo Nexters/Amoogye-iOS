@@ -10,6 +10,8 @@ import UIKit
 
 class MeasuringToolTableViewCell: UITableViewCell {
 
+    var delegate: MeasuringToolTableViewCellDelegate?
+
     @IBOutlet weak var toolNameLabel: UILabel!
     @IBOutlet weak var toolSubnameLabel: UILabel!
     @IBOutlet weak var onoffButton: UIButton!
@@ -27,7 +29,12 @@ class MeasuringToolTableViewCell: UITableViewCell {
     @IBAction func clickOnoffButton(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
 
-        if sender.isSelected {
+        setButtonImage(sender.isSelected)
+        delegate?.didOnoffButton(sender.tag, isOn: sender.isSelected)
+    }
+
+    func setButtonImage(_ selected: Bool) {
+        if selected {
             self.onoffButton.setImage(UIImage(named: "onButton"), for: .normal)
         } else {
             self.onoffButton.setImage(UIImage(named: "offButton"), for: .normal)
