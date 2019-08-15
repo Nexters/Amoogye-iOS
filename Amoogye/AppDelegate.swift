@@ -15,8 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let timerModel = TimerModel.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
         timerModel.setDefaultTimerState()
+
+        if SettingType.FirstExecution.userSetting() {
+            setupDefaultMeasuringTool()
+            UserDefaults.standard.set(false, forKey: SettingType.FirstExecution.rawValue)
+        }
+        setupDefaultMeasuringTool()
+        application.isIdleTimerDisabled = SettingType.Screen.userSetting()
+
         return true
     }
 
@@ -41,5 +48,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         timerModel.saveTimerState()
+    }
+}
+
+extension AppDelegate {
+    func setupDefaultMeasuringTool() {
+        let measuringToolManager = RealmMeasuringToolManager()
+        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "CC", subname: "시시", quantity: 1, isOn: true))
+        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "ml", subname: "밀리리터", quantity: 1, isOn: true))
+        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "L", subname: "리터", quantity: 1000, isOn: true))
+        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .mass, name: "mg", subname: "밀리그램", quantity: 1, isOn: true))
+        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .mass, name: "g", subname: "그램", quantity: 1*100, isOn: true))
+        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .mass, name: "kg", subname: "킬로그램", quantity: 1*100*1000, isOn: true))
+        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "작은술", subname: "tsp", quantity: 5, isOn: true))
+        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "큰술", subname: "tbsp", quantity: 15, isOn: true))
+        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "컵", subname: "cup", quantity: 240, isOn: true))
     }
 }

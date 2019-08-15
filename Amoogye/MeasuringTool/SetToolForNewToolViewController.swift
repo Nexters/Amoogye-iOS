@@ -9,11 +9,11 @@
 import UIKit
 
 class SetToolForNewToolViewController: UIViewController {
+    var measuringToolManager: RealmMeasuringToolManager?
 
     var toolNameInput: String?
-
-    let toolList = ["햇반통", "배라스푼", "종이컵", "소주잔", "밥숟갈"]
-    let paperCup = MeasuringTool(name: "종이컵", quantity: 3.0, measuringUnit: MeasuringUnit(name: "컵", value: 1, type: .volume))
+    var selectedCriteriaTool: MeasuringTool?
+    var toolList: [MeasuringTool]?
 
     @IBOutlet weak var toolLabel: UILabel!
     @IBOutlet weak var toolPicker: UIPickerView!
@@ -22,6 +22,9 @@ class SetToolForNewToolViewController: UIViewController {
         super.viewDidLoad()
         toolPicker.dataSource = self
         toolPicker.delegate = self
+
+        toolList = measuringToolManager?.getUsingOnMeasuringToolList()
+        toolLabel.text = toolList!.first?.name
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,7 +32,7 @@ class SetToolForNewToolViewController: UIViewController {
             // 다음 컨트롤러에 데이터 전달
             let destination = segue.destination as! GetCountForNewToolViewController
             destination.toolNameInput = toolNameInput
-            destination.selectedCriteriaTool = paperCup
+            destination.selectedCriteriaTool = measuringToolManager?.getMeasuringTool(toolLabel.text!)
         }
     }
 
@@ -49,17 +52,17 @@ extension SetToolForNewToolViewController: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return toolList.count
+        return self.toolList?.count ?? 0
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return toolList[row]
+        return self.toolList?[row].name
     }
 }
 
 extension SetToolForNewToolViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        toolLabel.text = toolList[row]
+        toolLabel.text = self.toolList?[row].name
     }
 }

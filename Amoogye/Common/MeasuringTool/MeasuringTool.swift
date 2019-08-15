@@ -9,36 +9,34 @@
 import Foundation
 
 struct MeasuringTool {
+    var toolType: MeasuringToolType
+    var unitType: MeasuringUnitType
     var name: String
-    var subname: String {
-        get {
-            return "\(String(quantity))\(measuringUnit.name)"
-        }
-    }
+    var subname: String
     var quantity: Double
-    var measuringUnit: MeasuringUnit
-    var absoluteQuantity: Double {
-        get {
-            return quantity * measuringUnit.value
-        }
+    var isOn: Bool
+
+    init(toolType: MeasuringToolType, unitType: MeasuringUnitType, name: String, subname: String, quantity: Double, isOn: Bool) {
+        self.toolType = toolType
+        self.unitType = unitType
+        self.name = name
+        self.subname = subname
+        self.quantity = quantity
+        self.isOn = isOn
     }
-}
 
-extension MeasuringTool {
-    static func basicMeasuringToolList() -> [MeasuringTool] {
-        let unitList = MeasuringUnit.basicMeasuringUnitList()
-        var toolList = [MeasuringTool]()
+    init(toolType: MeasuringToolType, unitType: MeasuringUnitType, name: String, quantity: Double, isOn: Bool) {
+        var subname = String(quantity)
 
-        toolList.append(MeasuringTool(name: "시시", quantity: 1, measuringUnit: unitList[toolList.count]))
-        toolList.append(MeasuringTool(name: "밀리리터", quantity: 1, measuringUnit: unitList[toolList.count]))
-        toolList.append(MeasuringTool(name: "리터", quantity: 1, measuringUnit: unitList[toolList.count]))
-        toolList.append(MeasuringTool(name: "밀리그램", quantity: 1, measuringUnit: unitList[toolList.count]))
-        toolList.append(MeasuringTool(name: "그램", quantity: 1, measuringUnit: unitList[toolList.count]))
-        toolList.append(MeasuringTool(name: "킬로그램", quantity: 1, measuringUnit: unitList[toolList.count]))
-        toolList.append(MeasuringTool(name: "티스푼", quantity: 1, measuringUnit: unitList[toolList.count]))
-        toolList.append(MeasuringTool(name: "테이블스푼", quantity: 1, measuringUnit: unitList[toolList.count]))
-        toolList.append(MeasuringTool(name: "컵", quantity: 1, measuringUnit: unitList[toolList.count]))
+        switch unitType {
+        case .volume:
+            subname = subname + "ml"
+        case .mass:
+            subname = subname + "g"
+        default:
+            subname = "unknown"
+        }
 
-        return toolList
+        self.init(toolType: toolType, unitType: unitType, name: name, subname: subname, quantity: quantity, isOn: isOn)
     }
 }
