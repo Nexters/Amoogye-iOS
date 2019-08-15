@@ -38,6 +38,7 @@ class SetNameForNewToolViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
 
+    // MARK: - Keyboard 감지
     @objc func keyboardWillAppear(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
@@ -64,6 +65,7 @@ class SetNameForNewToolViewController: UIViewController {
         }
     }
 
+    // MARK: - Button 수행 함수
     @IBAction func clickNextButton(_ sender: UIButton) {
         if (measuringToolManager?.checkDuplicatedToolName(name: newToolNameLabel.text!))! {
             alertNameIsDuplicated()
@@ -73,7 +75,23 @@ class SetNameForNewToolViewController: UIViewController {
     }
 
     @IBAction func closeButtonClick(_ sender: Any) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        let alertMessage = """
+계량도구 추가를 모두
+취소 하시겠습니까?
+"""
+        let alert = UIAlertController(title: nil, message: alertMessage, preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "예", style: .default, handler: { (_) -> Void in
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        })
+        let cancelAction = UIAlertAction(title: "아니오", style: .cancel, handler: { (_) -> Void in
+            return
+        })
+
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

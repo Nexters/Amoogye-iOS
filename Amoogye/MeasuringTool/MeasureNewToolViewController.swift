@@ -65,7 +65,23 @@ class MeasureNewToolViewController: UIViewController {
     }
 
     @IBAction func closeButtonClick(_ sender: Any) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        let alertMessage = """
+계량도구 추가를 모두
+취소 하시겠습니까?
+"""
+        let alert = UIAlertController(title: nil, message: alertMessage, preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "예", style: .default, handler: { (_) -> Void in
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        })
+        let cancelAction = UIAlertAction(title: "아니오", style: .cancel, handler: { (_) -> Void in
+            return
+        })
+
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
