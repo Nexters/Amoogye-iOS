@@ -632,7 +632,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-ne-tAc">
-                                                            <rect key="frame" x="343" y="17" width="16" height="22"/>
+                                                            <rect key="frame" x="311" y="16" width="48" height="24"/>
                                                             <state key="normal" image="onButton"/>
                                                             <connections>
                                                                 <action selector="clickOnoffButton:" destination="T1A-tn-eST" eventType="touchUpInside" id="b9Z-ek-qxh"/>
@@ -672,7 +672,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3t-gm-Kyr">
-                                <rect key="frame" x="343" y="40" width="16" height="22"/>
+                                <rect key="frame" x="335" y="40" width="24" height="24"/>
                                 <state key="normal" image="addTool">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -840,6 +840,7 @@
                     <navigationItem key="navigationItem" id="ceT-7i-6BR"/>
                     <connections>
                         <outlet property="newToolNameLabel" destination="B21-8O-c4K" id="w8h-PI-rue"/>
+                        <outlet property="nextButton" destination="Bht-vy-SOk" id="PM1-MQ-sJ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sB-B7-YJf" userLabel="First Responder" sceneMemberID="firstResponder"/>
