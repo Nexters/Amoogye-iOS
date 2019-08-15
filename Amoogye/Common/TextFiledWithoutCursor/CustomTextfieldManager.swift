@@ -7,20 +7,33 @@
 //
 
 import Foundation
+import UIKit
 
 class CustomTextfieldManager {
     private var textfieldList = [CustomTextField]()
+    var focusedTextField: CustomTextField?
 
-    init(_ tf1: CustomTextField, _ textfields: CustomTextField...) {
-        textfieldList.append(tf1)
+    init(_ textfields: CustomTextField...) {
         textfieldList.append(contentsOf: textfields)
+
+        for textfield in textfields {
+            textfield.addTarget(self, action: #selector(self.focusOutAll(except:)), for: UIControl.Event.editingDidBegin)
+        }
     }
 
-    func focusOutAll(except tf: CustomTextField) {
+    @objc func focusOutAll(except tf: CustomTextField) {
+        focusedTextField = tf
         for textfield in textfieldList {
             if textfield != tf {
                 textfield.focusOut()
             }
+        }
+    }
+
+    func focusOutAll() {
+        focusedTextField = nil
+        for textfield in textfieldList {
+            textfield.focusOut()
         }
     }
 }

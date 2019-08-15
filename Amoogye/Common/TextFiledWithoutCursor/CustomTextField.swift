@@ -9,7 +9,9 @@
 import UIKit
 
 class CustomTextField: UITextField {
-    var manager: CustomTextfieldManager?
+
+    let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    var recentText = ""
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,8 +31,31 @@ class CustomTextField: UITextField {
         self.layer.cornerRadius = 6
         self.font = .systemFont(ofSize: 20)
         self.textAlignment = .center
+        self.layer.borderWidth = 1
 
-        self.focusOut()
+        self.focusOut()// touch (start editing)
+        self.addTarget(self, action: #selector(self.touchEvent), for: UIControl.Event.editingDidBegin)
+        self.addTarget(self, action: #selector(self.endTouchEvent), for: UIControl.Event.editingDidEnd)
+    }
+
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    @objc func touchEvent(textfield: UITextField) {
+        focusOn()
+    }
+
+    @objc func endTouchEvent(textfield: UITextField) {
+        focusOut()
     }
 
     func focusOn() {
@@ -39,8 +64,9 @@ class CustomTextField: UITextField {
         // selected font: #orangeyRed
         self.backgroundColor = UIColor.white
         self.layer.borderColor = UIColor.TextFieldColors.orangeyRed.cgColor
-        self.layer.borderWidth = 1
         self.textColor = UIColor.TextFieldColors.orangeyRed
+        self.recentText = self.text ?? ""
+        self.placeholder = recentText
         self.text = ""
     }
 
@@ -49,16 +75,15 @@ class CustomTextField: UITextField {
         // unselected border: NONE
         // unselected font: #darkBlueGrey
         self.backgroundColor = UIColor.TextFieldColors.iceBlue
-        self.layer.borderColor = UIColor.clear.cgColor
-        self.borderStyle = .none
+        self.layer.borderColor = UIColor.TextFieldColors.iceBlue.cgColor
         self.textColor = UIColor.TextFieldColors.darkBlueGrey
         if self.text == "" {
-            self.text = "0"
+            self.text = recentText
         }
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.focusOn()
-        self.manager?.focusOutAll(except: self)
+    func setDefaultText(text: String) {
+        self.text = text
     }
+
 }
