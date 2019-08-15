@@ -56,14 +56,14 @@ class SetNameForNewToolViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToSetTool" {
+        if segue.identifier == "segueToMeasure" {
             guard let toolNameInput = newToolNameLabel.text else {
                 print("No tool name label!")
                 return
             }
 
             // 다음 컨트롤러에 데이터 전달
-            if let destination = segue.destination as? SetToolForNewToolViewController {
+            if let destination = segue.destination as? MeasureNewToolViewController {
                 destination.toolNameInput = toolNameInput
             }
         }
@@ -73,7 +73,7 @@ class SetNameForNewToolViewController: UIViewController {
         if (measuringToolManager?.checkDuplicatedToolName(name: newToolNameLabel.text!))! {
             alertNameIsDuplicated()
         } else {
-            self.performSegue(withIdentifier: "segueToSetTool", sender: self)
+            self.performSegue(withIdentifier: "segueToMeasure", sender: self)
         }
     }
 
