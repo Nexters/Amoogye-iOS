@@ -46,6 +46,9 @@
 		A3B6899622FFFA90002FB31D /* RMMeasuringUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6899522FFFA90002FB31D /* RMMeasuringUnit.swift */; };
 		A3B689C72300705C002FB31D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B689C62300705C002FB31D /* UIColor+.swift */; };
 		A3B6899822FFFDE6002FB31D /* ApplicationSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6899722FFFDE6002FB31D /* ApplicationSetting.swift */; };
+		A3B689DA23042FE2002FB31D /* NumericKeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B689D923042FE2002FB31D /* NumericKeyboardDelegate.swift */; };
+		A3B689DC2304301E002FB31D /* NumericKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B689DB2304301E002FB31D /* NumericKeyboardView.swift */; };
+		A3B689DE2304302E002FB31D /* NumericKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B689DD2304302E002FB31D /* NumericKeyboardView.xib */; };
 		A3C5E79522DE36530098F520 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A3C5E79422DE36530098F520 /* .swiftlint.yml */; };
 		A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */; };
 		A3C7BACE22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */; };
@@ -99,6 +102,9 @@
 		A3B6899522FFFA90002FB31D /* RMMeasuringUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMMeasuringUnit.swift; sourceTree = "<group>"; };
 		A3B689C62300705C002FB31D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A3B6899722FFFDE6002FB31D /* ApplicationSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSetting.swift; sourceTree = "<group>"; };
+		A3B689D923042FE2002FB31D /* NumericKeyboardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericKeyboardDelegate.swift; sourceTree = "<group>"; };
+		A3B689DB2304301E002FB31D /* NumericKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericKeyboardView.swift; sourceTree = "<group>"; };
+		A3B689DD2304302E002FB31D /* NumericKeyboardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumericKeyboardView.xib; sourceTree = "<group>"; };
 		A3C5E79422DE36530098F520 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A3C7BACB22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericKeyboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3C7BACC22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumericKeyboardCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -288,6 +294,9 @@
 			isa = PBXGroup;
 			children = (
 				A3C7BAD622F363B30067D632 /* Cells */,
+				A3B689D923042FE2002FB31D /* NumericKeyboardDelegate.swift */,
+				A3B689DB2304301E002FB31D /* NumericKeyboardView.swift */,
+				A3B689DD2304302E002FB31D /* NumericKeyboardView.xib */,
 			);
 			path = NumericKeyboard;
 			sourceTree = "<group>";
@@ -389,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3B689DE2304302E002FB31D /* NumericKeyboardView.xib in Resources */,
 				3A8550DB22F007650003C584 /* OnOffCell.xib in Resources */,
 				3AE9AA9822F5676700F09850 /* MeterialSearchView.xib in Resources */,
 				3AE9AA9C22F56DB200F09850 /* MeterialSearchResultCell.xib in Resources */,
@@ -483,6 +493,7 @@
 				3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */,
 				A3C7BAF922F6DEE40067D632 /* RMMeausringTool.swift in Sources */,
 				3AE9AAA722F6D9AB00F09850 /* PickerView.swift in Sources */,
+				A3B689DA23042FE2002FB31D /* NumericKeyboardDelegate.swift in Sources */,
 				3ABCE65822D9AE2B00F61E46 /* CalculatorViewController.swift in Sources */,
 				3AE9AAB522FAC17900F09850 /* TimerProgressViewController.swift in Sources */,
 				A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */,
@@ -498,6 +509,7 @@
 				A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */,
 				A3B689C72300705C002FB31D /* UIColor+.swift in Sources */,
 				A3B6899622FFFA90002FB31D /* RMMeasuringUnit.swift in Sources */,
+				A3B689DC2304301E002FB31D /* NumericKeyboardView.swift in Sources */,
 				3A8550E822F00AF30003C584 /* SetNameForNewToolViewController.swift in Sources */,
 				3AE9AA8322F529B700F09850 /* MeterialPickerView.swift in Sources */,
 				3AE9AAB322F98A4900F09850 /* CustomTextfieldManager.swift in Sources */,

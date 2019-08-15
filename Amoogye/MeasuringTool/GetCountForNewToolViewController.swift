@@ -15,9 +15,12 @@ class GetCountForNewToolViewController: UIViewController {
     var measuringToolManager: RMMeasuringToolManager?
 
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var numericKeyboardView: NumericKeyboardView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        numericKeyboardView.delegate = self
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,20 +44,22 @@ class GetCountForNewToolViewController: UIViewController {
     @IBAction func closeButtonClick(_ sender: Any) {
         navigationController?.dismiss(animated: true, completion: nil)
     }
+}
 
-    @IBAction func numberClick(_ sender: UIButton) {
+extension GetCountForNewToolViewController: NumericKeyboardDelegate {
+    func inputNumber(number newValue: String) {
         guard let countText = countLabel.text else {
             return
         }
 
         if countText == "0" {
-            countLabel.text = String(sender.tag)
+            countLabel.text = newValue
         } else {
-            countLabel.text = countText + String(sender.tag)
+            countLabel.text = countText + newValue
         }
     }
 
-    @IBAction func deleteNumber (_ sender: UIButton) {
+    func deleteValue() {
         guard let countText = countLabel.text else {
             return
         }
@@ -65,5 +70,22 @@ class GetCountForNewToolViewController: UIViewController {
         } else {
             countLabel.text = "0"
         }
+    }
+
+    func inputDot() {
+        guard let countText = countLabel.text else {
+            return
+        }
+
+        countLabel.text = countText + "."
+    }
+
+    func getLastInputValue() -> String {
+        guard let countText = countLabel.text else {
+            return ""
+        }
+
+        let lastIndex = countText.index(before: countText.endIndex)
+        return String(countText[lastIndex])
     }
 }
