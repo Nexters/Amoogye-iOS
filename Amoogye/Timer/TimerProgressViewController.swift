@@ -22,9 +22,6 @@ class TimerProgressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 타이머 종료 notification
-        UNUserNotificationCenter.current().delegate = self
-
         setupButtonStyle(cancelButton, pauseButton)
         setupProgressView()
         setTimeLabelText(time: timerModel.getLeftTime())
@@ -52,8 +49,7 @@ class TimerProgressViewController: UIViewController {
 
     // 타이머 취소
     @IBAction func clickCancelButton(_ sender: Any) {
-        timerModel.resetTimer()
-        self.navigationController?.popViewController(animated: false)
+        cancelTimer()
     }
 
     // 타이머 일시정지, 다시시작
@@ -105,18 +101,19 @@ extension TimerProgressViewController {
     }
 
     func doneNotification() {
+        print("끝!!!!!!")
         let hour = Int(timerModel.getTotalTime()) / 3600
         let min = Int(timerModel.getTotalTime()) % 3600 / 60
-        let sec = Int(timerModel.getLeftTime()) % 3600 % 60
+        let sec = Int(timerModel.getTotalTime()) % 3600 % 60
 
         var timeString = ""
-        if hour != 0 {
+        if hour > 0 {
             timeString.append("\(hour)시간 ")
         }
-        if min != 0 {
+        if min > 0 {
             timeString.append("\(min)분 ")
         }
-        if sec != 0 {
+        if sec > 0 {
             timeString.append("\(sec)초 ")
         }
 
@@ -130,6 +127,10 @@ extension TimerProgressViewController {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 
+    func cancelNotification() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+
     // MARK: - 타이머 작동 함수
     private func startTimer() {
         doneNotification()
@@ -140,8 +141,15 @@ extension TimerProgressViewController {
     }
 
     private func pauseTimer() {
+        cancelNotification()
         pauseButton.setTitle("다시 시작", for: .normal)
         timerModel.pauseTimer()
+    }
+
+    private func cancelTimer() {
+        cancelNotification()
+        timerModel.resetTimer()
+        self.navigationController?.popViewController(animated: false)
     }
 
     func updateProgressView() {
@@ -149,19 +157,5 @@ extension TimerProgressViewController {
             progressView.progress = 1 - Float(timerModel.getLeftTime() / timerModel.getTotalTime())
             progressView.setProgress(progressView.progress, animated: true)
         }
-    }
-}
-
-extension TimerProgressViewController: UNUserNotificationCenterDelegate {
-
-    // 앱이 켜져 있을 때도 알림 받기
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .sound])
-    }
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
-        let settingsViewController = UIViewController()
-        settingsViewController.view.backgroundColor = .gray
-        self.present(settingsViewController, animated: true, completion: nil)
     }
 }
