@@ -101,6 +101,10 @@ extension MeasuringToolViewController {
             make.top.equalTo(button.snp.bottom).offset(8)
             make.centerX.equalTo(button.snp.centerX).offset(0)
         }
+
+        UIView.animate(withDuration: 0.1, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
 }
 
