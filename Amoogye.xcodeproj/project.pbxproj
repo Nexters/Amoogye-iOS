@@ -22,6 +22,7 @@
 		3A8550F122F00CFF0003C584 /* MeasuringToolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550F022F00CFF0003C584 /* MeasuringToolTableViewCell.swift */; };
 		3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550F222F013B00003C584 /* SettingTitleCell.swift */; };
 		3A8550F522F013B00003C584 /* SettingTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8550F322F013B00003C584 /* SettingTitleCell.xib */; };
+		3ABA62072301B6CB000ABF3B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABA62062301B6CB000ABF3B /* TabBarController.swift */; };
 		3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE65522D9AE2B00F61E46 /* AppDelegate.swift */; };
 		3ABCE65822D9AE2B00F61E46 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABCE65722D9AE2B00F61E46 /* CalculatorViewController.swift */; };
 		3ABCE65B22D9AE2B00F61E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE65922D9AE2B00F61E46 /* Main.storyboard */; };
@@ -75,6 +76,7 @@
 		3A8550F022F00CFF0003C584 /* MeasuringToolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolTableViewCell.swift; sourceTree = "<group>"; };
 		3A8550F222F013B00003C584 /* SettingTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTitleCell.swift; sourceTree = "<group>"; };
 		3A8550F322F013B00003C584 /* SettingTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTitleCell.xib; sourceTree = "<group>"; };
+		3ABA62062301B6CB000ABF3B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3ABCE65222D9AE2B00F61E46 /* Amoogye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amoogye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ABCE65522D9AE2B00F61E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ABCE65722D9AE2B00F61E46 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				3ABCE65922D9AE2B00F61E46 /* Main.storyboard */,
 				A3B6899722FFFDE6002FB31D /* ApplicationSetting.swift */,
 				A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */,
+				3ABA62062301B6CB000ABF3B /* TabBarController.swift */,
 				A3B689C62300705C002FB31D /* UIColor+.swift */,
 				A3C5E81E22EE19B00098F520 /* Common */,
 				A3C7BABF22F300E30067D632 /* Calculator */,
@@ -372,6 +375,11 @@
 				TargetAttributes = {
 					3ABCE65122D9AE2B00F61E46 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -506,6 +514,8 @@
 				3A8550E922F00AF30003C584 /* GetCountForNewToolViewController.swift in Sources */,
 				A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */,
 				3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */,
+				3ABA62072301B6CB000ABF3B /* TabBarController.swift in Sources */,
+				A3B6899422FFF908002FB31D /* MeasuringUnit.swift in Sources */,
 				A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */,
 				A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */,
 				A3B689C72300705C002FB31D /* UIColor+.swift in Sources */,
