@@ -11,24 +11,31 @@ import UIKit
 class MeasureNewToolViewController: UIViewController {
     var measuringToolManager: RealmMeasuringToolManager?
 
+    // MARK: - 이전 segue에서 받은 데이터
     var toolNameInput: String?
-    var selectedCriteriaTool: MeasuringTool?
-    var toolList: [MeasuringTool]?
-    var countLabel: String?
 
+    // MARK: - 계량도구 추가에 이용할 데이터
+    var toolList: [MeasuringTool]?
+    var selectedCriteriaTool: MeasuringTool?
+    var measuringCount: String?
+
+    // MARK: - UI Outlet
     @IBOutlet weak var imageView: UIImageView!
+
     @IBOutlet weak var newToolNameLabel: UILabel!
+
     @IBOutlet weak var toolSelectionField: UITextField!
     @IBOutlet weak var measuringCountIntLabel: UITextField!
     @IBOutlet weak var measuringCountFloatLabel: UITextField!
+
     @IBOutlet weak var nextButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.newToolNameLabel.text = toolNameInput
-        toolList = measuringToolManager?.getUsingOnMeasuringToolList()
-//        newToolNameLabel.text = toolList!.first?.name
+        setupNewToolNameLabel()
+        loadToolList()
+        setupInitMeasuring()
         setupNextButton()
     }
 
@@ -37,12 +44,16 @@ class MeasureNewToolViewController: UIViewController {
 
             // 다음 컨트롤러에 데이터 전달
             if let destination = segue.destination as? CompleteNewToolViewController {
-//                destination.toolNameInput = toolNameInput
+                destination.newMeasuringTool = measuringToolManager?.newMeasuringTool(name: newToolNameLabel.text!, criteriaTool: selectedCriteriaTool!, count: measuringCount!)
             }
         }
     }
 
+    // MARK: - 버튼 동작 함수
     @IBAction func clickNextButton(_ sender: UIButton) {
+        self.selectedCriteriaTool = measuringToolManager?.getMeasuringTool(toolSelectionField.text!)
+        self.measuringCount = measuringCountIntLabel.text! + "." + measuringCountFloatLabel.text!
+
         self.performSegue(withIdentifier: "segueToComplete", sender: self)
     }
 
@@ -60,5 +71,22 @@ class MeasureNewToolViewController: UIViewController {
 extension MeasureNewToolViewController {
     private func setupNextButton() {
         nextButton.layer.cornerRadius = 6
+    }
+}
+
+// MARK: - 초기값 세팅 함수
+extension MeasureNewToolViewController {
+    private func setupNewToolNameLabel() {
+        self.newToolNameLabel.text = self.toolNameInput
+    }
+
+    private func setupInitMeasuring() {
+        self.toolSelectionField.text = toolList?.first?.name
+        self.measuringCountIntLabel.text = "1"
+        self.measuringCountFloatLabel.text = "0"
+    }
+
+    private func loadToolList() {
+        self.toolList = measuringToolManager?.getUsingOnLivingMeasuringToolList()
     }
 }

@@ -119,6 +119,10 @@ class RealmMeasuringToolManager: MeasuringToolManager {
 
         return usingOnToolList
     }
+
+    func newMeasuringTool(name: String, criteriaTool: MeasuringTool, count: String) -> MeasuringTool {
+        return MeasuringTool(toolType: .living, unitType: criteriaTool.unitType, name: name, quantity: criteriaTool.quantity * (Double(count) ?? 0), isOn: true)
+    }
 }
 
 extension RealmMeasuringToolManager {

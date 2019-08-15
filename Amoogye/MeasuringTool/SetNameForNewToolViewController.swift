@@ -41,7 +41,6 @@ class SetNameForNewToolViewController: UIViewController {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             self.keyboardHeight = keyboardRectangle.height
-            print(Int(self.keyboardHeight))
         }
         setupInputConstraints()
     }
@@ -57,14 +56,9 @@ class SetNameForNewToolViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToMeasure" {
-            guard let toolNameInput = newToolNameLabel.text else {
-                print("No tool name label!")
-                return
-            }
-
             // 다음 컨트롤러에 데이터 전달
             if let destination = segue.destination as? MeasureNewToolViewController {
-                destination.toolNameInput = toolNameInput
+                destination.toolNameInput = newToolNameLabel.text!
             }
         }
     }
@@ -147,7 +141,7 @@ extension SetNameForNewToolViewController {
     }
 }
 
-// MARK: - 실시간 텍스트 검사 함수
+// MARK: - 실시간 텍스트 입력 검사 함수
 extension SetNameForNewToolViewController {
     private func validateText(_ text: String) {
         if !validateEmptyText(text) {
@@ -179,6 +173,7 @@ extension SetNameForNewToolViewController {
     }
 }
 
+// MARK: - AutoLayout 설정 함수
 extension SetNameForNewToolViewController {
     func setupInputConstraints() {
         self.imageView.isHidden = true
