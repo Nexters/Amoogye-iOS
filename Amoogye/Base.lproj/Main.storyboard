@@ -747,11 +747,12 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="S5s-zF-kF2" kind="push" identifier="segueToSetTool" id="tvf-Gh-kfg"/>
+                                    <action selector="clickNextButton:" destination="HL3-QO-Oyf" eventType="touchUpInside" id="K3x-mI-wwy"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="새로운 도구 1" textAlignment="natural" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="B21-8O-c4K">
                                 <rect key="frame" x="16" y="420" width="343" height="24"/>
+                                <color key="tintColor" red="1" green="0.30980392159999998" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -810,6 +811,12 @@
                                     <constraint firstAttribute="height" constant="1" id="6Po-oP-gN5"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림창" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fai-zQ-amF">
+                                <rect key="frame" x="16" y="465" width="32" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.30980392159999998" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -829,8 +836,10 @@
                             <constraint firstItem="B21-8O-c4K" firstAttribute="trailing" secondItem="Bht-vy-SOk" secondAttribute="trailing" id="dt1-f5-sTA"/>
                             <constraint firstItem="fSL-px-3om" firstAttribute="top" secondItem="WtW-uA-Djt" secondAttribute="bottom" constant="16" id="eOJ-1w-58S"/>
                             <constraint firstItem="Vjr-1C-Sk0" firstAttribute="top" secondItem="aMO-Lg-hax" secondAttribute="top" id="gl3-7d-ylF"/>
+                            <constraint firstItem="Fai-zQ-amF" firstAttribute="top" secondItem="bbS-p1-0yP" secondAttribute="bottom" constant="8" id="h9b-Tr-Jwt"/>
                             <constraint firstAttribute="trailing" secondItem="bbS-p1-0yP" secondAttribute="trailing" constant="16" id="hDe-aH-Ltu"/>
                             <constraint firstItem="WIs-XL-4KJ" firstAttribute="top" secondItem="fSL-px-3om" secondAttribute="bottom" constant="6" id="lVe-ab-KKp"/>
+                            <constraint firstItem="Fai-zQ-amF" firstAttribute="leading" secondItem="aMO-Lg-hax" secondAttribute="leading" constant="16" id="lxp-hO-Yte"/>
                             <constraint firstItem="aMO-Lg-hax" firstAttribute="trailing" secondItem="Hbd-AF-Bu9" secondAttribute="trailing" constant="16" id="v1U-RM-Ovb"/>
                             <constraint firstItem="bbS-p1-0yP" firstAttribute="top" secondItem="B21-8O-c4K" secondAttribute="bottom" constant="12" id="xlt-8q-1cO"/>
                             <constraint firstItem="WIs-XL-4KJ" firstAttribute="leading" secondItem="aMO-Lg-hax" secondAttribute="leading" constant="16" id="zdJ-EK-QMG"/>
@@ -839,8 +848,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="ceT-7i-6BR"/>
                     <connections>
+                        <outlet property="alertTextLabel" destination="Fai-zQ-amF" id="EVe-wW-AjM"/>
                         <outlet property="newToolNameLabel" destination="B21-8O-c4K" id="w8h-PI-rue"/>
                         <outlet property="nextButton" destination="Bht-vy-SOk" id="PM1-MQ-sJ6"/>
+                        <segue destination="S5s-zF-kF2" kind="push" identifier="segueToSetTool" id="VGH-j4-IMk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2sB-B7-YJf" userLabel="First Responder" sceneMemberID="firstResponder"/>

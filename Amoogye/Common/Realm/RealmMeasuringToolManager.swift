@@ -122,7 +122,7 @@ class RealmMeasuringToolManager: MeasuringToolManager {
 }
 
 extension RealmMeasuringToolManager {
-    private func checkDuplicatedToolName(name: String) -> Bool {
+    func checkDuplicatedToolName(name: String) -> Bool {
         for tool in getMeasuringToolList() {
             if name == tool.name {
                 return true
