@@ -24,9 +24,6 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(MeasureNewToolViewController.self) { r, c in
             c.measuringToolManager = r ~> RealmMeasuringToolManager.self
         }
-        defaultContainer.storyboardInitCompleted(GetCountForNewToolViewController.self) { r, c in
-            c.measuringToolManager = r ~> RealmMeasuringToolManager.self
-        }
         defaultContainer.storyboardInitCompleted(CompleteNewToolViewController.self) { r, c in
             c.measuringToolManager = r ~> RealmMeasuringToolManager.self
         }

@@ -27,6 +27,7 @@ class SetNameForNewToolViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         newToolNameLabel.delegate = self
+
         setupNextButton()
         hideAlertMessage()
     }

@@ -30,8 +30,11 @@ class MeasureNewToolViewController: UIViewController {
 
     @IBOutlet weak var nextButton: UIButton!
 
+    // MARK: - override 함수
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        toolSelectionField.delegate = self
 
         setupNewToolNameLabel()
         loadToolList()
@@ -71,6 +74,10 @@ class MeasureNewToolViewController: UIViewController {
 extension MeasureNewToolViewController {
     private func setupNextButton() {
         nextButton.layer.cornerRadius = 6
+
+        validateNextButton(text: self.toolSelectionField.text!)
+        validateNextButton(text: self.measuringCountIntLabel.text!)
+        validateNextButton(text: self.measuringCountFloatLabel.text!)
     }
 }
 
@@ -88,5 +95,42 @@ extension MeasureNewToolViewController {
 
     private func loadToolList() {
         self.toolList = measuringToolManager?.getUsingOnLivingMeasuringToolList()
+    }
+}
+
+// MARK: - TextField 관련 함수
+extension MeasureNewToolViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+
+        validateNextButton(text: text)
+
+        return true
+    }
+
+    private func validateNextButton(text: String) {
+        if !validateEmptyText(text) {
+            decideNextButtonIsActive(isActive: false)
+        } else {
+            decideNextButtonIsActive(isActive: true)
+        }
+    }
+
+    private func validateEmptyText(_ text: String) -> Bool {
+        if text.isEmpty {
+            return false
+        }
+        return true
+    }
+
+    private func decideNextButtonIsActive(isActive: Bool) {
+        if isActive {
+            nextButton.isUserInteractionEnabled = true
+            nextButton.backgroundColor = UIColor.amOrangeyRed
+        } else {
+            nextButton.isUserInteractionEnabled = false
+            nextButton.backgroundColor = UIColor(displayP3Red: 224/255, green: 228/255, blue: 230/255, alpha: 1)
+        }
     }
 }
