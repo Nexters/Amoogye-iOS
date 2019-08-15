@@ -15,6 +15,8 @@ struct MeasuringTool {
     var subname: String
     var quantity: Double
     var isOn: Bool
+    var isEditable: Bool = true
+    var recentUsed: Date = Date()
 
     init(toolType: MeasuringToolType, unitType: MeasuringUnitType, name: String, subname: String, quantity: Double, isOn: Bool) {
         self.toolType = toolType
@@ -38,5 +40,16 @@ struct MeasuringTool {
         }
 
         self.init(toolType: toolType, unitType: unitType, name: name, subname: subname, quantity: quantity, isOn: isOn)
+    }
+
+    init(toolType: MeasuringToolType, unitType: MeasuringUnitType, name: String, subname: String, quantity: Double, isOn: Bool, isEditable: Bool, recentUsed: Date) {
+        self.toolType = toolType
+        self.unitType = unitType
+        self.name = name
+        self.subname = subname
+        self.quantity = quantity
+        self.isOn = isOn
+        self.isEditable = isEditable
+        self.recentUsed = recentUsed
     }
 }

@@ -53,15 +53,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     func setupDefaultMeasuringTool() {
+        var defaultMeasuringToolList = [MeasuringTool]()
         let measuringToolManager = RealmMeasuringToolManager()
-        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "CC", subname: "시시", quantity: 1, isOn: true))
-        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "ml", subname: "밀리리터", quantity: 1, isOn: true))
-        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "L", subname: "리터", quantity: 1000, isOn: true))
-        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .mass, name: "mg", subname: "밀리그램", quantity: 1, isOn: true))
-        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .mass, name: "g", subname: "그램", quantity: 1*100, isOn: true))
-        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .mass, name: "kg", subname: "킬로그램", quantity: 1*100*1000, isOn: true))
-        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "작은술", subname: "tsp", quantity: 5, isOn: true))
-        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "큰술", subname: "tbsp", quantity: 15, isOn: true))
-        measuringToolManager.addMeasuringTool(MeasuringTool(toolType: .basic, unitType: .volume, name: "컵", subname: "cup", quantity: 240, isOn: true))
+
+        // MARK: - Default Basic Measuring Tools
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .basic, unitType: .volume, name: "CC", subname: "시시", quantity: 1, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .basic, unitType: .volume, name: "ml", subname: "밀리리터", quantity: 1, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .basic, unitType: .volume, name: "L", subname: "리터", quantity: 1000, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .basic, unitType: .mass, name: "mg", subname: "밀리그램", quantity: 1, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .basic, unitType: .mass, name: "g", subname: "그램", quantity: 1*100, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .basic, unitType: .mass, name: "kg", subname: "킬로그램", quantity: 1*100*1000, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .basic, unitType: .volume, name: "작은술", subname: "tsp", quantity: 5, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .basic, unitType: .volume, name: "큰술", subname: "tbsp", quantity: 15, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .basic, unitType: .volume, name: "컵", subname: "cup", quantity: 240, isOn: true))
+
+        // MARK: - Default Living Measuring Tools
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .living, unitType: .volume, name: "소주잔", quantity: 50, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .living, unitType: .volume, name: "종이컵", quantity: 150, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .living, unitType: .volume, name: "김용기", quantity: 300, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .living, unitType: .volume, name: "햇반그릇", quantity: 450, isOn: true))
+        defaultMeasuringToolList.append(MeasuringTool(toolType: .living, unitType: .volume, name: "큰국자", quantity: 15, isOn: true))
+
+        for tool in defaultMeasuringToolList {
+            var defaultTool = tool
+            defaultTool.isEditable = false
+            measuringToolManager.addMeasuringTool(defaultTool)
+        }
     }
 }

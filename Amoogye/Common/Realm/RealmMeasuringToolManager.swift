@@ -48,76 +48,27 @@ class RealmMeasuringToolManager: MeasuringToolManager {
     }
 
     func getMeasuringToolList() -> [MeasuringTool] {
-        var measuringToolList = [MeasuringTool]()
-
-        for realmTool in getRealmToolList() {
-            measuringToolList.append(toolFrom(realmTool: realmTool))
-        }
-        return measuringToolList
+        return getRealmToolList().map { toolFrom(realmTool: $0) }
     }
 
     func getUsingOnMeasuringToolList() -> [MeasuringTool] {
-        var usingOnTooList = [MeasuringTool]()
-
-        for measuringTool in getMeasuringToolList() {
-            if measuringTool.isOn == true {
-                usingOnTooList.append(measuringTool)
-            }
-        }
-
-        return usingOnTooList
+        return getMeasuringToolList().filter { $0.isOn == true }
     }
 
     func getBasicMeasuringToolList() -> [MeasuringTool] {
-        var basicToolList = [MeasuringTool]()
-
-        for realmTool in getRealmToolList() {
-            let tool = toolFrom(realmTool: realmTool)
-
-            if tool.toolType == .basic {
-                basicToolList.append(tool)
-            }
-        }
-
-        return basicToolList
+        return getMeasuringToolList().filter { $0.toolType == .basic }
     }
 
     func getLivingMeasuringToolList() -> [MeasuringTool] {
-        var livingToolList = [MeasuringTool]()
-
-        for realmTool in getRealmToolList() {
-            let tool = toolFrom(realmTool: realmTool)
-
-            if tool.toolType == .living {
-                livingToolList.append(tool)
-            }
-        }
-
-        return livingToolList
+        return getMeasuringToolList().filter { $0.toolType == .living }
     }
 
     func getUsingOnBasicMeasuringToolList() -> [MeasuringTool] {
-        var usingOnToolList = [MeasuringTool]()
-
-        for basicTool in getBasicMeasuringToolList() {
-            if basicTool.isOn {
-                usingOnToolList.append(basicTool)
-            }
-        }
-
-        return usingOnToolList
+        return getBasicMeasuringToolList().filter { $0.isOn == true }
     }
 
     func getUsingOnLivingMeasuringToolList() -> [MeasuringTool] {
-        var usingOnToolList = [MeasuringTool]()
-
-        for livingTool in getLivingMeasuringToolList() {
-            if livingTool.isOn {
-                usingOnToolList.append(livingTool)
-            }
-        }
-
-        return usingOnToolList
+        return getLivingMeasuringToolList().filter { $0.isOn == true }
     }
 }
 
@@ -140,6 +91,8 @@ extension RealmMeasuringToolManager {
         realmTool.subname = tool.subname
         realmTool.quantity = tool.quantity
         realmTool.isOn = tool.isOn
+        realmTool.isEditable = tool.isEditable
+        realmTool.recentUsed = tool.recentUsed
 
         return realmTool
     }
@@ -151,8 +104,10 @@ extension RealmMeasuringToolManager {
         let subname = realmTool.subname
         let quantity = realmTool.quantity
         let isOn = realmTool.isOn
+        let isEditable = realmTool.isEditable
+        let recentUsed = realmTool.recentUsed
 
-        return MeasuringTool(toolType: toolType, unitType: unitType, name: name, subname: subname, quantity: quantity, isOn: isOn)
+        return MeasuringTool(toolType: toolType, unitType: unitType, name: name, subname: subname, quantity: quantity, isOn: isOn, isEditable: isEditable, recentUsed: recentUsed)
     }
 
     private func getRealmToolList() -> [RealmMeasuringTool] {
