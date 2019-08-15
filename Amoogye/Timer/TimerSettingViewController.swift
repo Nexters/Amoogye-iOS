@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TimerSettingViewController: UIViewController {
 
@@ -32,12 +33,37 @@ class TimerSettingViewController: UIViewController {
         setupNumericKeyboard()
         setUpTextfield()
         setupButtonStyle(startButton)
+
+        // 최초 실행 시 이전에 저장된 상태 불러오기
+        timerModel.setDefaultTimerState()
+        setTotalTimeText(time: timerModel.getTotalTime())
+        switch timerModel.getState() {
+        case .Ready:
+            showTimerReady()
+
+        case .Start:
+            showTimerProgressView()
+
+        case .Pause:
+            showTimerProgressView()
+
+        case .Finish:
+            showTimerFinish()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        if timerModel.getIsWorking() { // 타이머가 종료된 상황
+        // 알림 권한 체크
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: {didAllow, _ in
+            if !didAllow {
+                // 알림 권한을 거부한 경우, 앱 설정 화면으로 이동
+                self.alertPermissionDenied()
+            }
+        })
+
+        if timerModel.getState() == .Finish { // 타이머가 종료된 상태
             showTimerFinish()
-        } else { // 타이머가 시작하기 전, 또는 취소된 상황
+        } else { // 타이머 준비 상태, 또는 취소된 상태
             showTimerReady()
         }
     }
@@ -50,15 +76,43 @@ class TimerSettingViewController: UIViewController {
     @IBAction func clickStart(_ sender: Any) {
         focusOutAllTextfield()
 
-        if timerModel.getIsWorking() {  // 종료 버튼 클릭
+        switch timerModel.getState() {
+        case .Ready: // 시작 버튼 클릭
+            if getSecond() > 0 {
+                let timerDeadLine = Date(timeIntervalSinceNow: Double(getSecond()))
+                timerModel.setDeadLine(deadLine: timerDeadLine)
+                timerModel.setTotalTime(total: Double(getSecond()))
+                timerModel.startTimer()
+                showTimerProgressView()
+            }
+        case .Finish: // 종료 버튼 클릭
             timerModel.resetTimer()
             showTimerReady()
 
-        } else if getSecond() > 0 { // 시작 버튼 클릭
-            timerModel.setTime(total: Double(getSecond()))
-            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "TimerProgressViewController") else { return }
-            self.navigationController?.pushViewController(vc, animated: false)
+        default:
+            break
         }
+
+        timerModel.saveTimerState()
+    }
+
+    func alertPermissionDenied() {
+        self.tabBarController?.selectedIndex = 0
+        let alert = UIAlertController(title: "권한 필요", message: "타이머 기능을 사용하려면 알림 권한 허용이 필요합니다.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "설정으로 이동", style: .default) { _ in
+            if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        print("Settings opened: \(success)") // Prints true
+                    })
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -80,6 +134,16 @@ extension TimerSettingViewController {
         hourTextfield.manager = textfieldManager
         minTextfield.manager = textfieldManager
         secTextfield.manager = textfieldManager
+    }
+
+    func setTotalTimeText(time: Double) {
+        let hour = Int(time) / 3600
+        let min = Int(time) % 3600 / 60
+        let sec = Int(time) % 3600 % 60
+
+        hourTextfield.text = String(hour)
+        minTextfield.text = String(min)
+        secTextfield.text = String(sec)
     }
 
     func setTimerTextfieldsEnable(booltype: Bool) {
@@ -111,6 +175,12 @@ extension TimerSettingViewController {
         startButton.setTitle("종료", for: .normal)
         setTimerTextfieldsEnable(booltype: false)
         numericKeyboardView.isHidden = true
+    }
+
+    // 타이머 진행 또는 일시정지 상태
+    func showTimerProgressView() {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "TimerProgressViewController") else { return }
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 
     // MARK: - 변환 관련 함수
