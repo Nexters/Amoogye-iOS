@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import SnapKit
 
 class SetNameForNewToolViewController: UIViewController {
 
     var measuringToolManager: RealmMeasuringToolManager?
+    var keyboardHeight = CGFloat(0)
+
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var guideTextView: UIView!
+    @IBOutlet weak var inputTextView: UIView!
 
     @IBOutlet weak var newToolNameLabel: UITextField!
     @IBOutlet weak var nextButton: UIButton!
@@ -23,6 +29,30 @@ class SetNameForNewToolViewController: UIViewController {
         newToolNameLabel.delegate = self
         setupNextButton()
         hideAlertMessage()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+
+    @objc func keyboardWillAppear(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            self.keyboardHeight = keyboardRectangle.height
+            print(Int(self.keyboardHeight))
+        }
+        setupInputConstraints()
+    }
+
+    @objc func keyboardWillDisappear() {
+        setupNormalConstraints()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -146,5 +176,37 @@ extension SetNameForNewToolViewController {
             return false
         }
         return true
+    }
+}
+
+extension SetNameForNewToolViewController {
+    func setupInputConstraints() {
+        self.imageView.isHidden = true
+
+        self.nextButton.snp.remakeConstraints {(make) -> Void in
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-(Int(keyboardHeight) + 16))
+        }
+        self.inputTextView.snp.remakeConstraints {(make) -> Void in
+            make.bottom.equalTo(nextButton.snp.top).offset(-40)
+        }
+        self.guideTextView.snp.remakeConstraints {(make) -> Void in
+            make.bottom.equalTo(inputTextView.snp.top).offset(0)
+        }
+    }
+
+    func setupNormalConstraints() {
+        self.imageView.isHidden = false
+
+        self.guideTextView.snp.remakeConstraints {(make) -> Void in
+            make.top.equalTo(imageView.snp.bottom).offset(28)
+        }
+
+        self.inputTextView.snp.remakeConstraints {(make) -> Void in
+            make.top.equalTo(guideTextView.snp.bottom).offset(0)
+        }
+
+        self.nextButton.snp.remakeConstraints {(make) -> Void in
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-28)
+        }
     }
 }
