@@ -37,21 +37,17 @@ class CalculatorViewController: UIViewController {
 
     @IBOutlet weak var changeButton: UIButton!
 
+    @IBOutlet weak var keyboardView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldManager = CustomTextfieldManager(srcPortionTextField,
-                                                  srcQuantityTextField,
-                                                  srcUnitTextField,
-                                                  srcMeterialTextField,
-                                                  dstPortionTextField,
-                                                  dstToolTextField)
+        textFieldManager = CustomTextfieldManager(srcPortionTextField, srcQuantityTextField, srcUnitTextField, srcMeterialTextField, dstPortionTextField, dstToolTextField)
         setupButtonStyle(changeButton)
         showMeterialViewOnly()
         hideWeigthMeterialView()
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        textFieldManager?.focusOutAll()
+        showNumericKeyboard()
+        srcQuantityTextField.focusOn()
+        textFieldManager?.focusOutAll(except: srcQuantityTextField)
     }
 
     @IBAction func clickMeterialMode(_ sender: UIButton) {
@@ -63,7 +59,6 @@ class CalculatorViewController: UIViewController {
         case .Both:
             showPortionViewOnly()
         }
-
     }
 
     @IBAction func clickPortionMode(_ sender: Any) {
@@ -75,6 +70,20 @@ class CalculatorViewController: UIViewController {
         case .Both:
             showMeterialViewOnly()
         }
+    }
+
+    @IBAction func clickNumericTextField(_ sender: Any) {
+        for subview in keyboardView.subviews {
+            subview.removeFromSuperview()
+        }
+        showNumericKeyboard()
+    }
+
+    @IBAction func clickMeterialTextField(_ sender: Any) {
+        for subview in keyboardView.subviews {
+            subview.removeFromSuperview()
+        }
+        showMeterialPicker()
     }
 
     @IBAction func clickChangeButton(_ sender: Any) {
@@ -110,7 +119,6 @@ class CalculatorViewController: UIViewController {
 
     func showPortionViewOnly() {
         calculatorMode = .PortionOnly
-
         meterialModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
         portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
         plusLabel.textColor = UIColor.amLightBlueGrey
@@ -119,7 +127,6 @@ class CalculatorViewController: UIViewController {
 
         srcPortionView.isHidden = false
         dstPortionView.isHidden = false
-
     }
 
     func showBothView() {
@@ -141,7 +148,79 @@ class CalculatorViewController: UIViewController {
 
     func hideWeigthMeterialView() {
         srcMeterialView.isHidden = true
+    }
 
+    func showNumericKeyboard() {
+        let numericKeyboardView = NumericKeyboardView()
+        keyboardView.addSubview(numericKeyboardView)
+
+        numericKeyboardView.translatesAutoresizingMaskIntoConstraints = false
+        numericKeyboardView.topAnchor.constraint(equalTo: keyboardView.topAnchor, constant: 0).isActive = true
+        numericKeyboardView.leftAnchor.constraint(equalTo: keyboardView.leftAnchor, constant: 0).isActive = true
+        numericKeyboardView.bottomAnchor.constraint(equalTo: keyboardView.bottomAnchor, constant: 0).isActive = true
+        numericKeyboardView.rightAnchor.constraint(equalTo: keyboardView.rightAnchor, constant: 0).isActive = true
+
+        numericKeyboardView.delegate = self
+    }
+
+    func showMeterialPicker() {
+
+    }
+}
+
+extension CalculatorViewController: NumericKeyboardDelegate {
+    func inputNumber(number newValue: String) {
+        guard let textField = textFieldManager?.focusedTextField else {
+            return
+        }
+        guard let text = textField.text else {
+            return
+        }
+
+        if text == "0" {
+            textField.text = newValue
+        } else {
+            textField.text = text + newValue
+        }
+    }
+
+    func deleteValue() {
+        guard let textField = textFieldManager?.focusedTextField else {
+            return
+        }
+        guard let text = textField.text else {
+            return
+        }
+
+        if text.count > 1 {
+            let end = text.index(before: text.endIndex)
+            textField.text = String(text[..<end])
+        } else {
+            textField.text = "0"
+        }
+    }
+
+    func inputDot() {
+        guard let textField = textFieldManager?.focusedTextField else {
+            return
+        }
+        guard let text = textField.text else {
+            return
+        }
+
+        textField.text = text + "."
+    }
+
+    func getLastInputValue() -> String {
+        guard let textField = textFieldManager?.focusedTextField else {
+            return ""
+        }
+        guard let text = textField.text else {
+            return ""
+        }
+
+        let lastIndex = text.index(before: text.endIndex)
+        return String(text[lastIndex])
     }
 
 }

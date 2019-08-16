@@ -66,11 +66,6 @@ class TimerSettingViewController: UIViewController {
         }
     }
 
-    // 화면 터치 시 textfield focusOut
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        textfiledManager?.focusOutAll()
-    }
-
     @IBAction func clickStart(_ sender: Any) {
         textfiledManager?.focusOutAll()
 

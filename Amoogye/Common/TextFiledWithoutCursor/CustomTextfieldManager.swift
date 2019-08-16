@@ -23,6 +23,7 @@ class CustomTextfieldManager {
 
     @objc func focusOutAll(except tf: CustomTextField) {
         focusedTextField = tf
+        tf.focusOn()
         for textfield in textfieldList {
             if textfield != tf {
                 textfield.focusOut()
