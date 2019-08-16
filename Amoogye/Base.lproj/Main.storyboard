@@ -39,6 +39,9 @@
                                 <state key="normal" title="재료">
                                     <color key="titleColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickMeterialMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZwX-5b-ADN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b1-Hm-BFW">
                                 <rect key="frame" x="90" y="68" width="42" height="41"/>
@@ -46,6 +49,9 @@
                                 <state key="normal" title="인원">
                                     <color key="titleColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickPortionMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JtA-MS-Rw6"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7M-m2-erB">
                                 <rect key="frame" x="66" y="74" width="16" height="29"/>
@@ -63,6 +69,9 @@
                                 <state key="normal" title="바꾸면">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickChangeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PMI-9a-qrS"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jv2-xc-ViW">
                                 <rect key="frame" x="0.0" y="343" width="375" height="4"/>
@@ -242,6 +251,13 @@
                                 <color key="textColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EK-ST-amz">
+                                <rect key="frame" x="323" y="79" width="37" height="30"/>
+                                <state key="normal" title="TEST"/>
+                                <connections>
+                                    <action selector="clickTestButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6um-tr-LGV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -279,8 +295,10 @@
                             <constraint firstItem="nRG-WX-fKS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nFt-AK-lPi"/>
                             <constraint firstItem="QXy-H8-yKs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="rDv-ee-X4D"/>
                             <constraint firstItem="Udx-3U-MvO" firstAttribute="height" secondItem="eA6-Si-K8G" secondAttribute="height" id="sgC-Pc-WuR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7EK-ST-amz" secondAttribute="trailing" constant="15" id="tKX-bT-N7h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ypF-vo-Lfj" secondAttribute="trailing" id="tWR-PA-eK5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tqL-Zy-eR9" secondAttribute="trailing" constant="16" id="woy-2r-Ytr"/>
+                            <constraint firstItem="7EK-ST-amz" firstAttribute="top" secondItem="tqL-Zy-eR9" secondAttribute="bottom" constant="15" id="yER-Gq-C9r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -291,6 +309,9 @@
                         <outlet property="dstPortionView" destination="QXy-H8-yKs" id="RYg-I2-y6b"/>
                         <outlet property="dstToolTextField" destination="AJc-Hw-6YS" id="hyQ-Tj-Vw7"/>
                         <outlet property="dstToolView" destination="d1k-D9-v23" id="l1b-If-2Pv"/>
+                        <outlet property="meterialModeButton" destination="l6Y-hU-SDI" id="FIf-2d-XfA"/>
+                        <outlet property="plusLabel" destination="K7M-m2-erB" id="jdB-Yv-d6M"/>
+                        <outlet property="portionModeButton" destination="6b1-Hm-BFW" id="eN2-vE-WbK"/>
                         <outlet property="srcMeterialTextField" destination="nFi-kh-2ND" id="gTW-yd-fBl"/>
                         <outlet property="srcMeterialView" destination="JOY-tQ-vPu" id="WUg-9T-7QF"/>
                         <outlet property="srcPortionTextField" destination="eA6-Si-K8G" id="hsp-X1-kvE"/>

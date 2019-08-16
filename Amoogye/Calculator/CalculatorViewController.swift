@@ -11,6 +11,15 @@ import UIKit
 class CalculatorViewController: UIViewController {
 
     var textFieldManager: CustomTextfieldManager?
+    var calculatorMode = CalculatorMode.MeterialOnly
+
+    enum CalculatorMode {
+        case MeterialOnly, PortionOnly, Both
+    }
+
+    @IBOutlet weak var portionModeButton: UIButton!
+    @IBOutlet weak var meterialModeButton: UIButton!
+    @IBOutlet weak var plusLabel: UILabel!
 
     @IBOutlet weak var srcPortionView: UIView!  // 인원
     @IBOutlet weak var srcQuantityView: UIView! // 재료
@@ -37,17 +46,102 @@ class CalculatorViewController: UIViewController {
                                                   dstPortionTextField,
                                                   dstToolTextField)
         setupButtonStyle(changeButton)
-
+        showMeterialViewOnly()
+        hideWeigthMeterialView()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         textFieldManager?.focusOutAll()
     }
 
+    @IBAction func clickMeterialMode(_ sender: UIButton) {
+        switch calculatorMode {
+        case .MeterialOnly:
+            showPortionViewOnly()
+        case .PortionOnly:
+            showBothView()
+        case .Both:
+            showPortionViewOnly()
+        }
+
+    }
+
+    @IBAction func clickPortionMode(_ sender: Any) {
+        switch calculatorMode {
+        case .MeterialOnly:
+            showBothView()
+        case .PortionOnly:
+            showMeterialViewOnly()
+        case .Both:
+            showMeterialViewOnly()
+        }
+    }
+
+    @IBAction func clickChangeButton(_ sender: Any) {
+
+    }
+
+    @IBAction func clickTestButton(_ sender: Any) {
+        if srcMeterialView.isHidden {
+            showWeightMeterialView()
+        } else {
+            hideWeigthMeterialView()
+        }
+    }
+
     func setupButtonStyle(_ buttons: UIButton...) {
         for button in buttons {
             button.layer.cornerRadius = 6
         }
+    }
+
+    func showMeterialViewOnly() {
+        calculatorMode = .MeterialOnly
+
+        meterialModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        portionModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+        plusLabel.textColor = UIColor.amLightBlueGrey
+
+        dstToolView.isHidden = false
+
+        srcPortionView.isHidden = true
+        dstPortionView.isHidden = true
+    }
+
+    func showPortionViewOnly() {
+        calculatorMode = .PortionOnly
+
+        meterialModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+        portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        plusLabel.textColor = UIColor.amLightBlueGrey
+
+        dstToolView.isHidden = true
+
+        srcPortionView.isHidden = false
+        dstPortionView.isHidden = false
+
+    }
+
+    func showBothView() {
+        calculatorMode = .Both
+
+        meterialModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        plusLabel.textColor = UIColor.amDarkBlueGrey
+
+        dstToolView.isHidden = false
+
+        srcPortionView.isHidden = false
+        dstPortionView.isHidden = false
+    }
+
+    func showWeightMeterialView() {
+        srcMeterialView.isHidden = false
+    }
+
+    func hideWeigthMeterialView() {
+        srcMeterialView.isHidden = true
+
     }
 
 }
