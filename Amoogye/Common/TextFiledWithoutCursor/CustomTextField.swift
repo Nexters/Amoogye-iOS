@@ -65,9 +65,14 @@ class CustomTextField: UITextField {
         self.backgroundColor = UIColor.white
         self.layer.borderColor = UIColor.TextFieldColors.orangeyRed.cgColor
         self.textColor = UIColor.TextFieldColors.orangeyRed
-        self.recentText = self.text ?? ""
-        self.placeholder = recentText
-        self.text = ""
+
+        if let currentText = self.text {
+            if currentText != "" {
+                self.recentText = currentText
+            }
+            self.placeholder = recentText
+            self.text = ""
+        }
     }
 
     func focusOut() {
@@ -79,6 +84,8 @@ class CustomTextField: UITextField {
         self.textColor = UIColor.TextFieldColors.darkBlueGrey
         if self.text == "" {
             self.text = recentText
+        } else {
+            recentText = self.text ?? ""
         }
     }
 

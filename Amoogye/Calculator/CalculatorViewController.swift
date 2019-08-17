@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class CalculatorViewController: UIViewController {
 
@@ -154,17 +155,40 @@ class CalculatorViewController: UIViewController {
         let numericKeyboardView = NumericKeyboardView()
         keyboardView.addSubview(numericKeyboardView)
 
-        numericKeyboardView.translatesAutoresizingMaskIntoConstraints = false
-        numericKeyboardView.topAnchor.constraint(equalTo: keyboardView.topAnchor, constant: 0).isActive = true
-        numericKeyboardView.leftAnchor.constraint(equalTo: keyboardView.leftAnchor, constant: 0).isActive = true
-        numericKeyboardView.bottomAnchor.constraint(equalTo: keyboardView.bottomAnchor, constant: 0).isActive = true
-        numericKeyboardView.rightAnchor.constraint(equalTo: keyboardView.rightAnchor, constant: 0).isActive = true
+        numericKeyboardView.snp.makeConstraints { (make) in
+            make.top.equalTo(keyboardView.snp.top)
+        }
+        numericKeyboardView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(keyboardView.snp.bottom)
+        }
+        numericKeyboardView.snp.makeConstraints { (make) in
+            make.left.equalTo(keyboardView.snp.left)
+        }
+        numericKeyboardView.snp.makeConstraints { (make) in
+            make.right.equalTo(keyboardView.snp.right)
+        }
 
         numericKeyboardView.delegate = self
     }
 
     func showMeterialPicker() {
+        let meterialPickerView = MeterialPickerView()
+        keyboardView.addSubview(meterialPickerView)
 
+        meterialPickerView.snp.makeConstraints { (make) in
+            make.top.equalTo(keyboardView.snp.top)
+        }
+        meterialPickerView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(keyboardView.snp.bottom)
+        }
+        meterialPickerView.snp.makeConstraints { (make) in
+            make.left.equalTo(keyboardView.snp.left)
+        }
+        meterialPickerView.snp.makeConstraints { (make) in
+            make.right.equalTo(keyboardView.snp.right)
+        }
+
+        meterialPickerView.delegate = self
     }
 }
 
@@ -191,7 +215,6 @@ extension CalculatorViewController: NumericKeyboardDelegate {
         guard let text = textField.text else {
             return
         }
-
         if text.count > 1 {
             let end = text.index(before: text.endIndex)
             textField.text = String(text[..<end])
@@ -207,7 +230,6 @@ extension CalculatorViewController: NumericKeyboardDelegate {
         guard let text = textField.text else {
             return
         }
-
         textField.text = text + "."
     }
 
@@ -218,9 +240,22 @@ extension CalculatorViewController: NumericKeyboardDelegate {
         guard let text = textField.text else {
             return ""
         }
-
         let lastIndex = text.index(before: text.endIndex)
         return String(text[lastIndex])
+    }
+}
+
+extension CalculatorViewController: MeterialPickerDelegate {
+    func selectMeterial(row: Int, name: String) {
+        srcMeterialTextField.text = name
+    }
+
+    func meterialSearchViewOpen() {
+
+    }
+
+    func meterialSearchViewClose() {
+
     }
 
 }
