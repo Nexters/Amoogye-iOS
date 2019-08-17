@@ -14,11 +14,11 @@ class TimerSettingViewController: UIViewController {
     var timerModel = TimerModel.shared
     let colorGreen = UIColor(displayP3Red: 109/255, green: 212/255, blue: 0, alpha: 1)
 
-    var textfiledManager: CustomTextfieldManager?
+    var textfiledManager: CustomTextfieldManager_bak?
 
-    @IBOutlet weak var hourTextfield: CustomTextField!
-    @IBOutlet weak var minTextfield: CustomTextField!
-    @IBOutlet weak var secTextfield: CustomTextField!
+    @IBOutlet weak var hourTextfield: CustomTextField_bak!
+    @IBOutlet weak var minTextfield: CustomTextField_bak!
+    @IBOutlet weak var secTextfield: CustomTextField_bak!
     @IBOutlet weak var secLabel: UILabel!
     @IBOutlet weak var alertLabel: UILabel!
 
@@ -29,7 +29,7 @@ class TimerSettingViewController: UIViewController {
         super.viewDidLoad()
 
         numericKeyboardView.delegate = self
-        textfiledManager = CustomTextfieldManager(hourTextfield, minTextfield, secTextfield)
+        textfiledManager = CustomTextfieldManager_bak(hourTextfield, minTextfield, secTextfield)
         setupButtonStyle(startButton)
 
         // 최초 실행 시 이전에 저장된 상태 불러오기

@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class CustomTextfieldManager {
-    private var textfieldList = [CustomTextField]()
-    var focusedTextField: CustomTextField?
+class CustomTextfieldManager_bak {
+    private var textfieldList = [CustomTextField_bak]()
+    var focusedTextField: CustomTextField_bak?
 
-    init(_ textfields: CustomTextField...) {
+    init(_ textfields: CustomTextField_bak...) {
         textfieldList.append(contentsOf: textfields)
 
         for textfield in textfields {
@@ -21,7 +21,7 @@ class CustomTextfieldManager {
         }
     }
 
-    @objc func focusOutAll(except tf: CustomTextField) {
+    @objc func focusOutAll(except tf: CustomTextField_bak) {
         focusedTextField = tf
         tf.focusOn()
         for textfield in textfieldList {

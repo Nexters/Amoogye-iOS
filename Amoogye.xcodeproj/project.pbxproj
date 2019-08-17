@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A039DC823084FFD009E1AAA /* CustomInputTextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DC723084FFD009E1AAA /* CustomInputTextBox.swift */; };
 		3A8550BA22E9C16D0003C584 /* TimerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550B922E9C16D0003C584 /* TimerSettingViewController.swift */; };
 		3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */; };
 		3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550BD22E9C1B10003C584 /* SettingViewController.swift */; };
@@ -36,9 +37,8 @@
 		3AE9AA9C22F56DB200F09850 /* MeterialSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE9AA9A22F56DB200F09850 /* MeterialSearchResultCell.xib */; };
 		3AE9AAA522F6D87A00F09850 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAA422F6D87A00F09850 /* SearchView.swift */; };
 		3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAAB22F6DE1200F09850 /* TimerModel.swift */; };
-		3AE9AAAE22F6E53B00F09850 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAAD22F6E53B00F09850 /* CustomTextField.swift */; };
-		3AE9AAB122F8611B00F09850 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB022F8611B00F09850 /* Colors.swift */; };
-		3AE9AAB322F98A4900F09850 /* CustomTextfieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */; };
+		3AE9AAAE22F6E53B00F09850 /* CustomTextField_bak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAAD22F6E53B00F09850 /* CustomTextField_bak.swift */; };
+		3AE9AAB322F98A4900F09850 /* CustomTextfieldManager_bak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB222F98A4900F09850 /* CustomTextfieldManager_bak.swift */; };
 		3AE9AAB522FAC17900F09850 /* TimerProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */; };
 		A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */; };
 		A3B6899222FFF8E4002FB31D /* MeasuringTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6899122FFF8E4002FB31D /* MeasuringTool.swift */; };
@@ -60,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amoogye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A039DC723084FFD009E1AAA /* CustomInputTextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputTextBox.swift; sourceTree = "<group>"; };
 		3A8550B922E9C16D0003C584 /* TimerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettingViewController.swift; sourceTree = "<group>"; };
 		3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolViewController.swift; sourceTree = "<group>"; };
 		3A8550BD22E9C1B10003C584 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -91,9 +92,8 @@
 		3AE9AA9A22F56DB200F09850 /* MeterialSearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeterialSearchResultCell.xib; sourceTree = "<group>"; };
 		3AE9AAA422F6D87A00F09850 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3AE9AAAB22F6DE1200F09850 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
-		3AE9AAAD22F6E53B00F09850 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		3AE9AAB022F8611B00F09850 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldManager.swift; sourceTree = "<group>"; };
+		3AE9AAAD22F6E53B00F09850 /* CustomTextField_bak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField_bak.swift; sourceTree = "<group>"; };
+		3AE9AAB222F98A4900F09850 /* CustomTextfieldManager_bak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldManager_bak.swift; sourceTree = "<group>"; };
 		3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProgressViewController.swift; sourceTree = "<group>"; };
 		5D0791F43C10572A5D0191EE /* Pods-Amoogye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.release.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.release.xcconfig"; sourceTree = "<group>"; };
 		A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
@@ -126,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A039DC623084FA3009E1AAA /* CustomInputTextBox */ = {
+			isa = PBXGroup;
+			children = (
+				3A039DC723084FFD009E1AAA /* CustomInputTextBox.swift */,
+			);
+			path = CustomInputTextBox;
+			sourceTree = "<group>";
+		};
 		3A8550D722F007400003C584 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,9 +229,8 @@
 		3AE9AAAF22F6E54100F09850 /* TextFiledWithoutCursor */ = {
 			isa = PBXGroup;
 			children = (
-				3AE9AAB022F8611B00F09850 /* Colors.swift */,
-				3AE9AAAD22F6E53B00F09850 /* CustomTextField.swift */,
-				3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */,
+				3AE9AAAD22F6E53B00F09850 /* CustomTextField_bak.swift */,
+				3AE9AAB222F98A4900F09850 /* CustomTextfieldManager_bak.swift */,
 			);
 			path = TextFiledWithoutCursor;
 			sourceTree = "<group>";
@@ -241,6 +248,7 @@
 		A3C5E81E22EE19B00098F520 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3A039DC623084FA3009E1AAA /* CustomInputTextBox */,
 				A3B6899022FFF8D0002FB31D /* MeasuringTool */,
 				3AE9AAAF22F6E54100F09850 /* TextFiledWithoutCursor */,
 				3AE9AA8822F5650200F09850 /* MeterialSearchView */,
@@ -485,7 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */,
-				3AE9AAAE22F6E53B00F09850 /* CustomTextField.swift in Sources */,
+				3AE9AAAE22F6E53B00F09850 /* CustomTextField_bak.swift in Sources */,
 				A3B6899222FFF8E4002FB31D /* MeasuringTool.swift in Sources */,
 				3AE9AAA522F6D87A00F09850 /* SearchView.swift in Sources */,
 				3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */,
@@ -493,9 +501,9 @@
 				3A8550F122F00CFF0003C584 /* MeasuringToolTableViewCell.swift in Sources */,
 				3A8550E722F00AF30003C584 /* CompleteNewToolViewController.swift in Sources */,
 				3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */,
-				3AE9AAB122F8611B00F09850 /* Colors.swift in Sources */,
 				3ABA62122306B441000ABF3B /* MeterialPickerView.swift in Sources */,
 				A3B6899822FFFDE6002FB31D /* ApplicationSetting.swift in Sources */,
+				3A039DC823084FFD009E1AAA /* CustomInputTextBox.swift in Sources */,
 				A3B689E023047FEE002FB31D /* MeasuringToolTableViewCellDelegate.swift in Sources */,
 				3A8550E522F00AF30003C584 /* MeasureNewToolViewController.swift in Sources */,
 				3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */,
@@ -518,7 +526,7 @@
 				A3B689C72300705C002FB31D /* UIColor+.swift in Sources */,
 				A3B689DC2304301E002FB31D /* NumericKeyboardView.swift in Sources */,
 				3A8550E822F00AF30003C584 /* SetNameForNewToolViewController.swift in Sources */,
-				3AE9AAB322F98A4900F09850 /* CustomTextfieldManager.swift in Sources */,
+				3AE9AAB322F98A4900F09850 /* CustomTextfieldManager_bak.swift in Sources */,
 				3A8550DA22F007650003C584 /* OnOffCell.swift in Sources */,
 				A3C7BAFB22F6EA170067D632 /* RealmMeasuringToolManager.swift in Sources */,
 			);

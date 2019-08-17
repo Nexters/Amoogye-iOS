@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTextField: UITextField {
+class CustomTextField_bak: UITextField {
 
     let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     var recentText = ""
@@ -63,8 +63,8 @@ class CustomTextField: UITextField {
         // selected border: #orangeyRed
         // selected font: #orangeyRed
         self.backgroundColor = UIColor.white
-        self.layer.borderColor = UIColor.TextFieldColors.orangeyRed.cgColor
-        self.textColor = UIColor.TextFieldColors.orangeyRed
+        self.layer.borderColor = UIColor.amOrangeyRed.cgColor
+        self.textColor = UIColor.amOrangeyRed
 
         if let currentText = self.text {
             if currentText != "" {
@@ -79,9 +79,9 @@ class CustomTextField: UITextField {
         // unselected background: #iceBlue
         // unselected border: NONE
         // unselected font: #darkBlueGrey
-        self.backgroundColor = UIColor.TextFieldColors.iceBlue
-        self.layer.borderColor = UIColor.TextFieldColors.iceBlue.cgColor
-        self.textColor = UIColor.TextFieldColors.darkBlueGrey
+        self.backgroundColor = UIColor.amIceBlue
+        self.layer.borderColor = UIColor.amIceBlue.cgColor
+        self.textColor = UIColor.amDarkBlueGrey
         if self.text == "" {
             self.text = recentText
         } else {

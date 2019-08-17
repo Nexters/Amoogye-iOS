@@ -15,7 +15,7 @@ class CalculatorViewController: UIViewController {
     }
 
     // MARK: - Instance
-    var textFieldManager: CustomTextfieldManager?
+    var textFieldManager: CustomTextfieldManager_bak?
     var calculatorMode = CalculatorMode.MeterialOnly
 
     // MARK: - Outlet
@@ -29,13 +29,13 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var dstPortionView: UIView!  // 인원
     @IBOutlet weak var dstToolView: UIView!     // 재료
 
-    @IBOutlet weak var srcPortionTextField: CustomTextField!
-    @IBOutlet weak var srcQuantityTextField: CustomTextField!
-    @IBOutlet weak var srcUnitTextField: CustomTextField!
-    @IBOutlet weak var srcMeterialTextField: CustomTextField!
+    @IBOutlet weak var srcPortionTextField: CustomTextField_bak!
+    @IBOutlet weak var srcQuantityTextField: CustomTextField_bak!
+    @IBOutlet weak var srcUnitTextField: CustomTextField_bak!
+    @IBOutlet weak var srcMeterialTextField: CustomTextField_bak!
 
-    @IBOutlet weak var dstPortionTextField: CustomTextField!
-    @IBOutlet weak var dstToolTextField: CustomTextField!
+    @IBOutlet weak var dstPortionTextField: CustomTextField_bak!
+    @IBOutlet weak var dstToolTextField: CustomTextField_bak!
 
     @IBOutlet weak var changeButton: UIButton!
 
@@ -52,7 +52,7 @@ class CalculatorViewController: UIViewController {
         showNumericKeyboard()
 
         // textfield setup
-        textFieldManager = CustomTextfieldManager(srcPortionTextField, srcQuantityTextField, srcUnitTextField, srcMeterialTextField, dstPortionTextField, dstToolTextField)
+        textFieldManager = CustomTextfieldManager_bak(srcPortionTextField, srcQuantityTextField, srcUnitTextField, srcMeterialTextField, dstPortionTextField, dstToolTextField)
         textFieldManager?.focusOutAll()
         srcQuantityTextField.focusOn()
     }
