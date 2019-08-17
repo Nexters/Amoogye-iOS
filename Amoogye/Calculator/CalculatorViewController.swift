@@ -10,14 +10,15 @@ import UIKit
 import SnapKit
 
 class CalculatorViewController: UIViewController {
-
-    var textFieldManager: CustomTextfieldManager?
-    var calculatorMode = CalculatorMode.MeterialOnly
-
     enum CalculatorMode {
         case MeterialOnly, PortionOnly, Both
     }
 
+    // MARK: - Instance
+    var textFieldManager: CustomTextfieldManager?
+    var calculatorMode = CalculatorMode.MeterialOnly
+
+    // MARK: - Outlet
     @IBOutlet weak var portionModeButton: UIButton!
     @IBOutlet weak var meterialModeButton: UIButton!
     @IBOutlet weak var plusLabel: UILabel!
@@ -40,24 +41,35 @@ class CalculatorViewController: UIViewController {
 
     @IBOutlet weak var keyboardView: UIView!
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldManager = CustomTextfieldManager(srcPortionTextField, srcQuantityTextField, srcUnitTextField, srcMeterialTextField, dstPortionTextField, dstToolTextField)
-        setupButtonStyle(changeButton)
+
+        // view setup
         showMeterialViewOnly()
-        hideWeigthMeterialView()
+        hideWeightMeterialView()
+        setupButtonStyle(changeButton)
         showNumericKeyboard()
+
+        // textfield setup
+        textFieldManager = CustomTextfieldManager(srcPortionTextField, srcQuantityTextField, srcUnitTextField, srcMeterialTextField, dstPortionTextField, dstToolTextField)
+        textFieldManager?.focusOutAll()
         srcQuantityTextField.focusOn()
-        textFieldManager?.focusOutAll(except: srcQuantityTextField)
     }
 
+    // MARK: - Action
     @IBAction func clickMeterialMode(_ sender: UIButton) {
         switch calculatorMode {
         case .MeterialOnly:
+            calculatorMode = .PortionOnly
             showPortionViewOnly()
+
         case .PortionOnly:
+            calculatorMode = .Both
             showBothView()
+
         case .Both:
+            calculatorMode = .PortionOnly
             showPortionViewOnly()
         }
     }
@@ -65,25 +77,26 @@ class CalculatorViewController: UIViewController {
     @IBAction func clickPortionMode(_ sender: Any) {
         switch calculatorMode {
         case .MeterialOnly:
+            calculatorMode = .Both
             showBothView()
+
         case .PortionOnly:
+            calculatorMode = .MeterialOnly
             showMeterialViewOnly()
+
         case .Both:
+            calculatorMode = .MeterialOnly
             showMeterialViewOnly()
         }
     }
 
     @IBAction func clickNumericTextField(_ sender: Any) {
-        for subview in keyboardView.subviews {
-            subview.removeFromSuperview()
-        }
+        hideExistingKeyboard()
         showNumericKeyboard()
     }
 
     @IBAction func clickMeterialTextField(_ sender: Any) {
-        for subview in keyboardView.subviews {
-            subview.removeFromSuperview()
-        }
+        hideExistingKeyboard()
         showMeterialPicker()
     }
 
@@ -95,7 +108,30 @@ class CalculatorViewController: UIViewController {
         if srcMeterialView.isHidden {
             showWeightMeterialView()
         } else {
-            hideWeigthMeterialView()
+            hideWeightMeterialView()
+        }
+    }
+}
+
+extension CalculatorViewController {
+    // MARK: - setup
+    func setModeButtonTitle(isMeterialOn: Bool, isPortionOn: Bool) {
+        if isMeterialOn {
+            meterialModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        } else {
+            meterialModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+        }
+
+        if isPortionOn {
+            portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        } else {
+            portionModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+        }
+
+        if isMeterialOn && isPortionOn {
+            plusLabel.textColor = UIColor.amDarkBlueGrey
+        } else {
+            plusLabel.textColor = UIColor.amLightBlueGrey
         }
     }
 
@@ -105,40 +141,27 @@ class CalculatorViewController: UIViewController {
         }
     }
 
+    // MARK: - view
     func showMeterialViewOnly() {
-        calculatorMode = .MeterialOnly
-
-        meterialModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-        portionModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
-        plusLabel.textColor = UIColor.amLightBlueGrey
+        setModeButtonTitle(isMeterialOn: true, isPortionOn: false)
 
         dstToolView.isHidden = false
-
         srcPortionView.isHidden = true
         dstPortionView.isHidden = true
     }
 
     func showPortionViewOnly() {
-        calculatorMode = .PortionOnly
-        meterialModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
-        portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-        plusLabel.textColor = UIColor.amLightBlueGrey
+        setModeButtonTitle(isMeterialOn: false, isPortionOn: true)
 
         dstToolView.isHidden = true
-
         srcPortionView.isHidden = false
         dstPortionView.isHidden = false
     }
 
     func showBothView() {
-        calculatorMode = .Both
-
-        meterialModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-        portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-        plusLabel.textColor = UIColor.amDarkBlueGrey
+        setModeButtonTitle(isMeterialOn: true, isPortionOn: true)
 
         dstToolView.isHidden = false
-
         srcPortionView.isHidden = false
         dstPortionView.isHidden = false
     }
@@ -147,27 +170,22 @@ class CalculatorViewController: UIViewController {
         srcMeterialView.isHidden = false
     }
 
-    func hideWeigthMeterialView() {
+    func hideWeightMeterialView() {
         srcMeterialView.isHidden = true
     }
 
+    // MARK: - Keyboard
     func showNumericKeyboard() {
         let numericKeyboardView = NumericKeyboardView()
         keyboardView.addSubview(numericKeyboardView)
 
+        // AutoLayout
         numericKeyboardView.snp.makeConstraints { (make) in
             make.top.equalTo(keyboardView.snp.top)
-        }
-        numericKeyboardView.snp.makeConstraints { (make) in
             make.bottom.equalTo(keyboardView.snp.bottom)
-        }
-        numericKeyboardView.snp.makeConstraints { (make) in
             make.left.equalTo(keyboardView.snp.left)
-        }
-        numericKeyboardView.snp.makeConstraints { (make) in
             make.right.equalTo(keyboardView.snp.right)
         }
-
         numericKeyboardView.delegate = self
     }
 
@@ -175,31 +193,27 @@ class CalculatorViewController: UIViewController {
         let meterialPickerView = MeterialPickerView()
         keyboardView.addSubview(meterialPickerView)
 
+        // AutoLayout
         meterialPickerView.snp.makeConstraints { (make) in
             make.top.equalTo(keyboardView.snp.top)
-        }
-        meterialPickerView.snp.makeConstraints { (make) in
             make.bottom.equalTo(keyboardView.snp.bottom)
-        }
-        meterialPickerView.snp.makeConstraints { (make) in
             make.left.equalTo(keyboardView.snp.left)
-        }
-        meterialPickerView.snp.makeConstraints { (make) in
             make.right.equalTo(keyboardView.snp.right)
         }
-
         meterialPickerView.delegate = self
+    }
+
+    func hideExistingKeyboard() {
+        for subview in keyboardView.subviews {
+            subview.removeFromSuperview()
+        }
     }
 }
 
+// MARK: - Numeric Keyboard
 extension CalculatorViewController: NumericKeyboardDelegate {
     func inputNumber(number newValue: String) {
-        guard let textField = textFieldManager?.focusedTextField else {
-            return
-        }
-        guard let text = textField.text else {
-            return
-        }
+        guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
 
         if text == "0" {
             textField.text = newValue
@@ -209,12 +223,7 @@ extension CalculatorViewController: NumericKeyboardDelegate {
     }
 
     func deleteValue() {
-        guard let textField = textFieldManager?.focusedTextField else {
-            return
-        }
-        guard let text = textField.text else {
-            return
-        }
+        guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
         if text.count > 1 {
             let end = text.index(before: text.endIndex)
             textField.text = String(text[..<end])
@@ -245,17 +254,17 @@ extension CalculatorViewController: NumericKeyboardDelegate {
     }
 }
 
+// MARK: - Meterial Picker
 extension CalculatorViewController: MeterialPickerDelegate {
     func selectMeterial(row: Int, name: String) {
         srcMeterialTextField.text = name
     }
 
-    func meterialSearchViewOpen() {
+    func openMeterialSearchView() {
 
     }
 
-    func meterialSearchViewClose() {
+    func closeMeterialSearchView() {
 
     }
-
 }

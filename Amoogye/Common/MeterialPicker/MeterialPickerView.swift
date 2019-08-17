@@ -54,7 +54,7 @@ class MeterialPickerView: UIView {
     // 재료 검색
     @IBAction func searchButtonClick(_ sender: Any) {
         print("show search view")
-        delegate?.meterialSearchViewOpen()
+        delegate?.openMeterialSearchView()
     }
 }
 
