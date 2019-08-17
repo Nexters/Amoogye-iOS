@@ -632,7 +632,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-ne-tAc">
-                                                            <rect key="frame" x="343" y="17" width="16" height="22"/>
+                                                            <rect key="frame" x="311" y="16" width="48" height="24"/>
                                                             <state key="normal" image="onButton"/>
                                                             <connections>
                                                                 <action selector="clickOnoffButton:" destination="T1A-tn-eST" eventType="touchUpInside" id="b9Z-ek-qxh"/>
@@ -672,7 +672,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3t-gm-Kyr">
-                                <rect key="frame" x="343" y="40" width="16" height="22"/>
+                                <rect key="frame" x="335" y="40" width="24" height="24"/>
                                 <state key="normal" image="addTool">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -686,6 +686,9 @@
                                 <state key="normal" title="편집">
                                     <color key="titleColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickEditMeasuringToolButton:" destination="lTq-MC-Yla" eventType="touchUpInside" id="OOo-ng-1Xr"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06V-Lf-sUN">
                                 <rect key="frame" x="52" y="155" width="88" height="1"/>
@@ -717,6 +720,7 @@
                         <outlet property="basicMeasuringToolButton" destination="hlR-dh-BeX" id="d4e-GC-uo3"/>
                         <outlet property="editMeasuringToolButton" destination="icR-vV-mBr" id="2gi-TR-ta4"/>
                         <outlet property="livingMeasuringToolButton" destination="RFL-H9-Qvp" id="KAd-3t-m6f"/>
+                        <outlet property="menuTitle" destination="6go-an-5eA" id="nPE-7g-xc0"/>
                         <outlet property="tabIndicatorView" destination="06V-Lf-sUN" id="Yio-tb-AFx"/>
                         <outlet property="toolTableView" destination="fXR-HH-7hx" id="huG-Iz-61w"/>
                     </connections>

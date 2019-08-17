@@ -10,4 +10,6 @@ import Foundation
 
 protocol MeasuringToolTableViewCellDelegate: class {
     func didOnoffButton(_ tag: Int, isOn: Bool)
+    func addCellItem(index: Int)
+    func removeCellItem(index: Int)
 }
