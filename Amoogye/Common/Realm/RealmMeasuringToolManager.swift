@@ -70,10 +70,14 @@ class RealmMeasuringToolManager: MeasuringToolManager {
     func getUsingOnLivingMeasuringToolList() -> [MeasuringTool] {
         return getLivingMeasuringToolList().filter { $0.isOn == true }
     }
+
+    func newMeasuringTool(name: String, criteriaTool: MeasuringTool, count: String) -> MeasuringTool {
+        return MeasuringTool(toolType: .living, unitType: criteriaTool.unitType, name: name, quantity: criteriaTool.quantity * (Double(count) ?? 0), isOn: true)
+    }
 }
 
 extension RealmMeasuringToolManager {
-    private func checkDuplicatedToolName(name: String) -> Bool {
+    func checkDuplicatedToolName(name: String) -> Bool {
         for tool in getMeasuringToolList() {
             if name == tool.name {
                 return true
