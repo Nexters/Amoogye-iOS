@@ -29,8 +29,12 @@ class RealmMeasuringToolManager: MeasuringToolManager {
     }
 
     func deleteMeasuringTool(_ tool: MeasuringTool) {
+        guard let realmTool = getRealmTool(name: tool.name) else {
+            return
+        }
+
         try! realm?.write {
-            realm?.delete(realmToolFrom(tool: tool))
+            realm?.delete(realmTool)
         }
     }
 

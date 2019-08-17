@@ -106,13 +106,15 @@ class MeasuringToolViewController: UIViewController {
     }
 
     @objc func clickDeleteButton(sender: UIButton!) {
+        hideEditButtons()
+        self.editMeasuringToolButton.isHidden = false
+        showTabBar()
+
         for item in selectedToolList! {
             measuringToolManager?.deleteMeasuringTool(item)
         }
 
-        hideEditButtons()
-        self.editMeasuringToolButton.isHidden = false
-        showTabBar()
+        self.measuringToolList = measuringToolManager?.getLivingMeasuringToolList()
 
         self.isToolEdited = false
     }
