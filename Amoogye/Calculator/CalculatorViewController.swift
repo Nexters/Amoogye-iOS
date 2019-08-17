@@ -49,6 +49,7 @@ class CalculatorViewController: UIViewController {
         showMeterialViewOnly()
         hideWeightMeterialView()
         setupButtonStyle(changeButton)
+        setChangeButton(enable: false)
         showNumericKeyboard()
 
         // textfield setup
@@ -160,6 +161,31 @@ extension CalculatorViewController {
         }
     }
 
+    func setChangeButton(enable: Bool) {
+        changeButton.isEnabled = enable
+        if enable {
+            changeButton.backgroundColor = UIColor.amOrangeyRed
+        } else {
+            changeButton.backgroundColor = UIColor.amPaleBlue
+        }
+    }
+
+    @objc func quantityTextFieldEditing() {
+        guard let focused = textFieldManager?.focusedTextField else {
+            return
+        }
+
+        if focused != srcQuantityTextField {
+            return
+        }
+
+        if srcQuantityTextField.text == "" && focused.recentText == "" {
+            setChangeButton(enable: false)
+        } else {
+            setChangeButton(enable: true)
+        }
+    }
+
     // MARK: - view
     func showMeterialViewOnly() {
         setModeButtonTitle(isMeterialOn: true, isPortionOn: false)
@@ -262,28 +288,35 @@ extension CalculatorViewController: NumericKeyboardDelegate {
         } else {
             textField.text = text + newValue
         }
+        quantityTextFieldEditing()
     }
 
     func deleteValue() {
         guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
 
-        if text.count > 1 {
+        if text.count > 0 {
             let end = text.index(before: text.endIndex)
             textField.text = String(text[..<end])
-        } else {
-            textField.text = "0"
         }
+        quantityTextFieldEditing()
     }
 
     func inputDot() {
         guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
 
-        textField.text = text + "."
+        if textField == srcQuantityTextField {
+            if text == "" {
+                textField.text = "0."
+                return
+            }
+            textField.text = text + "."
+        }
     }
 
     func getLastInputValue() -> String {
         guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return "" }
 
+        if text.count <= 0 { return "" }
         let lastIndex = text.index(before: text.endIndex)
         return String(text[lastIndex])
     }
