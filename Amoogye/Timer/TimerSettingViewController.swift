@@ -11,27 +11,25 @@ import UserNotifications
 
 class TimerSettingViewController: UIViewController {
 
-    var numericKeyboardButtonTitles = [String]()
-
     var timerModel = TimerModel.shared
     let colorGreen = UIColor(displayP3Red: 109/255, green: 212/255, blue: 0, alpha: 1)
 
-    @IBOutlet weak var startButton: UIButton!
+    var textfiledManager: CustomTextfieldManager?
 
-    @IBOutlet weak var settingView: UIView!
     @IBOutlet weak var hourTextfield: CustomTextField!
     @IBOutlet weak var minTextfield: CustomTextField!
     @IBOutlet weak var secTextfield: CustomTextField!
     @IBOutlet weak var secLabel: UILabel!
     @IBOutlet weak var alertLabel: UILabel!
 
-    @IBOutlet weak var numericKeyboardView: UICollectionView!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var numericKeyboardView: NumericKeyboardView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupNumericKeyboard()
-        setUpTextfield()
+        numericKeyboardView.delegate = self
+        textfiledManager = CustomTextfieldManager(hourTextfield, minTextfield, secTextfield)
         setupButtonStyle(startButton)
 
         // 최초 실행 시 이전에 저장된 상태 불러오기
@@ -68,13 +66,8 @@ class TimerSettingViewController: UIViewController {
         }
     }
 
-    // 화면 터치 시 textfield focusOut
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        focusOutAllTextfield()
-    }
-
     @IBAction func clickStart(_ sender: Any) {
-        focusOutAllTextfield()
+        textfiledManager?.focusOutAll()
 
         switch timerModel.getState() {
         case .Ready: // 시작 버튼 클릭
@@ -129,13 +122,6 @@ extension TimerSettingViewController {
         }
     }
 
-    func setUpTextfield() {
-        let textfieldManager = CustomTextfieldManager(hourTextfield, minTextfield, secTextfield)
-        hourTextfield.manager = textfieldManager
-        minTextfield.manager = textfieldManager
-        secTextfield.manager = textfieldManager
-    }
-
     func setTotalTimeText(time: Double) {
         let hour = Int(time) / 3600
         let min = Int(time) % 3600 / 60
@@ -150,15 +136,10 @@ extension TimerSettingViewController {
         hourTextfield.isEnabled = booltype
         minTextfield.isEnabled = booltype
         secTextfield.isEnabled = booltype
-        focusOutAllTextfield()
+        textfiledManager?.focusOutAll()
     }
 
-    func focusOutAllTextfield() {
-        hourTextfield.focusOut()
-        minTextfield.focusOut()
-        secTextfield.focusOut()
-    }
-
+    // MARK: - 상태에 따른 화면 전환
     // 준비 상태
     func showTimerReady() {
         secLabel.text = "초 뒤에"
@@ -199,82 +180,59 @@ extension TimerSettingViewController {
     }
 }
 
-// MARK: - numeric keyboard
-extension TimerSettingViewController {
-
-    private func hideKeyboards() {
-        numericKeyboardView.isHidden = true
-    }
-
-    private func setupNumericKeyboard() {
-        numericKeyboardButtonTitles = makeNumericKeyboardButtonTitles()
-
-        let nibCell = UINib(nibName: "NumericKeyboardCollectionViewCell", bundle: nil)
-        self.numericKeyboardView.register(nibCell, forCellWithReuseIdentifier: "NumericKeyboardCollectionViewCell")
-
-        self.numericKeyboardView.delegate = self
-        self.numericKeyboardView.dataSource = self
-    }
-
-    private func makeNumericKeyboardButtonTitles() -> [String] {
-        var contents: [String] = []
-
-        for i in 1..<10 {
-            contents.append(String(i))
+extension TimerSettingViewController: NumericKeyboardDelegate {
+    func inputNumber(number newValue: String) {
+        guard let textField = textfiledManager?.focusedTextField else {
+            return
         }
-        contents.append("0")
-        contents.append(".")
-        contents.append("del")
-
-        return contents
-    }
-
-    private func cellWithNumericKeyboardButtonTitle(_ cell: NumericKeyboardCollectionViewCell, with buttonTitle: String) -> NumericKeyboardCollectionViewCell {
-        if buttonTitle == "del" {
-            cell.keyboardButton.setImage(UIImage(named: "keyboardBackspace"), for: .normal)
-            cell.keyboardButton.setTitle("", for: .normal)
-            return cell
+        guard let text = textField.text else {
+            return
         }
 
-        cell.keyboardButton.setTitle(buttonTitle, for: .normal)
-        return cell
-    }
-}
-
-extension TimerSettingViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        if text == "0" {
+            textField.text = newValue
+        } else {
+            textField.text = text + newValue
+        }
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numericKeyboardButtonTitles.count
+    func deleteValue() {
+        guard let textField = textfiledManager?.focusedTextField else {
+            return
+        }
+        guard let text = textField.text else {
+            return
+        }
+
+        if text.count > 1 {
+            let end = text.index(before: text.endIndex)
+            textField.text = String(text[..<end])
+        } else {
+            textField.text = "0"
+        }
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NumericKeyboardCollectionViewCell", for: indexPath) as! NumericKeyboardCollectionViewCell
-        let buttonTitle = numericKeyboardButtonTitles[indexPath.item]
+    func inputDot() {
+        guard let textField = textfiledManager?.focusedTextField else {
+            return
+        }
+        guard let text = textField.text else {
+            return
+        }
 
-        return cellWithNumericKeyboardButtonTitle(cell, with: buttonTitle)
-    }
-}
-
-extension TimerSettingViewController: UICollectionViewDelegate {
-
-}
-
-extension TimerSettingViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = collectionView.frame.width / 3 - 1
-        let cellHeight = collectionView.frame.height / 4 - 1
-
-        return CGSize(width: cellWidth, height: cellHeight)
+        textField.text = text + "."
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
+    func getLastInputValue() -> String {
+        guard let textField = textfiledManager?.focusedTextField else {
+            return ""
+        }
+        guard let text = textField.text else {
+            return ""
+        }
+
+        let lastIndex = text.index(before: text.endIndex)
+        return String(text[lastIndex])
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
-    }
 }
