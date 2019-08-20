@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-class CustomInputTextBoxManager {
-    private var inputBoxList = [CustomInputTextBox]()
-    var selectedBox: CustomInputTextBox?
+class CustomInputButtonManager {
+    private var inputBoxList = [CustomInputButton]()
+    var selectedBox: CustomInputButton?
 
-    init(_ list: [CustomInputTextBox]) {
+    init(_ list: [CustomInputButton]) {
         self.inputBoxList.append(contentsOf: list)
         for box in list {
-            box.button.addTarget(self, action: #selector(self.focusOut(except: )), for: UIControl.Event.touchDown)
+            box.addTarget(self, action: #selector(self.focusOut(except: )), for: UIControl.Event.touchDown)
         }
     }
 
-    @objc func focusOut(except box: CustomInputTextBox) {
+    @objc func focusOut(except box: CustomInputButton) {
         selectedBox = box
         box.focusOn()
         for inputBox in inputBoxList {

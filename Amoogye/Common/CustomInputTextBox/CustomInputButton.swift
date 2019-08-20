@@ -8,10 +8,9 @@
 
 import UIKit
 
-class CustomInputTextBox: UIView {
+class CustomInputButton: UIButton {
 
     let label: UILabel = UILabel()
-    let button: UIButton = UIButton()
 
     var recentText: String = ""
     var isPlaceholder: Bool = true {
@@ -25,23 +24,12 @@ class CustomInputTextBox: UIView {
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
-        setupSubview()
-        setupLayout()
-        focusOut()
-    }
-
-    override func awakeFromNib() {
-        resizeView()
-    }
-
     override func draw(_ rect: CGRect) {
         resizeView()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        focusOn()
     }
 
     // MARK: - Setup
@@ -60,7 +48,6 @@ class CustomInputTextBox: UIView {
 
     func setupSubview() {
         self.addSubview(label)
-        self.addSubview(button)
 
         label.font = .systemFont(ofSize: 20)
         label.textAlignment = .center
@@ -68,15 +55,6 @@ class CustomInputTextBox: UIView {
         label.snp.makeConstraints { (make) in
             make.centerX.centerY.equalTo(self)
         }
-
-        button.snp.makeConstraints { (make) in
-            make.top.equalTo(self)
-            make.bottom.equalTo(self)
-            make.left.equalTo(self)
-            make.right.equalTo(self)
-        }
-
-        button.addTarget(self, action: #selector(self.touchEvent), for: UIControl.Event.touchDown)
     }
 
     func resizeView() {
@@ -95,20 +73,9 @@ class CustomInputTextBox: UIView {
             make.centerX.centerY.equalTo(self)
         }
 
-        button.snp.remakeConstraints { (make) in
-            make.top.equalTo(self)
-            make.bottom.equalTo(self)
-            make.left.equalTo(self)
-            make.right.equalTo(self)
-        }
         print("label width: \(label.bounds.width)")
         print("view width: \(self.frame.width)")
 
-    }
-
-    // MARK: Event
-    @objc func touchEvent(button: UIButton) {
-        focusOn()
     }
 
     // MARK: - Focusing Mode
