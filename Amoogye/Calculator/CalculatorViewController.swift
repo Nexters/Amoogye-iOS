@@ -67,15 +67,21 @@ class CalculatorViewController: UIViewController {
     // change button
     let changeButton: UIButton = UIButton()
 
+    let lineView: UIView = UIView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViewLayout()
-        inputManager = CustomInputButtonManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
-        setEventSelector()
+        setModeButtonSelector()
+        setInputButtonSelector()
+        setInputManager()
     }
+}
 
-    func setEventSelector() {
+// MARK: - Mode
+extension CalculatorViewController {
+    func setModeButtonSelector() {
         meterialModeButton.addTarget(self, action: #selector(clickMeterialModeButton), for: .touchUpInside)
         portionModeButton.addTarget(self, action: #selector(clickPortionModeButton), for: .touchUpInside)
     }
@@ -93,7 +99,7 @@ class CalculatorViewController: UIViewController {
             showPortionMode()
         }
     }
-    
+
     @objc func clickPortionModeButton() {
         switch mode {
         case .Meterial:
@@ -131,7 +137,7 @@ class CalculatorViewController: UIViewController {
         showPortionMode()
         showPortionGroup()
     }
-    
+
     // 모드 별 인터렉션 구현
     func hidePortionGroup() { }
     func showPortionGroup() { }
@@ -139,6 +145,120 @@ class CalculatorViewController: UIViewController {
     func showQuantityGroup() { }
     func hideMeterialGroup() { }  // 부피 단위 선택 시
     func showMeterialGroup() { } // 무게 단위 선택 시
+}
+
+// MARK: - Keyboard
+extension CalculatorViewController {
+    func setInputManager() {
+        inputManager = CustomInputButtonManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
+        inputManager?.focusOut(except: srcQuantityInput)
+        showNumericKeyboard()
+    }
+
+    func setInputButtonSelector() {
+        srcPortionInput.addTarget(self, action: #selector(showNumericKeyboard), for: .touchUpInside)
+        srcQuantityInput.addTarget(self, action: #selector(showNumericKeyboard), for: .touchUpInside)
+        dstPortionInput.addTarget(self, action: #selector(showNumericKeyboard), for: .touchUpInside)
+        srcUnitInput.addTarget(self, action: #selector(showUnitKeyboard), for: .touchUpInside)
+        srcMeterialInput.addTarget(self, action: #selector(showMeterialPicker), for: .touchUpInside)
+        dstToolInput.addTarget(self, action: #selector(showToolKeyboard), for: .touchUpInside)
+    }
+
+    func hideRecentKeyboard() {
+        for subview in keyboardView.subviews {
+            subview.removeFromSuperview()
+        }
+    }
+
+    @objc func showNumericKeyboard() {
+        print("숫자키보드")
+        hideRecentKeyboard()
+
+        let numericKeyboard = NumericKeyboardView()
+        numericKeyboard.delegate = self
+
+        keyboardView.addSubview(numericKeyboard)
+        numericKeyboard.frame = keyboardView.bounds
+    }
+
+    @objc func showUnitKeyboard() {
+        print("단위키보드")
+        hideRecentKeyboard()
+
+    }
+    @objc func showMeterialPicker() {
+        print("재료키보드")
+        hideRecentKeyboard()
+
+    }
+    @objc func showToolKeyboard() {
+        print("도구키보드")
+        hideRecentKeyboard()
+
+    }
+}
+
+extension CalculatorViewController: NumericKeyboardDelegate {
+    func inputNumber(number newValue: String) {
+        guard let selectedButton = inputManager?.selectedButton,
+            let text = selectedButton.title(for: .normal) else {
+            inputManager?.selectedButton?.setTitle(newValue)
+            return
+        }
+
+        // 입력된 숫자가 0또는 회색일 경우 -> 새로 갱신
+        if text == "0" || selectedButton.titleColor(for: .normal) == UIColor.amLightBlueGrey {
+            selectedButton.setTitle(newValue)
+            return
+        }
+
+        selectedButton.setTitle(text + newValue)
+    }
+
+    func deleteValue() {
+        guard let selectedButton = inputManager?.selectedButton,
+            let text = selectedButton.title(for: .normal) else {
+                return
+        }
+
+        if text.count > 1 {
+            let end = text.index(before: text.endIndex)
+            selectedButton.setTitle(String(text[..<end]))
+            return
+        }
+
+        selectedButton.setPlaceholder()
+    }
+
+    func inputDot() {
+        guard let selectedButton = inputManager?.selectedButton,
+            let text = inputManager?.selectedButton?.title(for: .normal)
+            else { return }
+
+        // 인분 입력창일 경우 . 사용 불가
+        if selectedButton != srcQuantityInput {
+            return
+        }
+
+        if text == "" || getLastInputValue() == "." {
+            selectedButton.setTitle("0.")
+            return
+        }
+
+        selectedButton.setTitle(text + ".")
+    }
+
+    func getLastInputValue() -> String {
+        guard let text = inputManager?.selectedButton?.title(for: .normal)
+            else { return "" }
+
+        if text.count > 0 {
+            let lastIndex = text.index(before: text.endIndex)
+            return String(text[lastIndex])
+        }
+
+        return ""
+    }
 }
 
 // MARK: - Layout
@@ -189,7 +309,7 @@ extension CalculatorViewController {
             changeView.top.equalTo(titleView.snp.bottom)
             changeView.left.equalTo(self.view.safeAreaLayoutGuide)
             changeView.right.equalTo(self.view.safeAreaLayoutGuide)
-            changeView.height.equalTo(234)
+            changeView.height.equalTo(238)
         }
 
         // Add Subviews
@@ -197,17 +317,18 @@ extension CalculatorViewController {
         changeView.addSubview(srcViews)
         changeView.addSubview(dstViews)
         changeView.addSubview(changeButton)
+        changeView.addSubview(lineView)
 
         // Setup Subviews Attributes
         setupNotiLabel()
         setupSrcViews()
         setupDstViews()
         setupChangeButton()
+        setupLineView()
     }
 
     func setupKeyboardView() {
         // Setup My Attributes
-        keyboardView.backgroundColor = UIColor.green
 
         // My Constraints
         keyboardView.snp.makeConstraints { (make) in
@@ -602,8 +723,19 @@ extension CalculatorViewController {
             make.top.equalTo(dstViews.snp.bottom).offset(24)
             make.leading.equalTo(changeView).offset(16)
             make.trailing.equalTo(changeView).offset(-16)
-            make.bottom.equalTo(keyboardView.snp.top).offset(-16)
             make.height.equalTo(60)
+        }
+    }
+
+    func setupLineView() {
+        // Setup My Attributes
+        lineView.backgroundColor = UIColor.amIceBlue
+
+        // My Constraints
+        lineView.snp.makeConstraints { (make) in
+            make.top.equalTo(changeButton.snp.bottom).offset(16)
+            make.leading.trailing.bottom.equalTo(changeView)
+            make.height.equalTo(4)
         }
     }
 }

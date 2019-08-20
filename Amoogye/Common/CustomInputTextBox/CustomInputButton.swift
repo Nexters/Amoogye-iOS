@@ -28,15 +28,11 @@ class CustomInputButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        focusOn()
-//        setTitle("안녕")
-    }
-
     func setup() {
         self.layer.cornerRadius = 6
         self.layer.borderWidth = 1
         self.titleLabel?.font = .systemFont(ofSize: 20)
+        self.titleLabel?.textAlignment = .center
         focusOut()
     }
 
@@ -81,13 +77,8 @@ class CustomInputButton: UIButton {
     }
 
     func setPlaceholder() {
-        if let currentText = self.title(for: .normal) {
-            if currentText != "" {
-                self.recentText = currentText
-            }
-            self.setTitle(recentText)
-        }
-        setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+        self.setTitle(recentText)
+        self.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
     }
 
     func setTitle(_ title: String) {
