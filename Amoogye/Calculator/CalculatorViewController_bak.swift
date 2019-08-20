@@ -256,7 +256,7 @@ extension CalculatorViewController_bak: NumericKeyboardDelegate {
 
 // MARK: - Meterial Picker
 extension CalculatorViewController_bak: MeterialPickerDelegate {
-    func selectMeterial(row: Int, name: String) {
+    func selectMeterial(name: String) {
         srcMeterialTextField.text = name
     }
 

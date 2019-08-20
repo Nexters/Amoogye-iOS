@@ -71,7 +71,7 @@ extension MeterialPickerView: UIPickerViewDataSource {
 extension MeterialPickerView: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        delegate?.selectMeterial(row: row, name: meterialList[row])
+        delegate?.selectMeterial(name: meterialList[row])
         pickerView.reloadAllComponents()
     }
 

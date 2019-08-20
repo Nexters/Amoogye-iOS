@@ -27,6 +27,7 @@ class CalculatorViewController: UIViewController {
     let searchView: UIView = UIView()
     let changeView: UIView = UIView()
     let keyboardView: UIView = UIView()
+    let meterialSearchView: UIView = UIView()
 
     // titleView
     let historyButton: UIButton = UIButton()
@@ -186,78 +187,22 @@ extension CalculatorViewController {
         hideRecentKeyboard()
 
     }
+
     @objc func showMeterialPicker() {
         print("재료키보드")
         hideRecentKeyboard()
 
+        let meterialPicker = MeterialPickerView()
+        meterialPicker.delegate = self
+
+        keyboardView.addSubview(meterialPicker)
+        meterialPicker.frame = keyboardView.bounds
     }
+
     @objc func showToolKeyboard() {
         print("도구키보드")
         hideRecentKeyboard()
 
-    }
-}
-
-extension CalculatorViewController: NumericKeyboardDelegate {
-    func inputNumber(number newValue: String) {
-        guard let selectedButton = inputManager?.selectedButton,
-            let text = selectedButton.title(for: .normal) else {
-            inputManager?.selectedButton?.setTitle(newValue)
-            return
-        }
-
-        // 입력된 숫자가 0또는 회색일 경우 -> 새로 갱신
-        if text == "0" || selectedButton.titleColor(for: .normal) == UIColor.amLightBlueGrey {
-            selectedButton.setTitle(newValue)
-            return
-        }
-
-        selectedButton.setTitle(text + newValue)
-    }
-
-    func deleteValue() {
-        guard let selectedButton = inputManager?.selectedButton,
-            let text = selectedButton.title(for: .normal) else {
-                return
-        }
-
-        if text.count > 1 {
-            let end = text.index(before: text.endIndex)
-            selectedButton.setTitle(String(text[..<end]))
-            return
-        }
-
-        selectedButton.setPlaceholder()
-    }
-
-    func inputDot() {
-        guard let selectedButton = inputManager?.selectedButton,
-            let text = inputManager?.selectedButton?.title(for: .normal)
-            else { return }
-
-        // 인분 입력창일 경우 . 사용 불가
-        if selectedButton != srcQuantityInput {
-            return
-        }
-
-        if text == "" || getLastInputValue() == "." {
-            selectedButton.setTitle("0.")
-            return
-        }
-
-        selectedButton.setTitle(text + ".")
-    }
-
-    func getLastInputValue() -> String {
-        guard let text = inputManager?.selectedButton?.title(for: .normal)
-            else { return "" }
-
-        if text.count > 0 {
-            let lastIndex = text.index(before: text.endIndex)
-            return String(text[lastIndex])
-        }
-
-        return ""
     }
 }
 
@@ -269,11 +214,13 @@ extension CalculatorViewController {
         self.view.addSubview(titleView)
         self.view.addSubview(changeView)
         self.view.addSubview(keyboardView)
+        self.view.addSubview(meterialSearchView)
 
         // Setup Subviews Attributes
         setupTitleView()
         setupChangeView()
         setupKeyboardView()
+        setupMeterialSearchView()
     }
 
     // MARK: - 하위 뷰
@@ -337,6 +284,39 @@ extension CalculatorViewController {
             make.right.equalTo(self.view.safeAreaLayoutGuide)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
+    }
+
+    func setupMeterialSearchView() {
+        // Setup My Attributes
+        meterialSearchView.backgroundColor = UIColor.white
+
+        // Setup Subview Attributes
+        let lineView = UIView()
+        let mySearchView = MeterialSearchView()
+        lineView.backgroundColor = UIColor.amIceBlue
+        mySearchView.myView?.delegate = self
+
+        // Add Subviews
+        meterialSearchView.addSubview(lineView)
+        meterialSearchView.addSubview(mySearchView)
+
+        // Subviews Constraints
+        lineView.snp.makeConstraints { (make) in
+            make.left.right.top.equalTo(meterialSearchView)
+            make.height.equalTo(4)
+        }
+        mySearchView.snp.makeConstraints { (make) in
+            make.top.equalTo(lineView.snp.bottom)
+            make.left.right.bottom.equalTo(meterialSearchView)
+        }
+
+        // My Constraints
+        meterialSearchView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(91)
+            make.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+        }
+
+        meterialSearchView.isHidden = true
     }
 
     // MARK: - TitleView

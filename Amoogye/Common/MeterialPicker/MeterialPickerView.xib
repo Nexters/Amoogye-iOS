@@ -52,6 +52,9 @@
                         <constraint firstAttribute="width" constant="16" id="Spd-jj-HAb"/>
                     </constraints>
                     <state key="normal" image="keyboardSearch"/>
+                    <connections>
+                        <action selector="searchButtonClick:" destination="-1" eventType="touchUpInside" id="cjl-gB-0qI"/>
+                    </connections>
                 </button>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5O-C7-3wL">
                     <rect key="frame" x="0.0" y="99" width="414" height="763"/>
