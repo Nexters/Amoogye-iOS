@@ -11,6 +11,13 @@ import SnapKit
 
 class CalculatorViewController: UIViewController {
 
+    var inputManager: CustomInputButtonManager?
+    var mode: CalculatorMode = .Meterial
+
+    enum CalculatorMode {
+        case Meterial, Portion, Both
+    }
+
     var gapButtonButton: Int = 8    // 4 (입력단위 4개 이상일 경우)
     var gapButtonLabel: Int = 6     // 4
     var gapLabelButton: Int = 10    // 8
@@ -39,12 +46,12 @@ class CalculatorViewController: UIViewController {
     let srcMeterialView: UIView = UIView()
     let srcFromView: UIView = UIView()
 
-    let srcPortionInput: CustomInputTextBox = CustomInputTextBox()
+    let srcPortionInput: CustomInputButton = CustomInputButton()
     let srcPortionLabel: UILabel = UILabel()
-    let srcQuantityInput: CustomInputTextBox = CustomInputTextBox()
-    let srcUnitInput: CustomInputTextBox = CustomInputTextBox()
+    let srcQuantityInput: CustomInputButton = CustomInputButton()
+    let srcUnitInput: CustomInputButton = CustomInputButton()
     let srcForLabel: UILabel = UILabel()
-    let srcMeterialInput: CustomInputTextBox = CustomInputTextBox()
+    let srcMeterialInput: CustomInputButton = CustomInputButton()
     let srcFromLabel: UILabel = UILabel()
 
     // dstView
@@ -52,9 +59,9 @@ class CalculatorViewController: UIViewController {
     let dstToolView: UIView = UIView()
     let dstToView: UIView = UIView()
 
-    let dstPortionInput: CustomInputTextBox = CustomInputTextBox()
+    let dstPortionInput: CustomInputButton = CustomInputButton()
     let dstPortionLabel: UILabel = UILabel()
-    let dstToolInput: CustomInputTextBox = CustomInputTextBox()
+    let dstToolInput: CustomInputButton = CustomInputButton()
     let dstToLabel: UILabel = UILabel()
 
     // change button
@@ -64,7 +71,74 @@ class CalculatorViewController: UIViewController {
         super.viewDidLoad()
 
         setupViewLayout()
+        inputManager = CustomInputButtonManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
+        setEventSelector()
     }
+
+    func setEventSelector() {
+        meterialModeButton.addTarget(self, action: #selector(clickMeterialModeButton), for: .touchUpInside)
+        portionModeButton.addTarget(self, action: #selector(clickPortionModeButton), for: .touchUpInside)
+    }
+
+    @objc func clickMeterialModeButton() {
+        switch mode {
+        case .Meterial:
+            mode = .Portion
+            showPortionMode()
+        case .Portion:
+            mode = .Both
+            showBothMode()
+        case .Both:
+            mode = .Portion
+            showPortionMode()
+        }
+    }
+    
+    @objc func clickPortionModeButton() {
+        switch mode {
+        case .Meterial:
+            mode = .Both
+            showBothMode()
+        case .Portion:
+            mode = .Meterial
+            showMeterialMode()
+        case .Both:
+            mode = .Meterial
+            showMeterialMode()
+        }
+    }
+
+    func showMeterialMode() {
+        meterialModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        portionModeButton.setTitleColor(UIColor.amDarkBlueGreyWithOpacity(opacity: 0.2), for: .normal)
+        plusLabel.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.2)
+        hidePortionGroup()
+        showQuantityGroup()
+    }
+
+    func showPortionMode() {
+        meterialModeButton.setTitleColor(UIColor.amDarkBlueGreyWithOpacity(opacity: 0.2), for: .normal)
+        portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        plusLabel.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.2)
+        showPortionGroup()
+        hideQuantityGroup()
+    }
+
+    func showBothMode() {
+        meterialModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        plusLabel.textColor = UIColor.amDarkBlueGrey
+        showPortionMode()
+        showPortionGroup()
+    }
+    
+    // 모드 별 인터렉션 구현
+    func hidePortionGroup() { }
+    func showPortionGroup() { }
+    func hideQuantityGroup() { }
+    func showQuantityGroup() { }
+    func hideMeterialGroup() { }  // 부피 단위 선택 시
+    func showMeterialGroup() { } // 무게 단위 선택 시
 }
 
 // MARK: - Layout
@@ -187,7 +261,7 @@ extension CalculatorViewController {
     func setupPlusLabel() {
         // Setup My Attributes
         plusLabel.text = "+"
-        plusLabel.textColor = UIColor.amDarkBlueGrey
+        plusLabel.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.2)
         plusLabel.font = .systemFont(ofSize: 24, weight: .bold)
 
         // My Constraints
@@ -200,7 +274,7 @@ extension CalculatorViewController {
     func setupPortionModeButton() {
         // Setup My Attributes
         portionModeButton.setTitle("인원", for: .normal)
-        portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        portionModeButton.setTitleColor(UIColor.amDarkBlueGreyWithOpacity(opacity: 0.2), for: .normal)
         portionModeButton.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
 
         // My Constraints
@@ -384,7 +458,7 @@ extension CalculatorViewController {
     // MARK: SrcPortionView
     func setupSrcPortionInput() {
         // Setup My Attributes
-        srcPortionInput.setText(set: "1")
+        srcPortionInput.setTitle("1")
 
         // My Constraints
         srcPortionInput.snp.makeConstraints { (make) in
@@ -409,7 +483,7 @@ extension CalculatorViewController {
     // MARK: - SrcQuantityView
     func setupSrcQuantityInput() {
         // Setup My Attributes
-        srcQuantityInput.setText(set: "")
+        srcQuantityInput.setTitle("")
 
         // My Constraints
         srcQuantityInput.snp.makeConstraints { (make) in
@@ -419,7 +493,7 @@ extension CalculatorViewController {
 
     func setupSrcUnitInput() {
         // Setup My Attributes
-        srcUnitInput.setText(set: "ml")
+        srcUnitInput.setTitle("ml")
 
         // My Constraints
         srcUnitInput.snp.makeConstraints { (make) in
@@ -444,7 +518,7 @@ extension CalculatorViewController {
 
     func setupSrcMeterialInput() {
         // Setup My Attributes
-        srcMeterialInput.setText(set: "물")
+        srcMeterialInput.setTitle("베이킹파우더")
 
         // My Constraints
         srcMeterialInput.snp.makeConstraints { (make) in
@@ -470,7 +544,7 @@ extension CalculatorViewController {
     // MARK: - DstView
     func setupDstPortionInput() {
         // Setup My Attributes
-        dstPortionInput.setText(set: "1")
+        dstPortionInput.setTitle("1")
 
         // My Constraints
         dstPortionInput.snp.makeConstraints { (make) in
@@ -494,7 +568,7 @@ extension CalculatorViewController {
 
     func setupDstToolInput() {
         // Setup My Attributes
-        dstToolInput.setText(set: "컵")
+        dstToolInput.setTitle("컵")
 
         // My Constraints
         dstToolInput.snp.makeConstraints { (make) in

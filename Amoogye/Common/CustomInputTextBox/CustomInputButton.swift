@@ -10,136 +10,101 @@ import UIKit
 
 class CustomInputButton: UIButton {
 
-    let label: UILabel = UILabel()
-
     var recentText: String = ""
-    var isPlaceholder: Bool = true {
-        didSet {
-            switch isPlaceholder {
-            case true:
-                setAsPlaceholder()
-            case false:
-                setAsCommonText()
-            }
-        }
+    var focus: Bool = false
+
+    init() {
+        super.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        setup()
     }
 
-    override func draw(_ rect: CGRect) {
-        resizeView()
+    init(title: String) {
+        super.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        self.setTitle(title)
+        setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         focusOn()
+//        setTitle("안녕")
     }
 
-    // MARK: - Setup
-    func setupLayout() {
-        // radius: 6pt
-        // font size: 20pt
-        self.clipsToBounds = true
+    func setup() {
         self.layer.cornerRadius = 6
         self.layer.borderWidth = 1
-
-        self.snp.makeConstraints { (view) in
-            view.height.equalTo(36)
-            view.width.equalTo(36)
-        }
+        self.titleLabel?.font = .systemFont(ofSize: 20)
+        focusOut()
     }
 
-    func setupSubview() {
-        self.addSubview(label)
-
-        label.font = .systemFont(ofSize: 20)
-        label.textAlignment = .center
-
-        label.snp.makeConstraints { (make) in
-            make.centerX.centerY.equalTo(self)
-        }
-    }
-
-    func resizeView() {
-        label.sizeToFit()
-
-        self.snp.remakeConstraints { (make) in
-            make.height.equalTo(36)
-            if label.bounds.width < 36 {
-                make.width.equalTo(36)
-            } else {
-                make.width.equalTo(label.snp.width).offset(20)
-            }
-        }
-
-        label.snp.remakeConstraints { (make) in
-            make.centerX.centerY.equalTo(self)
-        }
-
-        print("label width: \(label.bounds.width)")
-        print("view width: \(self.frame.width)")
-
-    }
-
-    // MARK: - Focusing Mode
-    func focusOn() {
-        self.backgroundColor = UIColor.white
-        self.layer.borderColor = UIColor.amOrangeyRed.cgColor
-
-        isPlaceholder = true
-        self.setNeedsDisplay()
-    }
-
-    func focusOut() {
-        self.backgroundColor = UIColor.amIceBlue
-        self.layer.borderColor = UIColor.amIceBlue.cgColor
-
-        isPlaceholder = false
-        recentText = label.text ?? ""
-        self.setNeedsDisplay()
-    }
-
-    // MARK: - Edit Text
-    func setText(set: String) {
-        if set == "" {
-            isPlaceholder = true
-            label.text = recentText
-        } else {
-            isPlaceholder = false
-            label.text = set
-        }
-
-        label.sizeToFit()
-        self.setNeedsDisplay()
-
-        print("background: \(self.backgroundColor ?? UIColor.clear)")
-        print("text: \(self.label.text ?? "")")
-        print("width: \(label.bounds.width)")
-    }
-
-    func inputText(input: String) {
-        if input == "" {
+    func resize() {
+        guard let label = self.titleLabel else {
             return
         }
 
-        guard let text = label.text else { return }
-        isPlaceholder = false
-        label.text = text + input
         label.sizeToFit()
-        self.setNeedsDisplay()
+        var width: CGFloat = 36
+        if label.bounds.width > 16 {
+            width = label.bounds.width + CGFloat(20)
+        }
+        self.bounds.size.width = width
+        self.snp.remakeConstraints { (make) in
+            make.centerX.equalTo(label)
+            make.left.equalTo(label).offset(-10)
+            make.right.equalTo(label).offset(10)
+            make.width.equalTo(width)
+        }
+    }
+
+    func focusOn() {
+        focus = true
+        self.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+        self.layer.borderColor = UIColor.amOrangeyRed.cgColor
+        self.backgroundColor = UIColor.white
+        setPlaceholder()
+    }
+
+    func focusOut() {
+        recentText = self.title(for: .normal) ?? ""
+        focus = false
+        self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        self.layer.borderColor = UIColor.amIceBlue.cgColor
+        self.backgroundColor = UIColor.amIceBlue
+        if self.title(for: .normal) == "" {
+            self.setTitle(recentText)
+        } else {
+            recentText = title(for: .normal) ?? ""
+        }
+    }
+
+    func setPlaceholder() {
+        if let currentText = self.title(for: .normal) {
+            if currentText != "" {
+                self.recentText = currentText
+            }
+            self.setTitle(recentText)
+        }
+        setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+    }
+
+    func setTitle(_ title: String) {
+        self.setTitle(title, for: .normal)
+    }
+
+    override func setTitle(_ title: String?, for state: UIControl.State) {
+        super.setTitle(title, for: state)
+        if focus {
+            self.setTitleColor(UIColor.amOrangeyRed, for: .normal)
+        } else {
+            self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        }
+        resize()
     }
 
     func removeAllText() {
-        isPlaceholder = true
-        label.text = recentText
-        label.sizeToFit()
-        self.setNeedsDisplay()
-    }
-
-    // MARK: - Text Mode ( placeholder / common )
-    func setAsPlaceholder() {
-        label.text = recentText
-        label.textColor = UIColor.amLightBlueGrey
-    }
-
-    func setAsCommonText() {
-        label.textColor = UIColor.amDarkBlueGrey
+        setPlaceholder()
     }
 }
