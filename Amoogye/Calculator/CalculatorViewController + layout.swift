@@ -518,7 +518,7 @@ extension CalculatorViewController {
     }
 
     func setupSearchView() {
-        mySearchView.myView?.delegate = self
+        mySearchView.delegate = self
         mySearchView.snp.makeConstraints { (make) in
             make.top.equalTo(searchLineView.snp.bottom)
             make.left.right.bottom.equalTo(meterialSearchView)

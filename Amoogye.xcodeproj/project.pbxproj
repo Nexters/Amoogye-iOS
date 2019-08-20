@@ -35,11 +35,10 @@
 		3ABCE65B22D9AE2B00F61E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE65922D9AE2B00F61E46 /* Main.storyboard */; };
 		3ABCE65D22D9AE2C00F61E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE65C22D9AE2C00F61E46 /* Assets.xcassets */; };
 		3ABCE66022D9AE2C00F61E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABCE65E22D9AE2C00F61E46 /* LaunchScreen.storyboard */; };
-		3AE9AA9622F5670100F09850 /* MeterialSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AA9522F5670100F09850 /* MeterialSearchView.swift */; };
 		3AE9AA9822F5676700F09850 /* MeterialSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE9AA9722F5676700F09850 /* MeterialSearchView.xib */; };
 		3AE9AA9B22F56DB200F09850 /* MeterialSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AA9922F56DB200F09850 /* MeterialSearchResultCell.swift */; };
 		3AE9AA9C22F56DB200F09850 /* MeterialSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE9AA9A22F56DB200F09850 /* MeterialSearchResultCell.xib */; };
-		3AE9AAA522F6D87A00F09850 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAA422F6D87A00F09850 /* SearchView.swift */; };
+		3AE9AAA522F6D87A00F09850 /* MeterialSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAA422F6D87A00F09850 /* MeterialSearchView.swift */; };
 		3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAAB22F6DE1200F09850 /* TimerModel.swift */; };
 		3AE9AAAE22F6E53B00F09850 /* CustomTextField_bak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAAD22F6E53B00F09850 /* CustomTextField_bak.swift */; };
 		3AE9AAB322F98A4900F09850 /* CustomTextfieldManager_bak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB222F98A4900F09850 /* CustomTextfieldManager_bak.swift */; };
@@ -94,11 +93,10 @@
 		3ABCE65C22D9AE2C00F61E46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ABCE65F22D9AE2C00F61E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ABCE66122D9AE2C00F61E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AE9AA9522F5670100F09850 /* MeterialSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterialSearchView.swift; sourceTree = "<group>"; };
 		3AE9AA9722F5676700F09850 /* MeterialSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeterialSearchView.xib; sourceTree = "<group>"; };
 		3AE9AA9922F56DB200F09850 /* MeterialSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterialSearchResultCell.swift; sourceTree = "<group>"; };
 		3AE9AA9A22F56DB200F09850 /* MeterialSearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeterialSearchResultCell.xib; sourceTree = "<group>"; };
-		3AE9AAA422F6D87A00F09850 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3AE9AAA422F6D87A00F09850 /* MeterialSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterialSearchView.swift; sourceTree = "<group>"; };
 		3AE9AAAB22F6DE1200F09850 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		3AE9AAAD22F6E53B00F09850 /* CustomTextField_bak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField_bak.swift; sourceTree = "<group>"; };
 		3AE9AAB222F98A4900F09850 /* CustomTextfieldManager_bak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldManager_bak.swift; sourceTree = "<group>"; };
@@ -219,9 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				3AE9AAA022F56DE600F09850 /* Cells */,
-				3AE9AA9522F5670100F09850 /* MeterialSearchView.swift */,
 				3AE9AA9722F5676700F09850 /* MeterialSearchView.xib */,
-				3AE9AAA422F6D87A00F09850 /* SearchView.swift */,
+				3AE9AAA422F6D87A00F09850 /* MeterialSearchView.swift */,
 			);
 			path = MeterialSearchView;
 			sourceTree = "<group>";
@@ -507,7 +504,7 @@
 				3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */,
 				3AE9AAAE22F6E53B00F09850 /* CustomTextField_bak.swift in Sources */,
 				A3B6899222FFF8E4002FB31D /* MeasuringTool.swift in Sources */,
-				3AE9AAA522F6D87A00F09850 /* SearchView.swift in Sources */,
+				3AE9AAA522F6D87A00F09850 /* MeterialSearchView.swift in Sources */,
 				3A039DCA230890DB009E1AAA /* CustomInputButtonManager.swift in Sources */,
 				3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */,
 				3ABA62142306B459000ABF3B /* MeterialPickerDelegate.swift in Sources */,
@@ -531,7 +528,6 @@
 				3A8550DE22F009450003C584 /* DeveloperContactCell.swift in Sources */,
 				3AE9AA9B22F56DB200F09850 /* MeterialSearchResultCell.swift in Sources */,
 				3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */,
-				3AE9AA9622F5670100F09850 /* MeterialSearchView.swift in Sources */,
 				A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */,
 				3A039DD1230C5A75009E1AAA /* CalculatorViewController + layout.swift in Sources */,
 				3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */,
