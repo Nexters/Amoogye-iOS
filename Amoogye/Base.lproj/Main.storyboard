@@ -10,16 +10,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item-->
+        <scene sceneID="Ry7-Et-TLt">
+            <objects>
+                <viewController id="DOw-0P-1RC" customClass="CalculatorViewController" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ppb-Nu-ggD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="krR-SM-NgK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="b7w-zT-HBE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tG8-NR-FcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1118" y="-573"/>
+        </scene>
         <!--아무계-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculatorViewController_bak" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqL-Zy-eR9">
-                                <rect key="frame" x="335" y="40" width="24" height="24"/>
+                                <rect key="frame" x="343" y="40" width="16" height="22"/>
                                 <state key="normal" image="tip">
                                     <color key="titleColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -28,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJf-Pg-Gzb">
-                                <rect key="frame" x="287" y="40" width="24" height="24"/>
+                                <rect key="frame" x="303" y="40" width="16" height="22"/>
                                 <state key="normal" image="history">
                                     <color key="titleColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -261,7 +277,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EK-ST-amz">
-                                <rect key="frame" x="323" y="79" width="37" height="30"/>
+                                <rect key="frame" x="323" y="77" width="37" height="30"/>
                                 <state key="normal" title="TEST"/>
                                 <connections>
                                     <action selector="clickTestButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6um-tr-LGV"/>
@@ -337,12 +353,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5999999999999" y="-571.66416791604206"/>
+            <point key="canvasLocation" x="1777" y="-573"/>
         </scene>
-        <!--Calculator Measuring Tip View Controller-->
+        <!--Calculator Measuring Tip View Controller bak-->
         <scene sceneID="aL5-fN-KoX">
             <objects>
-                <viewController id="BfP-aX-sbf" customClass="CalculatorMeasuringTipViewController" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BfP-aX-sbf" customClass="CalculatorMeasuringTipViewController_bak" customModule="Amoogye" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xql-dd-Umg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -386,6 +402,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="DOw-0P-1RC" kind="relationship" relationship="viewControllers" id="2vz-wl-Jjd"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="5Wg-j1-nux"/>
                         <segue destination="aSk-wW-rjx" kind="relationship" relationship="viewControllers" id="WUR-g6-3zt"/>
                         <segue destination="lTq-MC-Yla" kind="relationship" relationship="viewControllers" id="RDN-iQ-1tg"/>

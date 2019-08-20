@@ -25,9 +25,19 @@ class CustomInputTextBox: UIView {
         }
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    init() {
+        super.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        setupSubview()
+        setupLayout()
+        focusOut()
+    }
+
     override func awakeFromNib() {
-        self.setup()
-        self.focusOut()
+        resizeView()
     }
 
     override func draw(_ rect: CGRect) {
@@ -35,36 +45,65 @@ class CustomInputTextBox: UIView {
     }
 
     // MARK: - Setup
-    func setup() {
+    func setupLayout() {
         // radius: 6pt
         // font size: 20pt
         self.clipsToBounds = true
         self.layer.cornerRadius = 6
         self.layer.borderWidth = 1
 
-        label.font = .systemFont(ofSize: 20)
-        label.textAlignment = .center
+        self.snp.makeConstraints { (view) in
+            view.height.equalTo(36)
+            view.width.equalTo(36)
+        }
+    }
 
+    func setupSubview() {
         self.addSubview(label)
         self.addSubview(button)
 
-        self.setNeedsDisplay()  //
+        label.font = .systemFont(ofSize: 20)
+        label.textAlignment = .center
+
+        label.snp.makeConstraints { (make) in
+            make.centerX.centerY.equalTo(self)
+        }
+
+        button.snp.makeConstraints { (make) in
+            make.top.equalTo(self)
+            make.bottom.equalTo(self)
+            make.left.equalTo(self)
+            make.right.equalTo(self)
+        }
 
         button.addTarget(self, action: #selector(self.touchEvent), for: UIControl.Event.touchDown)
     }
 
     func resizeView() {
-        // label 크기 구하기
         label.sizeToFit()
-        var width = Float(label.intrinsicContentSize.width) + 16
-        if width < 36 { width = 36 }
 
-        // superview (최소너비: 36)
-        self.frame = CGRect(x: self.frame.minX, y: self.frame.minY, width: CGFloat(width), height: 36)
-        // label (superview의 중앙에 오도록)
-        label.frame = CGRect(x: (self.bounds.size.width - label.bounds.size.width)/2, y: (self.bounds.size.height - label.bounds.size.height)/2, width: label.bounds.size.width, height: label.bounds.size.height)
-        // button (superview의 크기와 동일하도록)
-        button.frame = self.bounds
+        self.snp.remakeConstraints { (make) in
+            make.height.equalTo(36)
+            if label.bounds.width < 36 {
+                make.width.equalTo(36)
+            } else {
+                make.width.equalTo(label.snp.width).offset(20)
+            }
+        }
+
+        label.snp.remakeConstraints { (make) in
+            make.centerX.centerY.equalTo(self)
+        }
+
+        button.snp.remakeConstraints { (make) in
+            make.top.equalTo(self)
+            make.bottom.equalTo(self)
+            make.left.equalTo(self)
+            make.right.equalTo(self)
+        }
+        print("label width: \(label.bounds.width)")
+        print("view width: \(self.frame.width)")
+
     }
 
     // MARK: Event
@@ -74,8 +113,6 @@ class CustomInputTextBox: UIView {
 
     // MARK: - Focusing Mode
     func focusOn() {
-        // background = white
-        // border color = amOrangeyRed
         self.backgroundColor = UIColor.white
         self.layer.borderColor = UIColor.amOrangeyRed.cgColor
 
@@ -84,8 +121,6 @@ class CustomInputTextBox: UIView {
     }
 
     func focusOut() {
-        // background = amIceBlue
-        // border color = amIceBlue
         self.backgroundColor = UIColor.amIceBlue
         self.layer.borderColor = UIColor.amIceBlue.cgColor
 
@@ -99,13 +134,17 @@ class CustomInputTextBox: UIView {
         if set == "" {
             isPlaceholder = true
             label.text = recentText
-            return
+        } else {
+            isPlaceholder = false
+            label.text = set
         }
 
-        isPlaceholder = false
-        label.text = set
         label.sizeToFit()
         self.setNeedsDisplay()
+
+        print("background: \(self.backgroundColor ?? UIColor.clear)")
+        print("text: \(self.label.text ?? "")")
+        print("width: \(label.bounds.width)")
     }
 
     func inputText(input: String) {

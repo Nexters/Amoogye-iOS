@@ -2,7 +2,7 @@
 //  CalculatorViewController.swift
 //  Amoogye
 //
-//  Created by 임수현 on 13/07/2019.
+//  Created by 임수현 on 18/08/2019.
 //  Copyright © 2019 KookKook. All rights reserved.
 //
 
@@ -10,261 +10,526 @@ import UIKit
 import SnapKit
 
 class CalculatorViewController: UIViewController {
-    enum CalculatorMode {
-        case MeterialOnly, PortionOnly, Both
-    }
 
-    // MARK: - Instance
-    var textFieldManager: CustomTextfieldManager_bak?
-    var calculatorMode = CalculatorMode.MeterialOnly
+    var gapButtonButton: Int = 8    // 4 (입력단위 4개 이상일 경우)
+    var gapButtonLabel: Int = 6     // 4
+    var gapLabelButton: Int = 10    // 8
+    var fontSize: Int = 20          // 14 (최대글자 노출시 변경되는 폰트 사이즈)
 
-    // MARK: - Outlet
-    @IBOutlet weak var portionModeButton: UIButton!
-    @IBOutlet weak var meterialModeButton: UIButton!
-    @IBOutlet weak var plusLabel: UILabel!
+    let titleView: UIView = UIView()
+    let searchView: UIView = UIView()
+    let changeView: UIView = UIView()
+    let keyboardView: UIView = UIView()
 
-    @IBOutlet weak var srcPortionView: UIView!  // 인원
-    @IBOutlet weak var srcQuantityView: UIView! // 재료
-    @IBOutlet weak var srcMeterialView: UIView! // 재료 - 무게
-    @IBOutlet weak var dstPortionView: UIView!  // 인원
-    @IBOutlet weak var dstToolView: UIView!     // 재료
+    // titleView
+    let historyButton: UIButton = UIButton()
+    let tipButton: UIButton = UIButton()
+    let meterialModeButton: UIButton = UIButton()
+    let portionModeButton: UIButton = UIButton()
+    let plusLabel: UILabel = UILabel()
 
-    @IBOutlet weak var srcPortionTextField: CustomTextField_bak!
-    @IBOutlet weak var srcQuantityTextField: CustomTextField_bak!
-    @IBOutlet weak var srcUnitTextField: CustomTextField_bak!
-    @IBOutlet weak var srcMeterialTextField: CustomTextField_bak!
+    // changeView
+    let notiLabel: UILabel = UILabel()
+    let srcViews: UIView = UIView()
+    let dstViews: UIView = UIView()
 
-    @IBOutlet weak var dstPortionTextField: CustomTextField_bak!
-    @IBOutlet weak var dstToolTextField: CustomTextField_bak!
+    // srcView
+    let srcPortionView: UIView = UIView()
+    let srcQuantityView: UIView = UIView()
+    let srcMeterialView: UIView = UIView()
+    let srcFromView: UIView = UIView()
 
-    @IBOutlet weak var changeButton: UIButton!
+    let srcPortionInput: CustomInputTextBox = CustomInputTextBox()
+    let srcPortionLabel: UILabel = UILabel()
+    let srcQuantityInput: CustomInputTextBox = CustomInputTextBox()
+    let srcUnitInput: CustomInputTextBox = CustomInputTextBox()
+    let srcForLabel: UILabel = UILabel()
+    let srcMeterialInput: CustomInputTextBox = CustomInputTextBox()
+    let srcFromLabel: UILabel = UILabel()
 
-    @IBOutlet weak var keyboardView: UIView!
+    // dstView
+    let dstPortionView: UIView = UIView()
+    let dstToolView: UIView = UIView()
+    let dstToView: UIView = UIView()
 
-    // MARK: - Life Cycle
+    let dstPortionInput: CustomInputTextBox = CustomInputTextBox()
+    let dstPortionLabel: UILabel = UILabel()
+    let dstToolInput: CustomInputTextBox = CustomInputTextBox()
+    let dstToLabel: UILabel = UILabel()
+
+    // change button
+    let changeButton: UIButton = UIButton()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // view setup
-        showMeterialViewOnly()
-        hideWeightMeterialView()
-        setupButtonStyle(changeButton)
-        showNumericKeyboard()
-
-        // textfield setup
-        textFieldManager = CustomTextfieldManager_bak(srcPortionTextField, srcQuantityTextField, srcUnitTextField, srcMeterialTextField, dstPortionTextField, dstToolTextField)
-        textFieldManager?.focusOutAll()
-        srcQuantityTextField.focusOn()
-    }
-
-    // MARK: - Action
-    @IBAction func clickMeterialMode(_ sender: UIButton) {
-        switch calculatorMode {
-        case .MeterialOnly:
-            calculatorMode = .PortionOnly
-            showPortionViewOnly()
-
-        case .PortionOnly:
-            calculatorMode = .Both
-            showBothView()
-
-        case .Both:
-            calculatorMode = .PortionOnly
-            showPortionViewOnly()
-        }
-    }
-
-    @IBAction func clickPortionMode(_ sender: Any) {
-        switch calculatorMode {
-        case .MeterialOnly:
-            calculatorMode = .Both
-            showBothView()
-
-        case .PortionOnly:
-            calculatorMode = .MeterialOnly
-            showMeterialViewOnly()
-
-        case .Both:
-            calculatorMode = .MeterialOnly
-            showMeterialViewOnly()
-        }
-    }
-
-    @IBAction func clickNumericTextField(_ sender: Any) {
-        hideExistingKeyboard()
-        showNumericKeyboard()
-    }
-
-    @IBAction func clickMeterialTextField(_ sender: Any) {
-        hideExistingKeyboard()
-        showMeterialPicker()
-    }
-
-    @IBAction func clickChangeButton(_ sender: Any) {
-
-    }
-
-    @IBAction func clickTestButton(_ sender: Any) {
-        if srcMeterialView.isHidden {
-            showWeightMeterialView()
-        } else {
-            hideWeightMeterialView()
-        }
+        setupViewLayout()
     }
 }
 
+// MARK: - Layout
 extension CalculatorViewController {
-    // MARK: - setup
-    func setModeButtonTitle(isMeterialOn: Bool, isPortionOn: Bool) {
-        if isMeterialOn {
-            meterialModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-        } else {
-            meterialModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+    // MARK: - 최상위 뷰
+    func setupViewLayout() {
+        // Add Subviews
+        self.view.addSubview(titleView)
+        self.view.addSubview(changeView)
+        self.view.addSubview(keyboardView)
+
+        // Setup Subviews Attributes
+        setupTitleView()
+        setupChangeView()
+        setupKeyboardView()
+    }
+
+    // MARK: - 하위 뷰
+    func setupTitleView() {
+        // My Constraints
+        titleView.snp.makeConstraints { (titleView) in
+            titleView.top.equalTo(self.view.safeAreaLayoutGuide)
+            titleView.left.equalTo(self.view.safeAreaLayoutGuide)
+            titleView.right.equalTo(self.view.safeAreaLayoutGuide)
+            titleView.height.equalTo(90)
         }
 
-        if isPortionOn {
-            portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-        } else {
-            portionModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+        // Add Subviews
+        titleView.addSubview(tipButton)
+        titleView.addSubview(historyButton)
+        titleView.addSubview(meterialModeButton)
+        titleView.addSubview(plusLabel)
+        titleView.addSubview(portionModeButton)
+
+        // Setup Subviews Attributes
+        setupTipButton()
+        setupHistoryButton()
+        setupMeterialModeButton()
+        setupPlusLabel()
+        setupPortionModeButton()
+    }
+
+    func setupChangeView() {
+        // Setup My Attributes
+
+        // My Constraints
+        changeView.snp.makeConstraints { (changeView) in
+            changeView.top.equalTo(titleView.snp.bottom)
+            changeView.left.equalTo(self.view.safeAreaLayoutGuide)
+            changeView.right.equalTo(self.view.safeAreaLayoutGuide)
+            changeView.height.equalTo(234)
         }
 
-        if isMeterialOn && isPortionOn {
-            plusLabel.textColor = UIColor.amDarkBlueGrey
-        } else {
-            plusLabel.textColor = UIColor.amLightBlueGrey
+        // Add Subviews
+        changeView.addSubview(notiLabel)
+        changeView.addSubview(srcViews)
+        changeView.addSubview(dstViews)
+        changeView.addSubview(changeButton)
+
+        // Setup Subviews Attributes
+        setupNotiLabel()
+        setupSrcViews()
+        setupDstViews()
+        setupChangeButton()
+    }
+
+    func setupKeyboardView() {
+        // Setup My Attributes
+        keyboardView.backgroundColor = UIColor.green
+
+        // My Constraints
+        keyboardView.snp.makeConstraints { (make) in
+            make.top.equalTo(changeView.snp.bottom)
+            make.left.equalTo(self.view.safeAreaLayoutGuide)
+            make.right.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
 
-    func setupButtonStyle(_ buttons: UIButton...) {
-        for button in buttons {
-            button.layer.cornerRadius = 6
+    // MARK: - TitleView
+    func setupTipButton() {
+        // Setup My Attributes
+        tipButton.setImage(UIImage(named: "tip"), for: .normal)
+
+        // My Constraints
+        tipButton.snp.makeConstraints { (make) in
+            make.top.equalTo(titleView.snp.top).offset(20)
+            make.right.equalTo(titleView.snp.right).offset(-16)
+            make.width.equalTo(24)
+            make.height.equalTo(24)
         }
     }
 
-    // MARK: - view
-    func showMeterialViewOnly() {
-        setModeButtonTitle(isMeterialOn: true, isPortionOn: false)
+    func setupHistoryButton() {
+        // Setup My Attributes
+        historyButton.setImage(UIImage(named: "history"), for: .normal)
 
-        dstToolView.isHidden = false
-        srcPortionView.isHidden = true
-        dstPortionView.isHidden = true
-    }
-
-    func showPortionViewOnly() {
-        setModeButtonTitle(isMeterialOn: false, isPortionOn: true)
-
-        dstToolView.isHidden = true
-        srcPortionView.isHidden = false
-        dstPortionView.isHidden = false
-    }
-
-    func showBothView() {
-        setModeButtonTitle(isMeterialOn: true, isPortionOn: true)
-
-        dstToolView.isHidden = false
-        srcPortionView.isHidden = false
-        dstPortionView.isHidden = false
-    }
-
-    func showWeightMeterialView() {
-        srcMeterialView.isHidden = false
-    }
-
-    func hideWeightMeterialView() {
-        srcMeterialView.isHidden = true
-    }
-
-    // MARK: - Keyboard
-    func showNumericKeyboard() {
-        let numericKeyboardView = NumericKeyboardView()
-        keyboardView.addSubview(numericKeyboardView)
-
-        // AutoLayout
-        numericKeyboardView.snp.makeConstraints { (make) in
-            make.top.equalTo(keyboardView.snp.top)
-            make.bottom.equalTo(keyboardView.snp.bottom)
-            make.left.equalTo(keyboardView.snp.left)
-            make.right.equalTo(keyboardView.snp.right)
-        }
-        numericKeyboardView.delegate = self
-    }
-
-    func showMeterialPicker() {
-        let meterialPickerView = MeterialPickerView()
-        keyboardView.addSubview(meterialPickerView)
-
-        // AutoLayout
-        meterialPickerView.snp.makeConstraints { (make) in
-            make.top.equalTo(keyboardView.snp.top)
-            make.bottom.equalTo(keyboardView.snp.bottom)
-            make.left.equalTo(keyboardView.snp.left)
-            make.right.equalTo(keyboardView.snp.right)
-        }
-        meterialPickerView.delegate = self
-    }
-
-    func hideExistingKeyboard() {
-        for subview in keyboardView.subviews {
-            subview.removeFromSuperview()
+        // My Constraints
+        historyButton.snp.makeConstraints { (make) in
+            make.top.equalTo(tipButton.snp.top)
+            make.right.equalTo(tipButton.snp.left).offset(-24)
+            make.width.equalTo(24)
+            make.height.equalTo(24)
         }
     }
+
+    func setupMeterialModeButton() {
+        // Setup My Attributes
+        meterialModeButton.setTitle("재료", for: .normal)
+        meterialModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        meterialModeButton.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
+
+        // My Constraints
+        meterialModeButton.snp.makeConstraints { (make) in
+            make.top.equalTo(titleView).offset(48)
+            make.left.equalTo(titleView).offset(16)
+        }
+    }
+
+    func setupPlusLabel() {
+        // Setup My Attributes
+        plusLabel.text = "+"
+        plusLabel.textColor = UIColor.amDarkBlueGrey
+        plusLabel.font = .systemFont(ofSize: 24, weight: .bold)
+
+        // My Constraints
+        plusLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(meterialModeButton.snp.centerY)
+            make.left.equalTo(meterialModeButton.snp.right).offset(8)
+        }
+    }
+
+    func setupPortionModeButton() {
+        // Setup My Attributes
+        portionModeButton.setTitle("인원", for: .normal)
+        portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        portionModeButton.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
+
+        // My Constraints
+        portionModeButton.snp.makeConstraints { (make) in
+            make.centerY.equalTo(meterialModeButton.snp.centerY)
+            make.left.equalTo(plusLabel.snp.right).offset(9)
+        }
+    }
+
+    // MARK: - ChangeView
+    func setupNotiLabel() {
+        notiLabel.text = "숫자는 9,999까지 입력할 수 있습니다."
+        notiLabel.textColor = UIColor.amOrangeyRed
+        notiLabel.font = .systemFont(ofSize: 12)
+
+        notiLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(changeView).offset(15)
+            make.left.equalTo(changeView).offset(16)
+        }
+    }
+
+    func setupSrcViews() {
+        changeView.addSubview(srcPortionView)
+        changeView.addSubview(srcQuantityView)
+        changeView.addSubview(srcMeterialView)
+        changeView.addSubview(srcFromView)
+
+        setupSrcPortionView()
+        setupSrcQuantityView()
+        setupSrcMeterialView()
+        setupSrcFromView()
+
+        srcViews.snp.makeConstraints { (make) in
+            make.top.equalTo(notiLabel.snp.bottom).offset(8)
+            make.leading.equalTo(notiLabel)
+            make.height.equalTo(36)
+        }
+    }
+
+    func setupDstViews() {
+        changeView.addSubview(dstPortionView)
+        changeView.addSubview(dstToolView)
+        changeView.addSubview(dstToView)
+
+        setupDstPortionView()
+        setupDstToolView()
+        setupDstToView()
+
+        dstViews.snp.makeConstraints { (make) in
+            make.top.equalTo(srcViews.snp.bottom).offset(24)
+            make.leading.equalTo(srcViews)
+            make.height.equalTo(36)
+        }
+    }
+
+    func setupSrcPortionView() {
+        // Add Subviews
+        srcPortionView.addSubview(srcPortionInput)
+        srcPortionView.addSubview(srcPortionLabel)
+
+        // Setup Subviews Attributes
+        setupSrcPortionInput()
+        setupSrcPortionLabel()
+
+        // My Constraints6
+        srcPortionView.snp.makeConstraints { (make) in
+            make.top.equalTo(srcViews)
+            make.left.equalTo(srcViews)
+            make.height.equalTo(srcViews)
+            make.width.equalTo(srcPortionInput.bounds.width + srcPortionLabel.bounds.width + CGFloat(gapButtonLabel + gapLabelButton))
+        }
+    }
+
+    func setupSrcQuantityView() {
+        // Add Subviews
+        srcQuantityView.addSubview(srcQuantityInput)
+        srcQuantityView.addSubview(srcUnitInput)
+
+        // Setup Subviews Contraints
+        setupSrcQuantityInput()
+        setupSrcUnitInput()
+
+        // My Constraints
+        srcQuantityView.snp.makeConstraints { (make) in
+            make.top.equalTo(srcPortionView)
+            make.left.equalTo(srcPortionView.snp.right)
+            make.height.equalTo(srcPortionView)
+            make.width.equalTo(srcQuantityInput.bounds.width + srcUnitInput.bounds.width + CGFloat(gapButtonButton + gapButtonLabel))
+        }
+    }
+
+    func setupSrcMeterialView() {
+        // Add Subviews
+        srcMeterialView.addSubview(srcForLabel)
+        srcMeterialView.addSubview(srcMeterialInput)
+
+        // Setup Subviews Contraints
+        setupSrcForLabel()
+        setupSrcMeterialInput()
+
+        // My Constraints
+        srcMeterialView.snp.makeConstraints { (make) in
+            make.top.equalTo(srcQuantityView)
+            make.left.equalTo(srcQuantityView.snp.right)
+            make.height.equalTo(srcQuantityView)
+            make.width.equalTo(srcForLabel.bounds.width + srcMeterialInput.bounds.width + CGFloat(gapLabelButton + gapButtonLabel))
+        }
+    }
+
+    func setupSrcFromView() {
+        // Setup My Attributes
+
+        // Add Subviews
+        srcFromView.addSubview(srcFromLabel)
+
+        // Setup Subviews Contraints
+        setupSrcFromLabel()
+
+        // My Constraints
+        srcFromView.snp.makeConstraints { (make) in
+            make.centerY.equalTo(srcMeterialView)
+            make.left.equalTo(srcMeterialView.snp.right)
+            make.height.equalTo(srcMeterialView)
+            make.width.equalTo(srcFromLabel.bounds.width)
+        }
+    }
+
+    func setupDstPortionView() {
+        // Setup My Attributes
+
+        // Add Subviews
+        dstPortionView.addSubview(dstPortionInput)
+        dstPortionView.addSubview(dstPortionLabel)
+
+        // Setup Subviews Contraints
+        setupDstPortionInput()
+        setupDstPortionLabel()
+
+        // My Constraints
+        dstPortionView.snp.makeConstraints { (make) in
+            make.centerY.left.height.equalTo(dstViews)
+            make.width.equalTo(dstPortionInput.bounds.width + dstPortionLabel.bounds.width + CGFloat(gapButtonLabel + gapLabelButton))
+        }
+    }
+
+    func setupDstToolView() {
+        // Setup My Attributes
+
+        // Add Subviews
+        dstToolView.addSubview(dstToolInput)
+
+        // Setup Subviews Contraints
+        setupDstToolInput()
+
+        // My Constraints
+        dstToolView.snp.makeConstraints { (make) in
+            make.centerY.height.equalTo(dstViews)
+            make.left.equalTo(dstPortionView.snp.right)
+            make.width.equalTo(dstToolInput.bounds.width + CGFloat(gapButtonLabel))
+        }
+    }
+
+    func setupDstToView() {
+        // Setup My Attributes
+
+        // Add Subviews
+        dstToView.addSubview(dstToLabel)
+
+        // Setup Subviews Contraints
+        setupDstToLabel()
+
+        // My Constraints
+        dstToView.snp.makeConstraints { (make) in
+            make.centerY.height.equalTo(dstViews)
+            make.left.equalTo(dstToolView.snp.right)
+            make.width.equalTo(dstToLabel)
+        }
+    }
+
+    // MARK: - * ChangeView Details
+    // MARK: SrcPortionView
+    func setupSrcPortionInput() {
+        // Setup My Attributes
+        srcPortionInput.setText(set: "1")
+
+        // My Constraints
+        srcPortionInput.snp.makeConstraints { (make) in
+            make.centerY.left.equalTo(srcPortionView)
+        }
+    }
+
+    func setupSrcPortionLabel() {   // ~명 기준
+        // Setup My Attributes
+        srcPortionLabel.text = "명 기준"
+        srcPortionLabel.font = .systemFont(ofSize: 20)
+        srcPortionLabel.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        srcPortionLabel.sizeToFit()
+
+        // My Constraints
+        srcPortionLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(srcPortionView)
+            make.left.equalTo(srcPortionInput.snp.right).offset(gapButtonLabel)
+        }
+    }
+
+    // MARK: - SrcQuantityView
+    func setupSrcQuantityInput() {
+        // Setup My Attributes
+        srcQuantityInput.setText(set: "")
+
+        // My Constraints
+        srcQuantityInput.snp.makeConstraints { (make) in
+            make.centerY.left.equalTo(srcQuantityView)
+        }
+    }
+
+    func setupSrcUnitInput() {
+        // Setup My Attributes
+        srcUnitInput.setText(set: "ml")
+
+        // My Constraints
+        srcUnitInput.snp.makeConstraints { (make) in
+            make.centerY.equalTo(srcQuantityInput)
+            make.left.equalTo(srcQuantityInput.snp.right).offset(gapButtonButton)
+        }
+    }
+
+    // MARK: - SrcMeterialView
+    func setupSrcForLabel() {   // ~의
+        // Setup My Attributes
+        srcForLabel.text = "의"
+        srcForLabel.font = .systemFont(ofSize: 20)
+        srcForLabel.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        srcForLabel.sizeToFit()
+
+        // My Constraints
+        srcForLabel.snp.makeConstraints { (make) in
+            make.centerY.left.equalTo(srcMeterialView)
+        }
 }
 
-// MARK: - Numeric Keyboard
-extension CalculatorViewController: NumericKeyboardDelegate {
-    func inputNumber(number newValue: String) {
-        guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
+    func setupSrcMeterialInput() {
+        // Setup My Attributes
+        srcMeterialInput.setText(set: "물")
 
-        if text == "0" {
-            textField.text = newValue
-        } else {
-            textField.text = text + newValue
+        // My Constraints
+        srcMeterialInput.snp.makeConstraints { (make) in
+            make.centerY.equalTo(srcForLabel)
+            make.left.equalTo(srcForLabel.snp.right).offset(gapLabelButton)
         }
     }
 
-    func deleteValue() {
-        guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
-        if text.count > 1 {
-            let end = text.index(before: text.endIndex)
-            textField.text = String(text[..<end])
-        } else {
-            textField.text = "0"
+    // MARK: - SrcFromView
+    func setupSrcFromLabel() {  // ~를
+        // Setup My Attributes
+        srcFromLabel.text = "를"
+        srcFromLabel.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        srcFromLabel.font = .systemFont(ofSize: 20)
+        srcFromLabel.sizeToFit()
+
+        // My Constraints
+        srcFromLabel.snp.makeConstraints { (make) in
+            make.centerY.left.equalTo(srcFromView)
         }
     }
 
-    func inputDot() {
-        guard let textField = textFieldManager?.focusedTextField else {
-            return
+    // MARK: - DstView
+    func setupDstPortionInput() {
+        // Setup My Attributes
+        dstPortionInput.setText(set: "1")
+
+        // My Constraints
+        dstPortionInput.snp.makeConstraints { (make) in
+            make.centerY.left.equalTo(dstPortionView)
         }
-        guard let text = textField.text else {
-            return
-        }
-        textField.text = text + "."
     }
 
-    func getLastInputValue() -> String {
-        guard let textField = textFieldManager?.focusedTextField else {
-            return ""
+    func setupDstPortionLabel() {   // ~명 기준
+        // Setup My Attributes
+        dstPortionLabel.text = "명 기준"
+        dstPortionLabel.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        dstPortionLabel.font = .systemFont(ofSize: 20)
+        dstPortionLabel.sizeToFit()
+
+        // My Constraints
+        dstPortionLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(dstPortionView)
+            make.left.equalTo(dstPortionInput.snp.right).offset(gapButtonLabel)
         }
-        guard let text = textField.text else {
-            return ""
+    }
+
+    func setupDstToolInput() {
+        // Setup My Attributes
+        dstToolInput.setText(set: "컵")
+
+        // My Constraints
+        dstToolInput.snp.makeConstraints { (make) in
+            make.centerY.left.equalTo(dstToolView)
         }
-        let lastIndex = text.index(before: text.endIndex)
-        return String(text[lastIndex])
-    }
-}
-
-// MARK: - Meterial Picker
-extension CalculatorViewController: MeterialPickerDelegate {
-    func selectMeterial(row: Int, name: String) {
-        srcMeterialTextField.text = name
     }
 
-    func openMeterialSearchView() {
+    func setupDstToLabel() {   // ~으로
+        // Setup My Attributes
+        dstToLabel.text = "으로"
+        dstToLabel.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        dstToLabel.font = .systemFont(ofSize: 20)
+        dstToLabel.sizeToFit()
 
+        // My Constraints
+        dstToLabel.snp.makeConstraints { (make) in
+            make.centerY.left.equalTo(dstToView)
+        }
     }
 
-    func closeMeterialSearchView() {
+    func setupChangeButton() {
+        // Setup My Attributes
+        changeButton.setTitle("바꾸면", for: .normal)
+        changeButton.setTitleColor(UIColor.white, for: .normal)
+        changeButton.titleLabel?.font = .systemFont(ofSize: 24, weight: .medium)
+        changeButton.backgroundColor = UIColor.amOrangeyRed
+        changeButton.layer.cornerRadius = 6
 
+        // My Constraints
+        changeButton.snp.makeConstraints { (make) in
+            make.top.equalTo(dstViews.snp.bottom).offset(24)
+            make.leading.equalTo(changeView).offset(16)
+            make.trailing.equalTo(changeView).offset(-16)
+            make.bottom.equalTo(keyboardView.snp.top).offset(-16)
+            make.height.equalTo(60)
+        }
     }
 }

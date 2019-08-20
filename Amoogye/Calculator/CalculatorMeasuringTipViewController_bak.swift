@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalculatorMeasuringTipViewController: UIViewController {
+class CalculatorMeasuringTipViewController_bak: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
