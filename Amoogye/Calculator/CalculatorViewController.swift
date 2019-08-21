@@ -49,12 +49,13 @@ class CalculatorViewController: UIViewController {
         showMeterialViewOnly()
         hideWeightMeterialView()
         setupButtonStyle(changeButton)
+        setChangeButton(enable: false)
         showNumericKeyboard()
 
         // textfield setup
         textFieldManager = CustomTextfieldManager(srcPortionTextField, srcQuantityTextField, srcUnitTextField, srcMeterialTextField, dstPortionTextField, dstToolTextField)
-        textFieldManager?.focusOutAll()
-        srcQuantityTextField.focusOn()
+        textFieldManager?.focusOutAll(except: srcQuantityTextField) //focusedTextfield를 srcQuantityTextField로 세팅하는 작업
+        setupTextfieldDefaultText()
     }
 
     // MARK: - Action
@@ -95,9 +96,19 @@ class CalculatorViewController: UIViewController {
         showNumericKeyboard()
     }
 
+    @IBAction func clickUnitTextField(_ sender: Any) {
+        hideExistingKeyboard()
+        showUnitKeyboard()  // 미구현
+    }
+
     @IBAction func clickMeterialTextField(_ sender: Any) {
         hideExistingKeyboard()
         showMeterialPicker()
+    }
+
+    @IBAction func clickToolTextField(_ sender: Any) {
+        hideExistingKeyboard()
+        showToolKeyboard()  // 미구현
     }
 
     @IBAction func clickChangeButton(_ sender: Any) {
@@ -135,9 +146,43 @@ extension CalculatorViewController {
         }
     }
 
+    func setupTextfieldDefaultText() {
+        srcPortionTextField.text = "1"
+        srcQuantityTextField.text = ""
+        srcUnitTextField.text = "ml"
+        srcMeterialTextField.text = "물"
+        dstPortionTextField.text = "1"
+        dstToolTextField.text = "밥숟가락"
+    }
+
     func setupButtonStyle(_ buttons: UIButton...) {
         for button in buttons {
             button.layer.cornerRadius = 6
+        }
+    }
+
+    func setChangeButton(enable: Bool) {
+        changeButton.isEnabled = enable
+        if enable {
+            changeButton.backgroundColor = UIColor.amOrangeyRed
+        } else {
+            changeButton.backgroundColor = UIColor.amPaleBlue
+        }
+    }
+
+    @objc func quantityTextFieldEditing() {
+        guard let focused = textFieldManager?.focusedTextField else {
+            return
+        }
+
+        if focused != srcQuantityTextField {
+            return
+        }
+
+        if srcQuantityTextField.text == "" && focused.recentText == "" {
+            setChangeButton(enable: false)
+        } else {
+            setChangeButton(enable: true)
         }
     }
 
@@ -148,6 +193,11 @@ extension CalculatorViewController {
         dstToolView.isHidden = false
         srcPortionView.isHidden = true
         dstPortionView.isHidden = true
+
+        let focusedTF = textFieldManager?.focusedTextField
+        if focusedTF == srcPortionTextField || focusedTF == dstPortionTextField {
+            textFieldManager?.focusOutAll(except: srcQuantityTextField)
+        }
     }
 
     func showPortionViewOnly() {
@@ -156,6 +206,11 @@ extension CalculatorViewController {
         dstToolView.isHidden = true
         srcPortionView.isHidden = false
         dstPortionView.isHidden = false
+
+        let focusedTF = textFieldManager?.focusedTextField
+        if focusedTF == dstToolTextField {
+            textFieldManager?.focusOutAll(except: srcQuantityTextField)
+        }
     }
 
     func showBothView() {
@@ -172,6 +227,11 @@ extension CalculatorViewController {
 
     func hideWeightMeterialView() {
         srcMeterialView.isHidden = true
+
+        let focusedTF = textFieldManager?.focusedTextField
+        if focusedTF == srcMeterialTextField {
+            textFieldManager?.focusOutAll(except: srcQuantityTextField)
+        }
     }
 
     // MARK: - Keyboard
@@ -189,6 +249,10 @@ extension CalculatorViewController {
         numericKeyboardView.delegate = self
     }
 
+    func showUnitKeyboard() {
+
+    }
+
     func showMeterialPicker() {
         let meterialPickerView = MeterialPickerView()
         keyboardView.addSubview(meterialPickerView)
@@ -201,6 +265,10 @@ extension CalculatorViewController {
             make.right.equalTo(keyboardView.snp.right)
         }
         meterialPickerView.delegate = self
+    }
+
+    func showToolKeyboard() {
+
     }
 
     func hideExistingKeyboard() {
@@ -220,35 +288,35 @@ extension CalculatorViewController: NumericKeyboardDelegate {
         } else {
             textField.text = text + newValue
         }
+        quantityTextFieldEditing()
     }
 
     func deleteValue() {
         guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
-        if text.count > 1 {
+
+        if text.count > 0 {
             let end = text.index(before: text.endIndex)
             textField.text = String(text[..<end])
-        } else {
-            textField.text = "0"
         }
+        quantityTextFieldEditing()
     }
 
     func inputDot() {
-        guard let textField = textFieldManager?.focusedTextField else {
-            return
+        guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
+
+        if textField == srcQuantityTextField {
+            if text == "" {
+                textField.text = "0."
+                return
+            }
+            textField.text = text + "."
         }
-        guard let text = textField.text else {
-            return
-        }
-        textField.text = text + "."
     }
 
     func getLastInputValue() -> String {
-        guard let textField = textFieldManager?.focusedTextField else {
-            return ""
-        }
-        guard let text = textField.text else {
-            return ""
-        }
+        guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return "" }
+
+        if text.count <= 0 { return "" }
         let lastIndex = text.index(before: text.endIndex)
         return String(text[lastIndex])
     }

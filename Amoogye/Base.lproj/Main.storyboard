@@ -92,7 +92,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uK-iC-og0">
                                 <rect key="frame" x="16" y="135" width="97" height="36"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eA6-Si-K8G" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eA6-Si-K8G" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="GNs-ar-XFD"/>
@@ -123,10 +123,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kpl-GJ-xKp">
-                                <rect key="frame" x="121" y="135" width="206" height="36"/>
+                                <rect key="frame" x="121" y="135" width="163.5" height="36"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="400" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfv-bF-63t" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="58.5" height="36"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfv-bF-63t" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="JBQ-45-MDK"/>
                                         </constraints>
@@ -137,17 +137,20 @@
                                             <action selector="clickNumericTextField:" destination="BYZ-38-t0r" eventType="touchDown" id="lna-lH-8su"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="g" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkh-xA-XSc" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
-                                        <rect key="frame" x="62.5" y="0.0" width="36" height="36"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkh-xA-XSc" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="0.0" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="HyU-9P-FNP"/>
                                         </constraints>
                                         <color key="textColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="clickUnitTextField:" destination="BYZ-38-t0r" eventType="touchDown" id="UTj-14-cRZ"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JOY-tQ-vPu">
-                                        <rect key="frame" x="102.5" y="0.0" width="81.5" height="36"/>
+                                        <rect key="frame" x="80" y="0.0" width="61.5" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwo-wQ-ljm">
                                                 <rect key="frame" x="0.0" y="6" width="17.5" height="24"/>
@@ -155,8 +158,8 @@
                                                 <color key="textColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="재료" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFi-kh-2ND" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
-                                                <rect key="frame" x="25.5" y="0.0" width="56" height="36"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFi-kh-2ND" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
+                                                <rect key="frame" x="25.5" y="0.0" width="36" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="qFp-Ov-r9t"/>
                                                 </constraints>
@@ -178,7 +181,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPf-qT-Adj">
-                                        <rect key="frame" x="188" y="6" width="18" height="24"/>
+                                        <rect key="frame" x="145.5" y="6" width="18" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -203,7 +206,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXy-H8-yKs">
                                 <rect key="frame" x="16" y="195" width="99" height="36"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Udx-3U-MvO" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Udx-3U-MvO" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="Wt8-Uk-j0Z"/>
@@ -234,16 +237,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1k-D9-v23">
-                                <rect key="frame" x="125" y="195" width="90.5" height="36"/>
+                                <rect key="frame" x="125" y="195" width="36" height="36"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="밥숟가락" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJc-Hw-6YS" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="90.5" height="36"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJc-Hw-6YS" customClass="CustomTextField" customModule="Amoogye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="bD8-Gu-Efh"/>
                                         </constraints>
                                         <color key="textColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="clickToolTextField:" destination="BYZ-38-t0r" eventType="touchDown" id="bM2-gS-9go"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,7 +261,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="으로" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfX-cy-oM7">
-                                <rect key="frame" x="221.5" y="201" width="35" height="24"/>
+                                <rect key="frame" x="167" y="201" width="35" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -749,7 +755,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-ne-tAc">
-                                                            <rect key="frame" x="343" y="17" width="16" height="22"/>
+                                                            <rect key="frame" x="311" y="16" width="48" height="24"/>
                                                             <state key="normal" image="onButton"/>
                                                             <connections>
                                                                 <action selector="clickOnoffButton:" destination="T1A-tn-eST" eventType="touchUpInside" id="b9Z-ek-qxh"/>
@@ -789,7 +795,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3t-gm-Kyr">
-                                <rect key="frame" x="343" y="40" width="16" height="22"/>
+                                <rect key="frame" x="335" y="40" width="24" height="24"/>
                                 <state key="normal" image="addTool">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
