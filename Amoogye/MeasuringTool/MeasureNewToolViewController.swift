@@ -27,8 +27,11 @@ class MeasureNewToolViewController: UIViewController {
     @IBOutlet weak var toolSelectionField: UITextField!
     @IBOutlet weak var measuringCountIntLabel: UITextField!
     @IBOutlet weak var measuringCountFloatLabel: UITextField!
+    @IBOutlet weak var guideTextLabels: UIView!
 
     @IBOutlet weak var nextButton: UIButton!
+
+    var measuringPicker: MeasuringPickerView!
 
     // MARK: - override 함수
     override func viewDidLoad() {
@@ -40,6 +43,7 @@ class MeasureNewToolViewController: UIViewController {
         loadToolList()
         setupInitMeasuring()
         setupNextButton()
+        setupPicker()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -112,6 +116,23 @@ extension MeasureNewToolViewController {
     private func loadToolList() {
         self.toolList = measuringToolManager?.getUsingOnLivingMeasuringToolList()
     }
+
+    private func setupPicker() {
+        self.measuringPicker = MeasuringPickerView()
+        self.measuringPicker.delegate = self
+
+        self.measuringPicker.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view.safeAreaLayoutGuide)
+            make.right.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.top.equalTo(self.guideTextLabels.snp.bottom).offset(20)
+        }
+
+        let itemList = measuringToolManager?.getUsingOnLivingMeasuringToolList().map { $0.name }
+        self.measuringPicker.setPickerItemList(list: itemList!)
+
+        self.toolSelectionField.inputView = measuringPicker
+    }
 }
 
 // MARK: - TextField 관련 함수
@@ -148,5 +169,19 @@ extension MeasureNewToolViewController: UITextFieldDelegate {
             nextButton.isUserInteractionEnabled = false
             nextButton.backgroundColor = UIColor(displayP3Red: 224/255, green: 228/255, blue: 230/255, alpha: 1)
         }
+    }
+}
+
+extension MeasureNewToolViewController: MeasuringPickerDelegate {
+    func selectTool(name: String) {
+        self.toolSelectionField.text = name
+    }
+
+    func selectInt(number: String) {
+        self.measuringCountIntLabel.text = number
+    }
+
+    func selectFloat(number: String) {
+        self.measuringCountFloatLabel.text = number
     }
 }

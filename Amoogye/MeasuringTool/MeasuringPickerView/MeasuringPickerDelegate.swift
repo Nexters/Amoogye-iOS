@@ -9,5 +9,7 @@
 import Foundation
 
 protocol MeasuringPickerDelegate: class {
-    func selectItem(name: String)
+    func selectTool(name: String)
+    func selectInt(number: String)
+    func selectFloat(number: String)
 }

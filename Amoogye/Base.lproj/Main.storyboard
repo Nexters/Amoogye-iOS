@@ -749,7 +749,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-ne-tAc">
-                                                            <rect key="frame" x="343" y="17" width="16" height="22"/>
+                                                            <rect key="frame" x="311" y="16" width="48" height="24"/>
                                                             <state key="normal" image="onButton"/>
                                                             <connections>
                                                                 <action selector="clickOnoffButton:" destination="T1A-tn-eST" eventType="touchUpInside" id="b9Z-ek-qxh"/>
@@ -789,7 +789,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3t-gm-Kyr">
-                                <rect key="frame" x="343" y="40" width="16" height="22"/>
+                                <rect key="frame" x="335" y="40" width="24" height="24"/>
                                 <state key="normal" image="addTool">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1212,6 +1212,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zfV-el-UOM"/>
                     <connections>
+                        <outlet property="guideTextLabels" destination="xyE-Wx-9Fh" id="O6D-5A-Jw6"/>
                         <outlet property="imageView" destination="rlO-pk-LRo" id="J19-8C-z5z"/>
                         <outlet property="measuringCountFloatLabel" destination="h06-X0-eO1" id="MhT-SH-Gos"/>
                         <outlet property="measuringCountIntLabel" destination="TVg-0S-dGM" id="7br-48-1nQ"/>

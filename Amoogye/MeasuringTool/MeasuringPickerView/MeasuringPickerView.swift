@@ -60,7 +60,7 @@ extension MeasuringPickerView: UIPickerViewDataSource {
 
 extension MeasuringPickerView: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        delegate?.selectItem(name: itemList[row])
+        delegate?.selectTool(name: itemList[row])
         pickerView.reloadAllComponents()
     }
 
