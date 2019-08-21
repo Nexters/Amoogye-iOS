@@ -88,14 +88,16 @@ extension CalculatorViewController: MeterialPickerDelegate, MeterialSearchDelega
             make.left.equalTo(titleView).offset(16)
         }
         meterialSearchView.isHidden = false
+        mySearchView.searchTextField.becomeFirstResponder()
     }
 
-    func closeMeterialSearchView() {
+    @objc func closeMeterialSearchView() {
         meterialModeButton.snp.remakeConstraints { (make) in
             make.top.equalTo(titleView).offset(48)
             make.left.equalTo(titleView).offset(16)
         }
         meterialSearchView.isHidden = true
+        self.view.endEditing(true)
     }
 
     func closeSearchView() {

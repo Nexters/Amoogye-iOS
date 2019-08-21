@@ -7,27 +7,31 @@
 //
 
 import UIKit
+import SnapKit
 
 class MeterialSearchView: UIView {
     let cellIdentifier = "MeterialSearchResultCell"
 
     weak var delegate: MeterialSearchDelegate?
 
-    @IBOutlet weak var searchBarView: UIView!
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBarView: UIView!        // 검색창 바탕
+    @IBOutlet weak var searchTextField: UITextField! // 실제 검색창 입력 부분
+    @IBOutlet weak var searchButton: UIButton!       // 검색 버튼
+    @IBOutlet weak var tableView: UITableView!       // 검색 결과
+    @IBOutlet weak var hidedView: UIView!   // 키보드 영역만큼 올라올 부분
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
         setupTabelView()
+        setupKeyboardToolbar()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupView()
         setupTabelView()
+        setupKeyboardToolbar()
     }
 
     func setupView() {
@@ -40,6 +44,8 @@ class MeterialSearchView: UIView {
         view.frame = self.bounds
 
         searchBarView.layer.cornerRadius = 6
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
 
     func setupTabelView() {
@@ -48,6 +54,36 @@ class MeterialSearchView: UIView {
 
         tableView.dataSource = self
         tableView.delegate = self
+    }
+
+    func setupKeyboardToolbar() {
+        let keyboardToobar = UIToolbar()
+        keyboardToobar.barTintColor = UIColor.white
+        keyboardToobar.clipsToBounds = true
+        keyboardToobar.tintColor = UIColor.amDarkBlueGrey
+        keyboardToobar.sizeToFit()
+
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let btnCancel = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(self.cancelButtonClick))
+        keyboardToobar.items = [flexibleSpace, btnCancel]
+
+        searchTextField.inputAccessoryView = keyboardToobar
+    }
+
+    @objc func keyboardWillAppear(_ notification: Notification) {
+        // 키보드 크기 구하기
+        guard let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+
+        // 키보드 크기만큼 뷰 위로 올려주기
+        hidedView.snp.remakeConstraints { (make) in
+            make.height.equalTo(keyboardHeight - 50)
+        }
+    }
+
+    @IBAction func cancelButtonClick (sender: Any) { //click action...
+        self.delegate?.closeSearchView()
     }
 }
 
