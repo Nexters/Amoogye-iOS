@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeterialSearchView" customModule="Amoogye" customModuleProvider="target">
             <connections>
-                <outlet property="searchBar" destination="0B4-0D-wQC" id="eWl-o0-n57"/>
+                <outlet property="searchBarView" destination="y9A-IL-FKt" id="wJ2-Zo-IVb"/>
+                <outlet property="searchButton" destination="3eG-bY-BBx" id="s1k-VS-Z5J"/>
+                <outlet property="searchTextField" destination="Ljy-8N-xeD" id="YA2-jl-jTW"/>
                 <outlet property="tableView" destination="Sfh-uq-pGz" id="vSB-7m-COL"/>
             </connections>
         </placeholder>
@@ -21,26 +23,58 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0B4-0D-wQC">
-                    <rect key="frame" x="0.0" y="44" width="414" height="56"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sfh-uq-pGz">
-                    <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sfh-uq-pGz">
+                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eG-bY-BBx">
+                    <rect key="frame" x="382" y="66" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="Vmh-Gi-BPc"/>
+                        <constraint firstAttribute="width" constant="16" id="nG3-3Z-b0i"/>
+                    </constraints>
+                    <state key="normal" image="keyboardSearch"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9A-IL-FKt">
+                    <rect key="frame" x="16" y="56" width="350" height="36"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ljy-8N-xeD">
+                            <rect key="frame" x="10" y="0.0" width="340" height="36"/>
+                            <color key="tintColor" red="1" green="0.30980392159999998" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="50h-gW-4cu"/>
+                            </constraints>
+                            <color key="textColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="2LX-gy-MW1"/>
+                        <constraint firstAttribute="trailing" secondItem="Ljy-8N-xeD" secondAttribute="trailing" id="7qd-Yv-xKm"/>
+                        <constraint firstItem="Ljy-8N-xeD" firstAttribute="top" secondItem="y9A-IL-FKt" secondAttribute="top" id="AEt-Mb-Ihq"/>
+                        <constraint firstItem="Ljy-8N-xeD" firstAttribute="leading" secondItem="y9A-IL-FKt" secondAttribute="leading" constant="10" id="FOd-3P-wfG"/>
+                        <constraint firstAttribute="bottom" secondItem="Ljy-8N-xeD" secondAttribute="bottom" id="jv8-5D-348"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="0B4-0D-wQC" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4Au-HS-i87"/>
-                <constraint firstItem="0B4-0D-wQC" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="8DI-Nc-Bta"/>
+                <constraint firstItem="y9A-IL-FKt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="1Co-3I-eeQ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Sfh-uq-pGz" secondAttribute="trailing" id="AY5-PF-UpQ"/>
-                <constraint firstItem="Sfh-uq-pGz" firstAttribute="top" secondItem="0B4-0D-wQC" secondAttribute="bottom" id="Ech-Ze-BPt"/>
-                <constraint firstItem="0B4-0D-wQC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="VvI-86-aUp"/>
+                <constraint firstItem="Sfh-uq-pGz" firstAttribute="top" secondItem="y9A-IL-FKt" secondAttribute="bottom" constant="12" id="RoH-6K-7vC"/>
+                <constraint firstItem="3eG-bY-BBx" firstAttribute="centerY" secondItem="Ljy-8N-xeD" secondAttribute="centerY" id="YTe-uR-hPo"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Sfh-uq-pGz" secondAttribute="bottom" id="Z8o-r2-Tyf"/>
+                <constraint firstItem="y9A-IL-FKt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="aUG-Ra-qbR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3eG-bY-BBx" secondAttribute="trailing" constant="16" id="i8G-BY-ZCW"/>
+                <constraint firstItem="3eG-bY-BBx" firstAttribute="leading" secondItem="y9A-IL-FKt" secondAttribute="trailing" constant="16" id="lra-JX-gtb"/>
                 <constraint firstItem="Sfh-uq-pGz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="naE-px-Qzo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
+    <resources>
+        <image name="keyboardSearch" width="16" height="16"/>
+    </resources>
 </document>

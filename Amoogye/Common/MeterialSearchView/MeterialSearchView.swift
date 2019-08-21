@@ -13,7 +13,9 @@ class MeterialSearchView: UIView {
 
     weak var delegate: MeterialSearchDelegate?
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBarView: UIView!
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
 
     override init(frame: CGRect) {
@@ -36,6 +38,8 @@ class MeterialSearchView: UIView {
         let view = Bundle.main.loadNibNamed(xibName, owner: self, options: nil)![0] as! UIView
         self.addSubview(view)
         view.frame = self.bounds
+
+        searchBarView.layer.cornerRadius = 6
     }
 
     func setupTabelView() {
