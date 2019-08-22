@@ -40,6 +40,7 @@
 		3AE9AAB122F8611B00F09850 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB022F8611B00F09850 /* Colors.swift */; };
 		3AE9AAB322F98A4900F09850 /* CustomTextfieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */; };
 		3AE9AAB522FAC17900F09850 /* TimerProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */; };
+		A330840A230EBD34008E2AAB /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3308409230EBD34008E2AAB /* PickerView.swift */; };
 		A38609BC23087B8000B30D7D /* MeasuringPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38609BB23087B8000B30D7D /* MeasuringPickerView.xib */; };
 		A38609BE23087C0E00B30D7D /* MeasuringPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38609BD23087C0E00B30D7D /* MeasuringPickerView.swift */; };
 		A38609C023087E6C00B30D7D /* MeasuringPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38609BF23087E6C00B30D7D /* MeasuringPickerDelegate.swift */; };
@@ -99,6 +100,7 @@
 		3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldManager.swift; sourceTree = "<group>"; };
 		3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProgressViewController.swift; sourceTree = "<group>"; };
 		5D0791F43C10572A5D0191EE /* Pods-Amoogye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.release.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.release.xcconfig"; sourceTree = "<group>"; };
+		A3308409230EBD34008E2AAB /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		A38609BB23087B8000B30D7D /* MeasuringPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasuringPickerView.xib; sourceTree = "<group>"; };
 		A38609BD23087C0E00B30D7D /* MeasuringPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringPickerView.swift; sourceTree = "<group>"; };
 		A38609BF23087E6C00B30D7D /* MeasuringPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringPickerDelegate.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				A38609BB23087B8000B30D7D /* MeasuringPickerView.xib */,
 				A38609BD23087C0E00B30D7D /* MeasuringPickerView.swift */,
 				A38609BF23087E6C00B30D7D /* MeasuringPickerDelegate.swift */,
+				A3308409230EBD34008E2AAB /* PickerView.swift */,
 			);
 			path = MeasuringPickerView;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */,
 				3AE9AA9622F5670100F09850 /* MeterialSearchView.swift in Sources */,
 				A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */,
+				A330840A230EBD34008E2AAB /* PickerView.swift in Sources */,
 				3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */,
 				3ABA62072301B6CB000ABF3B /* TabBarController.swift in Sources */,
 				A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */,

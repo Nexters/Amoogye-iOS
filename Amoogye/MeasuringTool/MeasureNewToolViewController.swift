@@ -32,6 +32,8 @@ class MeasureNewToolViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
 
     var measuringPicker: MeasuringPickerView!
+    var newMeasuringPicker: PickerView!
+    var measuringPickerToolBar: UIToolbar!
 
     // MARK: - override 함수
     override func viewDidLoad() {
@@ -44,6 +46,7 @@ class MeasureNewToolViewController: UIViewController {
         setupInitMeasuring()
         setupNextButton()
         setupPicker()
+        setupPickerToolBar()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -118,20 +121,57 @@ extension MeasureNewToolViewController {
     }
 
     private func setupPicker() {
-        self.measuringPicker = MeasuringPickerView()
-        self.measuringPicker.delegate = self
+//        self.measuringPicker = MeasuringPickerView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 254))
+//
+////        self.measuringPicker.snp.makeConstraints { (make) -> Void in
+////            make.left.equalTo(self.view.safeAreaLayoutGuide)
+////            make.right.equalTo(self.view.safeAreaLayoutGuide)
+////            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+////            make.top.equalTo(self.guideTextLabels.snp.bottom).offset(20)
+////        }
+//
+//        let itemList = measuringToolManager?.getUsingOnLivingMeasuringToolList().map { $0.name }
+//        self.measuringPicker.setPickerItemList(list: itemList!)
+//
+//        self.measuringPicker.measuringPickerDelegate = self
+//
+//        self.toolSelectionField.inputView = measuringPicker! as UIPickerView
+//        self.toolSelectionField.inputAccessoryView = measuringPicker.pickerToolBar
 
-        self.measuringPicker.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view.safeAreaLayoutGuide)
-            make.right.equalTo(self.view.safeAreaLayoutGuide)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
-            make.top.equalTo(self.guideTextLabels.snp.bottom).offset(20)
-        }
-
+        self.newMeasuringPicker = PickerView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 254))
         let itemList = measuringToolManager?.getUsingOnLivingMeasuringToolList().map { $0.name }
-        self.measuringPicker.setPickerItemList(list: itemList!)
+        self.newMeasuringPicker.setItemList(itemList!)
+        self.toolSelectionField.inputView = self.newMeasuringPicker
+    }
 
-        self.toolSelectionField.inputView = measuringPicker
+    private func setupPickerToolBar() {
+        self.measuringPickerToolBar = UIToolbar()
+        measuringPickerToolBar?.autoresizingMask = .flexibleHeight
+
+        //this customization is optional
+        measuringPickerToolBar?.barStyle = .default
+//        measuringPickerToolBar?.backgroundColor = UIColor.amDarkBlueGrey
+        measuringPickerToolBar?.isTranslucent = false
+
+        measuringPickerToolBar?.frame.size.height = 42
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let confirmButton = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(clickConfirmButton(_:)))
+        confirmButton.tintColor = UIColor.amDarkBlueGrey
+        confirmButton.title = "완료"
+
+        measuringPickerToolBar?.items = [flexSpace, confirmButton]
+
+        self.toolSelectionField.inputAccessoryView = self.measuringPickerToolBar
+    }
+
+    @objc private func clickConfirmButton(_ button: UIBarButtonItem?) {
+        self.toolSelectionField.resignFirstResponder()
+        self.toolSelectionField.text = newMeasuringPicker.selectedValue
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 

@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeasuringPickerView" customModule="Amoogye" customModuleProvider="target">
             <connections>
-                <outlet property="confirmButton" destination="yLU-Qh-AZ0" id="Ja5-4R-1Y0"/>
                 <outlet property="itemPicker" destination="k4B-a7-gTq" id="6RD-7Q-tqe"/>
+                <outlet property="pickerToolBar" destination="ncH-ew-d4H" id="ZMR-fG-79P"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,30 +22,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4B-a7-gTq">
-                    <rect key="frame" x="0.0" y="102" width="414" height="760"/>
+                    <rect key="frame" x="0.0" y="646" width="414" height="216"/>
                 </pickerView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLU-Qh-AZ0">
-                    <rect key="frame" x="368" y="60" width="30" height="42"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncH-ew-d4H">
+                    <rect key="frame" x="0.0" y="604" width="414" height="42"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="42" id="gKf-xG-jzK"/>
+                        <constraint firstAttribute="height" constant="42" id="zaN-8v-oNU"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="완료">
-                        <color key="titleColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="clickConfirmButton:" destination="-1" eventType="touchUpInside" id="6KV-my-Fzv"/>
-                    </connections>
-                </button>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Hmc-uI-LTi"/>
+                        <barButtonItem title="완료" id="Ihe-eC-qyd"/>
+                    </items>
+                    <color key="tintColor" red="0.074509803920000006" green="0.10980392160000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="k4B-a7-gTq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="B1W-ik-LOY"/>
+                <constraint firstItem="ncH-ew-d4H" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Mbd-P9-jrI"/>
                 <constraint firstItem="k4B-a7-gTq" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="TlF-Uu-iOg"/>
-                <constraint firstItem="k4B-a7-gTq" firstAttribute="top" secondItem="yLU-Qh-AZ0" secondAttribute="bottom" id="WY9-lK-Yea"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="k4B-a7-gTq" secondAttribute="bottom" id="Zul-KL-0qe"/>
-                <constraint firstItem="yLU-Qh-AZ0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="eAD-2j-9Cd"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yLU-Qh-AZ0" secondAttribute="trailing" constant="16" id="hLR-tK-bMZ"/>
+                <constraint firstItem="ncH-ew-d4H" firstAttribute="bottom" secondItem="k4B-a7-gTq" secondAttribute="top" id="gvJ-eO-Hth"/>
+                <constraint firstItem="ncH-ew-d4H" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rs2-xj-cXK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>

@@ -8,12 +8,17 @@
 
 import UIKit
 
-class MeasuringPickerView: UIView {
-    var itemList = [String]()
+class MeasuringPickerView: UIPickerView {
+    var itemList: [String]? {
+        didSet {
+            super.delegate = self
+            super.dataSource = self
+            self.reloadAllComponents()
+        }
+    }
+    var measuringPickerDelegate: MeasuringPickerDelegate?
 
-    var delegate: MeasuringPickerDelegate?
-
-    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var pickerToolBar: UIToolbar!
     @IBOutlet weak var itemPicker: UIPickerView!
 
     override init(frame: CGRect) {
@@ -54,31 +59,56 @@ extension MeasuringPickerView: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return itemList.count
+        guard let itemCount = self.itemList?.count else {
+            print("Error: [MeasuringPickerView] - itemList is nil")
+            return 0
+        }
+        return itemCount
     }
 }
 
 extension MeasuringPickerView: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        delegate?.selectTool(name: itemList[row])
+        measuringPickerDelegate?.selectTool(name: itemList![row])
         pickerView.reloadAllComponents()
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return itemList[row]
+        return itemList![row]
     }
 
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        itemPicker.subviews[1].backgroundColor = UIColor.amIceBlue
-        itemPicker.subviews[2].backgroundColor = UIColor.amIceBlue
+    //    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    //
+    //        let selectedRow = pickerView.selectedRow(inComponent: component)
+    //        var color = UIColor.amDarkBlueGrey
+    //
+    //        if row == selectedRow {
+    //            color = UIColor.amOrangeyRed
+    //        }
+    //
+    //        return NSAttributedString(string: itemList![row], attributes: [NSAttributedString.Key.foregroundColor: color])
+    //    }
 
-        let selectedRow = pickerView.selectedRow(inComponent: component)
-        var color = UIColor.amDarkBlueGrey
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var label: UILabel
 
-        if row == selectedRow {
-            color = UIColor.amOrangeyRed
+        if let v = view as? UILabel {
+            label = v
+        } else {
+            label = UILabel()
         }
 
-        return NSAttributedString(string: itemList[row], attributes: [NSAttributedString.Key.foregroundColor: color])
+        if row == pickerView.selectedRow(inComponent: component) {
+            label.textColor = UIColor.amOrangeyRed
+        } else {
+            label.textColor = UIColor.amDarkBlueGrey
+        }
+        label.textAlignment = .center
+
+        label.font = UIFont.systemFont(ofSize: 20)
+
+        label.text = self.itemList![row]
+
+        return label
     }
 }
