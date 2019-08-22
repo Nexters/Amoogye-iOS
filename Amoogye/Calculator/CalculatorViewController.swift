@@ -14,325 +14,60 @@ class CalculatorViewController: UIViewController {
         case MeterialOnly, PortionOnly, Both
     }
 
+    var gapButtonToButton: Int = 8
+    var gapButtonToLabel: Int = 6
+    var gapLabelToButton: Int = 10
+
     // MARK: - Instance
     var textFieldManager: CustomTextfieldManager?
     var calculatorMode = CalculatorMode.MeterialOnly
 
-    // MARK: - Outlet
-    @IBOutlet weak var portionModeButton: UIButton!
-    @IBOutlet weak var meterialModeButton: UIButton!
-    @IBOutlet weak var plusLabel: UILabel!
+    let titleView: UIView = UIView()
+    let changeView: UIView = UIView()
+    let keyboardView: UIView = UIView()
+    let searchView: UIView = UIView()
 
-    @IBOutlet weak var srcPortionView: UIView!  // 인원
-    @IBOutlet weak var srcQuantityView: UIView! // 재료
-    @IBOutlet weak var srcMeterialView: UIView! // 재료 - 무게
-    @IBOutlet weak var dstPortionView: UIView!  // 인원
-    @IBOutlet weak var dstToolView: UIView!     // 재료
+    let tipButton: UIButton = UIButton()
+    let historyButton: UIButton = UIButton()
+    let meterialModeButton: UIButton = UIButton()
+    let plusLabel: UILabel = UILabel()
+    let portionModeButton: UIButton = UIButton()
 
-    @IBOutlet weak var srcPortionTextField: CustomTextField!
-    @IBOutlet weak var srcQuantityTextField: CustomTextField!
-    @IBOutlet weak var srcUnitTextField: CustomTextField!
-    @IBOutlet weak var srcMeterialTextField: CustomTextField!
+    let noticeLabel: UILabel = UILabel()
+    let srcView: UIView = UIView()
+    let dstView: UIView = UIView()
+    let changeButton: UIButton = UIButton()
+    let changeLineView: UIView = UIView()
 
-    @IBOutlet weak var dstPortionTextField: CustomTextField!
-    @IBOutlet weak var dstToolTextField: CustomTextField!
+    let srcPortionView: UIView = UIView()   // (인원 수) 명 기준
+    let srcQuantityView: UIView = UIView()  // (양)(단위)
+    let srcMeterialView: UIView = UIView()  // 의 (재료)
+    let srcFromView: UIView = UIView()      // 를
 
-    @IBOutlet weak var changeButton: UIButton!
+    let dstPortionView: UIView = UIView()   // (인원 수) 명 기준
+    let dstToolView: UIView = UIView()      // (도구)
+    let dstToView: UIView = UIView()        // 으로
 
-    @IBOutlet weak var keyboardView: UIView!
+    let srcPortionInput: CustomTextField = CustomTextField()
+    let srcPortionLabel: UILabel = UILabel() // ~명 기준
+    let srcQuantityInput: CustomTextField = CustomTextField()
+    let srcUnitInput: CustomTextField = CustomTextField()
+    let srcForLabel: UILabel = UILabel()    // ~의
+    let srcMeterialInput: CustomTextField = CustomTextField()
+    let srcFromLabel: UILabel = UILabel()   // ~를
+
+    let dstPortionInput: CustomTextField = CustomTextField()
+    let dstPortionLabel: UILabel = UILabel() // ~명 기준
+    let dstToolInput: CustomTextField = CustomTextField()
+    let dstToLabel: UILabel = UILabel()     // ~으로
+
+    let searchLineView: UILabel = UILabel()
+    let meterialSearchView: MeterialSearchView = MeterialSearchView()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // view setup
-        showMeterialViewOnly()
-        hideWeightMeterialView()
-        setupButtonStyle(changeButton)
-        setChangeButton(enable: false)
-        showNumericKeyboard()
-
-        // textfield setup
-        textFieldManager = CustomTextfieldManager(srcPortionTextField, srcQuantityTextField, srcUnitTextField, srcMeterialTextField, dstPortionTextField, dstToolTextField)
-        textFieldManager?.focusOutAll(except: srcQuantityTextField) //focusedTextfield를 srcQuantityTextField로 세팅하는 작업
-        setupTextfieldDefaultText()
-    }
-
-    // MARK: - Action
-    @IBAction func clickMeterialMode(_ sender: UIButton) {
-        switch calculatorMode {
-        case .MeterialOnly:
-            calculatorMode = .PortionOnly
-            showPortionViewOnly()
-
-        case .PortionOnly:
-            calculatorMode = .Both
-            showBothView()
-
-        case .Both:
-            calculatorMode = .PortionOnly
-            showPortionViewOnly()
-        }
-    }
-
-    @IBAction func clickPortionMode(_ sender: Any) {
-        switch calculatorMode {
-        case .MeterialOnly:
-            calculatorMode = .Both
-            showBothView()
-
-        case .PortionOnly:
-            calculatorMode = .MeterialOnly
-            showMeterialViewOnly()
-
-        case .Both:
-            calculatorMode = .MeterialOnly
-            showMeterialViewOnly()
-        }
-    }
-
-    @IBAction func clickNumericTextField(_ sender: Any) {
-        hideExistingKeyboard()
-        showNumericKeyboard()
-    }
-
-    @IBAction func clickUnitTextField(_ sender: Any) {
-        hideExistingKeyboard()
-        showUnitKeyboard()  // 미구현
-    }
-
-    @IBAction func clickMeterialTextField(_ sender: Any) {
-        hideExistingKeyboard()
-        showMeterialPicker()
-    }
-
-    @IBAction func clickToolTextField(_ sender: Any) {
-        hideExistingKeyboard()
-        showToolKeyboard()  // 미구현
-    }
-
-    @IBAction func clickChangeButton(_ sender: Any) {
-
-    }
-
-    @IBAction func clickTestButton(_ sender: Any) {
-        if srcMeterialView.isHidden {
-            showWeightMeterialView()
-        } else {
-            hideWeightMeterialView()
-        }
-    }
-}
-
-extension CalculatorViewController {
-    // MARK: - setup
-    func setModeButtonTitle(isMeterialOn: Bool, isPortionOn: Bool) {
-        if isMeterialOn {
-            meterialModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-        } else {
-            meterialModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
-        }
-
-        if isPortionOn {
-            portionModeButton.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-        } else {
-            portionModeButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
-        }
-
-        if isMeterialOn && isPortionOn {
-            plusLabel.textColor = UIColor.amDarkBlueGrey
-        } else {
-            plusLabel.textColor = UIColor.amLightBlueGrey
-        }
-    }
-
-    func setupTextfieldDefaultText() {
-        srcPortionTextField.text = "1"
-        srcQuantityTextField.text = ""
-        srcUnitTextField.text = "ml"
-        srcMeterialTextField.text = "물"
-        dstPortionTextField.text = "1"
-        dstToolTextField.text = "밥숟가락"
-    }
-
-    func setupButtonStyle(_ buttons: UIButton...) {
-        for button in buttons {
-            button.layer.cornerRadius = 6
-        }
-    }
-
-    func setChangeButton(enable: Bool) {
-        changeButton.isEnabled = enable
-        if enable {
-            changeButton.backgroundColor = UIColor.amOrangeyRed
-        } else {
-            changeButton.backgroundColor = UIColor.amPaleBlue
-        }
-    }
-
-    @objc func quantityTextFieldEditing() {
-        guard let focused = textFieldManager?.focusedTextField else {
-            return
-        }
-
-        if focused != srcQuantityTextField {
-            return
-        }
-
-        if srcQuantityTextField.text == "" && focused.recentText == "" {
-            setChangeButton(enable: false)
-        } else {
-            setChangeButton(enable: true)
-        }
-    }
-
-    // MARK: - view
-    func showMeterialViewOnly() {
-        setModeButtonTitle(isMeterialOn: true, isPortionOn: false)
-
-        dstToolView.isHidden = false
-        srcPortionView.isHidden = true
-        dstPortionView.isHidden = true
-
-        let focusedTF = textFieldManager?.focusedTextField
-        if focusedTF == srcPortionTextField || focusedTF == dstPortionTextField {
-            textFieldManager?.focusOutAll(except: srcQuantityTextField)
-        }
-    }
-
-    func showPortionViewOnly() {
-        setModeButtonTitle(isMeterialOn: false, isPortionOn: true)
-
-        dstToolView.isHidden = true
-        srcPortionView.isHidden = false
-        dstPortionView.isHidden = false
-
-        let focusedTF = textFieldManager?.focusedTextField
-        if focusedTF == dstToolTextField {
-            textFieldManager?.focusOutAll(except: srcQuantityTextField)
-        }
-    }
-
-    func showBothView() {
-        setModeButtonTitle(isMeterialOn: true, isPortionOn: true)
-
-        dstToolView.isHidden = false
-        srcPortionView.isHidden = false
-        dstPortionView.isHidden = false
-    }
-
-    func showWeightMeterialView() {
-        srcMeterialView.isHidden = false
-    }
-
-    func hideWeightMeterialView() {
-        srcMeterialView.isHidden = true
-
-        let focusedTF = textFieldManager?.focusedTextField
-        if focusedTF == srcMeterialTextField {
-            textFieldManager?.focusOutAll(except: srcQuantityTextField)
-        }
-    }
-
-    // MARK: - Keyboard
-    func showNumericKeyboard() {
-        let numericKeyboardView = NumericKeyboardView()
-        keyboardView.addSubview(numericKeyboardView)
-
-        // AutoLayout
-        numericKeyboardView.snp.makeConstraints { (make) in
-            make.top.equalTo(keyboardView.snp.top)
-            make.bottom.equalTo(keyboardView.snp.bottom)
-            make.left.equalTo(keyboardView.snp.left)
-            make.right.equalTo(keyboardView.snp.right)
-        }
-        numericKeyboardView.delegate = self
-    }
-
-    func showUnitKeyboard() {
-
-    }
-
-    func showMeterialPicker() {
-        let meterialPickerView = MeterialPickerView()
-        keyboardView.addSubview(meterialPickerView)
-
-        // AutoLayout
-        meterialPickerView.snp.makeConstraints { (make) in
-            make.top.equalTo(keyboardView.snp.top)
-            make.bottom.equalTo(keyboardView.snp.bottom)
-            make.left.equalTo(keyboardView.snp.left)
-            make.right.equalTo(keyboardView.snp.right)
-        }
-        meterialPickerView.delegate = self
-    }
-
-    func showToolKeyboard() {
-
-    }
-
-    func hideExistingKeyboard() {
-        for subview in keyboardView.subviews {
-            subview.removeFromSuperview()
-        }
-    }
-}
-
-// MARK: - Numeric Keyboard
-extension CalculatorViewController: NumericKeyboardDelegate {
-    func inputNumber(number newValue: String) {
-        guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
-
-        if text == "0" {
-            textField.text = newValue
-        } else {
-            textField.text = text + newValue
-        }
-        quantityTextFieldEditing()
-    }
-
-    func deleteValue() {
-        guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
-
-        if text.count > 0 {
-            let end = text.index(before: text.endIndex)
-            textField.text = String(text[..<end])
-        }
-        quantityTextFieldEditing()
-    }
-
-    func inputDot() {
-        guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return }
-
-        if textField == srcQuantityTextField {
-            if text == "" {
-                textField.text = "0."
-                return
-            }
-            textField.text = text + "."
-        }
-    }
-
-    func getLastInputValue() -> String {
-        guard let textField = textFieldManager?.focusedTextField, let text = textField.text else { return "" }
-
-        if text.count <= 0 { return "" }
-        let lastIndex = text.index(before: text.endIndex)
-        return String(text[lastIndex])
-    }
-}
-
-// MARK: - Meterial Picker
-extension CalculatorViewController: MeterialPickerDelegate {
-    func selectMeterial(row: Int, name: String) {
-        srcMeterialTextField.text = name
-    }
-
-    func openMeterialSearchView() {
-
-    }
-
-    func closeMeterialSearchView() {
-
+        setupView()
     }
 }

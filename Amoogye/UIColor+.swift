@@ -34,7 +34,7 @@ extension UIColor {
         return UIColor(red: 224.0 / 255.0, green: 228.0 / 255.0, blue: 230.0 / 255.0, alpha: 1.0)
     }
 
-    static func amDarkBuleGrayWithOpacity(opacity: Double) -> UIColor {
+    static func amDarkBlueGreyWithOpacity(opacity: Double) -> UIColor {
         return UIColor(red: 19.0 / 255.0, green: 28.0 / 255.0, blue: 50.0 / 255.0, alpha: CGFloat(opacity))
     }
 }

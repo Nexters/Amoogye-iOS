@@ -142,7 +142,7 @@ extension MeasuringToolViewController {
     }
 
     func deactivateMeasuringToolTabButton(_ button: UIButton) {
-        button.setTitleColor(UIColor.amDarkBuleGrayWithOpacity(opacity: 0.3), for: .normal)
+        button.setTitleColor(UIColor.amDarkBlueGreyWithOpacity(opacity: 0.3), for: .normal)
         button.isEnabled = true
     }
 

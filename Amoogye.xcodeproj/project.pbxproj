@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A039DD4230E9CE8009E1AAA /* CalculatorViewController + layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DD3230E9CE8009E1AAA /* CalculatorViewController + layout.swift */; };
 		3A8550BA22E9C16D0003C584 /* TimerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550B922E9C16D0003C584 /* TimerSettingViewController.swift */; };
 		3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */; };
 		3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550BD22E9C1B10003C584 /* SettingViewController.swift */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amoogye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A039DD3230E9CE8009E1AAA /* CalculatorViewController + layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewController + layout.swift"; sourceTree = "<group>"; };
 		3A8550B922E9C16D0003C584 /* TimerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettingViewController.swift; sourceTree = "<group>"; };
 		3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolViewController.swift; sourceTree = "<group>"; };
 		3A8550BD22E9C1B10003C584 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				3A8550C322EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift */,
 				3ABCE65722D9AE2B00F61E46 /* CalculatorViewController.swift */,
+				3A039DD3230E9CE8009E1AAA /* CalculatorViewController + layout.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				A3B6899822FFFDE6002FB31D /* ApplicationSetting.swift in Sources */,
 				A3B689E023047FEE002FB31D /* MeasuringToolTableViewCellDelegate.swift in Sources */,
 				3A8550E522F00AF30003C584 /* MeasureNewToolViewController.swift in Sources */,
+				3A039DD4230E9CE8009E1AAA /* CalculatorViewController + layout.swift in Sources */,
 				3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */,
 				A3C7BAF922F6DEE40067D632 /* RealmMeausringTool.swift in Sources */,
 				A3B689DA23042FE2002FB31D /* NumericKeyboardDelegate.swift in Sources */,
