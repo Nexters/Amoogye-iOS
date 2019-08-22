@@ -165,9 +165,7 @@ extension CalculatorViewController {
         let parentView = self.titleView
 
         // My Properties
-        myself.setTitle("재료", for: .normal)
-        myself.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-        myself.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
+        renderModeButton(button: myself, title: "재료", isSelected: true)
 
         // My Constraints
         myself.snp.makeConstraints { (make) in
@@ -198,9 +196,7 @@ extension CalculatorViewController {
         let myself: UIButton = portionModeButton
 
         // My Properties
-        myself.setTitle("인원", for: .normal)
-        myself.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-        myself.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
+        renderModeButton(button: myself, title: "인원", isSelected: true)
 
         // My Constraints
         myself.snp.makeConstraints { (make) in
@@ -287,11 +283,7 @@ extension CalculatorViewController {
         let parentView = changeView
 
         // My Properties
-        myself.setTitle("바꾸면", for: .normal)
-        myself.setTitleColor(UIColor.white, for: .normal)
-        myself.titleLabel?.font = .systemFont(ofSize: 24, weight: .medium)
-        myself.layer.cornerRadius = 6
-        myself.backgroundColor = UIColor.amOrangeyRed
+        renderChangeButton(isEnable: false)
 
         // My Constraints
         myself.snp.makeConstraints { (make) in
@@ -432,9 +424,7 @@ extension CalculatorViewController {
         let myself: UILabel = srcPortionLabel
 
         // My Properties
-        myself.text = "명 기준"
-        myself.font = .systemFont(ofSize: 20)
-        myself.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        renderChangeViewLabel(label: myself, title: "명 기준")
 
         // My Constraints
         myself.snp.makeConstraints { (make) in
@@ -474,13 +464,11 @@ extension CalculatorViewController {
     // MARK: ** srcMeterialView
     func setupSrcForLabel() {
         // Define
-        let myself = srcForLabel
+        let myself: UILabel = srcForLabel
         let parentView = srcMeterialView
 
         // My Properties
-        myself.text = "의"
-        myself.font = .systemFont(ofSize: 20)
-        myself.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        renderChangeViewLabel(label: myself, title: "의")
 
         // My Constraints
         myself.snp.makeConstraints { (make) in
@@ -505,13 +493,11 @@ extension CalculatorViewController {
     // MARK: ** srcFromView
     func setupSrcFromLabel() {
         // Define
-        let myself = srcFromLabel
+        let myself: UILabel = srcFromLabel
         let parentView = srcFromView
 
         // My Properties
-        myself.text = "을"
-        myself.font = .systemFont(ofSize: 20)
-        myself.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        renderChangeViewLabel(label: myself, title: "을")
 
         // My Constraints
         myself.snp.makeConstraints { (make) in
@@ -606,9 +592,7 @@ extension CalculatorViewController {
         let myself: UILabel = dstPortionLabel
 
         // My Properties
-        myself.text = "명 기준"
-        myself.font = .systemFont(ofSize: 20)
-        myself.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        renderChangeViewLabel(label: myself, title: "명 기준")
 
         // My Constraints
         myself.snp.makeConstraints { (make) in
@@ -639,9 +623,7 @@ extension CalculatorViewController {
         let parentView = dstToView
 
         // My Properties
-        myself.text = "으로"
-        myself.font = .systemFont(ofSize: 20)
-        myself.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        renderChangeViewLabel(label: myself, title: "으로")
 
         // My Constraints
         myself.snp.makeConstraints { (make) in
@@ -676,6 +658,41 @@ extension CalculatorViewController {
         myself.snp.makeConstraints { (make) in
             make.top.equalTo(searchLineView.snp.bottom)
             make.left.right.bottom.equalTo(parentView)
+        }
+    }
+}
+
+extension CalculatorViewController {
+
+    func renderChangeViewLabel(label: UILabel, title: String) {
+        label.text = title
+        label.textColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
+        label.font = .systemFont(ofSize: 20)
+    }
+
+    func renderModeButton(button: UIButton, title: String, isSelected: Bool) {
+        button.setTitle(title, for: .normal)
+
+        if isSelected {
+            button.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+            button.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
+        } else {
+            button.setTitleColor(UIColor.amDarkBlueGreyWithOpacity(opacity: 0.2), for: .normal)
+            button.titleLabel?.font = .systemFont(ofSize: 24)
+        }
+    }
+
+    func renderChangeButton(isEnable: Bool) {
+        changeButton.setTitle("바꾸면", for: .normal)
+        changeButton.setTitleColor(UIColor.white, for: .normal)
+        changeButton.titleLabel?.font = .systemFont(ofSize: 24, weight: .medium)
+        changeButton.layer.cornerRadius = 6
+
+        changeButton.isEnabled = isEnable
+        if isEnable {
+            changeButton.backgroundColor = UIColor.amOrangeyRed
+        } else {
+            changeButton.backgroundColor = UIColor.amPaleBlue
         }
     }
 }
