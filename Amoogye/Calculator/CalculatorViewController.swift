@@ -25,6 +25,7 @@ class CalculatorViewController: UIViewController {
     let titleView: UIView = UIView()
     let changeView: UIView = UIView()
     let keyboardView: UIView = UIView()
+    let searchView: UIView = UIView()
 
     let tipButton: UIButton = UIButton()
     let historyButton: UIButton = UIButton()
@@ -59,6 +60,9 @@ class CalculatorViewController: UIViewController {
     let dstPortionLabel: UILabel = UILabel() // ~명 기준
     let dstToolInput: CustomTextField = CustomTextField()
     let dstToLabel: UILabel = UILabel()     // ~으로
+
+    let searchLineView: UILabel = UILabel()
+    let meterialSearchView: MeterialSearchView = MeterialSearchView()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {

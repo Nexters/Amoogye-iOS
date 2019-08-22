@@ -16,10 +16,12 @@ extension CalculatorViewController {
         myself.addSubview(titleView)
         myself.addSubview(changeView)
         myself.addSubview(keyboardView)
+        myself.addSubview(searchView)
 
         setupTitleView()
         setupChangeView()
         setupKeyboardView()
+        setupSearchView()
     }
 
     // MARK: - Subviews of View
@@ -99,6 +101,29 @@ extension CalculatorViewController {
         // My Constraints
         myself.snp.makeConstraints { (make) in
             make.top.equalTo(changeView.snp.bottom)
+            make.left.right.bottom.equalTo(parentView)
+        }
+    }
+
+    func setupSearchView() {
+        // Define
+        let myself = searchView
+        let parentView = self.view.safeAreaLayoutGuide
+
+        // Add SubViews
+        myself.addSubview(searchLineView)
+        myself.addSubview(meterialSearchView)
+
+        // Subviews Properties
+        setupSearchLineView()
+        setupMeterialSearchView()
+
+        // My Properties
+        myself.isHidden = true
+
+        // My Constraints
+        myself.snp.makeConstraints { (make) in
+            make.top.equalTo(titleView.snp.bottom)
             make.left.right.bottom.equalTo(parentView)
         }
     }
@@ -293,6 +318,7 @@ extension CalculatorViewController {
         }
     }
 
+    // MARK: - * srcView
     func setupSrcPortionView() {
         // Define
         let myself = srcPortionView
@@ -386,6 +412,7 @@ extension CalculatorViewController {
         }
     }
 
+    // MARK: ** srcPortionView
     func setupSrcPortionInput() {
         // Define
         let myself: CustomTextField = srcPortionInput
@@ -416,6 +443,7 @@ extension CalculatorViewController {
         }
     }
 
+    // MARK: ** srcQuantityView
     func setupSrcQuantityInput() {
         // Define
         let myself: CustomTextField = srcQuantityInput
@@ -443,6 +471,7 @@ extension CalculatorViewController {
         }
     }
 
+    // MARK: ** srcMeterialView
     func setupSrcForLabel() {
         // Define
         let myself = srcForLabel
@@ -473,6 +502,7 @@ extension CalculatorViewController {
         }
     }
 
+    // MARK: ** srcFromView
     func setupSrcFromLabel() {
         // Define
         let myself = srcFromLabel
@@ -489,6 +519,7 @@ extension CalculatorViewController {
         }
     }
 
+    // MARK: - * dstView
     func setupDstPortionView() {
         // Define
         let myself = dstPortionView
@@ -555,6 +586,7 @@ extension CalculatorViewController {
         }
     }
 
+    // MARK: ** dstPortionView
     func setupDstPortionInput() {
         // Define
         let myself: CustomTextField = dstPortionInput
@@ -585,6 +617,7 @@ extension CalculatorViewController {
         }
     }
 
+    // MARK: ** dstToolView
     func setupDstToolInput() {
         // Define
         let myself: CustomTextField = dstToolInput
@@ -599,6 +632,7 @@ extension CalculatorViewController {
         }
     }
 
+    // MARK: ** dstToView
     func setupDstToLabel() {
         // Define
         let myself: UILabel = dstToLabel
@@ -612,6 +646,36 @@ extension CalculatorViewController {
         // My Constraints
         myself.snp.makeConstraints { (make) in
             make.centerY.left.height.equalTo(parentView)
+        }
+    }
+
+    // MARK: - Subviews of Search View
+    func setupSearchLineView() {
+        // Define
+        let myself = searchLineView
+        let parentView = searchView
+
+        // My Properties
+        myself.backgroundColor = UIColor.amIceBlue
+
+        // My Constraints
+        myself.snp.makeConstraints { (make) in
+            make.top.left.right.equalTo(parentView)
+            make.height.equalTo(4)
+        }
+    }
+
+    func setupMeterialSearchView() {
+        // Define
+        let myself = meterialSearchView
+        let parentView = searchView
+
+        // My Properties
+
+        // My Constraints
+        myself.snp.makeConstraints { (make) in
+            make.top.equalTo(searchLineView.snp.bottom)
+            make.left.right.bottom.equalTo(parentView)
         }
     }
 }
