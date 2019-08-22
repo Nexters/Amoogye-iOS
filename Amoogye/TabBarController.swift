@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
         self.tabBar.isTranslucent = true
 
         let selectedColor   = UIColor.amDarkBlueGrey
-        let unselectedColor = UIColor.amDarkBuleGrayWithOpacity(opacity: 0.5)
+        let unselectedColor = UIColor.amDarkBlueGreyWithOpacity(opacity: 0.5)
 
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: unselectedColor], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: selectedColor], for: .selected)
