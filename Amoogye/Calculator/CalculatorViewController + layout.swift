@@ -82,14 +82,25 @@ extension CalculatorViewController {
 
     func setupKeyboardView() {
         // Define
+        let myself = keyboardView
+        let parentView = self.view.safeAreaLayoutGuide
+        let numericKeyboard = NumericKeyboardView()
 
         // Add SubViews
+        myself.addSubview(numericKeyboard)
 
         // Subviews Properties
+        numericKeyboard.snp.makeConstraints { (make) in
+            make.top.bottom.left.right.equalTo(myself)
+        }
 
         // My Properties
 
         // My Constraints
+        myself.snp.makeConstraints { (make) in
+            make.top.equalTo(changeView.snp.bottom)
+            make.left.right.bottom.equalTo(parentView)
+        }
     }
 
     // MARK: - Subviews of Title View
