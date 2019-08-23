@@ -10,19 +10,20 @@ import UIKit
 
 class CustomInputButtonManager {
     private var inputButtons = [CustomInputButton]()
-    var focusedButton: CustomInputButton?
+    private var focusedButton: CustomInputButton?
 
     init(_ buttons: CustomInputButton...) {
-        inputButtons.append(contentsOf: inputButtons)
+        inputButtons.append(contentsOf: buttons)
 
-        for textfield in buttons {
-            textfield.addTarget(self, action: #selector(self.focusOn(button:)), for: UIControl.Event.editingDidBegin)
+        for btn in buttons {
+            btn.addTarget(self, action: #selector(self.focusOn(button:)), for: UIControl.Event.touchUpInside)
         }
     }
 
     @objc func focusOn(button focused: CustomInputButton) {
         focusedButton = focused
         focused.focusOn()
+
         for btn in inputButtons {
             if focused != btn {
                 btn.focusOut()

@@ -42,16 +42,6 @@ class CustomInputButton: UIButton {
         }
     }
 
-    private func setRound() {
-        self.layer.cornerRadius = 6
-        self.layer.borderWidth = 1
-    }
-
-    private func setFontStyle() {
-        self.titleLabel?.font = .systemFont(ofSize: 20)
-        self.titleLabel?.textAlignment = .center
-    }
-
     func focusOut() {
         if self.title(for: .normal) == "" {
             self.setTitle(recentText, for: .normal)
@@ -76,5 +66,17 @@ class CustomInputButton: UIButton {
 
     private func setAsCommonText() {
         self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+    }
+}
+
+extension CustomInputButton {
+    private func setRound() {
+        self.layer.cornerRadius = 6
+        self.layer.borderWidth = 1
+    }
+
+    private func setFontStyle() {
+        self.titleLabel?.font = .systemFont(ofSize: 20)
+        self.titleLabel?.textAlignment = .center
     }
 }

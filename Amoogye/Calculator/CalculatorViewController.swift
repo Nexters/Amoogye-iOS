@@ -14,6 +14,8 @@ class CalculatorViewController: UIViewController {
         case MeterialOnly, PortionOnly, Both
     }
 
+    var inputManager: CustomInputButtonManager?
+
     var gapButtonToButton: Int = 8
     var gapButtonToLabel: Int = 6
     var gapLabelToButton: Int = 10
@@ -69,5 +71,7 @@ class CalculatorViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+        inputManager = CustomInputButtonManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
+        inputManager?.focusOn(button: srcQuantityInput)
     }
 }
