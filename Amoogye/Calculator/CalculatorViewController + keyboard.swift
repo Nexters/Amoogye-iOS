@@ -9,7 +9,7 @@
 import UIKit
 
 extension CalculatorViewController {
-    private func removeKeyboardSubviews() {
+    func removeKeyboardSubviews() {
         for subview in keyboardView.subviews {
             subview.removeFromSuperview()
         }
