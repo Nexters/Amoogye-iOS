@@ -69,5 +69,7 @@ class CalculatorViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+        textFieldManager = CustomTextfieldManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
+        textFieldManager?.focusOutAll(except: srcQuantityInput)
     }
 }
