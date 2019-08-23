@@ -579,13 +579,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hbd-AF-Bu9">
-                                <rect key="frame" x="16" y="76" width="343" height="200"/>
-                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="QV8-9L-K8q"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KJ-ZJ-hXI">
                                 <rect key="frame" x="0.0" y="276" width="375" height="144"/>
                                 <subviews>
@@ -658,32 +651,39 @@
                                     <constraint firstItem="Fai-zQ-amF" firstAttribute="top" secondItem="bbS-p1-0yP" secondAttribute="bottom" constant="8" id="w0G-aK-6t0"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLc-0O-b7H">
+                                <rect key="frame" x="16" y="76" width="343" height="200"/>
+                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Vvo-I9-bdj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Hbd-AF-Bu9" firstAttribute="top" secondItem="Vjr-1C-Sk0" secondAttribute="bottom" constant="12" id="0AX-F5-UEA"/>
                             <constraint firstItem="Bht-vy-SOk" firstAttribute="leading" secondItem="aMO-Lg-hax" secondAttribute="leading" constant="16" id="2p9-p3-xcm"/>
                             <constraint firstItem="Vjr-1C-Sk0" firstAttribute="leading" secondItem="aMO-Lg-hax" secondAttribute="leading" id="5Mp-oI-4ra"/>
                             <constraint firstItem="Vjr-1C-Sk0" firstAttribute="trailing" secondItem="aMO-Lg-hax" secondAttribute="trailing" id="AMZ-S7-kay"/>
                             <constraint firstItem="aMO-Lg-hax" firstAttribute="trailing" secondItem="Bht-vy-SOk" secondAttribute="trailing" constant="16" id="BCd-xV-2zd"/>
+                            <constraint firstItem="aMO-Lg-hax" firstAttribute="trailing" secondItem="yLc-0O-b7H" secondAttribute="trailing" constant="16" id="ENm-eG-HMu"/>
                             <constraint firstItem="ogx-b6-GOV" firstAttribute="top" secondItem="4KJ-ZJ-hXI" secondAttribute="bottom" id="LzP-1c-yqA"/>
                             <constraint firstItem="aMO-Lg-hax" firstAttribute="trailing" secondItem="4KJ-ZJ-hXI" secondAttribute="trailing" id="Oaf-zA-P2W"/>
-                            <constraint firstItem="Hbd-AF-Bu9" firstAttribute="leading" secondItem="aMO-Lg-hax" secondAttribute="leading" constant="16" id="PRS-jk-8eg"/>
                             <constraint firstItem="ogx-b6-GOV" firstAttribute="leading" secondItem="aMO-Lg-hax" secondAttribute="leading" id="X0k-Gn-wG0"/>
                             <constraint firstItem="aMO-Lg-hax" firstAttribute="bottom" secondItem="Bht-vy-SOk" secondAttribute="bottom" constant="28" id="ZXj-q7-zjN"/>
-                            <constraint firstItem="4KJ-ZJ-hXI" firstAttribute="top" secondItem="Hbd-AF-Bu9" secondAttribute="bottom" id="aUl-gi-cks"/>
+                            <constraint firstItem="yLc-0O-b7H" firstAttribute="leading" secondItem="aMO-Lg-hax" secondAttribute="leading" constant="16" id="aI4-8a-oXC"/>
+                            <constraint firstItem="4KJ-ZJ-hXI" firstAttribute="top" secondItem="yLc-0O-b7H" secondAttribute="bottom" id="fFk-FX-jMy"/>
                             <constraint firstItem="Vjr-1C-Sk0" firstAttribute="top" secondItem="aMO-Lg-hax" secondAttribute="top" id="gl3-7d-ylF"/>
                             <constraint firstItem="4KJ-ZJ-hXI" firstAttribute="leading" secondItem="aMO-Lg-hax" secondAttribute="leading" id="stI-zW-rHW"/>
                             <constraint firstItem="aMO-Lg-hax" firstAttribute="trailing" secondItem="ogx-b6-GOV" secondAttribute="trailing" id="tXa-ls-UzQ"/>
-                            <constraint firstItem="aMO-Lg-hax" firstAttribute="trailing" secondItem="Hbd-AF-Bu9" secondAttribute="trailing" constant="16" id="v1U-RM-Ovb"/>
+                            <constraint firstItem="yLc-0O-b7H" firstAttribute="top" secondItem="Vjr-1C-Sk0" secondAttribute="bottom" constant="12" id="w7y-nZ-CoM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aMO-Lg-hax"/>
                     </view>
                     <navigationItem key="navigationItem" id="ceT-7i-6BR"/>
                     <connections>
                         <outlet property="alertTextLabel" destination="Fai-zQ-amF" id="EVe-wW-AjM"/>
+                        <outlet property="animationView" destination="yLc-0O-b7H" id="pKa-Wi-FbB"/>
                         <outlet property="guideTextView" destination="4KJ-ZJ-hXI" id="GdE-NR-aBD"/>
-                        <outlet property="imageView" destination="Hbd-AF-Bu9" id="zZs-4U-nO0"/>
                         <outlet property="inputTextView" destination="ogx-b6-GOV" id="uMC-Ak-bUG"/>
                         <outlet property="newToolNameLabel" destination="B21-8O-c4K" id="w8h-PI-rue"/>
                         <outlet property="nextButton" destination="Bht-vy-SOk" id="PM1-MQ-sJ6"/>

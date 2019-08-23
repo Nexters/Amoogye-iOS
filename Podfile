@@ -12,4 +12,5 @@ target 'Amoogye' do
   pod 'SwinjectAutoregistration'
   pod 'RealmSwift'
   pod 'SnapKit'
+  pod 'lottie-ios'
 end

@@ -41,6 +41,9 @@
 		3AE9AAB122F8611B00F09850 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB022F8611B00F09850 /* Colors.swift */; };
 		3AE9AAB322F98A4900F09850 /* CustomTextfieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */; };
 		3AE9AAB522FAC17900F09850 /* TimerProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */; };
+		A330841723105B4B008E2AAB /* addtool02_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = A330841423105B4B008E2AAB /* addtool02_iOS.json */; };
+		A330841823105B4B008E2AAB /* addtool01_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = A330841523105B4B008E2AAB /* addtool01_iOS.json */; };
+		A330841923105B4B008E2AAB /* addtool03_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = A330841623105B4B008E2AAB /* addtool03_iOS.json */; };
 		A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */; };
 		A3B6899222FFF8E4002FB31D /* MeasuringTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6899122FFF8E4002FB31D /* MeasuringTool.swift */; };
 		A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6899322FFF908002FB31D /* MeasuringType.swift */; };
@@ -98,6 +101,9 @@
 		3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldManager.swift; sourceTree = "<group>"; };
 		3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProgressViewController.swift; sourceTree = "<group>"; };
 		5D0791F43C10572A5D0191EE /* Pods-Amoogye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.release.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.release.xcconfig"; sourceTree = "<group>"; };
+		A330841423105B4B008E2AAB /* addtool02_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addtool02_iOS.json; sourceTree = "<group>"; };
+		A330841523105B4B008E2AAB /* addtool01_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addtool01_iOS.json; sourceTree = "<group>"; };
+		A330841623105B4B008E2AAB /* addtool03_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addtool03_iOS.json; sourceTree = "<group>"; };
 		A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		A3B6899122FFF8E4002FB31D /* MeasuringTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringTool.swift; sourceTree = "<group>"; };
 		A3B6899322FFF908002FB31D /* MeasuringType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringType.swift; sourceTree = "<group>"; };
@@ -181,6 +187,7 @@
 				A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */,
 				3ABA62062301B6CB000ABF3B /* TabBarController.swift */,
 				A3B689C62300705C002FB31D /* UIColor+.swift */,
+				A330841223105AC7008E2AAB /* Resource */,
 				A3C5E81E22EE19B00098F520 /* Common */,
 				A3C7BABF22F300E30067D632 /* Calculator */,
 				A3C7BAC022F300F10067D632 /* Timer */,
@@ -228,6 +235,24 @@
 				3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */,
 			);
 			path = TextFiledWithoutCursor;
+			sourceTree = "<group>";
+		};
+		A330841223105AC7008E2AAB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A330841323105AFF008E2AAB /* AddMeasuringTool */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		A330841323105AFF008E2AAB /* AddMeasuringTool */ = {
+			isa = PBXGroup;
+			children = (
+				A330841523105B4B008E2AAB /* addtool01_iOS.json */,
+				A330841423105B4B008E2AAB /* addtool02_iOS.json */,
+				A330841623105B4B008E2AAB /* addtool03_iOS.json */,
+			);
+			path = AddMeasuringTool;
 			sourceTree = "<group>";
 		};
 		A3B6899022FFF8D0002FB31D /* MeasuringTool */ = {
@@ -407,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3B689DE2304302E002FB31D /* NumericKeyboardView.xib in Resources */,
+				A330841923105B4B008E2AAB /* addtool03_iOS.json in Resources */,
 				3A8550DB22F007650003C584 /* OnOffCell.xib in Resources */,
 				3AE9AA9822F5676700F09850 /* MeterialSearchView.xib in Resources */,
 				3AE9AA9C22F56DB200F09850 /* MeterialSearchResultCell.xib in Resources */,
@@ -414,7 +440,9 @@
 				3ABCE66022D9AE2C00F61E46 /* LaunchScreen.storyboard in Resources */,
 				3A8550DF22F009450003C584 /* DeveloperContactCell.xib in Resources */,
 				3A8550F522F013B00003C584 /* SettingTitleCell.xib in Resources */,
+				A330841723105B4B008E2AAB /* addtool02_iOS.json in Resources */,
 				A3C7BACE22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib in Resources */,
+				A330841823105B4B008E2AAB /* addtool01_iOS.json in Resources */,
 				3ABCE65D22D9AE2C00F61E46 /* Assets.xcassets in Resources */,
 				3ABCE65B22D9AE2B00F61E46 /* Main.storyboard in Resources */,
 				3ABA62162306B467000ABF3B /* MeterialPickerView.xib in Resources */,

@@ -8,13 +8,14 @@
 
 import UIKit
 import SnapKit
+import Lottie
 
 class SetNameForNewToolViewController: UIViewController {
 
     var measuringToolManager: RealmMeasuringToolManager?
     var keyboardHeight = CGFloat(0)
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var animationView: UIView!
     @IBOutlet weak var guideTextView: UIView!
     @IBOutlet weak var inputTextView: UIView!
 
@@ -36,6 +37,8 @@ class SetNameForNewToolViewController: UIViewController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        setupAndPlayAnimation()
     }
 
     // MARK: - Keyboard 감지
@@ -195,7 +198,7 @@ extension SetNameForNewToolViewController {
 // MARK: - AutoLayout 설정 함수
 extension SetNameForNewToolViewController {
     func setupInputConstraints() {
-        self.imageView.isHidden = true
+        self.animationView.isHidden = true
 
         self.nextButton.snp.remakeConstraints {(make) -> Void in
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-(Int(keyboardHeight) + 16))
@@ -209,10 +212,10 @@ extension SetNameForNewToolViewController {
     }
 
     func setupNormalConstraints() {
-        self.imageView.isHidden = false
+        self.animationView.isHidden = false
 
         self.guideTextView.snp.remakeConstraints {(make) -> Void in
-            make.top.equalTo(imageView.snp.bottom).offset(28)
+            make.top.equalTo(animationView.snp.bottom).offset(28)
         }
 
         self.inputTextView.snp.remakeConstraints {(make) -> Void in
@@ -222,5 +225,23 @@ extension SetNameForNewToolViewController {
         self.nextButton.snp.remakeConstraints {(make) -> Void in
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-28)
         }
+    }
+}
+
+// MARK: - Animation
+extension SetNameForNewToolViewController {
+    func setupAndPlayAnimation() {
+        let lottieView = AnimationView(name: "addtool01_iOS")
+
+        self.animationView.addSubview(lottieView)
+
+                lottieView.snp.makeConstraints {(make) -> Void in
+                    make.top.bottom.left.right.equalTo(self.animationView)
+                }
+
+        lottieView.contentMode = .scaleAspectFit
+        lottieView.loopMode = .loop
+
+        lottieView.play()
     }
 }
