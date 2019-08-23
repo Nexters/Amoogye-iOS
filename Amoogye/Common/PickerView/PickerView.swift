@@ -17,7 +17,7 @@ class PickerView: UIPickerView {
             self.reloadAllComponents()
         }
     }
-    
+
     var selectedValue: String {
         get {
             if itemList != nil {
@@ -27,13 +27,20 @@ class PickerView: UIPickerView {
             }
         }
     }
-    
-    // MARK: - UI
+
     var textFieldBeingEdited: UITextField?
 
     // MARK: - Method
     func setItemList(_ itemList: [String]) {
         self.itemList = itemList
+    }
+
+    func setEditingTextField(_ textField: UITextField) {
+        self.textFieldBeingEdited = textField
+    }
+
+    func setPickerItem(withSelectedItem selectedItem: String) {
+        self.selectRow(itemList?.firstIndex(of: selectedItem) ?? 0, inComponent: 0, animated: false)
     }
 }
 
@@ -42,7 +49,7 @@ extension PickerView: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         guard let itemCount = self.itemList?.count else {
             print("Error: [PickerView] - itemList is nil")
@@ -54,10 +61,28 @@ extension PickerView: UIPickerViewDataSource {
 
 extension PickerView: UIPickerViewDelegate {
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if itemList != nil {
-            return itemList![row]
-        } else {
+        guard let itemList = self.itemList else {
             return ""
         }
+        return itemList[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerView.reloadAllComponents()
+    }
+
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+
+        var pickerLabel = UILabel()
+        if let v = view {
+            pickerLabel = v as! UILabel
+        }
+        pickerLabel.font = UIFont.systemFont(ofSize: 20)
+        pickerLabel.textAlignment = .center
+        pickerLabel.textColor = UIColor.amDarkBlueGrey
+
+        pickerLabel.text = itemList![row]
+
+        return pickerLabel
     }
 }
