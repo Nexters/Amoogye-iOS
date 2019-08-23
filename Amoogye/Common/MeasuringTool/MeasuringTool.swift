@@ -13,12 +13,12 @@ struct MeasuringTool {
     var unitType: MeasuringUnitType
     var name: String
     var subname: String
-    var quantity: Double
+    var quantity: String
     var isOn: Bool
     var isEditable: Bool = true
     var recentUsed: Date = Date()
 
-    init(toolType: MeasuringToolType, unitType: MeasuringUnitType, name: String, subname: String, quantity: Double, isOn: Bool) {
+    init(toolType: MeasuringToolType, unitType: MeasuringUnitType, name: String, subname: String, quantity: String, isOn: Bool) {
         self.toolType = toolType
         self.unitType = unitType
         self.name = name
@@ -27,14 +27,14 @@ struct MeasuringTool {
         self.isOn = isOn
     }
 
-    init(toolType: MeasuringToolType, unitType: MeasuringUnitType, name: String, quantity: Double, isOn: Bool) {
-        var subname = String(quantity)
+    init(toolType: MeasuringToolType, unitType: MeasuringUnitType, name: String, quantity: String, isOn: Bool) {
+        var subname: String
 
         switch unitType {
         case .volume:
-            subname = subname + "ml"
+            subname = quantity + "ml"
         case .mass:
-            subname = subname + "g"
+            subname = quantity + "g"
         default:
             subname = "unknown"
         }
@@ -42,7 +42,7 @@ struct MeasuringTool {
         self.init(toolType: toolType, unitType: unitType, name: name, subname: subname, quantity: quantity, isOn: isOn)
     }
 
-    init(toolType: MeasuringToolType, unitType: MeasuringUnitType, name: String, subname: String, quantity: Double, isOn: Bool, isEditable: Bool, recentUsed: Date) {
+    init(toolType: MeasuringToolType, unitType: MeasuringUnitType, name: String, subname: String, quantity: String, isOn: Bool, isEditable: Bool, recentUsed: Date) {
         self.toolType = toolType
         self.unitType = unitType
         self.name = name
