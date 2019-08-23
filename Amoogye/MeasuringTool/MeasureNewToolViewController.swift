@@ -168,8 +168,9 @@ extension MeasureNewToolViewController {
         }
 
         lottieView.contentMode = .scaleAspectFit
-        lottieView.loopMode = .loop
 
-        lottieView.play()
+        lottieView.play(fromFrame: 0, toFrame: 220, loopMode: .playOnce, completion: { (_) in
+            lottieView.play(fromFrame: 110, toFrame: 220, loopMode: .loop)
+        })
     }
 }
