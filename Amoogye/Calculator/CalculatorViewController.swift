@@ -14,6 +14,8 @@ class CalculatorViewController: UIViewController {
         case MeterialOnly, PortionOnly, Both
     }
 
+    var inputManager: CustomInputButtonManager?
+
     var gapButtonToButton: Int = 8
     var gapButtonToLabel: Int = 6
     var gapLabelToButton: Int = 10
@@ -48,17 +50,17 @@ class CalculatorViewController: UIViewController {
     let dstToolView: UIView = UIView()      // (도구)
     let dstToView: UIView = UIView()        // 으로
 
-    let srcPortionInput: CustomTextField = CustomTextField()
+    let srcPortionInput: CustomInputButton = CustomInputButton()
     let srcPortionLabel: UILabel = UILabel() // ~명 기준
-    let srcQuantityInput: CustomTextField = CustomTextField()
-    let srcUnitInput: CustomTextField = CustomTextField()
+    let srcQuantityInput: CustomInputButton = CustomInputButton()
+    let srcUnitInput: CustomInputButton = CustomInputButton()
     let srcForLabel: UILabel = UILabel()    // ~의
-    let srcMeterialInput: CustomTextField = CustomTextField()
+    let srcMeterialInput: CustomInputButton = CustomInputButton()
     let srcFromLabel: UILabel = UILabel()   // ~를
 
-    let dstPortionInput: CustomTextField = CustomTextField()
+    let dstPortionInput: CustomInputButton = CustomInputButton()
     let dstPortionLabel: UILabel = UILabel() // ~명 기준
-    let dstToolInput: CustomTextField = CustomTextField()
+    let dstToolInput: CustomInputButton = CustomInputButton()
     let dstToLabel: UILabel = UILabel()     // ~으로
 
     let searchLineView: UILabel = UILabel()
@@ -69,5 +71,11 @@ class CalculatorViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+        setupInputManager()
+    }
+
+    func setupInputManager() {
+        inputManager = CustomInputButtonManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
+        inputManager?.focusOn(button: srcQuantityInput)
     }
 }
