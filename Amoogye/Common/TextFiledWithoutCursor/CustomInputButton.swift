@@ -46,7 +46,7 @@ class CustomInputButton: UIButton {
         if self.title(for: .normal) == "" {
             self.setTitle(recentText, for: .normal)
         }
-        self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        setAsCommonText()
 
         self.layer.borderColor = UIColor.amIceBlue.cgColor
         self.backgroundColor = UIColor.amIceBlue

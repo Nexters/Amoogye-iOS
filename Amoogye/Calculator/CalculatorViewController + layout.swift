@@ -411,7 +411,7 @@ extension CalculatorViewController {
         let parentView = srcPortionView
 
         // My Properties
-        myView.setTitle("111111", for: .normal)
+        myView.setTitle("1", for: .normal)
 
         // My Constraints
         myView.snp.makeConstraints { (make) in

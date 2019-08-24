@@ -71,6 +71,10 @@ class CalculatorViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+        setupInputManager()
+    }
+
+    func setupInputManager() {
         inputManager = CustomInputButtonManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
         inputManager?.focusOn(button: srcQuantityInput)
     }
