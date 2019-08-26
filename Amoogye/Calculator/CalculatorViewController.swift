@@ -69,15 +69,19 @@ class CalculatorViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
+        setupInput()
+    }
+
+    @objc func clickNumericInputButton() {
+        showNumericKeyboard()
+    }
+
+    private func setupInput() {
         textFieldManager = CustomTextfieldManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
         textFieldManager?.focusOutAll(except: srcQuantityInput)
 
         srcPortionInput.addTarget(self, action: #selector(clickNumericInputButton), for: .touchUpInside)
         srcQuantityInput.addTarget(self, action: #selector(clickNumericInputButton), for: .touchUpInside)
         dstPortionInput.addTarget(self, action: #selector(clickNumericInputButton), for: .touchUpInside)
-    }
-
-    @objc func clickNumericInputButton() {
-        showNumericKeyboard()
     }
 }
