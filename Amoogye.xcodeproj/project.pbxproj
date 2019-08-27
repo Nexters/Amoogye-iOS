@@ -10,6 +10,9 @@
 		3A039DD4230E9CE8009E1AAA /* CalculatorViewController + layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DD3230E9CE8009E1AAA /* CalculatorViewController + layout.swift */; };
 		3A039DDE230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DDD230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift */; };
 		3A039DE22313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DE12313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift */; };
+		3A039DD6230FB0E4009E1AAA /* CustomInputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DD5230FB0E4009E1AAA /* CustomInputButton.swift */; };
+		3A039DD8230FD107009E1AAA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DD7230FD106009E1AAA /* CustomTextField.swift */; };
+		3A039DDA230FD1BB009E1AAA /* CustomInputButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DD9230FD1BB009E1AAA /* CustomInputButtonManager.swift */; };
 		3A8550BA22E9C16D0003C584 /* TimerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550B922E9C16D0003C584 /* TimerSettingViewController.swift */; };
 		3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */; };
 		3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550BD22E9C1B10003C584 /* SettingViewController.swift */; };
@@ -39,8 +42,6 @@
 		3AE9AA9C22F56DB200F09850 /* MeterialSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AE9AA9A22F56DB200F09850 /* MeterialSearchResultCell.xib */; };
 		3AE9AAA522F6D87A00F09850 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAA422F6D87A00F09850 /* SearchView.swift */; };
 		3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAAB22F6DE1200F09850 /* TimerModel.swift */; };
-		3AE9AAAE22F6E53B00F09850 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAAD22F6E53B00F09850 /* CustomTextField.swift */; };
-		3AE9AAB122F8611B00F09850 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB022F8611B00F09850 /* Colors.swift */; };
 		3AE9AAB322F98A4900F09850 /* CustomTextfieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */; };
 		3AE9AAB522FAC17900F09850 /* TimerProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */; };
 		A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */; };
@@ -66,6 +67,9 @@
 		3A039DD3230E9CE8009E1AAA /* CalculatorViewController + layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewController + layout.swift"; sourceTree = "<group>"; };
 		3A039DDD230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewController + keyboard.swift"; sourceTree = "<group>"; };
 		3A039DE12313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewController + NumericKeyboard.swift"; sourceTree = "<group>"; };
+		3A039DD5230FB0E4009E1AAA /* CustomInputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputButton.swift; sourceTree = "<group>"; };
+		3A039DD7230FD106009E1AAA /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		3A039DD9230FD1BB009E1AAA /* CustomInputButtonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputButtonManager.swift; sourceTree = "<group>"; };
 		3A8550B922E9C16D0003C584 /* TimerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettingViewController.swift; sourceTree = "<group>"; };
 		3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolViewController.swift; sourceTree = "<group>"; };
 		3A8550BD22E9C1B10003C584 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -97,8 +101,6 @@
 		3AE9AA9A22F56DB200F09850 /* MeterialSearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeterialSearchResultCell.xib; sourceTree = "<group>"; };
 		3AE9AAA422F6D87A00F09850 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3AE9AAAB22F6DE1200F09850 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
-		3AE9AAAD22F6E53B00F09850 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		3AE9AAB022F8611B00F09850 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldManager.swift; sourceTree = "<group>"; };
 		3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProgressViewController.swift; sourceTree = "<group>"; };
 		5D0791F43C10572A5D0191EE /* Pods-Amoogye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.release.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.release.xcconfig"; sourceTree = "<group>"; };
@@ -227,9 +229,10 @@
 		3AE9AAAF22F6E54100F09850 /* TextFiledWithoutCursor */ = {
 			isa = PBXGroup;
 			children = (
-				3AE9AAB022F8611B00F09850 /* Colors.swift */,
-				3AE9AAAD22F6E53B00F09850 /* CustomTextField.swift */,
+				3A039DD7230FD106009E1AAA /* CustomTextField.swift */,
 				3AE9AAB222F98A4900F09850 /* CustomTextfieldManager.swift */,
+				3A039DD5230FB0E4009E1AAA /* CustomInputButton.swift */,
+				3A039DD9230FD1BB009E1AAA /* CustomInputButtonManager.swift */,
 			);
 			path = TextFiledWithoutCursor;
 			sourceTree = "<group>";
@@ -493,8 +496,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A039DDA230FD1BB009E1AAA /* CustomInputButtonManager.swift in Sources */,
 				3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */,
-				3AE9AAAE22F6E53B00F09850 /* CustomTextField.swift in Sources */,
 				A3B6899222FFF8E4002FB31D /* MeasuringTool.swift in Sources */,
 				3AE9AAA522F6D87A00F09850 /* SearchView.swift in Sources */,
 				3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */,
@@ -502,7 +505,6 @@
 				3A8550F122F00CFF0003C584 /* MeasuringToolTableViewCell.swift in Sources */,
 				3A8550E722F00AF30003C584 /* CompleteNewToolViewController.swift in Sources */,
 				3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */,
-				3AE9AAB122F8611B00F09850 /* Colors.swift in Sources */,
 				3ABA62122306B441000ABF3B /* MeterialPickerView.swift in Sources */,
 				3A039DE22313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift in Sources */,
 				A3B6899822FFFDE6002FB31D /* ApplicationSetting.swift in Sources */,
@@ -518,8 +520,10 @@
 				A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */,
 				3A8550BA22E9C16D0003C584 /* TimerSettingViewController.swift in Sources */,
 				3A8550DE22F009450003C584 /* DeveloperContactCell.swift in Sources */,
+				3A039DD6230FB0E4009E1AAA /* CustomInputButton.swift in Sources */,
 				3AE9AA9B22F56DB200F09850 /* MeterialSearchResultCell.swift in Sources */,
 				3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */,
+				3A039DD8230FD107009E1AAA /* CustomTextField.swift in Sources */,
 				3AE9AA9622F5670100F09850 /* MeterialSearchView.swift in Sources */,
 				A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */,
 				3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */,
