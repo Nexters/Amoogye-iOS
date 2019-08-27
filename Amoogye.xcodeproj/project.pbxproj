@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A039DD4230E9CE8009E1AAA /* CalculatorViewController + layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DD3230E9CE8009E1AAA /* CalculatorViewController + layout.swift */; };
+		3A039DDE230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DDD230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift */; };
+		3A039DE22313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DE12313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift */; };
 		3A039DD6230FB0E4009E1AAA /* CustomInputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DD5230FB0E4009E1AAA /* CustomInputButton.swift */; };
 		3A039DD8230FD107009E1AAA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DD7230FD106009E1AAA /* CustomTextField.swift */; };
 		3A039DDA230FD1BB009E1AAA /* CustomInputButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DD9230FD1BB009E1AAA /* CustomInputButtonManager.swift */; };
@@ -63,6 +65,8 @@
 /* Begin PBXFileReference section */
 		0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amoogye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A039DD3230E9CE8009E1AAA /* CalculatorViewController + layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewController + layout.swift"; sourceTree = "<group>"; };
+		3A039DDD230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewController + keyboard.swift"; sourceTree = "<group>"; };
+		3A039DE12313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewController + NumericKeyboard.swift"; sourceTree = "<group>"; };
 		3A039DD5230FB0E4009E1AAA /* CustomInputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputButton.swift; sourceTree = "<group>"; };
 		3A039DD7230FD106009E1AAA /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3A039DD9230FD1BB009E1AAA /* CustomInputButtonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputButtonManager.swift; sourceTree = "<group>"; };
@@ -262,6 +266,8 @@
 				3A8550C322EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift */,
 				3ABCE65722D9AE2B00F61E46 /* CalculatorViewController.swift */,
 				3A039DD3230E9CE8009E1AAA /* CalculatorViewController + layout.swift */,
+				3A039DDD230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift */,
+				3A039DE12313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -500,11 +506,13 @@
 				3A8550E722F00AF30003C584 /* CompleteNewToolViewController.swift in Sources */,
 				3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */,
 				3ABA62122306B441000ABF3B /* MeterialPickerView.swift in Sources */,
+				3A039DE22313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift in Sources */,
 				A3B6899822FFFDE6002FB31D /* ApplicationSetting.swift in Sources */,
 				A3B689E023047FEE002FB31D /* MeasuringToolTableViewCellDelegate.swift in Sources */,
 				3A8550E522F00AF30003C584 /* MeasureNewToolViewController.swift in Sources */,
 				3A039DD4230E9CE8009E1AAA /* CalculatorViewController + layout.swift in Sources */,
 				3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */,
+				3A039DDE230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift in Sources */,
 				A3C7BAF922F6DEE40067D632 /* RealmMeausringTool.swift in Sources */,
 				A3B689DA23042FE2002FB31D /* NumericKeyboardDelegate.swift in Sources */,
 				3ABCE65822D9AE2B00F61E46 /* CalculatorViewController.swift in Sources */,

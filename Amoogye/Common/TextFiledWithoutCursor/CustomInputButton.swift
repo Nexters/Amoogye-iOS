@@ -60,11 +60,11 @@ class CustomInputButton: UIButton {
         self.layer.borderColor = UIColor.amOrangeyRed.cgColor
     }
 
-    private func setAsPlaceholder() {
+    func setAsPlaceholder() {
         self.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
     }
 
-    private func setAsCommonText() {
+    func setAsCommonText() {
         self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
     }
 }

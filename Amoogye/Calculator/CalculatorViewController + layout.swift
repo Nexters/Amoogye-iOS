@@ -86,15 +86,11 @@ extension CalculatorViewController {
         // Define
         let myView = keyboardView
         let parentView = self.view.safeAreaLayoutGuide
-        let numericKeyboard = NumericKeyboardView()
 
         // Add SubViews
-        myView.addSubview(numericKeyboard)
+        showNumericKeyboard()
 
         // Subviews Properties
-        numericKeyboard.snp.makeConstraints { (make) in
-            make.top.bottom.left.right.equalTo(myView)
-        }
 
         // My Properties
 

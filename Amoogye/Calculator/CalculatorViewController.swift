@@ -15,14 +15,11 @@ class CalculatorViewController: UIViewController {
     }
 
     var inputManager: CustomInputButtonManager?
+    var calculatorMode = CalculatorMode.MeterialOnly
 
     var gapButtonToButton: Int = 8
     var gapButtonToLabel: Int = 6
     var gapLabelToButton: Int = 10
-
-    // MARK: - Instance
-    var textFieldManager: CustomTextfieldManager?
-    var calculatorMode = CalculatorMode.MeterialOnly
 
     let titleView: UIView = UIView()
     let changeView: UIView = UIView()
@@ -71,11 +68,19 @@ class CalculatorViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
-        setupInputManager()
+        setupInput()
     }
 
-    func setupInputManager() {
+    @objc func clickNumericInputButton() {
+        showNumericKeyboard()
+    }
+
+    private func setupInput() {
         inputManager = CustomInputButtonManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
         inputManager?.focusOn(button: srcQuantityInput)
+
+        srcPortionInput.addTarget(self, action: #selector(clickNumericInputButton), for: .touchUpInside)
+        srcQuantityInput.addTarget(self, action: #selector(clickNumericInputButton), for: .touchUpInside)
+        dstPortionInput.addTarget(self, action: #selector(clickNumericInputButton), for: .touchUpInside)
     }
 }
