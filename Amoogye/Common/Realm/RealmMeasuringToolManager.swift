@@ -76,7 +76,11 @@ class RealmMeasuringToolManager: MeasuringToolManager {
     }
 
     func newMeasuringTool(name: String, criteriaTool: MeasuringTool, count: String) -> MeasuringTool {
-        return MeasuringTool(toolType: .living, unitType: criteriaTool.unitType, name: name, quantity: criteriaTool.quantity * (Double(count) ?? 0), isOn: true)
+        let criteriaToolQuantity = Double(criteriaTool.quantity)!
+        let measuringCount = Double(count)!
+        let newQuantity = (criteriaToolQuantity * measuringCount).formatToFloatingString()
+
+        return MeasuringTool(toolType: .living, unitType: criteriaTool.unitType, name: name, quantity: newQuantity, isOn: true)
     }
 }
 
