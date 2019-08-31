@@ -86,15 +86,11 @@ extension CalculatorViewController {
         // Define
         let myView = keyboardView
         let parentView = self.view.safeAreaLayoutGuide
-        let numericKeyboard = NumericKeyboardView()
 
         // Add SubViews
-        myView.addSubview(numericKeyboard)
+        showNumericKeyboard()
 
         // Subviews Properties
-        numericKeyboard.snp.makeConstraints { (make) in
-            make.top.bottom.left.right.equalTo(myView)
-        }
 
         // My Properties
 
@@ -407,11 +403,11 @@ extension CalculatorViewController {
     // MARK: ** srcPortionView
     private func setupSrcPortionInput() {
         // Define
-        let myView: CustomTextField = srcPortionInput
+        let myView: CustomInputButton = srcPortionInput
         let parentView = srcPortionView
 
         // My Properties
-        myView.text = "1"
+        myView.setTitle("1", for: .normal)
 
         // My Constraints
         myView.snp.makeConstraints { (make) in
@@ -436,7 +432,7 @@ extension CalculatorViewController {
     // MARK: ** srcQuantityView
     private func setupSrcQuantityInput() {
         // Define
-        let myView: CustomTextField = srcQuantityInput
+        let myView: CustomInputButton = srcQuantityInput
         let parentView = srcQuantityView
 
         // My Properties
@@ -452,7 +448,7 @@ extension CalculatorViewController {
         let myView = srcUnitInput
 
         // My Properties
-        myView.text = "ml"
+        myView.setTitle("ml", for: .normal)
 
         // My Constraints
         myView.snp.makeConstraints { (make) in
@@ -481,7 +477,7 @@ extension CalculatorViewController {
         let myView = srcMeterialInput
 
         // My Properties
-        myView.text = "물"
+        myView.setTitle("물", for: .normal)
 
         // My Constraints
         myView.snp.makeConstraints { (make) in
@@ -575,11 +571,11 @@ extension CalculatorViewController {
     // MARK: ** dstPortionView
     private func setupDstPortionInput() {
         // Define
-        let myView: CustomTextField = dstPortionInput
+        let myView: CustomInputButton = dstPortionInput
         let parentView = dstPortionView
 
         // My Properties
-        myView.text = "1"
+        myView.setTitle("1", for: .normal)
 
         // My Constraints
         myView.snp.makeConstraints { (make) in
@@ -604,11 +600,11 @@ extension CalculatorViewController {
     // MARK: ** dstToolView
     private func setupDstToolInput() {
         // Define
-        let myView: CustomTextField = dstToolInput
+        let myView: CustomInputButton = dstToolInput
         let parentView = dstToolView
 
         // My Properties
-        myView.text = "밥숟가락"
+        myView.setTitle("밥숟가락", for: .normal)
 
         // My Constraints
         myView.snp.makeConstraints { (make) in
