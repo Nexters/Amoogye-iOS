@@ -30,16 +30,23 @@ class MeasureNewToolViewController: UIViewController {
 
     @IBOutlet weak var nextButton: UIButton!
 
+    var measuringPicker: PickerView!
+    var measuringPickerToolBar: UIToolbar!
+
     // MARK: - override 함수
     override func viewDidLoad() {
         super.viewDidLoad()
 
         toolSelectionField.delegate = self
+        measuringCountIntLabel.delegate = self
+        measuringCountFloatLabel.delegate = self
 
         setupNewToolNameLabel()
         loadToolList()
         setupInitMeasuring()
         setupNextButton()
+        setupPicker()
+        setupFieldWithPicker()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -84,10 +91,23 @@ class MeasureNewToolViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    @objc private func clickConfirmButton(_ button: UIBarButtonItem?) {
+        self.measuringPicker.textFieldBeingEdited?.text = measuringPicker.selectedValue
+        self.measuringPicker.textFieldBeingEdited?.resignFirstResponder()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 
-// MARK: - 다음 버튼 세팅 함수
+// MARK: - 초기값 세팅 함수
 extension MeasureNewToolViewController {
+    // UI
+    private func setupNewToolNameLabel() {
+        self.newToolNameLabel.text = self.toolNameInput
+    }
+
     private func setupNextButton() {
         nextButton.layer.cornerRadius = 6
 
@@ -95,14 +115,38 @@ extension MeasureNewToolViewController {
         validateNextButton(text: self.measuringCountIntLabel.text!)
         validateNextButton(text: self.measuringCountFloatLabel.text!)
     }
-}
 
-// MARK: - 초기값 세팅 함수
-extension MeasureNewToolViewController {
-    private func setupNewToolNameLabel() {
-        self.newToolNameLabel.text = self.toolNameInput
+    private func setupPicker() {
+        // Picker View
+        self.measuringPicker = PickerView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 254))
+        self.measuringPicker.backgroundColor = UIColor.amIceBlue
+
+        // Picker Tool Bar
+        self.measuringPickerToolBar = UIToolbar()
+        measuringPickerToolBar?.barStyle = .default
+        measuringPickerToolBar?.isTranslucent = false
+        measuringPickerToolBar?.frame.size.height = 42
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let confirmButton = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(clickConfirmButton(_:)))
+        confirmButton.tintColor = UIColor.amDarkBlueGrey
+        confirmButton.title = "완료"
+
+        measuringPickerToolBar?.items = [flexSpace, confirmButton]
     }
 
+    private func setupFieldWithPicker() {
+        self.toolSelectionField.inputView = self.measuringPicker
+        self.toolSelectionField.inputAccessoryView = self.measuringPickerToolBar
+
+        self.measuringCountIntLabel.inputView = self.measuringPicker
+        self.measuringCountIntLabel.inputAccessoryView = self.measuringPickerToolBar
+
+        self.measuringCountFloatLabel.inputView = self.measuringPicker
+        self.measuringCountFloatLabel.inputAccessoryView = self.measuringPickerToolBar
+    }
+
+    // Data
     private func setupInitMeasuring() {
         self.toolSelectionField.text = toolList?.first?.name
         self.measuringCountIntLabel.text = "1"
@@ -148,5 +192,22 @@ extension MeasureNewToolViewController: UITextFieldDelegate {
             nextButton.isUserInteractionEnabled = false
             nextButton.backgroundColor = UIColor(displayP3Red: 224/255, green: 228/255, blue: 230/255, alpha: 1)
         }
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.measuringPicker.setEditingTextField(textField)
+
+        switch textField {
+        case toolSelectionField:
+            self.measuringPicker.setItemList(self.toolList!.map { $0.name })
+        case measuringCountIntLabel:
+            self.measuringPicker.setItemList([Int](1...50).map { String($0) })
+        case measuringCountFloatLabel:
+            self.measuringPicker.setItemList([Int](0...9).map { String($0) })
+        default:
+            self.measuringPicker.setItemList([])
+        }
+
+        self.measuringPicker.setPickerItem(withSelectedItem: textField.text!)
     }
 }
