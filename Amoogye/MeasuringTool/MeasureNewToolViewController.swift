@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class MeasureNewToolViewController: UIViewController {
     var measuringToolManager: RealmMeasuringToolManager?
@@ -20,7 +21,7 @@ class MeasureNewToolViewController: UIViewController {
     var measuringCount: String?
 
     // MARK: - UI Outlet
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var animationView: UIView!
 
     @IBOutlet weak var newToolNameLabel: UILabel!
 
@@ -57,6 +58,10 @@ class MeasureNewToolViewController: UIViewController {
                 destination.newMeasuringTool = measuringToolManager?.newMeasuringTool(name: newToolNameLabel.text!, criteriaTool: selectedCriteriaTool!, count: measuringCount!)
             }
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        setupAndPlayAnimation()
     }
 
     // MARK: - 버튼 동작 함수
@@ -209,5 +214,24 @@ extension MeasureNewToolViewController: UITextFieldDelegate {
         }
 
         self.measuringPicker.setPickerItem(withSelectedItem: textField.text!)
+    }
+}
+
+// MARK: - Animation
+extension MeasureNewToolViewController {
+    func setupAndPlayAnimation() {
+        let lottieView = AnimationView(name: "addtool02_iOS")
+
+        self.animationView.addSubview(lottieView)
+
+        lottieView.snp.makeConstraints {(make) -> Void in
+            make.top.bottom.left.right.equalTo(self.animationView)
+        }
+
+        lottieView.contentMode = .scaleAspectFit
+
+        lottieView.play(fromFrame: 0, toFrame: 220, loopMode: .playOnce, completion: { (_) in
+            lottieView.play(fromFrame: 110, toFrame: 220, loopMode: .loop)
+        })
     }
 }

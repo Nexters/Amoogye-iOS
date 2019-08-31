@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Lottie
 
 class CompleteNewToolViewController: UIViewController {
     var newMeasuringTool: MeasuringTool?
     var measuringToolManager: RealmMeasuringToolManager?
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var animationView: UIView!
     @IBOutlet weak var newToolNameAndValue: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
 
@@ -22,6 +23,10 @@ class CompleteNewToolViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.newToolNameAndValue.text = newMeasuringTool!.name + "(" + newMeasuringTool!.subname + ")"
         setupConfirmButton()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        setupAndPlayAnimation()
     }
 
     @IBAction func clickBackButton(_ sender: Any) {
@@ -39,5 +44,23 @@ class CompleteNewToolViewController: UIViewController {
 extension CompleteNewToolViewController {
     private func setupConfirmButton() {
         confirmButton.layer.cornerRadius = 6
+    }
+}
+
+// MARK: - Animation
+extension CompleteNewToolViewController {
+    func setupAndPlayAnimation() {
+        let lottieView = AnimationView(name: "addtool03_iOS")
+
+        self.animationView.addSubview(lottieView)
+
+        lottieView.snp.makeConstraints {(make) -> Void in
+            make.top.bottom.left.right.equalTo(self.animationView)
+        }
+
+        lottieView.contentMode = .scaleAspectFit
+        lottieView.loopMode = .loop
+
+        lottieView.play()
     }
 }
