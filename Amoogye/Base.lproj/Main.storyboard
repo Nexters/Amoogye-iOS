@@ -734,13 +734,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rlO-pk-LRo">
-                                <rect key="frame" x="16" y="76" width="343" height="200"/>
-                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="QL5-6M-W5b"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyE-Wx-9Fh">
                                 <rect key="frame" x="0.0" y="276" width="375" height="144"/>
                                 <subviews>
@@ -876,30 +869,37 @@
                                     <action selector="clickNextButton:" destination="S5s-zF-kF2" eventType="touchUpInside" id="Ak4-iN-0AM"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfA-N3-0Rc">
+                                <rect key="frame" x="16" y="76" width="343" height="200"/>
+                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="sA2-it-kdM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VpS-0E-jXN" firstAttribute="bottom" secondItem="pEw-OX-him" secondAttribute="bottom" constant="28" id="2xV-eL-YD2"/>
                             <constraint firstItem="VpS-0E-jXN" firstAttribute="trailing" secondItem="pEw-OX-him" secondAttribute="trailing" constant="16" id="3gx-rt-8QP"/>
                             <constraint firstItem="VpS-0E-jXN" firstAttribute="trailing" secondItem="xyE-Wx-9Fh" secondAttribute="trailing" id="A7d-Qc-HJp"/>
+                            <constraint firstItem="VpS-0E-jXN" firstAttribute="trailing" secondItem="kfA-N3-0Rc" secondAttribute="trailing" constant="16" id="DMn-JP-P2X"/>
                             <constraint firstItem="eDl-1y-jNq" firstAttribute="leading" secondItem="VpS-0E-jXN" secondAttribute="leading" id="HF3-1V-fom"/>
                             <constraint firstItem="VpS-0E-jXN" firstAttribute="trailing" secondItem="vGb-8X-8N9" secondAttribute="trailing" id="Jbd-BM-YUj"/>
                             <constraint firstItem="vGb-8X-8N9" firstAttribute="leading" secondItem="VpS-0E-jXN" secondAttribute="leading" id="NXV-F8-tTl"/>
                             <constraint firstItem="eDl-1y-jNq" firstAttribute="top" secondItem="VpS-0E-jXN" secondAttribute="top" id="RGl-ec-lxA"/>
-                            <constraint firstItem="rlO-pk-LRo" firstAttribute="top" secondItem="eDl-1y-jNq" secondAttribute="bottom" constant="12" id="RN0-uN-7b8"/>
-                            <constraint firstItem="rlO-pk-LRo" firstAttribute="leading" secondItem="VpS-0E-jXN" secondAttribute="leading" constant="16" id="XWP-Qi-Wu2"/>
-                            <constraint firstItem="VpS-0E-jXN" firstAttribute="trailing" secondItem="rlO-pk-LRo" secondAttribute="trailing" constant="16" id="ZQd-iW-fNQ"/>
+                            <constraint firstItem="kfA-N3-0Rc" firstAttribute="top" secondItem="eDl-1y-jNq" secondAttribute="bottom" constant="12" id="VIk-el-SMW"/>
                             <constraint firstItem="xyE-Wx-9Fh" firstAttribute="leading" secondItem="pxE-QC-siM" secondAttribute="leading" id="Zlx-fs-YOK"/>
                             <constraint firstItem="eDl-1y-jNq" firstAttribute="trailing" secondItem="VpS-0E-jXN" secondAttribute="trailing" id="hRy-UD-i14"/>
                             <constraint firstItem="vGb-8X-8N9" firstAttribute="top" secondItem="xyE-Wx-9Fh" secondAttribute="bottom" id="iTs-Hj-bef"/>
-                            <constraint firstItem="xyE-Wx-9Fh" firstAttribute="top" secondItem="rlO-pk-LRo" secondAttribute="bottom" id="sMs-g6-z04"/>
+                            <constraint firstItem="kfA-N3-0Rc" firstAttribute="leading" secondItem="VpS-0E-jXN" secondAttribute="leading" constant="16" id="nXq-Zg-gWC"/>
+                            <constraint firstItem="xyE-Wx-9Fh" firstAttribute="top" secondItem="kfA-N3-0Rc" secondAttribute="bottom" id="tL5-AM-qjI"/>
                             <constraint firstItem="pEw-OX-him" firstAttribute="leading" secondItem="VpS-0E-jXN" secondAttribute="leading" constant="16" id="xwp-Kv-ra8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VpS-0E-jXN"/>
                     </view>
                     <navigationItem key="navigationItem" id="zfV-el-UOM"/>
                     <connections>
-                        <outlet property="imageView" destination="rlO-pk-LRo" id="J19-8C-z5z"/>
+                        <outlet property="animationView" destination="kfA-N3-0Rc" id="uo0-OT-3hx"/>
                         <outlet property="measuringCountFloatLabel" destination="h06-X0-eO1" id="MhT-SH-Gos"/>
                         <outlet property="measuringCountIntLabel" destination="TVg-0S-dGM" id="7br-48-1nQ"/>
                         <outlet property="newToolNameLabel" destination="e78-aZ-ocz" id="W5N-D8-8Sa"/>
