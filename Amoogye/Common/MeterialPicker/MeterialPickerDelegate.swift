@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MeterialPickerDelegate: class {
-    func selectMeterial(row: Int, name: String)
+    func selectMeterial(name: String)
     func openMeterialSearchView()
     func closeMeterialSearchView()
 }

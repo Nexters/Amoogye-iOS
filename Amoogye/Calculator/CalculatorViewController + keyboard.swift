@@ -29,4 +29,12 @@ extension CalculatorViewController {
         removeKeyboardSubviews()
         addKeyboardView(keyboard: numericKeyboard)
     }
+
+    func showMeterialPicker() {
+        let meterialPicker = MeterialPickerView()
+        meterialPicker.delegate = self
+
+        removeKeyboardSubviews()
+        addKeyboardView(keyboard: meterialPicker)
+    }
 }
