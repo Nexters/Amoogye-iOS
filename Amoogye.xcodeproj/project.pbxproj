@@ -13,6 +13,7 @@
 		3A039DDA230FD1BB009E1AAA /* CustomInputButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DD9230FD1BB009E1AAA /* CustomInputButtonManager.swift */; };
 		3A039DDE230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DDD230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift */; };
 		3A039DE22313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A039DE12313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift */; };
+		3A413191231BB056003F0931 /* CalculatorViewController + interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A413190231BB056003F0931 /* CalculatorViewController + interaction.swift */; };
 		3A8550BA22E9C16D0003C584 /* TimerSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550B922E9C16D0003C584 /* TimerSettingViewController.swift */; };
 		3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */; };
 		3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8550BD22E9C1B10003C584 /* SettingViewController.swift */; };
@@ -75,6 +76,7 @@
 		3A039DD9230FD1BB009E1AAA /* CustomInputButtonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputButtonManager.swift; sourceTree = "<group>"; };
 		3A039DDD230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewController + keyboard.swift"; sourceTree = "<group>"; };
 		3A039DE12313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewController + NumericKeyboard.swift"; sourceTree = "<group>"; };
+		3A413190231BB056003F0931 /* CalculatorViewController + interaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorViewController + interaction.swift"; sourceTree = "<group>"; };
 		3A8550B922E9C16D0003C584 /* TimerSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettingViewController.swift; sourceTree = "<group>"; };
 		3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringToolViewController.swift; sourceTree = "<group>"; };
 		3A8550BD22E9C1B10003C584 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				3A039DD3230E9CE8009E1AAA /* CalculatorViewController + layout.swift */,
 				3A039DDD230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift */,
 				3A039DE12313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift */,
+				3A413190231BB056003F0931 /* CalculatorViewController + interaction.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */,
 				A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */,
 				A330841023104F28008E2AAB /* Double+.swift in Sources */,
+				3A413191231BB056003F0931 /* CalculatorViewController + interaction.swift in Sources */,
 				A330840D230EC988008E2AAB /* PickerView.swift in Sources */,
 				A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */,
 				A3B689C72300705C002FB31D /* UIColor+.swift in Sources */,
