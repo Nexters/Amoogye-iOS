@@ -649,6 +649,7 @@ extension CalculatorViewController {
         let parentView = searchView
 
         // My Properties
+        myView.delegate = self
 
         // My Constraints
         myView.snp.makeConstraints { (make) in

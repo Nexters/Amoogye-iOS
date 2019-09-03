@@ -76,14 +76,21 @@ class CalculatorViewController: UIViewController {
     @objc func clickNumericInputButton() {
         showNumericKeyboard()
     }
+    @objc func clickMeterialInputButton() {
+        showMeterialPicker()
+    }
 
     private func setupInput() {
         inputManager = CustomInputButtonManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
         inputManager?.focusOn(button: srcQuantityInput)
 
+        // numeric
         srcPortionInput.addTarget(self, action: #selector(clickNumericInputButton), for: .touchUpInside)
         srcQuantityInput.addTarget(self, action: #selector(clickNumericInputButton), for: .touchUpInside)
         dstPortionInput.addTarget(self, action: #selector(clickNumericInputButton), for: .touchUpInside)
+
+        // meterial
+        srcMeterialInput.addTarget(self, action: #selector(clickMeterialInputButton), for: .touchUpInside)
     }
 
     private func setupModeButton() {

@@ -10,20 +10,18 @@ import UIKit
 
 class MeterialSearchResultCell: UITableViewCell {
 
-    weak var delegate: MeterialSearchDelegate?
+    weak var delegate: MeterialPickerDelegate?
 
     @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var selectButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    @IBAction func selectButtonClick(_ sender: Any) {
-        guard let selectedMeterialName = resultLabel.text else {
-            return
-        }
-        delegate?.selectMeterial(name: selectedMeterialName)
-        delegate?.closeSearchView()
+    @IBAction func clickSelectButton(_ sender: Any) {
+        delegate?.selectMeterial(name: resultLabel.text ?? "")
+        delegate?.closeMeterialSearchView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

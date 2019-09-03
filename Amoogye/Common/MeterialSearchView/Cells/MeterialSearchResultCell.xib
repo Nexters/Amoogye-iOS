@@ -29,7 +29,7 @@
                         <rect key="frame" x="274" y="7" width="30" height="30"/>
                         <state key="normal" title="선택"/>
                         <connections>
-                            <action selector="selectButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="14p-DD-CDa"/>
+                            <action selector="clickSelectButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5sU-4o-Lq0"/>
                         </connections>
                     </button>
                 </subviews>
@@ -44,6 +44,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="resultLabel" destination="XLD-iQ-X7r" id="CIp-rC-980"/>
+                <outlet property="selectButton" destination="b6e-hP-E1b" id="IVK-gQ-fLk"/>
             </connections>
         </tableViewCell>
     </objects>
