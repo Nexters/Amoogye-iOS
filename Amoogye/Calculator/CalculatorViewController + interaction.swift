@@ -16,17 +16,25 @@ extension CalculatorViewController {
             mode = .PortionOnly
             offMode(sender: meterialModeButton)
             onMode(sender: portionModeButton)
-            showPortionInputButton()
+
+            showPortionMode()
+            hideMeterialMode()
 
         case .PortionOnly:
             mode = .Both
             onMode(sender: meterialModeButton)
             onMode(sender: plusLabel)
 
+            showMeterialMode()
+            showPortionMode()
+
         case .Both:
             mode = .PortionOnly
             offMode(sender: meterialModeButton)
             offMode(sender: plusLabel)
+
+            showPortionMode()
+            hideMeterialMode()
         }
     }
 
@@ -36,19 +44,25 @@ extension CalculatorViewController {
             mode = .Both
             onMode(sender: portionModeButton)
             onMode(sender: plusLabel)
-            showPortionInputButton()
+
+            showMeterialMode()
+            showPortionMode()
 
         case .PortionOnly:
             mode = .MeterialOnly
             onMode(sender: meterialModeButton)
             offMode(sender: portionModeButton)
-            hidePortionInputButton()
+
+            showMeterialMode()
+            hidePortionMode()
 
         case .Both:
             mode = .MeterialOnly
             offMode(sender: portionModeButton)
             offMode(sender: plusLabel)
-            hidePortionInputButton()
+
+            showMeterialMode()
+            hidePortionMode()
         }
     }
 
@@ -72,21 +86,23 @@ extension CalculatorViewController {
         sender.font = .systemFont(ofSize: 24)
     }
 
-    func hidePortionInputButton() {
+    func hidePortionMode() {
         UIView.animate(withDuration: 0.2, animations: ({
             self.srcPortionView.alpha  = 0
             self.dstPortionView.alpha  = 0
 
-            self.srcQuantityView.transform = CGAffineTransform(translationX: -self.srcPortionView.frame.width, y: 0)
-            self.srcMeterialView.transform = CGAffineTransform(translationX: -self.srcPortionView.frame.width, y: 0)
-            self.srcFromView.transform = CGAffineTransform(translationX: -self.srcPortionView.frame.width, y: 0)
+            let srcWidth = self.srcPortionView.frame.width
+            self.srcQuantityView.transform = CGAffineTransform(translationX: -srcWidth, y: 0)
+            self.srcMeterialView.transform = CGAffineTransform(translationX: -srcWidth, y: 0)
+            self.srcFromView.transform = CGAffineTransform(translationX: -srcWidth, y: 0)
 
-            self.dstToolView.transform = CGAffineTransform(translationX: -self.dstPortionView.frame.width, y: 0)
-            self.dstToView.transform = CGAffineTransform(translationX: -self.dstPortionView.frame.width, y: 0)
+            let dstWidth = self.dstPortionView.frame.width
+            self.dstToolView.transform = CGAffineTransform(translationX: -dstWidth, y: 0)
+            self.dstToView.transform = CGAffineTransform(translationX: -dstWidth, y: 0)
         }))
     }
 
-    func showPortionInputButton() {
+    func showPortionMode() {
         UIView.animate(withDuration: 0.2, animations: ({
             self.srcPortionView.alpha  = 1
             self.dstPortionView.alpha  = 1
@@ -96,6 +112,23 @@ extension CalculatorViewController {
             self.srcFromView.transform = .identity
 
             self.dstToolView.transform = .identity
+            self.dstToView.transform = .identity
+        }))
+    }
+
+    func hideMeterialMode() {
+        UIView.animate(withDuration: 0.2, animations: ({
+            self.dstToolView.alpha  = 0
+
+            let dstWidth = self.dstToolView.frame.width
+            self.dstToView.transform = CGAffineTransform(translationX: -dstWidth, y: 0)
+        }))
+    }
+
+    func showMeterialMode() {
+        UIView.animate(withDuration: 0.2, animations: ({
+            self.dstToolView.alpha  = 1
+
             self.dstToView.transform = .identity
         }))
     }
