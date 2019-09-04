@@ -36,7 +36,9 @@ extension MeasuringToolViewController {
             measuringToolManager?.deleteMeasuringTool(item)
         }
 
-        self.measuringToolList = measuringToolManager?.getLivingMeasuringToolList()
+        self.measuringToolList = measuringToolManager?.getMeasuringToolList().filter {
+            $0.toolType == .living
+        }
 
         self.isToolEdited = false
     }

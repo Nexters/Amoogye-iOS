@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RealmMeasuringToolManager: MeasuringToolManager {
+class RealmMeasuringToolManager {
     var realm: Realm?
 
     init() {
@@ -17,6 +17,16 @@ class RealmMeasuringToolManager: MeasuringToolManager {
         print("RealmPath: \(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
 
+    func newMeasuringTool(name: String, criteriaTool: MeasuringTool, count: String) -> MeasuringTool {
+        let criteriaToolQuantity = Double(criteriaTool.quantity)!
+        let measuringCount = Double(count)!
+        let newQuantity = (criteriaToolQuantity * measuringCount).formatToFloatingString()
+
+        return MeasuringTool(toolType: .living, unitType: criteriaTool.unitType, name: name, quantity: newQuantity, isOn: true)
+    }
+}
+
+extension RealmMeasuringToolManager: MeasuringToolManager {
     func addMeasuringTool(_ tool: MeasuringTool) {
         if checkDuplicatedToolName(name: tool.name) {
             print("Error: Duplicated Tool Name! - [\(tool.name)]")
@@ -53,34 +63,6 @@ class RealmMeasuringToolManager: MeasuringToolManager {
 
     func getMeasuringToolList() -> [MeasuringTool] {
         return getRealmToolList().map { toolFrom(realmTool: $0) }
-    }
-
-    func getUsingOnMeasuringToolList() -> [MeasuringTool] {
-        return getMeasuringToolList().filter { $0.isOn == true }
-    }
-
-    func getBasicMeasuringToolList() -> [MeasuringTool] {
-        return getMeasuringToolList().filter { $0.toolType == .basic }
-    }
-
-    func getLivingMeasuringToolList() -> [MeasuringTool] {
-        return getMeasuringToolList().filter { $0.toolType == .living }
-    }
-
-    func getUsingOnBasicMeasuringToolList() -> [MeasuringTool] {
-        return getBasicMeasuringToolList().filter { $0.isOn == true }
-    }
-
-    func getUsingOnLivingMeasuringToolList() -> [MeasuringTool] {
-        return getLivingMeasuringToolList().filter { $0.isOn == true }
-    }
-
-    func newMeasuringTool(name: String, criteriaTool: MeasuringTool, count: String) -> MeasuringTool {
-        let criteriaToolQuantity = Double(criteriaTool.quantity)!
-        let measuringCount = Double(count)!
-        let newQuantity = (criteriaToolQuantity * measuringCount).formatToFloatingString()
-
-        return MeasuringTool(toolType: .living, unitType: criteriaTool.unitType, name: name, quantity: newQuantity, isOn: true)
     }
 }
 

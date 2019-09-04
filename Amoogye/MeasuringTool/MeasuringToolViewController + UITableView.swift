@@ -45,14 +45,20 @@ extension MeasuringToolViewController: MeasuringToolTableViewCellDelegate {
     }
 
     func addCellItem(index: Int) {
-        guard let tool = self.measuringToolManager?.getLivingMeasuringToolList()[index] else {
+        let toolList = self.measuringToolManager?.getMeasuringToolList().filter {
+            $0.toolType == .living
+        }
+        guard let tool = toolList?[index] else {
             return
         }
         self.selectedToolList?.append(tool)
     }
 
     func removeCellItem(index: Int) {
-        guard let tool = self.measuringToolManager?.getLivingMeasuringToolList()[index] else {
+        let toolList = self.measuringToolManager?.getMeasuringToolList().filter {
+            $0.toolType == .living
+        }
+        guard let tool = toolList?[index] else {
             return
         }
 
