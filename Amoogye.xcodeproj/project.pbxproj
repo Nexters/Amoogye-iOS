@@ -64,6 +64,7 @@
 		A3DC1F3D231ABD4900EB8924 /* addtool02_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = A3DC1F3A231ABD4900EB8924 /* addtool02_iOS.json */; };
 		A3DC1F3E231ABD4900EB8924 /* addtool03_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = A3DC1F3B231ABD4900EB8924 /* addtool03_iOS.json */; };
 		A3DC1F3F231ABD4900EB8924 /* addtool01_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = A3DC1F3C231ABD4900EB8924 /* addtool01_iOS.json */; };
+		A3E7E2EE23205E3700DE7A40 /* UserDefaultKeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2ED23205E3700DE7A40 /* UserDefaultKeyConstants.swift */; };
 		BC10E39C39F4E1B94E1C1748 /* Pods_Amoogye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +130,7 @@
 		A3DC1F3A231ABD4900EB8924 /* addtool02_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addtool02_iOS.json; sourceTree = "<group>"; };
 		A3DC1F3B231ABD4900EB8924 /* addtool03_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addtool03_iOS.json; sourceTree = "<group>"; };
 		A3DC1F3C231ABD4900EB8924 /* addtool01_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addtool01_iOS.json; sourceTree = "<group>"; };
+		A3E7E2ED23205E3700DE7A40 /* UserDefaultKeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeyConstants.swift; sourceTree = "<group>"; };
 		FF1B1192416A93293D91C594 /* Pods-Amoogye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.debug.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 				A3B6899722FFFDE6002FB31D /* ApplicationSetting.swift */,
 				A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */,
 				3ABA62062301B6CB000ABF3B /* TabBarController.swift */,
+				A3E7E2ED23205E3700DE7A40 /* UserDefaultKeyConstants.swift */,
 				A3DC1F38231ABCD900EB8924 /* Resource */,
 				A3308411231056E2008E2AAB /* Extension */,
 				A3C5E81E22EE19B00098F520 /* Common */,
@@ -562,6 +565,7 @@
 				A3B689E023047FEE002FB31D /* MeasuringToolTableViewCellDelegate.swift in Sources */,
 				3A8550E522F00AF30003C584 /* MeasureNewToolViewController.swift in Sources */,
 				3A039DD4230E9CE8009E1AAA /* CalculatorViewController + layout.swift in Sources */,
+				A3E7E2EE23205E3700DE7A40 /* UserDefaultKeyConstants.swift in Sources */,
 				3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */,
 				3A039DDE230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift in Sources */,
 				A3C7BAF922F6DEE40067D632 /* RealmMeausringTool.swift in Sources */,
