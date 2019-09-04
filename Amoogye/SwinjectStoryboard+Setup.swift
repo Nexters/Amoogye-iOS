@@ -37,5 +37,14 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(SettingViewController.self) {r, c in
             c.appSetting = r ~> ApplicationSetting.self
         }
+
+        // TODO
+                // Calculator
+        //        defaultContainer.autoregister(Calculator.self, argument: RealmHistoryManager.self, initializer: Calculator.init)
+        defaultContainer.autoregister(Calculator.self, initializer: Calculator.init)
+
+        defaultContainer.storyboardInitCompleted(CalculatorViewController.self) { r, c in
+            c.calculator = r ~> Calculator.self
+        }
     }
 }
