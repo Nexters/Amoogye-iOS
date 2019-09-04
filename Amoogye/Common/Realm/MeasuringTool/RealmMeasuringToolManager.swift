@@ -14,7 +14,7 @@ class RealmMeasuringToolManager {
 
     init() {
         realm = try? Realm()
-        print("RealmPath: \(Realm.Configuration.defaultConfiguration.fileURL!)")
+        print("[Measuring Tool Realm Path]  \(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
 
     func newMeasuringTool(name: String, criteriaTool: MeasuringTool, count: String) -> MeasuringTool {

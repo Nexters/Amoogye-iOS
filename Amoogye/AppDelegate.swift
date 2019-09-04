@@ -19,9 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if SettingType.FirstExecution.userSetting() {
             setupDefaultMeasuringTool()
+            setupDefaultMeterial()
             UserDefaults.standard.set(false, forKey: SettingType.FirstExecution.rawValue)
         }
         setupDefaultMeasuringTool()
+        setupDefaultMeterial()
         application.isIdleTimerDisabled = SettingType.Screen.userSetting()
 
         return true
@@ -78,6 +80,17 @@ extension AppDelegate {
             var defaultTool = tool
             defaultTool.isEditable = false
             measuringToolManager.addMeasuringTool(defaultTool)
+        }
+    }
+
+    func setupDefaultMeterial() {
+        var defaultMeterialList = [Meterial]()
+        let meterialManager = RealmMeterialManager()
+
+        defaultMeterialList.append(Meterial(name: "소금", unitQuantity: 1.3))
+
+        for meterial in defaultMeterialList {
+            meterialManager.addMeterial(meterial)
         }
     }
 }

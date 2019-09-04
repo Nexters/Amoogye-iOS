@@ -12,7 +12,7 @@ import SwinjectAutoregistration
 
 extension SwinjectStoryboard {
     @objc class func setup() {
-        // RMMeasuringToolManager
+        // RealmMeasuringToolManager
         defaultContainer.autoregister(RealmMeasuringToolManager.self, initializer: RealmMeasuringToolManager.init)
 
         defaultContainer.storyboardInitCompleted(MeasuringToolViewController.self) { r, c in
@@ -27,6 +27,9 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(CompleteNewToolViewController.self) { r, c in
             c.measuringToolManager = r ~> RealmMeasuringToolManager.self
         }
+
+        // RealmMeterialManager
+        defaultContainer.autoregister(RealmMeterialManager.self, initializer: RealmMeterialManager.init)
 
         // ApplicationSetting
         defaultContainer.autoregister(ApplicationSetting.self, initializer: ApplicationSetting.init)
