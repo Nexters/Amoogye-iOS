@@ -65,6 +65,10 @@
 		A3DC1F3E231ABD4900EB8924 /* addtool03_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = A3DC1F3B231ABD4900EB8924 /* addtool03_iOS.json */; };
 		A3DC1F3F231ABD4900EB8924 /* addtool01_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = A3DC1F3C231ABD4900EB8924 /* addtool01_iOS.json */; };
 		A3E7E2EE23205E3700DE7A40 /* UserDefaultKeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2ED23205E3700DE7A40 /* UserDefaultKeyConstants.swift */; };
+		A3E7E2F02320618300DE7A40 /* MeasuringToolViewController + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2EF2320618300DE7A40 /* MeasuringToolViewController + UITableView.swift */; };
+		A3E7E2F2232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2F1232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift */; };
+		A3E7E2F42320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2F32320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift */; };
+		A3E7E2F6232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2F5232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift */; };
 		BC10E39C39F4E1B94E1C1748 /* Pods_Amoogye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +135,10 @@
 		A3DC1F3B231ABD4900EB8924 /* addtool03_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addtool03_iOS.json; sourceTree = "<group>"; };
 		A3DC1F3C231ABD4900EB8924 /* addtool01_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addtool01_iOS.json; sourceTree = "<group>"; };
 		A3E7E2ED23205E3700DE7A40 /* UserDefaultKeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeyConstants.swift; sourceTree = "<group>"; };
+		A3E7E2EF2320618300DE7A40 /* MeasuringToolViewController + UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + UITableView.swift"; sourceTree = "<group>"; };
+		A3E7E2F1232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + ToolTabBar.swift"; sourceTree = "<group>"; };
+		A3E7E2F32320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + DimScreen.swift"; sourceTree = "<group>"; };
+		A3E7E2F5232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + EditButton.swift"; sourceTree = "<group>"; };
 		FF1B1192416A93293D91C594 /* Pods-Amoogye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.debug.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,6 +327,10 @@
 			children = (
 				3A8550EF22F00BB70003C584 /* Cells */,
 				3A8550BB22E9C1A40003C584 /* MeasuringToolViewController.swift */,
+				A3E7E2EF2320618300DE7A40 /* MeasuringToolViewController + UITableView.swift */,
+				A3E7E2F1232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift */,
+				A3E7E2F5232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift */,
+				A3E7E2F32320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift */,
 				3A8550E322F00AF30003C584 /* SetNameForNewToolViewController.swift */,
 				3A8550E022F00AF30003C584 /* MeasureNewToolViewController.swift */,
 				3A8550E222F00AF30003C584 /* CompleteNewToolViewController.swift */,
@@ -555,6 +567,7 @@
 				3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */,
 				3A41318D231B9C42003F0931 /* MeteiralSearchView.swift in Sources */,
 				3ABA62142306B459000ABF3B /* MeterialPickerDelegate.swift in Sources */,
+				A3E7E2F2232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift in Sources */,
 				3A8550F122F00CFF0003C584 /* MeasuringToolTableViewCell.swift in Sources */,
 				3A8550E722F00AF30003C584 /* CompleteNewToolViewController.swift in Sources */,
 				3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */,
@@ -562,7 +575,9 @@
 				3A039DE22313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift in Sources */,
 				3A41318B231B969E003F0931 /* CalculatorViewController + MeterialPicker.swift in Sources */,
 				A3B6899822FFFDE6002FB31D /* ApplicationSetting.swift in Sources */,
+				A3E7E2F6232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift in Sources */,
 				A3B689E023047FEE002FB31D /* MeasuringToolTableViewCellDelegate.swift in Sources */,
+				A3E7E2F02320618300DE7A40 /* MeasuringToolViewController + UITableView.swift in Sources */,
 				3A8550E522F00AF30003C584 /* MeasureNewToolViewController.swift in Sources */,
 				3A039DD4230E9CE8009E1AAA /* CalculatorViewController + layout.swift in Sources */,
 				A3E7E2EE23205E3700DE7A40 /* UserDefaultKeyConstants.swift in Sources */,
@@ -586,6 +601,7 @@
 				A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */,
 				A330841023104F28008E2AAB /* Double+.swift in Sources */,
 				A330840D230EC988008E2AAB /* PickerView.swift in Sources */,
+				A3E7E2F42320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift in Sources */,
 				A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */,
 				A3B689C72300705C002FB31D /* UIColor+.swift in Sources */,
 				A3B689DC2304301E002FB31D /* NumericKeyboardView.swift in Sources */,
