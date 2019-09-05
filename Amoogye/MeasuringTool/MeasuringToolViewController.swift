@@ -64,4 +64,13 @@ class MeasuringToolViewController: UIViewController {
         hideEditButtons()
         self.toolTableView.reloadData()
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        for var tool in self.measuringToolList ?? [] {
+            if tool.isNew == true {
+                tool.isNew = false
+                self.measuringToolManager?.updateMeasuringTool(tool)
+            }
+        }
+    }
 }

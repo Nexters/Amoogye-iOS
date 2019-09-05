@@ -17,5 +17,6 @@ final class RealmMeasuringTool: Object {
     @objc dynamic var quantity = ""
     @objc dynamic var isOn = true
     @objc dynamic var isEditable = true
+    @objc dynamic var isNew = true
     @objc dynamic var recentUsed: Date = Date(timeIntervalSince1970: 1)
 }

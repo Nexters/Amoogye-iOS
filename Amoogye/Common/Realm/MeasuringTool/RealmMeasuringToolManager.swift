@@ -51,6 +51,7 @@ extension RealmMeasuringToolManager: MeasuringToolManager {
     func updateMeasuringTool(_ tool: MeasuringTool) {
         try! realm?.write {
             getRealmTool(name: tool.name)?.isOn = tool.isOn
+            getRealmTool(name: tool.name)?.isNew = tool.isNew
         }
     }
 
@@ -86,6 +87,7 @@ extension RealmMeasuringToolManager {
         realmTool.quantity = tool.quantity
         realmTool.isOn = tool.isOn
         realmTool.isEditable = tool.isEditable
+        realmTool.isNew = tool.isNew
         realmTool.recentUsed = tool.recentUsed
 
         return realmTool
@@ -99,9 +101,10 @@ extension RealmMeasuringToolManager {
         let quantity = realmTool.quantity
         let isOn = realmTool.isOn
         let isEditable = realmTool.isEditable
+        let isNew = realmTool.isNew
         let recentUsed = realmTool.recentUsed
 
-        return MeasuringTool(toolType: toolType, unitType: unitType, name: name, subname: subname, quantity: quantity, isOn: isOn, isEditable: isEditable, recentUsed: recentUsed)
+        return MeasuringTool(toolType: toolType, unitType: unitType, name: name, subname: subname, quantity: quantity, isOn: isOn, isEditable: isEditable, isNew: isNew, recentUsed: recentUsed)
     }
 
     private func getRealmToolList() -> [RealmMeasuringTool] {
