@@ -19,8 +19,9 @@ class OnboardingData {
     let description: String
     let type: ContentType
     let filename: String
-    var endFrame: CGFloat = 0
-    var repeatFrame: CGFloat = 0
+    var endFrame: CGFloat?
+    var repeatFrame: CGFloat?
+    var backgroundColor: UIColor?
 
     init(title: String, description: String, type: ContentType, filename: String) {
         self.title = title
@@ -29,13 +30,14 @@ class OnboardingData {
         self.filename = filename
     }
 
-    init(title: String, description: String, type: ContentType, filename: String, endFrame: CGFloat, repeatFrame: CGFloat) {
+    init(title: String, description: String, type: ContentType, filename: String, endFrame: CGFloat, repeatFrame: CGFloat, backgroundColor: UIColor) {
         self.title = title
         self.description = description
         self.type = type
         self.filename = filename
         self.endFrame = endFrame
         self.repeatFrame = repeatFrame
+        self.backgroundColor = backgroundColor
     }
 }
 
@@ -52,7 +54,8 @@ extension OnboardingData {
             type: .lottie,
             filename: "onboardingPage1",
             endFrame: 180,
-            repeatFrame: 114
+            repeatFrame: 114,
+            backgroundColor: UIColor(displayP3Red: 241/255.0, green: 246/255.0, blue: 255/255.0, alpha: 1.0)
         ))
         contents.append(OnboardingData(
             title: "이제 쉽게 계량할 수 있습니다",
@@ -63,7 +66,8 @@ extension OnboardingData {
             type: .lottie,
             filename: "onboardingPage2",
             endFrame: 148,
-            repeatFrame: 76
+            repeatFrame: 76,
+            backgroundColor: UIColor(displayP3Red: 238/255.0, green: 253/255.0, blue: 250/255.0, alpha: 1.0)
         ))
         contents.append(OnboardingData(
             title: "어떻게 계량하냐구요?",
@@ -90,7 +94,8 @@ extension OnboardingData {
             type: .lottie,
             filename: "onboardingPage5",
             endFrame: 128,
-            repeatFrame: 0
+            repeatFrame: 0,
+            backgroundColor: UIColor(displayP3Red: 239/255.0, green: 251/255.0, blue: 255/255.0, alpha: 1.0)
         ))
 
         return contents

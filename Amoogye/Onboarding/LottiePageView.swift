@@ -25,10 +25,10 @@ class LottiePageView: PageView {
         super.init(coder: aDecoder)
     }
 
-    func setup(contentView: UIView, filename: String, endFrame: CGFloat, repeatFrame: CGFloat, title: String, description: String) {
+    func setup(contentView: UIView, filename: String, endFrame: CGFloat, repeatFrame: CGFloat, title: String, description: String, backgroundColor: UIColor) {
         super.setupPageText(title: title, description: description)
 
-        setupContentBackground()
+        setupContentBackground(backgroundColor)
         setupLottieView(filename, endFrame: endFrame, repeatFrame: repeatFrame)
 
         setupConstraint(superView: contentView)
@@ -49,10 +49,10 @@ extension LottiePageView: ContentsDelegate {
 
 // MARK: - setup
 extension LottiePageView {
-    private func setupContentBackground() {
+    private func setupContentBackground(_ backgroundColor: UIColor) {
         contentBackground = UIView()
 
-        contentBackground.backgroundColor = UIColor(displayP3Red: 241.0/255.0, green: 246/255.0, blue: 255/255.0, alpha: 1.0)
+        contentBackground.backgroundColor = backgroundColor
     }
 
     private func setupLottieView(_ filename: String, endFrame: AnimationFrameTime, repeatFrame: AnimationFrameTime) {

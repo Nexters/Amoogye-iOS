@@ -83,7 +83,7 @@ extension OnboardingViewController {
             case .lottie:
                 let pageView = LottiePageView(frame: frame)
 
-                pageView.setup(contentView: slide, filename: pageData.filename, endFrame: pageData.endFrame, repeatFrame: pageData.repeatFrame, title: pageData.title, description: pageData.description)
+                pageView.setup(contentView: slide, filename: pageData.filename, endFrame: pageData.endFrame!, repeatFrame: pageData.repeatFrame!, title: pageData.title, description: pageData.description, backgroundColor: pageData.backgroundColor!)
 
                 self.pageViewList.append(pageView)
 
