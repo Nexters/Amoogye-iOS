@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             setupDefaultMeasuringTool()
             UserDefaults.standard.set(false, forKey: SettingType.FirstExecution.rawValue)
         }
-        setupDefaultMeasuringTool()
+
+        // 설정 적용
         application.isIdleTimerDisabled = SettingType.Screen.userSetting()
 
         return true
