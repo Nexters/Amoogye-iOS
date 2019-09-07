@@ -19,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if SettingType.FirstExecution.userSetting() {
             setupDefaultMeasuringTool()
-            UserDefaults.standard.set(false, forKey: SettingType.FirstExecution.rawValue)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Onboarding")
+
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
         }
 
         // 설정 적용

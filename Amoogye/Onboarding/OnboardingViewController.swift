@@ -44,6 +44,10 @@ class OnboardingViewController: UIViewController {
     @IBAction func pageChanged(_ sender: Any) {
         scrollView!.scrollRectToVisible(CGRect(x: scrollWidth * CGFloat ((pageControl?.currentPage)!), y: 0, width: scrollWidth, height: scrollHeight), animated: true)
     }
+
+    @IBAction func clickStartButton(_ sender: UIButton) {
+        UserDefaults.standard.set(false, forKey: SettingType.FirstExecution.rawValue)
+    }
 }
 
 // MARK: - Setup 함수
