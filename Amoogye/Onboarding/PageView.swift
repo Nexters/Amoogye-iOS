@@ -20,7 +20,14 @@ class PageView: UIView {
         super.init(coder: aDecoder)
     }
 
-    func setupPageTitle(_ text: String) {
+    func setupPageText(title: String, description: String) {
+        setupPageTitle(title)
+        setupPageDescription(description)
+    }
+}
+
+extension PageView {
+    private func setupPageTitle(_ text: String) {
         pageTitle = UILabel()
 
         pageTitle.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -30,7 +37,7 @@ class PageView: UIView {
         pageTitle.text = text
     }
 
-    func setupPageDescription(_ text: String) {
+    private func setupPageDescription(_ text: String) {
         pageDescription = UILabel()
 
         pageDescription.font = UIFont.systemFont(ofSize: 16, weight: .regular)

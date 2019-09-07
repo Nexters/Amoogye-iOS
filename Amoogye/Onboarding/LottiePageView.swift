@@ -26,10 +26,10 @@ class LottiePageView: PageView {
     }
 
     func setup(contentView: UIView, filename: String, endFrame: CGFloat, repeatFrame: CGFloat, title: String, description: String) {
+        super.setupPageText(title: title, description: description)
+
         setupContentBackground()
         setupLottieView(filename, endFrame: endFrame, repeatFrame: repeatFrame)
-        setupPageTitle(title)
-        setupPageDescription(description)
 
         setupConstraint(superView: contentView)
     }
@@ -73,9 +73,12 @@ extension LottiePageView {
         superView.addSubview(pageTitle)
         superView.addSubview(pageDescription)
 
+        let contentWidth = superView.frame.width
+        let contentHeight = 750 * (contentWidth / 750)
+
         contentBackground.snp.makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(superView)
-            make.height.equalTo(375)
+            make.height.equalTo(contentHeight)
         }
         lottieView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(contentBackground).offset(16)

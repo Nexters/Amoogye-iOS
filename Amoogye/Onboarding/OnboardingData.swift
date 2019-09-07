@@ -68,8 +68,7 @@ extension OnboardingData {
         contents.append(OnboardingData(
             title: "어떻게 계량하냐구요?",
             description: """
-                        계량컵과 계량스푼 없이 식재료 양을
-                        측정하는 것은 어려운 일이죠.
+                        60ml를 밥숟가락으로 계량해보겠습니다.
                         """,
             type: .video,
             filename: "onboardingPage3"
@@ -79,7 +78,7 @@ extension OnboardingData {
             description: """
                         2인분으로도 바꿀 수 있습니다.
                         """,
-            type: .lottie,
+            type: .video,
             filename: "onboardingPage4"
         ))
         contents.append(OnboardingData(

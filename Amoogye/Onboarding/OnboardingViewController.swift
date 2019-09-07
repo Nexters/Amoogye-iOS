@@ -77,11 +77,23 @@ extension OnboardingViewController {
             frame.size = CGSize(width: scrollWidth, height: scrollHeight)
 
             let slide = UIView(frame: frame)
-            let pageView = LottiePageView(frame: frame)
             let pageData = pageDataList[index]
 
-            pageView.setup(contentView: slide, filename: pageData.filename, endFrame: pageData.endFrame, repeatFrame: pageData.repeatFrame, title: pageData.title, description: pageData.description)
-            self.pageViewList.append(pageView)
+            switch pageData.type {
+            case .lottie:
+                let pageView = LottiePageView(frame: frame)
+
+                pageView.setup(contentView: slide, filename: pageData.filename, endFrame: pageData.endFrame, repeatFrame: pageData.repeatFrame, title: pageData.title, description: pageData.description)
+
+                self.pageViewList.append(pageView)
+
+            case .video:
+                let pageView = VideoPageView(frame: frame)
+
+                pageView.setup(contentView: slide, filename: pageData.filename, title: pageData.title, description: pageData.description)
+
+                self.pageViewList.append(pageView)
+            }
 
             scrollView.addSubview(slide)
         }
