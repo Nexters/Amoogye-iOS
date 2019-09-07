@@ -10,6 +10,11 @@ import UIKit
 
 extension MeasuringToolViewController {
     @IBAction func clickEditMeasuringToolButton(_ sender: UIButton) {
+        if self.checkIsToast() {
+            self.showToast(message: "삭제할 수 있는 계량도구가 없습니다")
+            return
+        }
+
         hideTabBar()
         self.editMeasuringToolButton.isHidden = true
         showEditButtons()
