@@ -46,6 +46,14 @@
 		3AE9AAB522FAC17900F09850 /* TimerProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9AAB422FAC17900F09850 /* TimerProgressViewController.swift */; };
 		A330840D230EC988008E2AAB /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330840C230EC988008E2AAB /* PickerView.swift */; };
 		A330841023104F28008E2AAB /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A330840F23104F28008E2AAB /* Double+.swift */; };
+		A388F4542323C50D009EB5D3 /* onboardingPage5.json in Resources */ = {isa = PBXBuildFile; fileRef = A388F4512323C50D009EB5D3 /* onboardingPage5.json */; };
+		A388F4552323C50D009EB5D3 /* onboardingPage1.json in Resources */ = {isa = PBXBuildFile; fileRef = A388F4522323C50D009EB5D3 /* onboardingPage1.json */; };
+		A388F4562323C50D009EB5D3 /* onboardingPage2.json in Resources */ = {isa = PBXBuildFile; fileRef = A388F4532323C50D009EB5D3 /* onboardingPage2.json */; };
+		A388F45E2323E0C4009EB5D3 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388F45D2323E0C4009EB5D3 /* OnboardingData.swift */; };
+		A388F4602323ECCF009EB5D3 /* ContentsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388F45F2323ECCF009EB5D3 /* ContentsDelegate.swift */; };
+		A388F4622323F60C009EB5D3 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A388F4612323F60C009EB5D3 /* PageView.swift */; };
+		A388F46323240156009EB5D3 /* onboardingPage3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A3F1DDD32323C3DE00C35760 /* onboardingPage3.mp4 */; };
+		A388F46423240156009EB5D3 /* onboardingPage4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A3F1DDD42323C3DE00C35760 /* onboardingPage4.mp4 */; };
 		A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */; };
 		A3B6899222FFF8E4002FB31D /* MeasuringTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6899122FFF8E4002FB31D /* MeasuringTool.swift */; };
 		A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B6899322FFF908002FB31D /* MeasuringType.swift */; };
@@ -69,6 +77,9 @@
 		A3E7E2F2232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2F1232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift */; };
 		A3E7E2F42320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2F32320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift */; };
 		A3E7E2F6232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2F5232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift */; };
+		A3F1DDCF2323B1DE00C35760 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1DDCE2323B1DE00C35760 /* OnboardingViewController.swift */; };
+		A3F1DDD62323C45200C35760 /* LottiePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1DDD52323C45200C35760 /* LottiePageView.swift */; };
+		A3F1DDD82323C45E00C35760 /* VideoPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1DDD72323C45E00C35760 /* VideoPageView.swift */; };
 		BC10E39C39F4E1B94E1C1748 /* Pods_Amoogye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +127,12 @@
 		5D0791F43C10572A5D0191EE /* Pods-Amoogye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.release.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.release.xcconfig"; sourceTree = "<group>"; };
 		A330840C230EC988008E2AAB /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		A330840F23104F28008E2AAB /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		A388F4512323C50D009EB5D3 /* onboardingPage5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboardingPage5.json; sourceTree = "<group>"; };
+		A388F4522323C50D009EB5D3 /* onboardingPage1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboardingPage1.json; sourceTree = "<group>"; };
+		A388F4532323C50D009EB5D3 /* onboardingPage2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboardingPage2.json; sourceTree = "<group>"; };
+		A388F45D2323E0C4009EB5D3 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
+		A388F45F2323ECCF009EB5D3 /* ContentsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsDelegate.swift; sourceTree = "<group>"; };
+		A388F4612323F60C009EB5D3 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		A3B6897422FC87CB002FB31D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		A3B6899122FFF8E4002FB31D /* MeasuringTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringTool.swift; sourceTree = "<group>"; };
 		A3B6899322FFF908002FB31D /* MeasuringType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuringType.swift; sourceTree = "<group>"; };
@@ -139,6 +156,11 @@
 		A3E7E2F1232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + ToolTabBar.swift"; sourceTree = "<group>"; };
 		A3E7E2F32320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + DimScreen.swift"; sourceTree = "<group>"; };
 		A3E7E2F5232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + EditButton.swift"; sourceTree = "<group>"; };
+		A3F1DDCE2323B1DE00C35760 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		A3F1DDD32323C3DE00C35760 /* onboardingPage3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboardingPage3.mp4; sourceTree = "<group>"; };
+		A3F1DDD42323C3DE00C35760 /* onboardingPage4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboardingPage4.mp4; sourceTree = "<group>"; };
+		A3F1DDD52323C45200C35760 /* LottiePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePageView.swift; sourceTree = "<group>"; };
+		A3F1DDD72323C45E00C35760 /* VideoPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPageView.swift; sourceTree = "<group>"; };
 		FF1B1192416A93293D91C594 /* Pods-Amoogye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.debug.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +236,7 @@
 				A3C7BAC022F300F10067D632 /* Timer */,
 				A3C7BAC122F301010067D632 /* MeasuringTool */,
 				A3C7BAC222F301270067D632 /* Setting */,
+				A3F1DDCD2323B1AD00C35760 /* Onboarding */,
 			);
 			path = Amoogye;
 			sourceTree = "<group>";
@@ -380,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				A3DC1F39231ABD1500EB8924 /* AddMeasuringTool */,
+				A3F1DDD22323C3B300C35760 /* Onboarding */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -392,6 +416,31 @@
 				A3DC1F3B231ABD4900EB8924 /* addtool03_iOS.json */,
 			);
 			path = AddMeasuringTool;
+			sourceTree = "<group>";
+		};
+		A3F1DDCD2323B1AD00C35760 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A388F45D2323E0C4009EB5D3 /* OnboardingData.swift */,
+				A388F4612323F60C009EB5D3 /* PageView.swift */,
+				A3F1DDD52323C45200C35760 /* LottiePageView.swift */,
+				A3F1DDD72323C45E00C35760 /* VideoPageView.swift */,
+				A388F45F2323ECCF009EB5D3 /* ContentsDelegate.swift */,
+				A3F1DDCE2323B1DE00C35760 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		A3F1DDD22323C3B300C35760 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A388F4522323C50D009EB5D3 /* onboardingPage1.json */,
+				A388F4532323C50D009EB5D3 /* onboardingPage2.json */,
+				A388F4512323C50D009EB5D3 /* onboardingPage5.json */,
+				A3F1DDD32323C3DE00C35760 /* onboardingPage3.mp4 */,
+				A3F1DDD42323C3DE00C35760 /* onboardingPage4.mp4 */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		AB0B4FB0A95D0551229D2DD4 /* Frameworks */ = {
@@ -477,7 +526,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A388F46323240156009EB5D3 /* onboardingPage3.mp4 in Resources */,
+				A388F46423240156009EB5D3 /* onboardingPage4.mp4 in Resources */,
+				A388F4562323C50D009EB5D3 /* onboardingPage2.json in Resources */,
 				A3B689DE2304302E002FB31D /* NumericKeyboardView.xib in Resources */,
+				A388F4542323C50D009EB5D3 /* onboardingPage5.json in Resources */,
 				3A8550DB22F007650003C584 /* OnOffCell.xib in Resources */,
 				3AE9AA9822F5676700F09850 /* MeterialSearchView.xib in Resources */,
 				3AE9AA9C22F56DB200F09850 /* MeterialSearchResultCell.xib in Resources */,
@@ -488,6 +541,7 @@
 				3A8550F522F013B00003C584 /* SettingTitleCell.xib in Resources */,
 				A3DC1F3D231ABD4900EB8924 /* addtool02_iOS.json in Resources */,
 				A3C7BACE22F30FC80067D632 /* NumericKeyboardCollectionViewCell.xib in Resources */,
+				A388F4552323C50D009EB5D3 /* onboardingPage1.json in Resources */,
 				A3DC1F3E231ABD4900EB8924 /* addtool03_iOS.json in Resources */,
 				3ABCE65D22D9AE2C00F61E46 /* Assets.xcassets in Resources */,
 				3ABCE65B22D9AE2B00F61E46 /* Main.storyboard in Resources */,
@@ -562,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A039DDA230FD1BB009E1AAA /* CustomInputButtonManager.swift in Sources */,
+				A388F4602323ECCF009EB5D3 /* ContentsDelegate.swift in Sources */,
 				3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */,
 				A3B6899222FFF8E4002FB31D /* MeasuringTool.swift in Sources */,
 				3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */,
@@ -584,18 +639,23 @@
 				3A8550C422EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift in Sources */,
 				3A039DDE230FDCC6009E1AAA /* CalculatorViewController + keyboard.swift in Sources */,
 				A3C7BAF922F6DEE40067D632 /* RealmMeausringTool.swift in Sources */,
+				A388F4622323F60C009EB5D3 /* PageView.swift in Sources */,
 				A3B689DA23042FE2002FB31D /* NumericKeyboardDelegate.swift in Sources */,
 				3ABCE65822D9AE2B00F61E46 /* CalculatorViewController.swift in Sources */,
 				3AE9AAB522FAC17900F09850 /* TimerProgressViewController.swift in Sources */,
+				A388F45E2323E0C4009EB5D3 /* OnboardingData.swift in Sources */,
 				A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */,
 				3A8550BA22E9C16D0003C584 /* TimerSettingViewController.swift in Sources */,
 				3A8550DE22F009450003C584 /* DeveloperContactCell.swift in Sources */,
 				3A039DD6230FB0E4009E1AAA /* CustomInputButton.swift in Sources */,
 				3AE9AA9B22F56DB200F09850 /* MeterialSearchResultCell.swift in Sources */,
+				A3F1DDD82323C45E00C35760 /* VideoPageView.swift in Sources */,
 				3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */,
 				3A039DD8230FD107009E1AAA /* CustomTextField.swift in Sources */,
 				A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */,
 				3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */,
+				A3F1DDD62323C45200C35760 /* LottiePageView.swift in Sources */,
+				A3F1DDCF2323B1DE00C35760 /* OnboardingViewController.swift in Sources */,
 				3ABA62072301B6CB000ABF3B /* TabBarController.swift in Sources */,
 				A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */,
 				A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */,
