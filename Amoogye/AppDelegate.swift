@@ -17,13 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         timerModel.setDefaultTimerState()
 
+        // 첫 실행시 기본 데이터 설정
         if SettingType.FirstExecution.userSetting() {
             setupDefaultMeasuringTool()
             setupDefaultMeterial()
             UserDefaults.standard.set(false, forKey: SettingType.FirstExecution.rawValue)
         }
-        setupDefaultMeasuringTool()
-        setupDefaultMeterial()
+
+        // 화면 꺼짐 방지 설정
         application.isIdleTimerDisabled = SettingType.Screen.userSetting()
 
         return true
