@@ -13,28 +13,28 @@ extension MeasuringToolViewController {
         if sender.isEnabled {
             activateMeasuringToolTabButton(sender)
             deactivateMeasuringToolTabButton(livingMeasuringToolButton)
-            
+
             changeIndicatorPosition(to: sender)
             self.editMeasuringToolButton.isHidden = true
             self.measuringToolList = measuringToolManager?.getBasicMeasuringToolList()
-            
+
             self.isBasicToolSelected = true
         }
     }
-    
+
     @IBAction func clickLivingMeasuringToolButton(_ sender: UIButton) {
         if sender.isEnabled {
             activateMeasuringToolTabButton(sender)
             deactivateMeasuringToolTabButton(basicMeasuringToolButton)
-            
+
             changeIndicatorPosition(to: sender)
             self.editMeasuringToolButton.isHidden = false
             self.measuringToolList = measuringToolManager?.getLivingMeasuringToolList()
-            
+
             self.isBasicToolSelected = false
         }
     }
-    
+
     func setupMeasuringToolTabBar() {
         activateMeasuringToolTabButton(basicMeasuringToolButton)
         deactivateMeasuringToolTabButton(livingMeasuringToolButton)
