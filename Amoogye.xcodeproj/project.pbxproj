@@ -75,6 +75,7 @@
 		A3E7E2E623203D8000DE7A40 /* RealmMeterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2E523203D8000DE7A40 /* RealmMeterial.swift */; };
 		A3E7E2EA23203E5C00DE7A40 /* RealmMeterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2E923203E5C00DE7A40 /* RealmMeterialManager.swift */; };
 		A3E7E2EC23203EE200DE7A40 /* MeterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2EB23203EE200DE7A40 /* MeterialManager.swift */; };
+		A3F1DDCC2323A1DD00C35760 /* MeasuringToolViewController + Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F1DDCB2323A1DD00C35760 /* MeasuringToolViewController + Toast.swift */; };
 		BC10E39C39F4E1B94E1C1748 /* Pods_Amoogye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +152,7 @@
 		A3E7E2E523203D8000DE7A40 /* RealmMeterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMeterial.swift; sourceTree = "<group>"; };
 		A3E7E2E923203E5C00DE7A40 /* RealmMeterialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMeterialManager.swift; sourceTree = "<group>"; };
 		A3E7E2EB23203EE200DE7A40 /* MeterialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterialManager.swift; sourceTree = "<group>"; };
+		A3F1DDCB2323A1DD00C35760 /* MeasuringToolViewController + Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + Toast.swift"; sourceTree = "<group>"; };
 		FF1B1192416A93293D91C594 /* Pods-Amoogye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.debug.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -346,6 +348,7 @@
 				A3E7E2F1232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift */,
 				A3E7E2F5232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift */,
 				A3E7E2F32320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift */,
+				A3F1DDCB2323A1DD00C35760 /* MeasuringToolViewController + Toast.swift */,
 				3A8550E322F00AF30003C584 /* SetNameForNewToolViewController.swift */,
 				3A8550E022F00AF30003C584 /* MeasureNewToolViewController.swift */,
 				3A8550E222F00AF30003C584 /* CompleteNewToolViewController.swift */,
@@ -652,6 +655,7 @@
 				A3E7E2F42320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift in Sources */,
 				A3B6897522FC87CB002FB31D /* SwinjectStoryboard+Setup.swift in Sources */,
 				A3B689C72300705C002FB31D /* UIColor+.swift in Sources */,
+				A3F1DDCC2323A1DD00C35760 /* MeasuringToolViewController + Toast.swift in Sources */,
 				A3B689DC2304301E002FB31D /* NumericKeyboardView.swift in Sources */,
 				3A8550E822F00AF30003C584 /* SetNameForNewToolViewController.swift in Sources */,
 				3AE9AAB322F98A4900F09850 /* CustomTextfieldManager.swift in Sources */,
