@@ -52,9 +52,13 @@ class MeasuringToolViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         if isBasicToolSelected {
-            self.measuringToolList = measuringToolManager?.getBasicMeasuringToolList()
+            self.measuringToolList = measuringToolManager?.getMeasuringToolList().filter {
+                $0.toolType == .basic
+            }
         } else {
-            self.measuringToolList = measuringToolManager?.getLivingMeasuringToolList()
+            self.measuringToolList = measuringToolManager?.getMeasuringToolList().filter {
+                $0.toolType == .living
+            }
         }
 
         hideEditButtons()

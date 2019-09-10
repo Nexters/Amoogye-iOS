@@ -17,11 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         timerModel.setDefaultTimerState()
 
+        // 첫 실행시 기본 데이터 설정
         if SettingType.FirstExecution.userSetting() {
             setupDefaultMeasuringTool()
+            setupDefaultMeterial()
             UserDefaults.standard.set(false, forKey: SettingType.FirstExecution.rawValue)
         }
-        setupDefaultMeasuringTool()
+
+        // 화면 꺼짐 방지 설정
         application.isIdleTimerDisabled = SettingType.Screen.userSetting()
 
         return true
@@ -78,6 +81,17 @@ extension AppDelegate {
             var defaultTool = tool
             defaultTool.isEditable = false
             measuringToolManager.addMeasuringTool(defaultTool)
+        }
+    }
+
+    func setupDefaultMeterial() {
+        var defaultMeterialList = [Meterial]()
+        let meterialManager = RealmMeterialManager()
+
+        defaultMeterialList.append(Meterial(name: "소금", unitQuantity: 1.3))
+
+        for meterial in defaultMeterialList {
+            meterialManager.addMeterial(meterial)
         }
     }
 }

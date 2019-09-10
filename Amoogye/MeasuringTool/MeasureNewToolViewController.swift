@@ -159,7 +159,9 @@ extension MeasureNewToolViewController {
     }
 
     private func loadToolList() {
-        self.toolList = measuringToolManager?.getUsingOnLivingMeasuringToolList()
+        self.toolList = measuringToolManager?.getMeasuringToolList().filter {
+            $0.toolType == .living && $0.isOn == true
+        }
     }
 }
 

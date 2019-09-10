@@ -70,6 +70,11 @@
 		A3E7E2F2232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2F1232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift */; };
 		A3E7E2F42320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2F32320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift */; };
 		A3E7E2F6232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2F5232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift */; };
+		A3E7E2DE232030C400DE7A40 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2DD232030C400DE7A40 /* Calculator.swift */; };
+		A3E7E2E423203D2900DE7A40 /* Meterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2E323203D2900DE7A40 /* Meterial.swift */; };
+		A3E7E2E623203D8000DE7A40 /* RealmMeterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2E523203D8000DE7A40 /* RealmMeterial.swift */; };
+		A3E7E2EA23203E5C00DE7A40 /* RealmMeterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2E923203E5C00DE7A40 /* RealmMeterialManager.swift */; };
+		A3E7E2EC23203EE200DE7A40 /* MeterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E7E2EB23203EE200DE7A40 /* MeterialManager.swift */; };
 		BC10E39C39F4E1B94E1C1748 /* Pods_Amoogye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4964B64B9F236BE83C290B /* Pods_Amoogye.framework */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +146,11 @@
 		A3E7E2F1232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + ToolTabBar.swift"; sourceTree = "<group>"; };
 		A3E7E2F32320622000DE7A40 /* MeasuringToolViewController + DimScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + DimScreen.swift"; sourceTree = "<group>"; };
 		A3E7E2F5232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasuringToolViewController + EditButton.swift"; sourceTree = "<group>"; };
+		A3E7E2DD232030C400DE7A40 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		A3E7E2E323203D2900DE7A40 /* Meterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meterial.swift; sourceTree = "<group>"; };
+		A3E7E2E523203D8000DE7A40 /* RealmMeterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMeterial.swift; sourceTree = "<group>"; };
+		A3E7E2E923203E5C00DE7A40 /* RealmMeterialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMeterialManager.swift; sourceTree = "<group>"; };
+		A3E7E2EB23203EE200DE7A40 /* MeterialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterialManager.swift; sourceTree = "<group>"; };
 		FF1B1192416A93293D91C594 /* Pods-Amoogye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amoogye.debug.xcconfig"; path = "Target Support Files/Pods-Amoogye/Pods-Amoogye.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -292,6 +302,7 @@
 			children = (
 				A330840B230EC947008E2AAB /* PickerView */,
 				A3B6899022FFF8D0002FB31D /* MeasuringTool */,
+				A3E7E2E123203D0A00DE7A40 /* Meterial */,
 				3AE9AAAF22F6E54100F09850 /* TextFiledWithoutCursor */,
 				3AE9AA8822F5650200F09850 /* MeterialSearchView */,
 				3AE9AA7C22F5223100F09850 /* MeterialPicker */,
@@ -304,6 +315,7 @@
 		A3C7BABF22F300E30067D632 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				A3E7E2DD232030C400DE7A40 /* Calculator.swift */,
 				3A8550C322EEF5F40003C584 /* CalculatorMeasuringTipViewController.swift */,
 				3ABCE65722D9AE2B00F61E46 /* CalculatorViewController.swift */,
 				3A039DD3230E9CE8009E1AAA /* CalculatorViewController + layout.swift */,
@@ -373,8 +385,8 @@
 		A3C7BAF722F6DED00067D632 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				A3C7BAF822F6DEE40067D632 /* RealmMeausringTool.swift */,
-				A3C7BAFA22F6EA170067D632 /* RealmMeasuringToolManager.swift */,
+				A3E7E2E723203D8600DE7A40 /* MeasuringTool */,
+				A3E7E2E823203DA000DE7A40 /* Meterial */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -395,6 +407,33 @@
 				A3DC1F3B231ABD4900EB8924 /* addtool03_iOS.json */,
 			);
 			path = AddMeasuringTool;
+			sourceTree = "<group>";
+		};
+		A3E7E2E123203D0A00DE7A40 /* Meterial */ = {
+			isa = PBXGroup;
+			children = (
+				A3E7E2E323203D2900DE7A40 /* Meterial.swift */,
+				A3E7E2EB23203EE200DE7A40 /* MeterialManager.swift */,
+			);
+			path = Meterial;
+			sourceTree = "<group>";
+		};
+		A3E7E2E723203D8600DE7A40 /* MeasuringTool */ = {
+			isa = PBXGroup;
+			children = (
+				A3C7BAF822F6DEE40067D632 /* RealmMeausringTool.swift */,
+				A3C7BAFA22F6EA170067D632 /* RealmMeasuringToolManager.swift */,
+			);
+			path = MeasuringTool;
+			sourceTree = "<group>";
+		};
+		A3E7E2E823203DA000DE7A40 /* Meterial */ = {
+			isa = PBXGroup;
+			children = (
+				A3E7E2E523203D8000DE7A40 /* RealmMeterial.swift */,
+				A3E7E2E923203E5C00DE7A40 /* RealmMeterialManager.swift */,
+			);
+			path = Meterial;
 			sourceTree = "<group>";
 		};
 		AB0B4FB0A95D0551229D2DD4 /* Frameworks */ = {
@@ -568,6 +607,7 @@
 				3A8550BE22E9C1B10003C584 /* SettingViewController.swift in Sources */,
 				A3B6899222FFF8E4002FB31D /* MeasuringTool.swift in Sources */,
 				3A8550F422F013B00003C584 /* SettingTitleCell.swift in Sources */,
+				A3E7E2EA23203E5C00DE7A40 /* RealmMeterialManager.swift in Sources */,
 				3A41318D231B9C42003F0931 /* MeteiralSearchView.swift in Sources */,
 				3ABA62142306B459000ABF3B /* MeterialPickerDelegate.swift in Sources */,
 				A3E7E2F2232061E200DE7A40 /* MeasuringToolViewController + ToolTabBar.swift in Sources */,
@@ -575,8 +615,10 @@
 				3A8550E722F00AF30003C584 /* CompleteNewToolViewController.swift in Sources */,
 				3A8550BC22E9C1A40003C584 /* MeasuringToolViewController.swift in Sources */,
 				3ABA62122306B441000ABF3B /* MeterialPickerView.swift in Sources */,
+				A3E7E2E623203D8000DE7A40 /* RealmMeterial.swift in Sources */,
 				3A039DE22313D7DA009E1AAA /* CalculatorViewController + NumericKeyboard.swift in Sources */,
 				3A41318B231B969E003F0931 /* CalculatorViewController + MeterialPicker.swift in Sources */,
+				A3E7E2EC23203EE200DE7A40 /* MeterialManager.swift in Sources */,
 				A3B6899822FFFDE6002FB31D /* ApplicationSetting.swift in Sources */,
 				A3E7E2F6232062DA00DE7A40 /* MeasuringToolViewController + EditButton.swift in Sources */,
 				A3B689E023047FEE002FB31D /* MeasuringToolTableViewCellDelegate.swift in Sources */,
@@ -593,6 +635,7 @@
 				A3C7BACD22F30FC80067D632 /* NumericKeyboardCollectionViewCell.swift in Sources */,
 				3A8550BA22E9C16D0003C584 /* TimerSettingViewController.swift in Sources */,
 				3A8550DE22F009450003C584 /* DeveloperContactCell.swift in Sources */,
+				A3E7E2DE232030C400DE7A40 /* Calculator.swift in Sources */,
 				3A039DD6230FB0E4009E1AAA /* CustomInputButton.swift in Sources */,
 				3AE9AA9B22F56DB200F09850 /* MeterialSearchResultCell.swift in Sources */,
 				3ABCE65622D9AE2B00F61E46 /* AppDelegate.swift in Sources */,
@@ -600,6 +643,7 @@
 				A3C7BAF022F58AFF0067D632 /* MeasuringToolManager.swift in Sources */,
 				3AE9AAAC22F6DE1200F09850 /* TimerModel.swift in Sources */,
 				3ABA62072301B6CB000ABF3B /* TabBarController.swift in Sources */,
+				A3E7E2E423203D2900DE7A40 /* Meterial.swift in Sources */,
 				A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */,
 				A3B6899422FFF908002FB31D /* MeasuringType.swift in Sources */,
 				A330841023104F28008E2AAB /* Double+.swift in Sources */,

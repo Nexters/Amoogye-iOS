@@ -16,7 +16,9 @@ extension MeasuringToolViewController {
 
             changeIndicatorPosition(to: sender)
             self.editMeasuringToolButton.isHidden = true
-            self.measuringToolList = measuringToolManager?.getBasicMeasuringToolList()
+            self.measuringToolList = measuringToolManager?.getMeasuringToolList().filter {
+                $0.toolType == .basic
+            }
 
             self.isBasicToolSelected = true
         }
@@ -29,7 +31,9 @@ extension MeasuringToolViewController {
 
             changeIndicatorPosition(to: sender)
             self.editMeasuringToolButton.isHidden = false
-            self.measuringToolList = measuringToolManager?.getLivingMeasuringToolList()
+            self.measuringToolList = measuringToolManager?.getMeasuringToolList().filter {
+                $0.toolType == .living
+            }
 
             self.isBasicToolSelected = false
         }

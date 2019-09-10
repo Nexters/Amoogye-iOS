@@ -64,6 +64,8 @@ class CalculatorViewController: UIViewController {
     let searchLineView: UILabel = UILabel()
     let meterialSearchView: MeterialSearchView = MeterialSearchView()
 
+    var calculator: Calculator?
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
