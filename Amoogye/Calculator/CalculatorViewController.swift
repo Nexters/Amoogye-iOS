@@ -14,6 +14,7 @@ class CalculatorViewController: UIViewController {
         case MeterialOnly, PortionOnly, Both
     }
 
+    var currentMode: CalculatorMode = .Both
     var inputManager: CustomInputButtonManager?
     var calculatorMode = CalculatorMode.MeterialOnly
 
@@ -71,6 +72,7 @@ class CalculatorViewController: UIViewController {
 
         setupView()
         setupInput()
+        setupModeButton()
     }
 
     @objc func clickNumericInputButton() {
@@ -91,5 +93,10 @@ class CalculatorViewController: UIViewController {
 
         // meterial
         srcMeterialInput.addTarget(self, action: #selector(clickMeterialInputButton), for: .touchUpInside)
+    }
+
+    private func setupModeButton() {
+        meterialModeButton.addTarget(self, action: #selector(clickMeterialButton), for: .touchUpInside)
+        portionModeButton.addTarget(self, action: #selector(clickPortionButton), for: .touchUpInside)
     }
 }
