@@ -16,6 +16,7 @@ class MeasuringToolTableViewCell: UITableViewCell {
     // Measuring Tool Label
     @IBOutlet weak var toolNameLabel: UILabel!
     @IBOutlet weak var toolSubnameLabel: UILabel!
+    @IBOutlet weak var newToolBadge: UIView!
 
     // Buttons
     @IBOutlet weak var onoffButton: UIButton!
@@ -60,6 +61,7 @@ class MeasuringToolTableViewCell: UITableViewCell {
 extension MeasuringToolTableViewCell {
     func setup(tool: MeasuringTool, index: Int) {
         setupLabels(tool: tool)
+        setupBadge(tool.isNew)
         setupOnoffButton(index: index, isOn: tool.isOn)
         setupSelectButton(index: index, isEditable: tool.isEditable)
     }
@@ -67,6 +69,10 @@ extension MeasuringToolTableViewCell {
     private func setupLabels(tool: MeasuringTool) {
         self.toolNameLabel.text = tool.name
         self.toolSubnameLabel.text = tool.subname
+    }
+
+    private func setupBadge(_ isNew: Bool) {
+        self.newToolBadge.isHidden = !isNew
     }
 
     private func setupOnoffButton(index: Int, isOn: Bool) {
