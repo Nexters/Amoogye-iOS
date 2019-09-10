@@ -11,9 +11,9 @@ import UIKit
 extension CalculatorViewController {
 
     @objc func clickMeterialButton() {
-        switch mode {
+        switch currentMode {
         case .MeterialOnly:
-            mode = .PortionOnly
+            currentMode = .PortionOnly
             offMode(sender: meterialModeButton)
             onMode(sender: portionModeButton)
 
@@ -21,7 +21,7 @@ extension CalculatorViewController {
             hideMeterialMode()
 
         case .PortionOnly:
-            mode = .Both
+            currentMode = .Both
             onMode(sender: meterialModeButton)
             onMode(sender: plusLabel)
 
@@ -29,7 +29,7 @@ extension CalculatorViewController {
             showPortionMode()
 
         case .Both:
-            mode = .PortionOnly
+            currentMode = .PortionOnly
             offMode(sender: meterialModeButton)
             offMode(sender: plusLabel)
 
@@ -39,9 +39,9 @@ extension CalculatorViewController {
     }
 
     @objc func clickPortionButton() {
-        switch mode {
+        switch currentMode {
         case .MeterialOnly:
-            mode = .Both
+            currentMode = .Both
             onMode(sender: portionModeButton)
             onMode(sender: plusLabel)
 
@@ -49,7 +49,7 @@ extension CalculatorViewController {
             showPortionMode()
 
         case .PortionOnly:
-            mode = .MeterialOnly
+            currentMode = .MeterialOnly
             onMode(sender: meterialModeButton)
             offMode(sender: portionModeButton)
 
@@ -57,7 +57,7 @@ extension CalculatorViewController {
             hidePortionMode()
 
         case .Both:
-            mode = .MeterialOnly
+            currentMode = .MeterialOnly
             offMode(sender: portionModeButton)
             offMode(sender: plusLabel)
 

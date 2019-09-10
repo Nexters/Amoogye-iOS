@@ -14,7 +14,7 @@ class CalculatorViewController: UIViewController {
         case MeterialOnly, PortionOnly, Both
     }
 
-    var mode: CalculatorMode = .Both
+    var currentMode: CalculatorMode = .Both
     var inputManager: CustomInputButtonManager?
     var calculatorMode = CalculatorMode.MeterialOnly
 
