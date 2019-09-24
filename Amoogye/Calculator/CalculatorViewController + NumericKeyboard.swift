@@ -15,6 +15,7 @@ extension CalculatorViewController: NumericKeyboardDelegate {
         guard let text = focused.title(for: .normal) else {
             focused.setTitle(newValue, for: .normal)
             focused.isPlaceholder = false
+            checkNumericRange()
             return
         }
 
@@ -22,11 +23,13 @@ extension CalculatorViewController: NumericKeyboardDelegate {
         if text == "0" || focused.isPlaceholder {
             focused.setTitle(newValue, for: .normal)
             focused.isPlaceholder = false
+            checkNumericRange()
             return
         }
 
         // 새로운 숫자륾 문자열에 추가
         focused.setTitle(text + newValue, for: .normal)
+        checkNumericRange()
     }
 
     func deleteValue() {
@@ -92,5 +95,25 @@ extension CalculatorViewController: NumericKeyboardDelegate {
 
         // 일반적으로는 문자열 뒤에 .이 추가됨
         focused.setTitle(text + ".", for: .normal)
+    }
+
+    func checkNumericRange() {
+        guard let focused = inputManager?.focusedButton, let text = focused.title(for: .normal) else {
+            return
+        }
+
+        if Double(text) ?? 0 >= 9999 {
+            focused.setTitle("9999", for: .normal)
+            showNoticeLabel()
+        }
+    }
+
+    func showNoticeLabel() {
+        noticeLabel.isHidden = false
+        Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(hideNoticeLabel), userInfo: nil, repeats: false)
+    }
+
+    @objc func hideNoticeLabel() {
+        noticeLabel.isHidden = true
     }
 }
