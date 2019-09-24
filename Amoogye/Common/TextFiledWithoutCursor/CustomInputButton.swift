@@ -11,6 +11,13 @@ import UIKit
 class CustomInputButton: UIButton {
 
     var recentText: String = ""
+    var isDotClicked: Bool = false
+    var isFocusOn: Bool = false
+    var isPlaceholder: Bool = false {
+        didSet {
+            if isPlaceholder { setAsPlaceholder() } else { setAsCommonText() }
+        }
+    }
 
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
@@ -43,29 +50,48 @@ class CustomInputButton: UIButton {
     }
 
     func focusOut() {
-        if self.title(for: .normal) == "" {
-            self.setTitle(recentText, for: .normal)
-        }
-        setAsCommonText()
+        isFocusOn = false
+        isPlaceholder = false
 
         self.layer.borderColor = UIColor.amIceBlue.cgColor
         self.backgroundColor = UIColor.amIceBlue
     }
 
     func focusOn() {
-        recentText = self.title(for: .normal) ?? ""
-        setAsPlaceholder()
+        isFocusOn = true
+        isPlaceholder = true
 
         self.backgroundColor = UIColor.white
         self.layer.borderColor = UIColor.amOrangeyRed.cgColor
     }
 
     func setAsPlaceholder() {
+        recentText = self.title(for: .normal) ?? ""
         self.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+        isDotClicked = false
     }
 
     func setAsCommonText() {
+        if isFocusOn {
+            self.setTitleColor(UIColor.amOrangeyRed, for: .normal)
+            return
+        }
+
+        if self.title(for: .normal) == "" {
+            self.setTitle(recentText, for: .normal)
+        }
         self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+    }
+
+    func getLastInputValue() -> String {
+        guard let text = self.title(for: .normal) else { return "" }
+
+        if text.count > 0 {
+            let lastIndex = text.index(before: text.endIndex)
+            return String(text[lastIndex])
+        }
+
+        return ""
     }
 }
 
