@@ -12,6 +12,11 @@ extension CalculatorViewController: NumericKeyboardDelegate {
     func inputNumber(number newValue: String) {
         guard let focused = inputManager?.focusedButton else { return }
 
+        // 빈 칸이 없게 되면 <바꾸면> 버튼 활성화
+        if focused == srcQuantityInput {
+            renderChangeButton(isEnable: true)
+        }
+
         guard let text = focused.title(for: .normal) else {
             focused.setTitle(newValue, for: .normal)
             focused.isPlaceholder = false
@@ -65,6 +70,10 @@ extension CalculatorViewController: NumericKeyboardDelegate {
         // 문자열이 다 지워지면 placeholder로 바뀜
         focused.setTitle(focused.recentText, for: .normal)
         focused.isPlaceholder = true
+
+        if focused.recentText == "" {
+            renderChangeButton(isEnable: false)
+        }
     }
 
     func inputDot() {
@@ -72,17 +81,15 @@ extension CalculatorViewController: NumericKeyboardDelegate {
             return
         }
 
-        if focused != srcQuantityInput {
-            return
-        }
-
-        print("Dot Clicked! \(focused.isDotClicked)")
         // isDotClicked가 true이면 . 입력 불가
         if focused.isDotClicked {
-
             return
         }
 
+        // 빈 칸이 없게 되면 <바꾸면> 버튼 활성화
+        if focused == srcQuantityInput {
+            renderChangeButton(isEnable: true)
+        }
         focused.isDotClicked = true
 
         // placeholder일 때 . 입력 시 0.으로 바뀜
@@ -116,6 +123,15 @@ extension CalculatorViewController: NumericKeyboardDelegate {
             focused.setTitle("9999", for: .normal)
             showNoticeLabel(message: maxRangeNotice)
         }
+    }
+
+    func checkEmpty() {
+        guard let focused = inputManager?.focusedButton, let text = focused.title(for: .normal) else { return }
+        if text == "" {
+            changeButton.isEnabled = false
+            return
+        }
+        changeButton.isEnabled = true
     }
 
     func showNoticeLabel(message: String) {

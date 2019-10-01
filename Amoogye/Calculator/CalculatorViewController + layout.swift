@@ -679,7 +679,7 @@ extension CalculatorViewController {
         }
     }
 
-    private func renderChangeButton(isEnable: Bool) {
+    func renderChangeButton(isEnable: Bool) {
         changeButton.setTitle("바꾸면", for: .normal)
         changeButton.setTitleColor(UIColor.white, for: .normal)
         changeButton.titleLabel?.font = .systemFont(ofSize: 24, weight: .medium)

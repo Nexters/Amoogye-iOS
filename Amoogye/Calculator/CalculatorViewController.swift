@@ -20,6 +20,7 @@ class CalculatorViewController: UIViewController {
 
     let maxRangeNotice: String = "숫자는 9,999까지 입력할 수 있습니다."
     let decimalPointNotice: String = "숫자는 소수점 첫째자리까지 입력할 수 있습니다."
+    let disalbeZeroNotice: String = "0은 입력할 수 없습니다."
 
     var gapButtonToButton: Int = 8
     var gapButtonToLabel: Int = 6
