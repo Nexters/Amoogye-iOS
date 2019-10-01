@@ -280,6 +280,7 @@ extension CalculatorViewController {
 
         // My Properties
         renderChangeButton(isEnable: false)
+        myView.addTarget(self, action: #selector(self.clickChangeButton), for: .touchUpInside)
 
         // My Constraints
         myView.snp.makeConstraints { (make) in

@@ -9,7 +9,7 @@
 import UIKit
 
 class CustomInputButtonManager {
-    private var inputButtons = [CustomInputButton]()
+    var inputButtons = [CustomInputButton]()
     var focusedButton: CustomInputButton?
 
     init(_ buttons: CustomInputButton...) {

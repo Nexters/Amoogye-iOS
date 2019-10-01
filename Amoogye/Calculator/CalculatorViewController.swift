@@ -85,6 +85,18 @@ class CalculatorViewController: UIViewController {
     @objc func clickMeterialInputButton() {
         showMeterialPicker()
     }
+    @objc func clickChangeButton() {
+        if let inputButtons = inputManager?.inputButtons {
+            for input in inputButtons {
+                input.checkBelowDecimalPoint()
+                if input.title(for: .normal) == "0" {
+                    inputManager?.focusOn(button: input)
+                    showNoticeLabel(message: disalbeZeroNotice)
+                    return
+                }
+            }
+        }
+    }
 
     private func setupInput() {
         inputManager = CustomInputButtonManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)

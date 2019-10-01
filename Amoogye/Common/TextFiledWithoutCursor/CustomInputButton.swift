@@ -67,6 +67,19 @@ class CustomInputButton: UIButton {
         self.layer.borderColor = UIColor.amOrangeyRed.cgColor
     }
 
+    func checkBelowDecimalPoint() {
+        guard var text = self.title(for: .normal) else { return }
+
+        guard text.count > 0 else {return}
+        let end = text.index(before: text.endIndex)
+        if text[end] == "." { // 소숫점 제거
+            text = String(text[..<end])
+        } else if isDotClicked && text[end] == "0" { // .0 제거
+            text = String(Int(Double(text) ?? 0))
+        }
+
+        self.setTitle(text, for: .normal)
+    }
 }
 
 extension CustomInputButton {
@@ -96,19 +109,5 @@ extension CustomInputButton {
             self.setTitle(recentText, for: .normal)
         }
         self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-    }
-
-    private func checkBelowDecimalPoint() {
-        guard var text = self.title(for: .normal) else { return }
-
-        guard text.count > 0 else {return}
-        let end = text.index(before: text.endIndex)
-        if text[end] == "." { // 소숫점 제거
-            text = String(text[..<end])
-        } else if isDotClicked && text[end] == "0" { // .0 제거
-            text = String(Int(Double(text) ?? 0))
-        }
-
-        self.setTitle(text, for: .normal)
     }
 }
