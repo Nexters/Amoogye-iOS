@@ -55,6 +55,8 @@ class CustomInputButton: UIButton {
 
         self.layer.borderColor = UIColor.amIceBlue.cgColor
         self.backgroundColor = UIColor.amIceBlue
+
+        checkBelowDecimal()
     }
 
     func focusOn() {
@@ -65,34 +67,6 @@ class CustomInputButton: UIButton {
         self.layer.borderColor = UIColor.amOrangeyRed.cgColor
     }
 
-    func setAsPlaceholder() {
-        recentText = self.title(for: .normal) ?? ""
-        self.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
-        isDotClicked = false
-    }
-
-    func setAsCommonText() {
-        if isFocusOn {
-            self.setTitleColor(UIColor.amOrangeyRed, for: .normal)
-            return
-        }
-
-        if self.title(for: .normal) == "" {
-            self.setTitle(recentText, for: .normal)
-        }
-        self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
-    }
-
-    func getLastInputValue() -> String {
-        guard let text = self.title(for: .normal) else { return "" }
-
-        if text.count > 0 {
-            let lastIndex = text.index(before: text.endIndex)
-            return String(text[lastIndex])
-        }
-
-        return ""
-    }
 }
 
 extension CustomInputButton {
@@ -104,5 +78,36 @@ extension CustomInputButton {
     private func setFontStyle() {
         self.titleLabel?.font = .systemFont(ofSize: 20)
         self.titleLabel?.textAlignment = .center
+    }
+
+    private func setAsPlaceholder() {
+        recentText = self.title(for: .normal) ?? ""
+        self.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+        isDotClicked = false
+    }
+
+    private func setAsCommonText() {
+        if isFocusOn {
+            self.setTitleColor(UIColor.amOrangeyRed, for: .normal)
+            return
+        }
+
+        if self.title(for: .normal) == "" {
+            self.setTitle(recentText, for: .normal)
+        }
+        self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+    }
+
+    private func checkBelowDecimal() {
+        guard var text = self.title(for: .normal) else { return }
+
+        let end = text.index(before: text.endIndex)
+        if text[end] == "." { // 소숫점 제거
+            text = String(text[..<end])
+        } else if isDotClicked && text[end] == "0" { // .0 제거
+            text = String(Int(Double(text) ?? 0))
+        }
+
+        self.setTitle(text, for: .normal)
     }
 }
