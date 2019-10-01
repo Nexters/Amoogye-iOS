@@ -56,7 +56,7 @@ class CustomInputButton: UIButton {
         self.layer.borderColor = UIColor.amIceBlue.cgColor
         self.backgroundColor = UIColor.amIceBlue
 
-        checkBelowDecimal()
+        checkBelowDecimalPoint()
     }
 
     func focusOn() {
@@ -98,9 +98,10 @@ extension CustomInputButton {
         self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
     }
 
-    private func checkBelowDecimal() {
+    private func checkBelowDecimalPoint() {
         guard var text = self.title(for: .normal) else { return }
 
+        guard text.count > 0 else {return}
         let end = text.index(before: text.endIndex)
         if text[end] == "." { // 소숫점 제거
             text = String(text[..<end])

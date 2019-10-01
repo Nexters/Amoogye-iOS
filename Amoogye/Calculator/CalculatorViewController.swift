@@ -18,6 +18,9 @@ class CalculatorViewController: UIViewController {
     var inputManager: CustomInputButtonManager?
     var calculatorMode = CalculatorMode.MeterialOnly
 
+    let maxRangeNotice: String = "숫자는 9,999까지 입력할 수 있습니다."
+    let decimalPointNotice: String = "숫자는 소수점 첫째자리까지 입력할 수 있습니다."
+
     var gapButtonToButton: Int = 8
     var gapButtonToLabel: Int = 6
     var gapLabelToButton: Int = 10

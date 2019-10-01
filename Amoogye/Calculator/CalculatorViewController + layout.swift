@@ -208,7 +208,6 @@ extension CalculatorViewController {
         let parentView = changeView
 
         // My Properties
-        myView.text = "숫자는 9,999까지 입력할 수 있습니다."
         myView.textColor = UIColor.amOrangeyRed
         myView.font = .systemFont(ofSize: 12)
         myView.isHidden = true

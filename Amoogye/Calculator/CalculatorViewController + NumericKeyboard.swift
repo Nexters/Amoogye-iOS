@@ -27,6 +27,13 @@ extension CalculatorViewController: NumericKeyboardDelegate {
             return
         }
 
+        // 소수점 이하 1자리 이상 입력 시
+        var compArr = text.components(separatedBy: ".")
+        if compArr.count > 1 && compArr[1].count >= 1 {
+            showNoticeLabel(message: decimalPointNotice)
+            return
+        }
+
         // 새로운 숫자륾 문자열에 추가
         focused.setTitle(text + newValue, for: .normal)
         checkNumericRange()
@@ -69,8 +76,10 @@ extension CalculatorViewController: NumericKeyboardDelegate {
             return
         }
 
+        print("Dot Clicked! \(focused.isDotClicked)")
         // isDotClicked가 true이면 . 입력 불가
         if focused.isDotClicked {
+
             return
         }
 
@@ -103,12 +112,14 @@ extension CalculatorViewController: NumericKeyboardDelegate {
         }
 
         if Double(text) ?? 0 >= 9999 {
+            focused.isDotClicked = false
             focused.setTitle("9999", for: .normal)
-            showNoticeLabel()
+            showNoticeLabel(message: maxRangeNotice)
         }
     }
 
-    func showNoticeLabel() {
+    func showNoticeLabel(message: String) {
+        noticeLabel.text = message
         noticeLabel.isHidden = false
         Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(hideNoticeLabel), userInfo: nil, repeats: false)
     }
