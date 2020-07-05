@@ -87,7 +87,7 @@ extension CalculatorViewController: NumericKeyboardDelegate {
         }
 
         // 빈 칸이 없게 되면 <바꾸면> 버튼 활성화
-        if focused == srcQuantityInput {
+        if !(inputManager?.hasEmptyButtons() ?? false) {
             renderChangeButton(isEnable: true)
         }
         focused.isDotClicked = true

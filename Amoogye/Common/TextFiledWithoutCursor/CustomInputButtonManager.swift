@@ -37,4 +37,13 @@ class CustomInputButtonManager {
             btn.focusOut()
         }
     }
+
+    func hasEmptyButtons() -> Bool {
+        for btn in inputButtons {
+            if btn.title(for: .normal) == ""{
+                return true
+            }
+        }
+        return false
+    }
 }
