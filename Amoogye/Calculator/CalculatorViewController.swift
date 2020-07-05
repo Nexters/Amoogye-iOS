@@ -88,12 +88,7 @@ class CalculatorViewController: UIViewController {
     @objc func clickChangeButton() {
         if let inputButtons = inputManager?.inputButtons {
             for input in inputButtons {
-                input.checkBelowDecimalPoint()
-                if input.title(for: .normal) == "0" {
-                    inputManager?.focusOn(button: input)
-                    showNoticeLabel(message: disalbeZeroNotice)
-                    return
-                }
+                checkDisableZero(input)
             }
         }
     }
@@ -114,5 +109,15 @@ class CalculatorViewController: UIViewController {
     private func setupModeButton() {
         meterialModeButton.addTarget(self, action: #selector(clickMeterialButton), for: .touchUpInside)
         portionModeButton.addTarget(self, action: #selector(clickPortionButton), for: .touchUpInside)
+    }
+
+    // 0은 입력할 수 없습니다.
+    private func checkDisableZero(_ input: CustomInputButton) {
+        input.checkBelowDecimalPoint()
+        if input.title(for: .normal) == "0" {
+            inputManager?.focusOn(button: input)
+            showNoticeLabel(message: disalbeZeroNotice)
+            return
+        }
     }
 }
