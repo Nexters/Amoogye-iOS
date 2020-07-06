@@ -189,6 +189,7 @@ extension TimerSettingViewController {
     }
 }
 
+// MARK: - Numeric Keyboard 관련 함수
 extension TimerSettingViewController: NumericKeyboardDelegate {
     func inputNumber(number newValue: String) {
         guard let inputButton = inputButtonManager?.focusedButton else {
@@ -203,6 +204,8 @@ extension TimerSettingViewController: NumericKeyboardDelegate {
         } else {
             inputButton.setTitle(text+newValue, for: .normal)
         }
+
+        inputButton.setTitleColor(UIColor.amOrangeyRed, for: .normal)
     }
 
     func deleteValue() {
@@ -215,8 +218,10 @@ extension TimerSettingViewController: NumericKeyboardDelegate {
         if text.count > 1 {
             let end = text.index(before: text.endIndex)
             inputButton.setTitle(String(text[..<end]), for: .normal)
+            inputButton.setTitleColor(UIColor.amOrangeyRed, for: .normal)
         } else {
             inputButton.setTitle("0", for: .normal)
+            inputButton.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
         }
     }
 
@@ -228,6 +233,7 @@ extension TimerSettingViewController: NumericKeyboardDelegate {
             return
         }
         inputButton.setTitle(text+".", for: .normal)
+        inputButton.setTitleColor(UIColor.amOrangeyRed, for: .normal)
     }
 
     func getLastInputValue() -> String {
