@@ -37,17 +37,10 @@ class NumericKeyboardView: UIView {
     }
 
     @IBAction func touchDotButton(_ sender: UIButton) {
-        if !isDotClicked {
-            self.delegate?.inputDot()
-            isDotClicked = true
-        }
+        self.delegate?.inputDot()
     }
 
     @IBAction func touchDeleteButton(_ sender: UIButton) {
-        if self.delegate?.getLastInputValue() == "." {
-            isDotClicked = false
-        }
-
         self.delegate?.deleteValue()
     }
 }

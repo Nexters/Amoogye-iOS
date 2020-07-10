@@ -208,9 +208,9 @@ extension CalculatorViewController {
         let parentView = changeView
 
         // My Properties
-        myView.text = "숫자는 9,999까지 입력할 수 있습니다."
         myView.textColor = UIColor.amOrangeyRed
         myView.font = .systemFont(ofSize: 12)
+        myView.isHidden = true
 
         // My Constraints
         myView.snp.makeConstraints { (make) in
@@ -280,6 +280,7 @@ extension CalculatorViewController {
 
         // My Properties
         renderChangeButton(isEnable: false)
+        myView.addTarget(self, action: #selector(self.clickChangeButton), for: .touchUpInside)
 
         // My Constraints
         myView.snp.makeConstraints { (make) in
@@ -679,7 +680,7 @@ extension CalculatorViewController {
         }
     }
 
-    private func renderChangeButton(isEnable: Bool) {
+    func renderChangeButton(isEnable: Bool) {
         changeButton.setTitle("바꾸면", for: .normal)
         changeButton.setTitleColor(UIColor.white, for: .normal)
         changeButton.titleLabel?.font = .systemFont(ofSize: 24, weight: .medium)

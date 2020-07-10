@@ -18,6 +18,10 @@ class CalculatorViewController: UIViewController {
     var inputManager: CustomInputButtonManager?
     var calculatorMode = CalculatorMode.MeterialOnly
 
+    let maxRangeNotice: String = "숫자는 9,999까지 입력할 수 있습니다."
+    let decimalPointNotice: String = "숫자는 소수점 첫째자리까지 입력할 수 있습니다."
+    let disalbeZeroNotice: String = "0은 입력할 수 없습니다."
+
     var gapButtonToButton: Int = 8
     var gapButtonToLabel: Int = 6
     var gapLabelToButton: Int = 10
@@ -81,6 +85,13 @@ class CalculatorViewController: UIViewController {
     @objc func clickMeterialInputButton() {
         showMeterialPicker()
     }
+    @objc func clickChangeButton() {
+        if let inputButtons = inputManager?.inputButtons {
+            for input in inputButtons {
+                checkDisableZero(input)
+            }
+        }
+    }
 
     private func setupInput() {
         inputManager = CustomInputButtonManager(srcPortionInput, srcQuantityInput, srcUnitInput, srcMeterialInput, dstPortionInput, dstToolInput)
@@ -98,5 +109,15 @@ class CalculatorViewController: UIViewController {
     private func setupModeButton() {
         meterialModeButton.addTarget(self, action: #selector(clickMeterialButton), for: .touchUpInside)
         portionModeButton.addTarget(self, action: #selector(clickPortionButton), for: .touchUpInside)
+    }
+
+    // 0은 입력할 수 없습니다.
+    private func checkDisableZero(_ input: CustomInputButton) {
+        input.checkBelowDecimalPoint()
+        if input.title(for: .normal) == "0" {
+            inputManager?.focusOn(button: input)
+            showNoticeLabel(message: disalbeZeroNotice)
+            return
+        }
     }
 }

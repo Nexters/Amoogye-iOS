@@ -12,5 +12,4 @@ protocol NumericKeyboardDelegate: class {
     func inputNumber(number newValue: String)
     func deleteValue()
     func inputDot()
-    func getLastInputValue() -> String
 }
