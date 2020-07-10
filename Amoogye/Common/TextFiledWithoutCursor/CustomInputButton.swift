@@ -11,6 +11,13 @@ import UIKit
 class CustomInputButton: UIButton {
 
     var recentText: String = ""
+    var isDotClicked: Bool = false
+    var isFocusOn: Bool = false
+    var isPlaceholder: Bool = false {
+        didSet {
+            if isPlaceholder { setAsPlaceholder() } else { setAsCommonText() }
+        }
+    }
 
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
@@ -43,29 +50,35 @@ class CustomInputButton: UIButton {
     }
 
     func focusOut() {
-        if self.title(for: .normal) == "" {
-            self.setTitle(recentText, for: .normal)
-        }
-        setAsCommonText()
+        isFocusOn = false
+        isPlaceholder = false
 
         self.layer.borderColor = UIColor.amIceBlue.cgColor
         self.backgroundColor = UIColor.amIceBlue
+
+        checkBelowDecimalPoint()
     }
 
     func focusOn() {
-        recentText = self.title(for: .normal) ?? ""
-        setAsPlaceholder()
+        isFocusOn = true
+        isPlaceholder = true
 
         self.backgroundColor = UIColor.white
         self.layer.borderColor = UIColor.amOrangeyRed.cgColor
     }
 
-    func setAsPlaceholder() {
-        self.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
-    }
+    func checkBelowDecimalPoint() {
+        guard var text = self.title(for: .normal) else { return }
 
-    func setAsCommonText() {
-        self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
+        guard text.count > 0 else {return}
+        let end = text.index(before: text.endIndex)
+        if text[end] == "." { // 소숫점 제거
+            text = String(text[..<end])
+        } else if isDotClicked && text[end] == "0" { // .0 제거
+            text = String(Int(Double(text) ?? 0))
+        }
+
+        self.setTitle(text, for: .normal)
     }
 }
 
@@ -78,5 +91,23 @@ extension CustomInputButton {
     private func setFontStyle() {
         self.titleLabel?.font = .systemFont(ofSize: 20)
         self.titleLabel?.textAlignment = .center
+    }
+
+    private func setAsPlaceholder() {
+        recentText = self.title(for: .normal) ?? ""
+        self.setTitleColor(UIColor.amLightBlueGrey, for: .normal)
+        isDotClicked = false
+    }
+
+    private func setAsCommonText() {
+        if isFocusOn {
+            self.setTitleColor(UIColor.amOrangeyRed, for: .normal)
+            return
+        }
+
+        if self.title(for: .normal) == "" {
+            self.setTitle(recentText, for: .normal)
+        }
+        self.setTitleColor(UIColor.amDarkBlueGrey, for: .normal)
     }
 }

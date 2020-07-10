@@ -9,7 +9,7 @@
 import UIKit
 
 class CustomInputButtonManager {
-    private var inputButtons = [CustomInputButton]()
+    var inputButtons = [CustomInputButton]()
     var focusedButton: CustomInputButton?
 
     init(_ buttons: CustomInputButton...) {
@@ -36,5 +36,14 @@ class CustomInputButtonManager {
         for btn in inputButtons {
             btn.focusOut()
         }
+    }
+
+    func hasEmptyButtons() -> Bool {
+        for btn in inputButtons {
+            if btn.title(for: .normal) == ""{
+                return true
+            }
+        }
+        return false
     }
 }
